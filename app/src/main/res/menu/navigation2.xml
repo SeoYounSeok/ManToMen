@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/navigation2_ClassIntro"
+        android:enabled="true"
+        android:title="수업소개"
+        />
+
+    <item
+        android:id="@+id/navigation2_ETC1"
+        android:enabled="true"
+        android:title="튜터정보" />
+
+
+
+    <item
+        android:id="@+id/navigation2_ClassReview"
+        android:enabled="true"
+        android:title="리뷰" />
+
+    
+
+</menu>

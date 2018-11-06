@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#eeeeee"
+    >
+
+
+    <ImageView
+        android:id="@+id/ClassImg"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@drawable/exintroduce"
+        android:scaleType="fitCenter"
+        android:layout_margin="10dp"
+        android:background="@color/white">
+
+    </ImageView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:id="@+id/Home_ClassName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="서윤석의 안드로이드 마스터"
+            android:layout_margin="5dp"
+            android:textAlignment="center"
+            android:textSize="20dp"
+
+            android:textStyle="bold"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            android:layout_margin="5dp">
+
+            <ImageView
+                android:id="@+id/Mentor_Photo"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity=""
+                android:layout_margin="5dp"
+
+
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_android_black_24dp" />
+
+            <TextView
+                android:id="@+id/Home_ClassTutorID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="서윤석"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textSize="13dp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/Home_ClassIntro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+
+                android:text="당신이 최고에요"
+                android:layout_gravity="center"
+                android:textColor="@color/pink"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="3dp"
+            android:gravity="center"
+
+            >
+
+            <TextView
+                android:id="@+id/home_ClassCurrentPeople"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="5명 신청"
+                android:textAlignment="center" />
+
+
+            <TextView
+                android:id="@+id/Home_ClassTotalPeople"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="7명 모집"
+                android:textAlignment="center"
+                />
+            <TextView
+                android:id="@+id/Home_ClassRPeriod"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+
+                android:text="2018-11-06마감"
+                android:textColor="@color/pink"
+                android:textAlignment="center"
+                />
+
+            <RatingBar
+
+                android:id="@+id/ClassScore"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:numStars="5"
+                android:rating="1"
+                android:stepSize="1"
+                android:textAlignment="center"
+
+                />
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>
