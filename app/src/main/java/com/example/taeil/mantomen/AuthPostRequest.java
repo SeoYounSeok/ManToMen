@@ -23,6 +23,7 @@ public class AuthPostRequest extends AsyncTask<JSONObject, Void, String> {
     Activity activity;
     URL url;
     Variable variable = Variable.getInstance();
+
     public AuthPostRequest(Activity activity) {
         this.activity = activity;
     }
@@ -92,15 +93,19 @@ public class AuthPostRequest extends AsyncTask<JSONObject, Void, String> {
         String SB = temp; //일단 String버퍼를 스트링 형식으로 변형
 
 
-
-        if (temp == null || temp.equals("0")) {
+        if (temp == null) {
             Toast.makeText(activity, message1,
                     Toast.LENGTH_LONG).show();
+            return;
+        } else if (temp.equals("0")) {
+            Toast.makeText(activity, "중복된 이메일입니다.",
+                    Toast.LENGTH_LONG).show();
+            variable.setAuthnumber("9999");
             return;
         } else { // 비밀번호가 왔어염
             int index = SB.indexOf(":"); // :로자르고
             String AuthNumber;
-            AuthNumber = SB.substring(index + 1, SB.length()-1);
+            AuthNumber = SB.substring(index + 1, SB.length() - 1);
             variable.setAuthnumber(AuthNumber);
             Toast.makeText(activity, message2,
                     Toast.LENGTH_LONG).show();

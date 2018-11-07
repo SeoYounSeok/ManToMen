@@ -19,8 +19,6 @@ public class VariableOfClass { //클래스관련 전역변수모음 특정 클�
     private static JSONObject ClassReview = null;
 
     private static ArrayList<AllClass> allClass;
-
-
     public static ArrayList<AllClass> getAllClass() {
         return allClass;
     }
