@@ -27,7 +27,7 @@ public class MemberModifyActivity extends AppCompatActivity {
     TextView UserID;
     TextView UserName2;
     EditText UserPassword;
-    TextView UserCN;
+    TextView UserEmail;
     EditText UserGender;
     TextView UserName;
     EditText UserAge;
@@ -56,7 +56,7 @@ public class MemberModifyActivity extends AppCompatActivity {
         UserID = findViewById(R.id.modify_userID);
 
         UserPassword = findViewById(R.id.modify_UserPassword);
-        UserCN = findViewById(R.id.modify_UserCN);
+        UserEmail = findViewById(R.id.modify_UserEmail);
         UserGender = findViewById(R.id.modify_UserGender);
         UserName = findViewById(R.id.modify_UserName);
         UserName2 = findViewById(R.id.modify_UserName2);
@@ -72,7 +72,7 @@ public class MemberModifyActivity extends AppCompatActivity {
 
         UserID.setText(variable.getUserID());
         UserPassword.setText(variable.getUserPassword());
-        UserCN.setText(variable.getUserCN());
+        UserEmail.setText(variable.getUserEmail());
         UserGender.setText(variable.getUserGender());
         UserName.setText(variable.getUserName());
         UserName2.setText(variable.getUserName());
@@ -144,7 +144,7 @@ public class MemberModifyActivity extends AppCompatActivity {
                 try {
                     postDataParam.put("userID", variable.getUserID());
                     postDataParam.put("userPassword", userPassword);
-                    postDataParam.put("userCN", variable.getUserCN());
+                    postDataParam.put("userEmail", variable.getUserEmail());
                     postDataParam.put("userName", userName);
                     postDataParam.put("userAge", userAge);
                     postDataParam.put("userGender", variable.getUserGender());

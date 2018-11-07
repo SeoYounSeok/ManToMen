@@ -44,10 +44,8 @@ public class GetData extends GetRequest {
     protected void onPostExecute(String jsonString) {
         variableOfClass = VariableOfClass.getInstance();
         Log.d("리뷰", "겟데이터 온포스트익시큩 시작부분");
-
         if (jsonString == null) //받아온값이 없으면 리턴
             return;
-
 
         ArrayList<AllClass> arrayList = getArrayListFromJSONString(jsonString); //전체를 저장해야하니까
 

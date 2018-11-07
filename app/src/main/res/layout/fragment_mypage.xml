@@ -146,16 +146,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:text="학    번 : "
+                android:text="이메일 : "
                 android:textSize="15dp" />
 
 
             <TextView
-                android:id="@+id/mypage_UserCN"
+                android:id="@+id/mypage_UserEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:text="1494026"
+                android:text="taeil@naver.com"
                 android:textSize="15dp" />
 
         </LinearLayout>

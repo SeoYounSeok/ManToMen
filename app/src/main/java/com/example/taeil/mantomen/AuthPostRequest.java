@@ -1,9 +1,7 @@
 package com.example.taeil.mantomen;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.AsyncTask;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -21,11 +19,11 @@ import java.util.Iterator;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class RegisterPostRequest extends AsyncTask<JSONObject, Void, String> {
+public class AuthPostRequest extends AsyncTask<JSONObject, Void, String> {
     Activity activity;
     URL url;
-
-    public RegisterPostRequest(Activity activity) {
+    Variable variable = Variable.getInstance();
+    public AuthPostRequest(Activity activity) {
         this.activity = activity;
     }
 
@@ -86,21 +84,27 @@ public class RegisterPostRequest extends AsyncTask<JSONObject, Void, String> {
 
         super.onPostExecute(result);
         String temp;
-        String message1 = "회원가입실패";
-        String message2 = "회원가입성공";
+        String message1 = "인증실패";
+        String message2 = "인증성공";
         temp = result.trim();
 
 
-        if (temp == null || temp.equals("0")){
+        String SB = temp; //일단 String버퍼를 스트링 형식으로 변형
+
+
+
+        if (temp == null || temp.equals("0")) {
             Toast.makeText(activity, message1,
                     Toast.LENGTH_LONG).show();
             return;
-        }
-
-        else if(temp.equals("1")){
+        } else { // 비밀번호가 왔어염
+            int index = SB.indexOf(":"); // :로자르고
+            String AuthNumber;
+            AuthNumber = SB.substring(index + 1, SB.length()-1);
+            variable.setAuthnumber(AuthNumber);
             Toast.makeText(activity, message2,
                     Toast.LENGTH_LONG).show();
-            activity.finish();
+            Log.e("userEmail", AuthNumber);  // 난수 확인용
 
 //            RegisterActivity mContext = (RegisterActivity)RegisterActivity.mContext;
 //            mContext.finish();  //종료
@@ -112,6 +116,8 @@ public class RegisterPostRequest extends AsyncTask<JSONObject, Void, String> {
 //            ((RegisterActivity)RegisterActivity.mContext).overridePendingTransition(0, 0);  //화면전환효과 없애기
 
         }
+        Log.e("userEmail", temp);  // 난수 확인용
+
         Toast.makeText(activity, temp,
                 Toast.LENGTH_LONG).show();
 

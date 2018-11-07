@@ -6,7 +6,7 @@ public class Variable { //전역변수 저장 모음 로그인할 때 한번에 
 
     private static String userID = null;
     private static String userPassword = null;
-    private static String userCN = null;
+    private static String userEmail = null;
     private static String userName = null;
     private static String userAge = null;
     private static String userGender = null;
@@ -17,6 +17,15 @@ public class Variable { //전역변수 저장 모음 로그인할 때 한번에 
     private static String userParticipateClass = null; //사용자가 참여중인 클래스
     private static String userOperateClass = null; //사용자가 운영중인 클래스
     public static String HttpAddres = "";   //민영이 서버 입력하기
+    private static String Authnumber = null;
+
+    public static String getAuthnumber() {
+        return Authnumber;
+    }
+
+    public static void setAuthnumber(String authnumber) {
+        Authnumber = authnumber;
+    }
 
     private Variable() {
         variable = new Variable();
@@ -42,12 +51,12 @@ public class Variable { //전역변수 저장 모음 로그인할 때 한번에 
         Variable.userPassword = userPassword;
     }
 
-    public static String getUserCN() {
-        return userCN;
+    public static String getUserEmail() {
+        return userEmail;
     }
 
-    public static void setUserCN(String userCN) {
-        Variable.userCN = userCN;
+    public static void setUserEmail(String userEmail) {
+        Variable.userEmail = userEmail;
     }
 
     public static String getUserName() {

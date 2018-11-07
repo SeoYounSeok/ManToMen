@@ -17,6 +17,7 @@ public class VariableOfClass { //클래스관련 전역변수모음 특정 클�
     private static String ClassOPeriod = null;
     private static String ClassIntro = null;
     private static JSONObject ClassReview = null;
+
     private static ArrayList<AllClass> allClass;
 
 

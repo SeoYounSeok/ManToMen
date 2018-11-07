@@ -14,6 +14,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -26,40 +27,105 @@ import org.json.JSONObject;
 public class RegisterActivity extends AppCompatActivity {
     static Context mContext = null;
     final static String TAG = "AndroidNodeJS";
+    Variable variable = Variable.getInstance();
+    boolean AuthFlag = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        AuthFlag = false; //액티비티가 실행될때마다 false로 초기화
+
         setContentView(R.layout.activity_register);
 
-        final EditText IDText = (EditText) findViewById(R.id.ID_R_Input);
-        final EditText PWText = (EditText) findViewById(R.id.PW_R_Input);
-        final EditText SIDText = (EditText) findViewById(R.id.StudentID_R_Input);
-        final EditText NameText = (EditText) findViewById(R.id.Name_R_Input);
-        final EditText AgeText = (EditText) findViewById(R.id.Age_R_Input);
-        final RadioGroup GenderGroup = (RadioGroup) findViewById(R.id.GenderRadio);
-        final CheckBox Checkbox1 = (CheckBox) findViewById(R.id.checkBox1);
-        final CheckBox Checkbox2 = (CheckBox) findViewById(R.id.checkBox2);
-        final CheckBox Checkbox3 = (CheckBox) findViewById(R.id.checkBox3);
-        final CheckBox Checkbox4 = (CheckBox) findViewById(R.id.checkBox4);
-        final CheckBox Checkbox5 = (CheckBox) findViewById(R.id.checkBox5);
-        final CheckBox Checkbox6 = (CheckBox) findViewById(R.id.checkBox6);
+        final EditText IDText =  findViewById(R.id.Register_ID);
+        final EditText PWText =  findViewById(R.id.PW_R_Input);
+        final EditText UserEmail = findViewById(R.id.Register_userEmail);
+        final EditText NameText = findViewById(R.id.Name_R_Input);
+        final EditText AgeText =  findViewById(R.id.Age_R_Input);
+        final EditText Authnumber = findViewById(R.id.Register_AuthNumber);
+        final RadioGroup GenderGroup =  findViewById(R.id.GenderRadio);
+        final CheckBox Checkbox1 =  findViewById(R.id.checkBox1);
+        final CheckBox Checkbox2 =  findViewById(R.id.checkBox2);
+        final CheckBox Checkbox3 =  findViewById(R.id.checkBox3);
+        final CheckBox Checkbox4 =  findViewById(R.id.checkBox4);
+        final CheckBox Checkbox5 =  findViewById(R.id.checkBox5);
+        final CheckBox Checkbox6 =  findViewById(R.id.checkBox6);
+
+
+        final Button authbutton = findViewById(R.id.Register_Sendnumber);  // 인증번호 보내기 버튼
+        final Button inputauthbutton = findViewById(R.id.Register_InsertAuth); // 인증번호 확인 버튼
+
+        inputauthbutton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                String input = Authnumber.getText().toString();
+
+                if(AuthFlag){  // 프래그가 폴스면실행안되잖아 트루라면
+                    Toast.makeText(RegisterActivity.this, "이미 인증되었습니다.",
+                            Toast.LENGTH_LONG).show();
+                } else{
+
+                    if(input == null){ // 입력을 안했을 때
+                        Toast.makeText(RegisterActivity.this, "인증번호를 입력해주세요",
+                                Toast.LENGTH_LONG).show();
+                    } else if(!input.equals(variable.getAuthnumber())){  // 값이 틀릴 때
+                        Toast.makeText(RegisterActivity.this, "인증번호를 확인해주세요",
+                                Toast.LENGTH_LONG).show();
+                    }
+                    else{ // 이게 맞을 경우잖아
+                        Toast.makeText(RegisterActivity.this, "인증되셨습니다.",
+                                Toast.LENGTH_LONG).show();
+                        AuthFlag = true;  // 플래그를 폴스에서 트루로 바꿈
+                    }
+                }
+            }
+        });
+
+        authbutton.setOnClickListener(new View.OnClickListener() {
+
+            JSONObject postDataParam = new JSONObject();
+
+            @Override
+            public void onClick(View v) {
+                try {
+                    String userEmail = UserEmail.getText().toString();  //문자열을 인트형으로 변경
+                    if(!userEmail.contains("@")){  // @가 포함되어있지 않으면
+                        Toast.makeText(RegisterActivity.this, "이메일형식을 입력해 주세요",
+                                Toast.LENGTH_LONG).show();
+                    } else if(userEmail.contains("@")){
+                        postDataParam.put("userEmail", userEmail);
+                        Log.e(TAG, userEmail);
+                    }
+
+
+                } catch (JSONException e) {
+                    Log.e(TAG, "JSONEXception");
+                }
+
+                new AuthInsertData(RegisterActivity.this).execute(postDataParam);
+
+            }
+        });
 
         Button registerButton = (Button) findViewById(R.id.RegisterSubmitbutton); //회원가입 완료버튼
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+
+
                 String userID = IDText.getText().toString();   //ID텍스트의 문자열을 반환 받는값
                 String userPassword = PWText.getText().toString();
-                String userCN = SIDText.getText().toString();  //문자열을 인트형으로 변경
+                String userEmail = UserEmail.getText().toString();  //문자열을 인트형으로 변경
                 String userName = NameText.getText().toString();
                 String userAge = AgeText.getText().toString(); //
                 final RadioButton GenderChoice = (RadioButton) findViewById(GenderGroup.getCheckedRadioButtonId());  //라디오 그룹에서
                 String userGender = GenderChoice.getText().toString();  //라디오버튼
-
-
                 String userCategory = "";
 
                 if (Checkbox1.isChecked())
@@ -74,7 +140,9 @@ public class RegisterActivity extends AppCompatActivity {
                     userCategory += "Beauty//";
                 if (Checkbox6.isChecked())
                     userCategory += "Etc//";
+                if(userID == null || userPassword == null || userName == null || userAge == null || userGender == null){
 
+                }
 
 
 //                for(int i=0; i<6; i++){ //모든값을 공백
@@ -92,7 +160,7 @@ public class RegisterActivity extends AppCompatActivity {
                 try {
                     postDataParam.put("userID", userID);
                     postDataParam.put("userPassword", userPassword);
-                    postDataParam.put("userCN", userCN);
+                    postDataParam.put("userEmail", userEmail);
                     postDataParam.put("userName", userName);
                     postDataParam.put("userAge", userAge);
                     postDataParam.put("userGender", userGender);
@@ -104,50 +172,15 @@ public class RegisterActivity extends AppCompatActivity {
                     Log.e(TAG, "JSONEXception");
                 }
 
-                new RegisterInsertData(RegisterActivity.this).execute(postDataParam);
 
 
-//                Response.Listener<String> responseListener = new Response.Listener<String>() {  //특정요청을 한 이후에 리스너에서 원하는 결과값을 다룰 수 있게함
-//
-//                    @Override
-//                    public void onResponse(String response) {
-//                        try{
-//                            JSONObject jsonObject = new JSONObject(response);
-//                            boolean success = jsonObject.getBoolean("success");
-//
-//                            if(success){    //값을 정확히 받아왔을때
-//                                AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);  //회원가입완료를 알리는 AlertDialog
-//                                builder.setMessage("회원가입완료").setPositiveButton("확인", new DialogInterface.OnClickListener() {
-//                                    @Override
-//                                    public void onClick(DialogInterface dialogInterface, int i) {
-//                                        Intent GotoLogin = new Intent(RegisterActivity.this, LoginActivity.class);  //인텐트를 만들어서 LoginActivity로 보냄
-//                                        RegisterActivity.this.startActivity(GotoLogin);   //확인을 눌러야만 페이지 이동
-//                                    }
-//                                }).create().show();
-//
-//
-//
-//                            }else{
-//
-//                                AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);  //회원가입실료를 알리는 AlertDialog
-//                                builder.setMessage("회원가입실패").setNegativeButton("돌아가기",null).create().show();
-//
-//                            }
-//
-//
-//                        }
-//                        catch (JSONException e){
-//                            e.printStackTrace();  //오류 출력
-//                        }
-//                    }
-//                };
-                //회원가입을 신청하는 리퀘스트 부분작성
-//                RegisterRequest registerRequest = new RegisterRequest(userID, userPW, userSID, userName, userAge, userGender, responseListener);
-//                //매개변수를 넘겨줌
-//
-//                RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
-//                queue.add(registerRequest);
-//                //버튼을 눌렀을 때 레지스터 리퀘스트가 실행되서 Response를 받게되고 해당 response를 받았을때 정상적인 정보일시 성공
+                if(AuthFlag){  // 인증통과를 했다는 의미
+                    new RegisterInsertData(RegisterActivity.this).execute(postDataParam);
+                }
+                else{
+                    Toast.makeText(RegisterActivity.this, "이메일 인증을 해주세요.",
+                            Toast.LENGTH_LONG).show();
+                }
             }
         });
 

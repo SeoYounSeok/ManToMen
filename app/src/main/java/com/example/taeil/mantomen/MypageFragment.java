@@ -61,7 +61,7 @@ public class MypageFragment extends Fragment implements Main2Activity.OnBackPres
 
         TextView UserID = (TextView) mypagefragment.findViewById(R.id.mypage_userID);
         TextView UserPassword = (TextView) mypagefragment.findViewById(R.id.mypage_UserPassword);
-        TextView UserCN = (TextView) mypagefragment.findViewById(R.id.mypage_UserCN);
+        TextView UserEmail = (TextView) mypagefragment.findViewById(R.id.mypage_UserEmail);
         TextView UserGender = (TextView) mypagefragment.findViewById(R.id.mypage_UserGender);
         TextView UserName = (TextView) mypagefragment.findViewById(R.id.mypage_UserName);
         TextView UserAge = (TextView) mypagefragment.findViewById(R.id.mypage_UserAge);
@@ -73,7 +73,7 @@ public class MypageFragment extends Fragment implements Main2Activity.OnBackPres
 
         UserID.setText(variable.getUserID());
         UserPassword.setText(variable.getUserPassword());
-        UserCN.setText(variable.getUserCN());
+        UserEmail.setText(variable.getUserEmail());
         UserGender.setText(variable.getUserGender());
         UserName.setText(variable.getUserName());
         UserAge.setText(variable.getUserAge());

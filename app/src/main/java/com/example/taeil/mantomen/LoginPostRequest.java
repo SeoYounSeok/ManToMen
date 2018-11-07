@@ -150,8 +150,8 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
                 variable.setUserID(value.toString());
             if (key.equals("userPassword"))
                 variable.setUserPassword(value.toString());
-            if (key.equals("userCN"))
-                variable.setUserCN(value.toString());
+            if (key.equals("userEmail"))
+                variable.setUserEmail(value.toString());   // 이메일 부분임 수정필요
             if (key.equals("userGender"))
                 variable.setUserGender(value.toString());
             if (key.equals("userName"))
@@ -198,7 +198,7 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
 
         variable.setUserID(userValue[1]);
         variable.setUserPassword(userValue[2]);
-        variable.setUserCN(userValue[3]);
+        variable.setUserEmail(userValue[3]);
         variable.setUserName(userValue[4]);
         variable.setUserAge(userValue[5]);
         variable.setUserGender(userValue[6]);
