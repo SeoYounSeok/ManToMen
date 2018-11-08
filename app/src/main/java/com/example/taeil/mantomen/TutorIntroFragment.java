@@ -57,7 +57,7 @@ public class TutorIntroFragment extends Fragment {
 
 
 
-        return inflater.inflate(R.layout.fragment_tutor_intro, container, false);
+        return tutorintrofragment;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

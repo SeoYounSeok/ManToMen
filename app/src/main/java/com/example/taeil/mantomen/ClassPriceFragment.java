@@ -65,7 +65,7 @@ public class ClassPriceFragment extends Fragment {
         });
 
 
-        return inflater.inflate(R.layout.fragment_class_price, container, false);
+        return classpricefragment;
     }
 
 

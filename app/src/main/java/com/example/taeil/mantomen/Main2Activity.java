@@ -65,7 +65,9 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     switchFragment(0);  //홈버튼이 눌리면 0전송
-                    new GetData(Main2Activity.this).execute(); // 홈누르면 ㅇㅋ? ㅋ_ㅋ
+
+                    //new GetData(Main2Activity.this).execute(); // 홈누르면 ㅇㅋ? ㅋ_ㅋ 잠시 꺼놔야함 ; 중요부분
+
                     //navigationImageview.setVisibility(View.INVISIBLE);
                     return true;
 

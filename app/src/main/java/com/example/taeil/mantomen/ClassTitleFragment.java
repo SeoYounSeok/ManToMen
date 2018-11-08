@@ -71,7 +71,7 @@ public class ClassTitleFragment extends Fragment {
 
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_class_title, container, false);
+        return classtitlefragment;
     }
 
 

@@ -17,12 +17,9 @@ public class TutorRegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        switchFragment(0);
-
         mActivity = TutorRegisterActivity.this;  //다른곳에서 이 액티비티를 끄기위해 지정
-
         setContentView(R.layout.activity_tutor_register);
+        switchFragment(0);
 
     }
 
@@ -32,19 +29,19 @@ public class TutorRegisterActivity extends AppCompatActivity {
     final ClassPriceFragment classPriceFragment  = new ClassPriceFragment();  // 클래스 프라이스 프래그먼트
     final ClassAppointmentFragment classAppointmentFragment = new ClassAppointmentFragment();
 
-    public void switchFragment(int id) {   //프래그먼트 교체 메인화면, 검색화면, 채팅화면, 마이페이지 총 네개의 프래그먼트 활용예정
+    public void switchFragment(int id) {   // 프래그먼트 교체 메인화면
         final FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         if (id == 0)
-            fragmentTransaction.replace(R.id.fragment, necessaryInfoFragment);
+            fragmentTransaction.replace(R.id.fragment3, necessaryInfoFragment);
         else if (id == 1)
-            fragmentTransaction.replace(R.id.fragment, classTitleFragment);
+            fragmentTransaction.replace(R.id.fragment3, classTitleFragment);
         else if (id == 2)
-            fragmentTransaction.replace(R.id.fragment, tutorIntroFragment);
+            fragmentTransaction.replace(R.id.fragment3, tutorIntroFragment);
         else if (id == 3)
             //여기에 값을 받아오는 메소드를 추가
-            fragmentTransaction.replace(R.id.fragment, classPriceFragment); //마이페이지2로연결
+            fragmentTransaction.replace(R.id.fragment3, classPriceFragment); //마이페이지2로연결
         else if (id == 4)
-            fragmentTransaction.replace(R.id.fragment, classAppointmentFragment); //마이페이지1로연결
+            fragmentTransaction.replace(R.id.fragment3, classAppointmentFragment); //마이페이지1로연결
         fragmentTransaction.commit();
     }
 

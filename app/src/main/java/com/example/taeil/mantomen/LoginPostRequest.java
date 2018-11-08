@@ -100,6 +100,7 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
         String message1 = "아이디와 비밀번호를 확인해주세요";
         String message2 = "로그인성공";
         temp = result.trim();
+        Log.d("오류",temp);
 
         if (temp == null || temp.equals("0")) {
             Toast.makeText(activity, message1,
@@ -113,14 +114,6 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
 
 
             String userID = variable.getUserID();
-
-            Handler delayHandler = new Handler();
-            delayHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    // TODO
-                }
-            }, 3000);
 
             Intent GoToMainintent = new Intent(((LoginActivity) LoginActivity.mContext), Main2Activity.class); //메인액티비티로 보내는 인텐트
             ((LoginActivity) LoginActivity.mContext).startActivity(GoToMainintent);
@@ -150,8 +143,10 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
                 variable.setUserID(value.toString());
             if (key.equals("userPassword"))
                 variable.setUserPassword(value.toString());
-            if (key.equals("userEmail"))
-                variable.setUserEmail(value.toString());   // 이메일 부분임 수정필요
+            if (key.equals("userEmail")) {
+                //variable.setUserEmail(value.toString());   // 이메일 부분임 수정필요
+                variable.setUserEmail("수정필요한 이메일");   // 이메일 부분임 수정필요
+            }
             if (key.equals("userGender"))
                 variable.setUserGender(value.toString());
             if (key.equals("userName"))

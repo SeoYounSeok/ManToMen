@@ -1,9 +1,12 @@
 package com.example.taeil.mantomen;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,8 +26,15 @@ public class NecessaryInfoFragment extends Fragment {
 
 
     @Override
+    public void onAttachFragment(Fragment childFragment) {
+        super.onAttachFragment(childFragment);
+
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 
     }
 
@@ -35,24 +45,28 @@ public class NecessaryInfoFragment extends Fragment {
         LinearLayout necessaryInfofragment = (LinearLayout) inflater.inflate(R.layout.fragment_necessary_info, container, false);
 
         Button nextbutton = necessaryInfofragment.findViewById(R.id.TutorRegister0_nextbutton); //클래스값받아오는버튼
-        final TextView tutorID = necessaryInfofragment.findViewById(R.id.TutorRegister0_name);
+        final TextView tutorID = necessaryInfofragment.findViewById(R.id.TutorRegister0_ID);
         final EditText tutorPhoneNumber = necessaryInfofragment.findViewById(R.id.TutorRegister0_PhoneNumber);
 
         tutorID.setText(variable.getUserName());
+        Log.d("오류",variable.getUserName());
 
         nextbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 variableOfClass.setClassTutorID(tutorID.getText().toString());
                 variable.setUserPhoneNumber(tutorPhoneNumber.getText().toString());  // 전화번호인증 나중에 구현
+
+                Log.d("오류",tutorID.getText().toString());
+                Log.d("오류",tutorPhoneNumber.getText().toString());
+
                 ((TutorRegisterActivity)getActivity()).switchFragment(1);  // 프래그먼트 교체
 
             }
         });
 
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_necessary_info, container, false);
+        return necessaryInfofragment;
     }
 
 

@@ -11,7 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,6 +24,7 @@ public class Mypage2Fragment extends Fragment {
     static Context mContext = null;
     final static String TAG = "AndroidNodeJS";
 
+    Variable variable = Variable.getInstance();
 
     private OnFragmentInteractionListener mListener;
 
@@ -44,10 +47,13 @@ public class Mypage2Fragment extends Fragment {
 
         Button makeclass = (Button) mypage2fragment.findViewById(R.id.Mypage2_MakeClass); //클래스값받아오는버튼
         Button gotomypage = (Button) mypage2fragment.findViewById(R.id.Mypage2_Mypage); //마이페이지로가는버튼
-
         Button tutorregister = mypage2fragment.findViewById(R.id.Mypage2_TutorRegister); // 튜터등록 버튼
-
         Button makereview = (Button) mypage2fragment.findViewById(R.id.Mypage2_MakeReview); //연습용 리뷰
+
+        LinearLayout necessaryInfofragment = (LinearLayout) inflater.inflate(R.layout.fragment_necessary_info, container, false);
+        final TextView tutorID = necessaryInfofragment.findViewById(R.id.TutorRegister0_ID);
+        tutorID.setText(variable.getUserID());
+
 
 
 
@@ -56,19 +62,16 @@ public class Mypage2Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // if문으로 튜티인지 튜터인지 확인 후 튜터이면 진행
-
+                Main2Activity.mContext = getActivity();
                 Variable variable = Variable.getInstance();
 
                 Intent GoToTutorregisterintent = new Intent(((Main2Activity)Main2Activity.mContext), TutorRegisterActivity.class); // TutorRegisterActivity로 보내는 인텐트
                 ((Main2Activity)Main2Activity.mContext).startActivity(GoToTutorregisterintent);
-                GoToTutorregisterintent.putExtra("userID","ABC");
-                ((Main2Activity)Main2Activity.mContext).overridePendingTransition(0, 0);  //화면전환효과 없애기
-
-                //((Main2Activity)Main2Activity.mContext).overridePendingTransition(0, 0);  //화면전환효과 없애기
-                //getActivity().finish();  // 액티비티 삭제
 
 
 
+                tutorID.setText(variable.getUserName());
+                Log.d("오류",variable.getUserName());
 
             }
         });
@@ -105,7 +108,6 @@ public class Mypage2Fragment extends Fragment {
         makeclass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Main2Activity.mContext = getActivity();
 
                 Intent GoToMakeClassintent = new Intent(((Main2Activity)Main2Activity.mContext), MakeClassActivity.class); //MakeClass액티비티로 보내는 인텐트
