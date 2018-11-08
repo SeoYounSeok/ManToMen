@@ -33,23 +33,24 @@ public class TutorIntroFragment extends Fragment {
 
         LinearLayout tutorintrofragment = (LinearLayout) inflater.inflate(R.layout.fragment_tutor_intro, container, false);
 
-        Button previousbutton = tutorintrofragment.findViewById(R.id.TutorRegister1_Previous); //클래스값받아오는버튼
-        Button nextbutton = tutorintrofragment.findViewById(R.id.TutorRegister1_Next); //클래스값받아오는버튼
+        Button previousbutton = tutorintrofragment.findViewById(R.id.TutorRegister1_Previous); // 이전
+        Button nextbutton = tutorintrofragment.findViewById(R.id.TutorRegister1_Next); // 다음
 
-        final EditText tutor
-
-        final TextView tutorID = tutorintrofragment.findViewById(R.id.TutorRegister0_name);
-        final EditText tutorPhoneNumber = tutorintrofragment.findViewById(R.id.TutorRegister0_PhoneNumber);
-
-        tutorID.setText(variable.getUserName());
+        final EditText ClassTutorIntro = tutorintrofragment.findViewById(R.id.TutorRegister2_TutorIntro);
+        final EditText ClassIntro = tutorintrofragment.findViewById(R.id.TutorRegister2_ClassIntro);
+        final EditText ClassContents = tutorintrofragment.findViewById(R.id.TutorRegister2_ClassContents);
+        final EditText ClassWhom =  tutorintrofragment.findViewById(R.id.TutorRegister2_ClassWhom);
 
         nextbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                variableOfClass.setClassTutorID(tutorID.getText().toString());
-                variable.setUserPhoneNumber(tutorPhoneNumber.getText().toString());  // 전화번호인증 나중에 구현
-                ((TutorRegisterActivity)getActivity()).switchFragment(1);  // 프래그먼트 교체
+                variableOfClass.setClassTutorIntro(ClassTutorIntro.getText().toString());
+                variableOfClass.setClassIntro(ClassIntro.getText().toString());
+                variableOfClass.setClassContents(ClassContents.getText().toString());
+                variableOfClass.setClassWhom(ClassWhom.getText().toString());
+
+                ((TutorRegisterActivity)getActivity()).switchFragment(3);  // 프래그먼트 교체
 
             }
         });

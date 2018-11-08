@@ -24,7 +24,7 @@ public class VariableOfClass { //클래스관련 전역변수모음 특정 클�
     private static String ClassPlace; // 수업 장소
     private static String ClassPlaceDetail; //상세위치
     private static String ClassWeek; // 수업 요일
-    private static String Classtime; // 수업 시간
+    private static String ClassTime; // 수업 시간
     private static String ClassFirstTime; // 첫 수업일
 
     private static ArrayList<AllClass> allClass;
@@ -180,12 +180,12 @@ public class VariableOfClass { //클래스관련 전역변수모음 특정 클�
         ClassWeek = classWeek;
     }
 
-    public static String getClasstime() {
-        return Classtime;
+    public static String getClassTime() {
+        return ClassTime;
     }
 
-    public static void setClasstime(String classtime) {
-        Classtime = classtime;
+    public static void setClassTime(String classtime) {
+        ClassTime = classtime;
     }
 
     public static String getClassFirstTime() {

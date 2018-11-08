@@ -23,13 +23,13 @@ public class AllClass { //클래스관련 전역변수모음 특정 클래스 �
     String ClassPlace; // 수업 장소
     String ClassPlaceDetail; //상세위치
     String ClassWeek; // 수업 요일
-    String Classtime; // 수업 시간
+    String ClassTime; // 수업 시간
     String ClassFirstTime; // 첫 수업일
 
 
     public AllClass(String classPicture, String className, String classTutorID, String classCategory, String classTotalPeople,
                     String classCurrentPeople, String classTutorIntro, String classIntro, String classContents, String classWhom, String classPrice,
-                    String classHour, String classNumberOfTime, String classPlace, String classPlaceDetail, String classWeek, String classtime,
+                    String classHour, String classNumberOfTime, String classPlace, String classPlaceDetail, String classWeek, String classTime,
                     String classFirstTime) {
         ClassPicture = classPicture;
         ClassName = className;
@@ -47,7 +47,7 @@ public class AllClass { //클래스관련 전역변수모음 특정 클래스 �
         ClassPlace = classPlace;
         ClassPlaceDetail = classPlaceDetail;
         ClassWeek = classWeek;
-        Classtime = classtime;
+        ClassTime = classTime;
         ClassFirstTime = classFirstTime;
 
 
@@ -181,12 +181,12 @@ public class AllClass { //클래스관련 전역변수모음 특정 클래스 �
         ClassWeek = classWeek;
     }
 
-    public String getClasstime() {
-        return Classtime;
+    public String getClassTime() {
+        return ClassTime;
     }
 
-    public void setClasstime(String classtime) {
-        Classtime = classtime;
+    public void setClassTime(String classtime) {
+        ClassTime = classtime;
     }
 
     public String getClassFirstTime() {

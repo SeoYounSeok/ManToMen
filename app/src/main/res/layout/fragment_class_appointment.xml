@@ -39,6 +39,7 @@
         android:background="@color/white"/>
 
     <Button
+        android:id="@+id/TutorRegister4_ClassPlace"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="10dp"
@@ -59,6 +60,7 @@
         android:background="@color/white"/>
 
     <EditText
+        android:id="@+id/TutorRegister4_ClassPlaceDetail"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="10dp"
@@ -86,42 +88,49 @@
         android:layout_marginBottom="10dp"
         android:orientation="horizontal">
         <Button
+            android:id="@+id/TutorRegister4_Classweek1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/border2"
             android:text="월"/>
         <Button
+            android:id="@+id/TutorRegister4_Classweek2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/border2"
             android:text="화"/>
         <Button
+            android:id="@+id/TutorRegister4_Classweek3"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/border2"
             android:text="수"/>
         <Button
+            android:id="@+id/TutorRegister4_Classweek4"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/border2"
             android:text="목"/>
         <Button
+            android:id="@+id/TutorRegister4_Classweek5"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/border2"
             android:text="금"/>
         <Button
+            android:id="@+id/TutorRegister4_Classweek6"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/border2"
             android:text="토"/>
         <Button
+            android:id="@+id/TutorRegister4_Classweek7"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -141,6 +150,7 @@
         android:background="@color/white"/>
 
     <EditText
+        android:id="@+id/TutorRegister4_ClassTime"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="10dp"
@@ -159,12 +169,16 @@
         android:textColor="@color/black"
         android:background="@color/white"/>
 
-    <CalendarView
+    <EditText
+        android:id="@+id/TutorRegister4_ClassFirstTime"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp">
-
-    </CalendarView>
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/border2"
+        android:gravity="left|center"
+        android:hint="10월 20일"/>
 
 
 
@@ -176,6 +190,7 @@
         android:gravity="center"
         android:background="@color/brightgray">
         <Button
+            android:id="@+id/TutorRegister4_Previous"
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
@@ -187,6 +202,7 @@
 
         </Button>
         <Button
+            android:id="@+id/TutorRegister4_Complete"
             android:layout_marginRight="10dp"
             android:layout_width="wrap_content"
             android:layout_height="40dp"

@@ -40,6 +40,7 @@
         android:background="@color/white"/>
 
     <EditText
+        android:id="@+id/TutorRegister1_ClassName"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="10dp"
@@ -58,6 +59,7 @@
         android:background="@color/white"/>
 
     <Button
+        android:id="@+id/TutorRegister1_ClassCategory"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="10dp"
@@ -77,6 +79,7 @@
         android:background="@color/white"/>
 
     <EditText
+        android:id="@+id/TutorRegister1_ClassTotalPeople"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="10dp"
@@ -96,11 +99,13 @@
         android:background="@color/white"/>
 
     <ImageView
+        android:id="@+id/TutorRegister1_ClassPicture"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"/>
 
     <Button
+        android:id="@+id/TutorRegister1_UploadButton"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginLeft="10dp"
@@ -120,17 +125,19 @@
         android:gravity="center"
         android:background="@color/brightgray">
         <Button
+            android:id="@+id/TutorRegister1_Previous"
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_weight="1"
             android:layout_gravity="center"
-            android:text="다 음"
+            android:text="이 전"
             android:textColor="@color/gray"
             android:background="@drawable/border2">
 
         </Button>
         <Button
+            android:id="@+id/TutorRegister1_Next"
             android:layout_marginRight="10dp"
             android:layout_width="wrap_content"
             android:layout_height="40dp"

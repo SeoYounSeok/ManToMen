@@ -61,9 +61,12 @@ public class Mypage2Fragment extends Fragment {
 
                 Intent GoToTutorregisterintent = new Intent(((Main2Activity)Main2Activity.mContext), TutorRegisterActivity.class); // TutorRegisterActivity로 보내는 인텐트
                 ((Main2Activity)Main2Activity.mContext).startActivity(GoToTutorregisterintent);
+                GoToTutorregisterintent.putExtra("userID","ABC");
+                ((Main2Activity)Main2Activity.mContext).overridePendingTransition(0, 0);  //화면전환효과 없애기
 
                 //((Main2Activity)Main2Activity.mContext).overridePendingTransition(0, 0);  //화면전환효과 없애기
                 //getActivity().finish();  // 액티비티 삭제
+
 
 
 

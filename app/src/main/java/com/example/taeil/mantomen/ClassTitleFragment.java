@@ -7,102 +7,85 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link ClassTitleFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link ClassTitleFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ClassTitleFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    private OnFragmentInteractionListener mListener;
+    Variable variable = Variable.getInstance();
+    VariableOfClass variableOfClass = VariableOfClass.getInstance();
 
     public ClassTitleFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ClassTitleFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ClassTitleFragment newInstance(String param1, String param2) {
-        ClassTitleFragment fragment = new ClassTitleFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        LinearLayout classtitlefragment = (LinearLayout) inflater.inflate(R.layout.fragment_class_title, container, false);
+
+        final Button previousbutton = classtitlefragment.findViewById(R.id.TutorRegister1_Previous); // 이전
+        final Button nextbutton = classtitlefragment.findViewById(R.id.TutorRegister1_Next); // 다음
+        final EditText ClassName = classtitlefragment.findViewById(R.id.TutorRegister1_ClassName);
+        final ImageView ClassPicture = classtitlefragment.findViewById(R.id.TutorRegister1_ClassPicture);
+        final Button ClassCategory = classtitlefragment.findViewById(R.id.TutorRegister1_ClassCategory);  // 버튼을 누를 때 다이얼로그창이 뜨면서 카테고리선택
+        final EditText ClassTotalPeople = classtitlefragment.findViewById(R.id.TutorRegister1_ClassTotalPeople);
+
+
+        previousbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((TutorRegisterActivity)getActivity()).switchFragment(1);  // 프래그먼트 교체
+            }
+        });
+
+
+        nextbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                variableOfClass.setClassName(ClassName.getText().toString());
+                // variableOfClass.setClassName(ClassPicture.getText().toString());  // 사진은 임의의 사진 일단 스트링으로 보냄시험삼아
+                variableOfClass.setClassName("시험사진");
+                variableOfClass.setClassName(ClassCategory.getText().toString());
+                variableOfClass.setClassName("Programing");
+                variableOfClass.setClassName(ClassTotalPeople.getText().toString());
+                ((TutorRegisterActivity)getActivity()).switchFragment(2);  // 프래그먼트 교체
+
+            }
+        });
+
+
+
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_class_title, container, false);
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
+
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
+
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
+
 }

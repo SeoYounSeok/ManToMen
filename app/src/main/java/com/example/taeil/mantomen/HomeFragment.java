@@ -38,36 +38,36 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        LinearLayout homefragment = (LinearLayout) inflater.inflate(R.layout.fragment_home, container, false); //밑에 주석처리는 리스트뷰 처리 이건 수정요망
-        ListView fitlistView = (ListView) homefragment.findViewById(R.id.Fitlistview) ;
-
-        variableOfClass.getInstance();
-
-        List<AllClass> AllClassList= new ArrayList<AllClass>();  //리스트뷰와 어댑터 초기화
-
-        AllClassList = variableOfClass.getAllClass();  //저장된 컬랙션호출
-
-        fitlistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Main2Activity.mContext = getActivity();
-
-                Intent GoToClassDetailintent = new Intent(((Main2Activity)Main2Activity.mContext), ClassDetail.class); // ClassDetail액티비티로 보내는 인텐트
-                ((Main2Activity)Main2Activity.mContext).startActivity(GoToClassDetailintent);
-
-                GoToClassDetailintent.putExtra("ClassName", variableOfClass.getAllClass().get(position).getClassName());  //클래스 네임 보내고
-                ((Main2Activity)Main2Activity.mContext).overridePendingTransition(0, 0);  //화면전환효과 없애기
-                //getActivity().finish();  // 액티비티 삭제
-
-
-            }
-        });
-
-
-        AllClassListAdapter allClassListAdapter = new AllClassListAdapter(getActivity(), AllClassList);
-        fitlistView.setAdapter(allClassListAdapter);
-        //리스트뷰를 펼치기위해 높이를 설정한 메서드를 실행한것
-        listViewHeightSet(allClassListAdapter, fitlistView);
+       LinearLayout homefragment = (LinearLayout) inflater.inflate(R.layout.fragment_home, container, false); //밑에 주석처리는 리스트뷰 처리 이건 수정요망
+//        ListView fitlistView = (ListView) homefragment.findViewById(R.id.Fitlistview) ;
+//
+//        variableOfClass.getInstance();
+//
+//        List<AllClass> AllClassList= new ArrayList<AllClass>();  //리스트뷰와 어댑터 초기화
+//
+//        AllClassList = variableOfClass.getAllClass();  //저장된 컬랙션호출
+//
+//        fitlistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Main2Activity.mContext = getActivity();
+//
+//                Intent GoToClassDetailintent = new Intent(((Main2Activity)Main2Activity.mContext), ClassDetail.class); // ClassDetail액티비티로 보내는 인텐트
+//                ((Main2Activity)Main2Activity.mContext).startActivity(GoToClassDetailintent);
+//
+//                GoToClassDetailintent.putExtra("ClassName", variableOfClass.getAllClass().get(position).getClassName());  //클래스 네임 보내고
+//                ((Main2Activity)Main2Activity.mContext).overridePendingTransition(0, 0);  //화면전환효과 없애기
+//                //getActivity().finish();  // 액티비티 삭제
+//
+//
+//            }
+//        });
+//
+//
+//        AllClassListAdapter allClassListAdapter = new AllClassListAdapter(getActivity(), AllClassList);
+//        fitlistView.setAdapter(allClassListAdapter);
+//        //리스트뷰를 펼치기위해 높이를 설정한 메서드를 실행한것
+//        listViewHeightSet(allClassListAdapter, fitlistView);
 
         return homefragment;
     }

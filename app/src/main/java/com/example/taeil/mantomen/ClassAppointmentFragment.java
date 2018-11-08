@@ -4,105 +4,134 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link ClassAppointmentFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link ClassAppointmentFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ClassAppointmentFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    VariableOfClass variableOfClass = VariableOfClass.getInstance();
 
-    private OnFragmentInteractionListener mListener;
+    final static String TAG = "AndroidNodeJS";
 
     public ClassAppointmentFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ClassAppointmentFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ClassAppointmentFragment newInstance(String param1, String param2) {
-        ClassAppointmentFragment fragment = new ClassAppointmentFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        LinearLayout classappointmentfragment = (LinearLayout) inflater.inflate(R.layout.fragment_class_appointment, container, false);
+
+        Button previousbutton = classappointmentfragment.findViewById(R.id.TutorRegister4_Previous); // 이전
+        Button completebutton = classappointmentfragment.findViewById(R.id.TutorRegister4_Complete); // 완료버튼을 누르면 자료 보내기
+
+
+        final EditText ClassPlace = classappointmentfragment.findViewById(R.id.TutorRegister4_ClassPlace);
+        final EditText ClassPlaceDetail = classappointmentfragment.findViewById(R.id.TutorRegister4_ClassPlaceDetail);
+        final Button ClassWeek1 = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek1);
+        final Button ClassWeek2 = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek2);
+        final Button ClassWeek3 = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek3);
+        final Button ClassWeek4 = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek4);
+        final Button ClassWeek5 = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek5);
+        final Button ClassWeek6 = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek6);
+        final Button ClassWeek7 = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek7);
+        final EditText ClassTime = classappointmentfragment.findViewById(R.id.TutorRegister4_ClassTime);
+        final EditText ClassFirstTime = classappointmentfragment.findViewById(R.id.TutorRegister4_ClassFirstTime);
+
+
+        previousbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((TutorRegisterActivity) getActivity()).switchFragment(3);  // 프래그먼트 교체
+
+            }
+        });
+
+
+        completebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                variableOfClass.setClassPlace(ClassPlace.getText().toString());
+                variableOfClass.setClassPlaceDetail(ClassPlaceDetail.getText().toString());
+                variableOfClass.setClassWeek("월");  // 임의로 정해둠
+                variableOfClass.setClassTime(ClassTime.getText().toString());
+                variableOfClass.setClassFirstTime(ClassFirstTime.getText().toString());
+
+
+                JSONObject postDataParam = new JSONObject();
+
+                try {
+
+
+//                        Toast.makeText(RegisterActivity.this, "이메일형식을 입력해 주세요",
+//                                Toast.LENGTH_LONG).show();
+
+                    postDataParam.put("ClassPicture",variableOfClass.getClassPicture());
+                    postDataParam.put("ClassName",variableOfClass.getClassPicture());
+                    postDataParam.put("ClassTutorID",variableOfClass.getClassPicture());
+                    postDataParam.put("ClassCategory",variableOfClass.getClassPicture());
+                    postDataParam.put("ClassTotalPeople",variableOfClass.getClassPicture());
+                    postDataParam.put("ClassCurrentPeople",variableOfClass.getClassPicture());
+                    postDataParam.put("ClassTutorIntro",variableOfClass.getClassPicture());
+                    postDataParam.put("ClassIntro",variableOfClass.getClassPicture());
+                    postDataParam.put("ClassContents",variableOfClass.getClassPicture());
+                    postDataParam.put("ClassWhom",variableOfClass.getClassPicture());
+                    postDataParam.put("ClassPrice",variableOfClass.getClassPicture());
+                    postDataParam.put("ClassHour",variableOfClass.getClassPicture());
+                    postDataParam.put("ClassNumberOfTime",variableOfClass.getClassPicture());
+                    postDataParam.put("ClassPlace",variableOfClass.getClassPicture());
+                    postDataParam.put("ClassPlaceDetail",variableOfClass.getClassPicture());
+                    postDataParam.put("ClassWeek",variableOfClass.getClassPicture());
+                    postDataParam.put("ClassTime",variableOfClass.getClassPicture());
+                    postDataParam.put("ClassPlaceDetail",variableOfClass.getClassPicture());
+                    postDataParam.put("ClassFirstTime",variableOfClass.getClassPicture());
+
+
+                    new TutorRegisterInsertData(getActivity()).execute(postDataParam);
+
+
+                } catch (JSONException e) {
+                    Log.e(TAG, "JSONEXception");
+                }
+
+            }
+        });
+
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_class_appointment, container, false);
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
+
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
+
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
 }

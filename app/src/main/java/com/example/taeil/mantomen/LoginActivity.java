@@ -49,8 +49,6 @@ public class LoginActivity extends AppCompatActivity {
                 JSONObject postDataParam = new JSONObject();
 
 
-//                new GetData(LoginActivity.this).execute();
-//                new GetData(LoginActivity.this).execute();
                 try {
                     postDataParam.put("userID", userID);
                     postDataParam.put("userPassword", userPassword);
@@ -61,8 +59,8 @@ public class LoginActivity extends AppCompatActivity {
                 new LoginInsertData(LoginActivity.this).execute(postDataParam);
 
 
-                new GetData(LoginActivity.this).execute();
-                Log.d("리뷰","실행되나?");
+//                new GetData(LoginActivity.this).execute();
+//                Log.d("리뷰","실행되나?");
 
                 overridePendingTransition(0, 0);  //화면전환효과 없애기
             }
