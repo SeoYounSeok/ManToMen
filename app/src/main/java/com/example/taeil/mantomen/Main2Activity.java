@@ -24,7 +24,6 @@ import java.util.List;
 
 public class Main2Activity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener, SearchFragment.OnFragmentInteractionListener {
 
-
     static Context mContext = null;
     static Activity mActivity;
 
@@ -57,8 +56,6 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
         super.onPause();
         //finish();
     }
-
-    private ImageView navigationImageview; //네비게이션 선택시 바꾸기 위한 이미지 뷰
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {

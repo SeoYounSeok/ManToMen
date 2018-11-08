@@ -47,7 +47,6 @@ public class HomeFragment extends Fragment {
 
         AllClassList = variableOfClass.getAllClass();  //저장된 컬랙션호출
 
-
         fitlistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -63,14 +62,6 @@ public class HomeFragment extends Fragment {
 
             }
         });
-
-
-//        for(int i=0; i<AllClassList.size(); i++){
-//            AllClassList.add(new AllClass(AllClassList.get(i).getClassName(),AllClassList.get(i).getClassTutorID(),AllClassList.get(i).getClassTuteeID(),
-//                    AllClassList.get(i).getClassCategory(),AllClassList.get(i).getClassTotalPeople(),AllClassList.get(i).getClassCurrentPeople(), AllClassList.get(i).ClassRPeriod,
-//                    AllClassList.get(i).ClassOPeriod, AllClassList.get(i).ClassIntro,AllClassList.get(i).ClassReview));  //지금0번째칸에는
-//        }
-
 
 
         AllClassListAdapter allClassListAdapter = new AllClassListAdapter(getActivity(), AllClassList);

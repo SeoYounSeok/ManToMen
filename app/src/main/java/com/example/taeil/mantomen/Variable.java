@@ -19,6 +19,16 @@ public class Variable { //전역변수 저장 모음 로그인할 때 한번에 
     public static String HttpAddres = "";   //민영이 서버 입력하기
     private static String Authnumber = null;
 
+    private static String userPhoneNumber = null;
+
+    public static String getUserPhoneNumber() {
+        return userPhoneNumber;
+    }
+
+    public static void setUserPhoneNumber(String userPhoneNumber) {
+        Variable.userPhoneNumber = userPhoneNumber;
+    }
+
     public static String getAuthnumber() {
         return Authnumber;
     }

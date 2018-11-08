@@ -39,6 +39,7 @@
         android:background="@color/white"/>
 
     <EditText
+        android:id="@+id/TutorRegister1_TutorIntro"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginLeft="10dp"
@@ -57,6 +58,7 @@
         android:background="@color/white"/>
 
     <EditText
+        android:id="@+id/TutorRegister1_ClassIntro"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginLeft="10dp"
@@ -75,6 +77,7 @@
         android:background="@color/white"/>
 
     <EditText
+        android:id="@+id/TutorRegister1_ClassContents"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginLeft="10dp"
@@ -93,6 +96,7 @@
         android:background="@color/white"/>
 
     <EditText
+        android:id="@+id/TutorRegister1_ClassWhom"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginLeft="10dp"
@@ -109,6 +113,7 @@
         android:gravity="center"
         android:background="@color/brightgray">
         <Button
+            android:id="@+id/TutorRegister1_Previous"
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
@@ -121,6 +126,7 @@
         </Button>
 
         <Button
+            android:id="@+id/TutorRegister1_Next"
             android:layout_marginRight="10dp"
             android:layout_width="wrap_content"
             android:layout_height="40dp"

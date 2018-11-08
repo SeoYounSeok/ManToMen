@@ -58,7 +58,6 @@ public class MypageFragment extends Fragment implements Main2Activity.OnBackPres
         Button modifybtn = (Button) mypagefragment.findViewById(R.id.Mypage_Membermodify_Btn); //회원정보수정버튼
         Button deletebtn = (Button) mypagefragment.findViewById(R.id.Mypage_Memberdelete_Btn); //회원탈퇴버튼
 
-
         TextView UserID = (TextView) mypagefragment.findViewById(R.id.mypage_userID);
         TextView UserPassword = (TextView) mypagefragment.findViewById(R.id.mypage_UserPassword);
         TextView UserEmail = (TextView) mypagefragment.findViewById(R.id.mypage_UserEmail);

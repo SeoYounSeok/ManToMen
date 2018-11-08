@@ -57,7 +57,7 @@
             >
 
             <Button
-                android:id="@+id/mypage2_TutorRegister"
+                android:id="@+id/Mypage2_TutorRegister"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:text="튜터 등록하기"

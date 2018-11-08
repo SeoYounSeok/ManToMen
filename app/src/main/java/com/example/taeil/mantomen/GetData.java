@@ -51,8 +51,8 @@ public class GetData extends GetRequest {
 
         variableOfClass.setAllClass(arrayList);  //
 
-        Log.d("어레이",variableOfClass.getAllClass().get(0).ReviewuserID);
-        Log.d("어레이",arrayList.get(0).getClassCategory());
+
+        Log.d("어레이", arrayList.get(0).getClassCategory());
 
 
         //어레이리스트 각각 칸에는 클래스에대한 정보가 들어있음
@@ -82,40 +82,29 @@ public class GetData extends GetRequest {
 
                 JSONObject jsonObject = (JSONObject) jsonArray.get(i);
 
+                AllClass allClass =
+                        new AllClass(jsonObject.getString("ClassPicture"),   //이건 결국 클래스 하나의 정보밖에 받지 못함
+                                jsonObject.getString("ClassName"),
+                                jsonObject.getString("ClassTutorID"),
+                                jsonObject.getString("ClassCategory"),
+                                jsonObject.getString("ClassTotalPeople"),
+                                jsonObject.getString("ClassCurrentPeople"),
+                                jsonObject.getString("ClassTutorIntro"),
+                                jsonObject.getString("ClassIntro"),
+                                jsonObject.getString("ClassContents"),
+                                jsonObject.getString("ClassWhom"),
+                                jsonObject.getString("ClassPrice"),
+                                jsonObject.getString("ClassHour"),
+                                jsonObject.getString("ClassNumberOfTime"),
+                                jsonObject.getString("ClassPlace"),
+                                jsonObject.getString("ClassPlaceDetail"),
+                                jsonObject.getString("ClassWeek"),
+                                jsonObject.getString("Classtime"),
+                                jsonObject.getString("ClassFirstTime")
+                                // 제일중요
+                                //리뷰는 잠깐 뺐음 json오브젝트라 이거 전역으로 뺄까??
+                        );
 
-//                reviewarray = jsonObject.getJSONArray("ClassReview");
-//                reviewarray.getJSONObject(1);
-//                JSONObject Reviewobject = (JSONObject) reviewarray.get(1);
-
-                //JSONObject jsonObject2 = (JSONObject)jsonObject.getJSONObject("ClassReview").get("Contents");
-
-                String review = jsonObject.getString("ClassReview");
-                JSONArray reviewarray = new JSONArray(review);
-
-
-                JSONObject reviewobject = (JSONObject) reviewarray.get(0);
-
-                
-                
-
-
-                AllClass allClass = new AllClass(jsonObject.getString("ClassName"),   //이건 결국 클래스 하나의 정보밖에 받지 못함
-                        jsonObject.getString("ClassTutorID"),
-                        jsonObject.getString("ClassTuteeID"),
-                        jsonObject.getString("ClassCategory"),
-                        jsonObject.getString("ClassTotalPeople"),
-                        jsonObject.getString("ClassCurrentPeople"),
-                        jsonObject.getString("ClassRPeriod"),
-                        jsonObject.getString("ClassOPeriod"),
-                        jsonObject.getString("ClassIntro"),
-                        reviewobject
-                        // 제일중요
-                        //리뷰는 잠깐 뺐음 json오브젝트라 이거 전역으로 뺄까??
-                );
-
-                Log.d("알라", reviewobject.getString("userID"));
-                Log.d("알라", reviewobject.getString("Contents"));
-                Log.d("알라", reviewobject.getString("Date"));
 
                 Log.d("알라", "실행되네 ㅇㅇ");
                 output.add(allClass); // 어레이 길이만큼 반복되니까 여기에 저장된다는거아녀 허허

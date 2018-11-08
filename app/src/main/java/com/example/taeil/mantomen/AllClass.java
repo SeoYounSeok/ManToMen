@@ -27,53 +27,39 @@ public class AllClass { //클래스관련 전역변수모음 특정 클래스 �
     String ClassFirstTime; // 첫 수업일
 
 
-    String ClassTuteeID; //따로 빼고
-    //   String ClassReview;
+    public AllClass(String classPicture, String className, String classTutorID, String classCategory, String classTotalPeople,
+                    String classCurrentPeople, String classTutorIntro, String classIntro, String classContents, String classWhom, String classPrice,
+                    String classHour, String classNumberOfTime, String classPlace, String classPlaceDetail, String classWeek, String classtime,
+                    String classFirstTime) {
+        ClassPicture = classPicture;
+        ClassName = className;
+        ClassTutorID = classTutorID;
+        ClassCategory = classCategory;
+        ClassTotalPeople = classTotalPeople;
+        ClassCurrentPeople = classCurrentPeople;
+        ClassTutorIntro = classTutorIntro;
+        ClassIntro = classIntro;
+        ClassContents = classContents;
+        ClassWhom = classWhom;
+        ClassPrice = classPrice;
+        ClassHour = classHour;
+        ClassNumberOfTime = classNumberOfTime;
+        ClassPlace = classPlace;
+        ClassPlaceDetail = classPlaceDetail;
+        ClassWeek = classWeek;
+        Classtime = classtime;
+        ClassFirstTime = classFirstTime;
 
 
-    JSONObject ClassReview; //리뷰잠깐 빼 오브젝트니까
-    String ReviewuserID;
-    String ReviewContents;
-    String ReviewDate;
-
-    public String getReviewuserID() {
-        return ReviewuserID;
     }
 
-    public void setReviewuserID(String reviewuserID) {
-        ReviewuserID = reviewuserID;
+    public String getClassPicture() {
+        return ClassPicture;
     }
 
-    public String getReviewContents() {
-        return ReviewContents;
+    public void setClassPicture(String classPicture) {
+        ClassPicture = classPicture;
     }
-
-    public void setReviewContents(String reviewContents) {
-        ReviewContents = reviewContents;
-    }
-
-    public String getReviewDate() {
-        return ReviewDate;
-    }
-
-    public void setReviewDate(String reviewDate) {
-        ReviewDate = reviewDate;
-    }
-
-    public void setClassReview(JSONObject classReview) {
-        ClassReview = classReview;
-    }
-
-    public ArrayList<AllClass> getArrayList() {
-        return arrayList;
-    }
-
-    public void setArrayList(ArrayList<AllClass> arrayList) {
-        this.arrayList = arrayList;
-    }
-
-    ArrayList<AllClass> arrayList; //어레이리스트만듦
-
 
     public String getClassName() {
         return ClassName;
@@ -89,14 +75,6 @@ public class AllClass { //클래스관련 전역변수모음 특정 클래스 �
 
     public void setClassTutorID(String classTutorID) {
         ClassTutorID = classTutorID;
-    }
-
-    public String getClassTuteeID() {
-        return ClassTuteeID;
-    }
-
-    public void setClassTuteeID(String classTuteeID) {
-        ClassTuteeID = classTuteeID;
     }
 
     public String getClassCategory() {
@@ -123,20 +101,12 @@ public class AllClass { //클래스관련 전역변수모음 특정 클래스 �
         ClassCurrentPeople = classCurrentPeople;
     }
 
-    public String getClassRPeriod() {
-        return ClassRPeriod;
+    public String getClassTutorIntro() {
+        return ClassTutorIntro;
     }
 
-    public void setClassRPeriod(String classRPeriod) {
-        ClassRPeriod = classRPeriod;
-    }
-
-    public String getClassOPeriod() {
-        return ClassOPeriod;
-    }
-
-    public void setClassOPeriod(String classOPeriod) {
-        ClassOPeriod = classOPeriod;
+    public void setClassTutorIntro(String classTutorIntro) {
+        ClassTutorIntro = classTutorIntro;
     }
 
     public String getClassIntro() {
@@ -147,39 +117,83 @@ public class AllClass { //클래스관련 전역변수모음 특정 클래스 �
         ClassIntro = classIntro;
     }
 
-    public JSONObject getClassReview() {
-        return ClassReview;
+    public String getClassContents() {
+        return ClassContents;
     }
 
-    public void JSONObject(JSONObject classReview) {
-        ClassReview = classReview;
+    public void setClassContents(String classContents) {
+        ClassContents = classContents;
     }
 
-    public AllClass(String className, String classTutorID, String classTuteeID, String classCategory,
-                    String classTotalPeople, String classCurrentPeople, String classRPeriod, String classOPeriod, String classIntro, JSONObject classReview) {
-        ClassName = className;
-        ClassTutorID = classTutorID;
-        ClassTuteeID = classTuteeID;
-        ClassCategory = classCategory;
-        ClassTotalPeople = classTotalPeople;
-        ClassCurrentPeople = classCurrentPeople;
-        ClassRPeriod = classRPeriod;
-        ClassOPeriod = classOPeriod;
-        ClassIntro = classIntro;
-        ClassReview = classReview;
-        try {
-            ReviewuserID = ClassReview.getString("userID");
-            ReviewContents = ClassReview.getString("Contents");
-            ReviewDate = ClassReview.getString("Date");
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-//        ClassReview = classReview;
-
-
+    public String getClassWhom() {
+        return ClassWhom;
     }
 
+    public void setClassWhom(String classWhom) {
+        ClassWhom = classWhom;
+    }
 
+    public String getClassPrice() {
+        return ClassPrice;
+    }
+
+    public void setClassPrice(String classPrice) {
+        ClassPrice = classPrice;
+    }
+
+    public String getClassHour() {
+        return ClassHour;
+    }
+
+    public void setClassHour(String classHour) {
+        ClassHour = classHour;
+    }
+
+    public String getClassNumberOfTime() {
+        return ClassNumberOfTime;
+    }
+
+    public void setClassNumberOfTime(String classNumberOfTime) {
+        ClassNumberOfTime = classNumberOfTime;
+    }
+
+    public String getClassPlace() {
+        return ClassPlace;
+    }
+
+    public void setClassPlace(String classPlace) {
+        ClassPlace = classPlace;
+    }
+
+    public String getClassPlaceDetail() {
+        return ClassPlaceDetail;
+    }
+
+    public void setClassPlaceDetail(String classPlaceDetail) {
+        ClassPlaceDetail = classPlaceDetail;
+    }
+
+    public String getClassWeek() {
+        return ClassWeek;
+    }
+
+    public void setClassWeek(String classWeek) {
+        ClassWeek = classWeek;
+    }
+
+    public String getClasstime() {
+        return Classtime;
+    }
+
+    public void setClasstime(String classtime) {
+        Classtime = classtime;
+    }
+
+    public String getClassFirstTime() {
+        return ClassFirstTime;
+    }
+
+    public void setClassFirstTime(String classFirstTime) {
+        ClassFirstTime = classFirstTime;
+    }
 }

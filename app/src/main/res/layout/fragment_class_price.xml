@@ -15,7 +15,7 @@
         android:layout_gravity="center"
         android:layout_margin="5dp"
         android:gravity="center"
-        android:text="4"
+        android:text="3"
         android:textSize="20dp"
         android:textColor="@color/gray"/>
     <TextView
@@ -24,7 +24,7 @@
         android:layout_gravity="center"
         android:layout_margin="5dp"
         android:gravity="center"
-        android:text="장소"
+        android:text="가격"
         android:textSize="15dp"
         android:textColor="@color/gray"/>
 
@@ -35,27 +35,7 @@
         android:layout_height="30dp"
         android:layout_margin="10dp"
         android:gravity="center|left"
-        android:text="장 소"
-        android:textColor="@color/black"
-        android:background="@color/white"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/border2"
-
-        android:text="수업개설지역을 선택해 주세요"
-        android:gravity="left|center"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_margin="10dp"
-        android:gravity="center|left"
-        android:text="상세 위치"
+        android:text="수강료"
         android:textColor="@color/black"
         android:background="@color/white"/>
 
@@ -66,7 +46,26 @@
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/border2"
-        android:hint="상세 위치"
+        android:hint="수강료입력"
+        android:gravity="left|center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
+        android:gravity="center|left"
+        android:text="회당 수업시간"
+        android:textColor="@color/black"
+        android:background="@color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/border2"
+        android:hint="회당 몇 시간"
         android:gravity="left|center"/>
 
 
@@ -75,69 +74,7 @@
         android:layout_height="30dp"
         android:layout_margin="10dp"
         android:gravity="center|left"
-        android:text="수업 요일"
-        android:textColor="@color/black"
-        android:background="@color/white"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:orientation="horizontal">
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/border2"
-            android:text="월"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/border2"
-            android:text="화"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/border2"
-            android:text="수"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/border2"
-            android:text="목"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/border2"
-            android:text="금"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/border2"
-            android:text="토"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/border2"
-            android:text="일"/>
-
-
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_margin="10dp"
-        android:gravity="center|left"
-        android:text="수업 시간"
+        android:text="수업 횟수"
         android:textColor="@color/black"
         android:background="@color/white"/>
 
@@ -149,23 +86,8 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/border2"
         android:gravity="left|center"
-        android:hint="10시~12시" />
+        android:hint="총 몇 회 수업" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_margin="10dp"
-        android:gravity="center|left"
-        android:text="첫 수업일"
-        android:textColor="@color/black"
-        android:background="@color/white"/>
-
-    <CalendarView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp">
-
-    </CalendarView>
 
 
 
@@ -193,7 +115,7 @@
             android:layout_height="40dp"
             android:layout_weight="1"
             android:layout_gravity="center"
-            android:text="완 료"
+            android:text="다 음"
             android:textColor="@color/white"
             android:background="@color/pink">
 

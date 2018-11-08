@@ -45,13 +45,34 @@ public class Mypage2Fragment extends Fragment {
         Button makeclass = (Button) mypage2fragment.findViewById(R.id.Mypage2_MakeClass); //클래스값받아오는버튼
         Button gotomypage = (Button) mypage2fragment.findViewById(R.id.Mypage2_Mypage); //마이페이지로가는버튼
 
+        Button tutorregister = mypage2fragment.findViewById(R.id.Mypage2_TutorRegister); // 튜터등록 버튼
+
         Button makereview = (Button) mypage2fragment.findViewById(R.id.Mypage2_MakeReview); //연습용 리뷰
+
+
+
+
+        tutorregister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // if문으로 튜티인지 튜터인지 확인 후 튜터이면 진행
+
+                Variable variable = Variable.getInstance();
+
+                Intent GoToTutorregisterintent = new Intent(((Main2Activity)Main2Activity.mContext), TutorRegisterActivity.class); // TutorRegisterActivity로 보내는 인텐트
+                ((Main2Activity)Main2Activity.mContext).startActivity(GoToTutorregisterintent);
+
+                //((Main2Activity)Main2Activity.mContext).overridePendingTransition(0, 0);  //화면전환효과 없애기
+                //getActivity().finish();  // 액티비티 삭제
+
+
+
+            }
+        });
 
         makereview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
 
                 // 이거 리뷰보내는거임
                 JSONObject postDataParam = new JSONObject();
@@ -89,49 +110,6 @@ public class Mypage2Fragment extends Fragment {
                 GoToMakeClassintent.putExtra("userID", "ABC");
                 ((Main2Activity)Main2Activity.mContext).overridePendingTransition(0, 0);  //화면전환효과 없애기
                 //getActivity().finish();  // 액티비티 삭제
-
-
-//
-//                JSONObject postDataParam = new JSONObject();
-//
-//                String ClassName = "이민영의 자바교실";
-//                String ClassTutorID = "ABC";
-//                String ClassTuteeID = null;
-//                String ClassCategory = "Programing";
-//                String ClassTotalPeople = "5";
-//                String ClassCurrentPeople = "0";
-//                String ClassRPeriod = "2018.10.8";
-//                String ClassOPeriod = "2018.12.31";
-//                String ClassScore = "4";
-//                String ClassIntro = "잘부탁합니다";
-//
-//                try {
-//                    postDataParam.put("userID", ClassName);
-//                    postDataParam.put("userPassword", ClassTutorID);
-//                    postDataParam.put("userCN", ClassTuteeID);
-//                    postDataParam.put("userName", ClassCategory);
-//                    postDataParam.put("ClassTotalPeople", ClassTotalPeople);
-//                    postDataParam.put("ClassCurrentPeople", ClassCurrentPeople);
-//                    postDataParam.put("ClassRPeriod", ClassRPeriod);
-//                    postDataParam.put("ClassOPeriod", ClassOPeriod);
-//                    postDataParam.put("ClassScore", ClassScore);
-//                    postDataParam.put("ClassIntro", ClassIntro);
-//                } catch (JSONException e) {
-//                    Log.e(TAG, "JSONEXception");
-//                }
-//
-//
-//                ((Main2Activity)getActivity()).switchFragment(4);
-//
-//
-//                new ClassDetailInsertData((Main2Activity)getActivity()).execute(postDataParam); //나중에 클래스 디테일
-
-
-
-
-
-
-
 
             }
         });
