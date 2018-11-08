@@ -30,7 +30,8 @@
         <activity android:name=".Main2Activity" />
         <activity android:name=".MemberModifyActivity" />
         <activity android:name=".ClassDetail" />
-        <activity android:name=".MakeClassActivity"></activity>
+        <activity android:name=".MakeClassActivity" />
+        <activity android:name=".TutorRegisterActivity"></activity>
     </application>
 
 </manifest>

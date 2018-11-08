@@ -57,9 +57,10 @@
             >
 
             <Button
+                android:id="@+id/mypage2_TutorRegister"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:text="수강중인 강의 보기"
+                android:text="튜터 등록하기"
                 >
 
             </Button>
@@ -98,7 +99,7 @@
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
                 android:gravity="left|center"
-                android:text="튜터 신청"
+                android:text="수강중인 강의 보기"
                 android:textColor="@color/black" />
 
             <Button

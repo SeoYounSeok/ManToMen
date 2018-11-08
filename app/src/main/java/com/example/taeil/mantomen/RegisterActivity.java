@@ -98,14 +98,13 @@ public class RegisterActivity extends AppCompatActivity {
                     } else if(userEmail.contains("@")){
                         postDataParam.put("userEmail", userEmail);
                         Log.e(TAG, userEmail);
+                        new AuthInsertData(RegisterActivity.this).execute(postDataParam);
                     }
 
 
                 } catch (JSONException e) {
                     Log.e(TAG, "JSONEXception");
                 }
-
-                new AuthInsertData(RegisterActivity.this).execute(postDataParam);
 
             }
         });
@@ -115,9 +114,6 @@ public class RegisterActivity extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-
 
                 String userID = IDText.getText().toString();   //ID텍스트의 문자열을 반환 받는값
                 String userPassword = PWText.getText().toString();
@@ -140,10 +136,6 @@ public class RegisterActivity extends AppCompatActivity {
                     userCategory += "Beauty//";
                 if (Checkbox6.isChecked())
                     userCategory += "Etc//";
-                if(userID == null || userPassword == null || userName == null || userAge == null || userGender == null){
-
-                }
-
 
 //                for(int i=0; i<6; i++){ //모든값을 공백
 //                    userCategory[i] = "";
@@ -156,31 +148,42 @@ public class RegisterActivity extends AppCompatActivity {
 
                 JSONObject postDataParam = new JSONObject();
 
-
-                try {
-                    postDataParam.put("userID", userID);
-                    postDataParam.put("userPassword", userPassword);
-                    postDataParam.put("userEmail", userEmail);
-                    postDataParam.put("userName", userName);
-                    postDataParam.put("userAge", userAge);
-                    postDataParam.put("userGender", userGender);
-                    postDataParam.put("userCategory", userCategory);
-                    postDataParam.put("userIdentity", userIdentity);
-                    postDataParam.put("userParticipateClass", userParticipateClass);
-                    postDataParam.put("userOperateClass", userOperateClass);
-                } catch (JSONException e) {
-                    Log.e(TAG, "JSONEXception");
-                }
-
-
-
-                if(AuthFlag){  // 인증통과를 했다는 의미
-                    new RegisterInsertData(RegisterActivity.this).execute(postDataParam);
-                }
-                else{
-                    Toast.makeText(RegisterActivity.this, "이메일 인증을 해주세요.",
+                if(userID == null || userPassword == null || userName == null || userAge == null || userGender == null || userCategory==null){
+                    Toast.makeText(RegisterActivity.this, "값을 다 입력해 주세요",
                             Toast.LENGTH_LONG).show();
+                } else{
+                    try {
+                        postDataParam.put("userID", userID);
+                        postDataParam.put("userPassword", userPassword);
+                        postDataParam.put("userEmail", userEmail);
+                        postDataParam.put("userName", userName);
+                        postDataParam.put("userAge", userAge);
+                        postDataParam.put("userGender", userGender);
+                        postDataParam.put("userCategory", userCategory);
+                        postDataParam.put("userIdentity", userIdentity);
+                        postDataParam.put("userParticipateClass", userParticipateClass);
+                        postDataParam.put("userOperateClass", userOperateClass);
+                    } catch (JSONException e) {
+                        Log.e(TAG, "JSONEXception");
+                    }
+
+                    if(AuthFlag){  // 인증통과를 했다는 의미
+                        new RegisterInsertData(RegisterActivity.this).execute(postDataParam);
+                        AuthFlag = false;
+                    }
+                    else{
+                        Toast.makeText(RegisterActivity.this, "이메일 인증을 해주세요.",
+                                Toast.LENGTH_LONG).show();
+                    }
+
                 }
+
+
+
+
+
+
+
             }
         });
 

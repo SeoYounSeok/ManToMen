@@ -65,59 +65,6 @@ public class LoginActivity extends AppCompatActivity {
                 Log.d("리뷰","실행되나?");
 
                 overridePendingTransition(0, 0);  //화면전환효과 없애기
-
-//                LoginActivity.this.startActivity(GoToMainintent);
-//                GoToMainintent.putExtra("userID", userID);
-//                overridePendingTransition(0, 0);  //화면전환효과 없애기
-
-
-//                if (userID.equals(master)) {
-////                    Intent GoToMainintent = new Intent(LoginActivity.this, Main2Activity.class); //메인액티비티로 보내는 인텐트
-//                    LoginActivity.this.startActivity(GoToMainintent);
-//                    GoToMainintent.putExtra("userID", userID);
-//                    overridePendingTransition(0, 0);  //화면전환효과 없애기
-//                }  //마스터 아이디로 로그인할시
-
-
-//                Response.Listener<String> responseListener = new Response.Listener<String>() {
-//
-//                    @Override
-//                    public void onResponse(String response) {
-//                        try {
-//                            JSONObject jsonResponse = new JSONObject(response);
-//                            boolean success = jsonResponse.getBoolean("success");
-//                            Toast.makeText(getApplicationContext(), "success" + success, Toast.LENGTH_SHORT).show();
-////                            Toast.makeText(getApplicationContext(), "ID"+IDText, Toast.LENGTH_SHORT).show();
-////                            Toast.makeText(getApplicationContext(), "PW"+PWText, Toast.LENGTH_SHORT).show();
-//
-//                            if (success) {
-//                                String userID = jsonResponse.getString("userID");
-//                                String userPassword = jsonResponse.getString("userPassword");
-//                                String userName = jsonResponse.getString("userName");
-//                                Intent GoToMainintent = new Intent(LoginActivity.this, Main2Activity.class); //메인액티비티로 보내는 인텐트
-//                                GoToMainintent.putExtra("userID", userID);
-//                                GoToMainintent.putExtra("userPassword", userPassword);
-//                                GoToMainintent.putExtra("userName", userName);
-//                                LoginActivity.this.startActivity(GoToMainintent);
-//                            } else {
-//                                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-//                                builder.setMessage("로그인에 실패하였습니다.")
-//                                        .setNegativeButton("다시 시도", null)
-//                                        .create()
-//                                        .show();
-//                            }
-//
-//                        } catch (Exception e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-//                };
-//                LoginRequest loginRequest = new LoginRequest(userID, userPassword, responseListener);
-//                RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
-//                queue.add(loginRequest);
-
-
-
             }
 
         });

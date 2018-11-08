@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TutorIntroFragment"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/circle"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="2"
+        android:textSize="20dp"
+        android:textColor="@color/gray"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="강의 소개"
+        android:textSize="15dp"
+        android:textColor="@color/gray"/>
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
+        android:gravity="center|left"
+        android:text="튜터 소개"
+        android:textColor="@color/black"
+        android:background="@color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/border2"
+         />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
+        android:gravity="center|left"
+        android:text="수업소개"
+        android:textColor="@color/black"
+        android:background="@color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/border2"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
+        android:gravity="center|left"
+        android:text="수업내용(커리큘럼)"
+        android:textColor="@color/black"
+        android:background="@color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/border2"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
+        android:gravity="center|left"
+        android:text="수업 대상"
+        android:textColor="@color/black"
+        android:background="@color/white"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/border2"
+        />
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@color/brightgray">
+        <Button
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:text="이 전"
+            android:textColor="@color/gray"
+            android:background="@drawable/border2">
+
+        </Button>
+
+        <Button
+            android:layout_marginRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:text="다 음"
+            android:textColor="@color/white"
+            android:background="@color/pink">
+
+        </Button>
+
+
+    </LinearLayout>
+
+</LinearLayout>
