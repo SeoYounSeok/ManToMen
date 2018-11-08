@@ -7,16 +7,27 @@ import java.util.ArrayList;
 
 public class AllClass { //클래스관련 전역변수모음 특정 클래스 하나를 위한거
 
-    String ClassName;
-    String ClassTutorID;
-    String ClassTuteeID;
-    String ClassCategory;
-    String ClassTotalPeople;
-    String ClassCurrentPeople;
-    String ClassRPeriod;
-    String ClassOPeriod;
-    String ClassIntro;
+    String ClassPicture; // 강의이미지
+    String ClassName;  // 강의제목
+    String ClassTutorID; // 튜터아이디
+    String ClassCategory; //카테고리
+    String ClassTotalPeople;  // 모집인원
+    String ClassCurrentPeople; // 현재인원
+    String ClassTutorIntro; // 튜터소개
+    String ClassIntro; // 강의소개
+    String ClassContents; // 수업내용(커리큘럼)
+    String ClassWhom; // 수업대상
+    String ClassPrice; // 수강료
+    String ClassHour; // 1회에 몇시간씩
+    String ClassNumberOfTime; // 몇 회
+    String ClassPlace; // 수업 장소
+    String ClassPlaceDetail; //상세위치
+    String ClassWeek; // 수업 요일
+    String Classtime; // 수업 시간
+    String ClassFirstTime; // 첫 수업일
 
+
+    String ClassTuteeID; //따로 빼고
     //   String ClassReview;
 
 
