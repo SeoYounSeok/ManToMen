@@ -1,6 +1,8 @@
 package com.example.taeil.mantomen;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -8,14 +10,21 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 public class AllClassListAdapter extends BaseAdapter{
+
+    private LayoutInflater inflate;
+    private RecyclerView.ViewHolder viewHolder;
 
     private Context context;
     private List<AllClass> AllClass;
 
     public AllClassListAdapter(Context context, List<AllClass> AllClass){
+        // 메인에서 데이터 리스트를 넘겨받음
+
         this.context = context;
         this.AllClass = AllClass;
     }
@@ -74,4 +83,7 @@ public class AllClassListAdapter extends BaseAdapter{
 
         return v;
     }
+
+
+
 }
