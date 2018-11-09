@@ -39,15 +39,26 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
 
        LinearLayout homefragment = (LinearLayout) inflater.inflate(R.layout.fragment_home, container, false); //밑에 주석처리는 리스트뷰 처리 이건 수정요망
-//        ListView fitlistView = (ListView) homefragment.findViewById(R.id.Fitlistview) ;
-//
-//        variableOfClass.getInstance();
-//
-//        List<AllClass> AllClassList= new ArrayList<AllClass>();  //리스트뷰와 어댑터 초기화
-//
-//        AllClassList = variableOfClass.getAllClass();  //저장된 컬랙션호출
-//
-//        fitlistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+       ListView fitlistView = (ListView) homefragment.findViewById(R.id.Fitlistview) ;
+
+        variableOfClass.getInstance();
+
+
+        if (variableOfClass.getAllClass() == null){
+
+        }else{
+            List<AllClass> AllClassList= new ArrayList<AllClass>();  //리스트뷰와 어댑터 초기화
+            AllClassList = variableOfClass.getAllClass();  //저장된 컬랙션호출
+
+            AllClassListAdapter allClassListAdapter = new AllClassListAdapter(getActivity(), AllClassList);
+            fitlistView.setAdapter(allClassListAdapter);
+            //리스트뷰를 펼치기위해 높이를 설정한 메서드를 실행한것
+            listViewHeightSet(allClassListAdapter, fitlistView);
+
+        }
+
+
+//        fitlistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {     // 클래스 상세 정보 요건 나중에 삭제 xx
 //            @Override
 //            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //                Main2Activity.mContext = getActivity();
@@ -62,12 +73,9 @@ public class HomeFragment extends Fragment {
 //
 //            }
 //        });
-//
-//
-//        AllClassListAdapter allClassListAdapter = new AllClassListAdapter(getActivity(), AllClassList);
-//        fitlistView.setAdapter(allClassListAdapter);
-//        //리스트뷰를 펼치기위해 높이를 설정한 메서드를 실행한것
-//        listViewHeightSet(allClassListAdapter, fitlistView);
+
+
+
 
         return homefragment;
     }

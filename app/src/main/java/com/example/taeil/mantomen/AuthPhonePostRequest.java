@@ -19,11 +19,13 @@ import java.util.Iterator;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class TutorRegisterPostRequest extends AsyncTask<JSONObject, Void, String> {
+public class AuthPhonePostRequest extends AsyncTask<JSONObject, Void, String> {
     Activity activity;
     URL url;
+    Variable variable = Variable.getInstance();
+    VariableOfClass variableOfClass = VariableOfClass.getInstance();
 
-    public TutorRegisterPostRequest(Activity activity) {
+    public AuthPhonePostRequest(Activity activity) {
         this.activity = activity;
     }
 
@@ -84,23 +86,35 @@ public class TutorRegisterPostRequest extends AsyncTask<JSONObject, Void, String
 
         super.onPostExecute(result);
         String temp;
-        String message1 = "신청실패";
-        String message2 = "신청완료";
+        String message1 = "인증실패";
+        String message2 = "인증성공";
         temp = result.trim();
 
 
-        if (temp == null || temp.equals("0")){
+        String SB = temp; //일단 String버퍼를 스트링 형식으로 변형
+
+
+        if (temp == null) {
             Toast.makeText(activity, message1,
                     Toast.LENGTH_LONG).show();
             return;
-        }
-
-        else if(temp.equals("1")){
+        } else if (temp.equals("0")) {
+            Toast.makeText(activity, "중복된 아이디입니다..",
+                    Toast.LENGTH_LONG).show();
+            variable.setAuthnumber("9999");
+            return;
+        } else { // 비밀번호가 왔어염
+            int index = SB.indexOf(":"); // :로자르고
+            String AuthNumber;
+            AuthNumber = SB.substring(index + 1, SB.length() - 1);
+            variable.setAuthnumber(AuthNumber);
             Toast.makeText(activity, message2,
                     Toast.LENGTH_LONG).show();
-            activity.finish();
+            Log.e("phoneAuth", AuthNumber);  // 난수 확인용
 
         }
+        Log.e("phoneAuth", temp);  // 난수 확인용
+
         Toast.makeText(activity, temp,
                 Toast.LENGTH_LONG).show();
 

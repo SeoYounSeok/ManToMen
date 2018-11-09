@@ -28,25 +28,47 @@
         android:textColor="@color/gray"/>
 
 
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_margin="10dp"
-        android:gravity="center|left"
-        android:text="튜터 소개"
-        android:textColor="@color/black"
-        android:background="@color/white"/>
-
-    <EditText
-        android:id="@+id/TutorRegister2_TutorIntro"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="55dp"
+        android:orientation="vertical"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/border2"
-         />
+        android:layout_marginBottom="3dp"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="bottom|left"
+            android:text="튜터 소개"
+            android:textSize="17dp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="3dp"
+        android:background="@drawable/border2">
+        <EditText
+            android:id="@+id/TutorRegister2_TutorIntro"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:gravity="top"
+            android:hint="튜터 소개"
+            android:textSize="17dp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
+    </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
@@ -61,9 +83,7 @@
         android:id="@+id/TutorRegister2_ClassIntro"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_margin="10dp"
         android:background="@drawable/border2"
         />
 

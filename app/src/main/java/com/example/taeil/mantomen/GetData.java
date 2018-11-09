@@ -47,12 +47,18 @@ public class GetData extends GetRequest {
         if (jsonString == null) //받아온값이 없으면 리턴
             return;
 
-        ArrayList<AllClass> arrayList = getArrayListFromJSONString(jsonString); //전체를 저장해야하니까
+        else if(jsonString.trim().equals("0")){
+            return;
+        }
 
-        variableOfClass.setAllClass(arrayList);  //
+        else{
+            ArrayList<AllClass> arrayList = getArrayListFromJSONString(jsonString); //전체를 저장해야하니까
+            variableOfClass.setAllClass(arrayList);  //
+            Log.d("어레이", arrayList.get(0).getClassCategory());
+
+        }
 
 
-        Log.d("어레이", arrayList.get(0).getClassCategory());
 
 
         //어레이리스트 각각 칸에는 클래스에대한 정보가 들어있음
@@ -86,6 +92,7 @@ public class GetData extends GetRequest {
                         new AllClass(jsonObject.getString("ClassPicture"),   //이건 결국 클래스 하나의 정보밖에 받지 못함
                                 jsonObject.getString("ClassName"),
                                 jsonObject.getString("ClassTutorID"),
+                                jsonObject.getString("ClassTuteeID"),
                                 jsonObject.getString("ClassCategory"),
                                 jsonObject.getString("ClassTotalPeople"),
                                 jsonObject.getString("ClassCurrentPeople"),
@@ -99,8 +106,10 @@ public class GetData extends GetRequest {
                                 jsonObject.getString("ClassPlace"),
                                 jsonObject.getString("ClassPlaceDetail"),
                                 jsonObject.getString("ClassWeek"),
-                                jsonObject.getString("Classtime"),
-                                jsonObject.getString("ClassFirstTime")
+                                jsonObject.getString("ClassTime"),
+                                jsonObject.getString("ClassFirstTime"),
+                                jsonObject.getString("ClassIdentity"),
+                                jsonObject.getString("ClassScore")
                                 // 제일중요
                                 //리뷰는 잠깐 뺐음 json오브젝트라 이거 전역으로 뺄까??
                         );

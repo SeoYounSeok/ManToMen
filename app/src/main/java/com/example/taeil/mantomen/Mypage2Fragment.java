@@ -48,12 +48,7 @@ public class Mypage2Fragment extends Fragment {
         Button makeclass = (Button) mypage2fragment.findViewById(R.id.Mypage2_MakeClass); //클래스값받아오는버튼
         Button gotomypage = (Button) mypage2fragment.findViewById(R.id.Mypage2_Mypage); //마이페이지로가는버튼
         Button tutorregister = mypage2fragment.findViewById(R.id.Mypage2_TutorRegister); // 튜터등록 버튼
-        Button makereview = (Button) mypage2fragment.findViewById(R.id.Mypage2_MakeReview); //연습용 리뷰
-
-        LinearLayout necessaryInfofragment = (LinearLayout) inflater.inflate(R.layout.fragment_necessary_info, container, false);
-        final TextView tutorID = necessaryInfofragment.findViewById(R.id.TutorRegister0_ID);
-        tutorID.setText(variable.getUserID());
-
+        Button makereview = (Button) mypage2fragment.findViewById(R.id.Mypage2_MakeReview); //연습용 리
 
 
 
@@ -68,10 +63,6 @@ public class Mypage2Fragment extends Fragment {
                 Intent GoToTutorregisterintent = new Intent(((Main2Activity)Main2Activity.mContext), TutorRegisterActivity.class); // TutorRegisterActivity로 보내는 인텐트
                 ((Main2Activity)Main2Activity.mContext).startActivity(GoToTutorregisterintent);
 
-
-
-                tutorID.setText(variable.getUserName());
-                Log.d("오류",variable.getUserName());
 
             }
         });

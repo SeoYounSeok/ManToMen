@@ -66,7 +66,7 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
                 case R.id.navigation_home:
                     switchFragment(0);  //홈버튼이 눌리면 0전송
 
-                    //new GetData(Main2Activity.this).execute(); // 홈누르면 ㅇㅋ? ㅋ_ㅋ 잠시 꺼놔야함 ; 중요부분
+                    new GetData(Main2Activity.this).execute(); // 홈누르면 ㅇㅋ? ㅋ_ㅋ 잠시 꺼놔야함 ; 중요부분
 
                     //navigationImageview.setVisibility(View.INVISIBLE);
                     return true;
@@ -106,6 +106,7 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
         super.onCreate(savedInstanceState);
         mActivity = Main2Activity.this;  //다른곳에서 이 액티비티를 끄기위해 지정
         setContentView(R.layout.activity_main2);
+
 
         //navigationImageview = (ImageView)findViewById(R.id.);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);

@@ -8,6 +8,7 @@
     android:orientation="vertical"
     android:background="@color/white">
 
+
     <TextView
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -28,75 +29,162 @@
         android:textSize="15dp"
         android:textColor="@color/gray"/>
 
-
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_margin="10dp"
-        android:gravity="center|left"
-        android:text="수업 제목"
-        android:textColor="@color/black"
-        android:background="@color/white"/>
-
-    <EditText
-        android:id="@+id/TutorRegister1_ClassName"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="55dp"
+        android:orientation="vertical"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/border2"
-        android:hint="수업 제목입력" />
+        android:layout_marginBottom="3dp"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="bottom|left"
+            android:text="수업 제목"
+            android:textSize="17dp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_margin="10dp"
-        android:gravity="center|left"
-        android:text="카테고리"
-        android:textColor="@color/black"
-        android:background="@color/white"/>
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/TutorRegister1_ClassCategory"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/border2"
-        android:text="카테고리선택"
-        android:gravity="left|center"/>
+        android:layout_marginBottom="3dp"
+        android:orientation="vertical"
+        android:background="@drawable/border2">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_margin="10dp"
-        android:gravity="center|left"
-        android:text="모집인원"
-        android:textColor="@color/black"
-        android:background="@color/white"/>
+        <EditText
+            android:id="@+id/TutorRegister1_ClassName"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="8dp"
+            android:background="@color/white"
+            android:hint="수업 제목입력"
+            android:textSize="15dp" />
+    </LinearLayout>
 
-    <EditText
-        android:id="@+id/TutorRegister1_ClassTotalPeople"
+
+
+
+
+
+
+
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="55dp"
+        android:orientation="vertical"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/border2"
-        android:hint="     명"
-        android:gravity="left|center"/>
+        android:layout_marginBottom="3dp"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="bottom|left"
+            android:text="카테고리"
+            android:textSize="17dp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
 
-    <TextView
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_margin="10dp"
-        android:gravity="center|left"
-        android:text="강의사진"
-        android:textColor="@color/black"
-        android:background="@color/white"/>
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="3dp"
+        android:orientation="horizontal"
+        android:background="@drawable/border2">
+
+        <Spinner
+            android:id="@+id/TutorRegister1_ClassCategory"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="8dp"
+            android:background="@color/white"
+            android:textSize="15dp"
+            android:entries="@array/number"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="3dp"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="bottom|left"
+            android:text="모집 인원"
+            android:textSize="17dp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="3dp"
+        android:orientation="vertical"
+        android:background="@drawable/border2">
+
+        <EditText
+            android:id="@+id/TutorRegister1_ClassTotalPeople"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_margin="8dp"
+            android:background="@color/white"
+            android:hint="모집인원을 입력하세요"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="3dp"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="bottom|left"
+            android:text="강의 사진"
+            android:textSize="17dp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
+
+    </LinearLayout>
+
 
     <ImageView
         android:id="@+id/TutorRegister1_ClassPicture"

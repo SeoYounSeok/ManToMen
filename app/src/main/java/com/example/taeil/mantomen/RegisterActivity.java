@@ -141,10 +141,10 @@ public class RegisterActivity extends AppCompatActivity {
 //                    userCategory[i] = "";
 //                }
 
-                Variable.setUserIdentity("Tuti");
-                String userIdentity = Variable.getUserIdentity();
-                String userParticipateClass = "Null";
-                String userOperateClass = "Null";
+                //Variable.setUserIdentity("Tutee");
+                //String userIdentity = Variable.getUserIdentity();
+                //String userParticipateClass = "Null";
+                //String userOperateClass = "Null";
 
                 JSONObject postDataParam = new JSONObject();
 
@@ -160,9 +160,9 @@ public class RegisterActivity extends AppCompatActivity {
                         postDataParam.put("userAge", userAge);
                         postDataParam.put("userGender", userGender);
                         postDataParam.put("userCategory", userCategory);
-                        postDataParam.put("userIdentity", userIdentity);
-                        postDataParam.put("userParticipateClass", userParticipateClass);
-                        postDataParam.put("userOperateClass", userOperateClass);
+                        //postDataParam.put("userIdentity", userIdentity);
+                        //postDataParam.put("userParticipateClass", userParticipateClass);
+                        //postDataParam.put("userOperateClass", userOperateClass);
                     } catch (JSONException e) {
                         Log.e(TAG, "JSONEXception");
                     }

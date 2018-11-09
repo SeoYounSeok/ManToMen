@@ -26,6 +26,7 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
     URL url;
 
     Variable variable;
+
     public LoginPostRequest(Activity activity) {
         this.activity = activity;
     }
@@ -77,7 +78,7 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
 
 
                 in.close();
-                if(!sb.toString().trim().equals(0))
+                if (!sb.toString().trim().equals("0"))
                     SbExtraction(sb); // 스트링버퍼를 추출해서 세팅해줌
                 return sb.toString(); //서버로 부터 받은 값을 리턴해줌 아마 OK!!가 들어올것임
 
@@ -95,12 +96,13 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
 //          Toast.makeText(activity, result,
 //                Toast.LENGTH_LONG).show();
         super.onPostExecute(result);
+        Log.d("파람스", result);
         variable = Variable.getInstance();
         String temp;
         String message1 = "아이디와 비밀번호를 확인해주세요";
         String message2 = "로그인성공";
         temp = result.trim();
-        Log.d("오류",temp);
+        Log.d("오류", temp);
 
         if (temp == null || temp.equals("0")) {
             Toast.makeText(activity, message1,
@@ -144,8 +146,8 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
             if (key.equals("userPassword"))
                 variable.setUserPassword(value.toString());
             if (key.equals("userEmail")) {
-                //variable.setUserEmail(value.toString());   // 이메일 부분임 수정필요
-                variable.setUserEmail("수정필요한 이메일");   // 이메일 부분임 수정필요
+                variable.setUserEmail(value.toString());   // 이메일 부분임 수정필요
+                //variable.setUserEmail("수정필요한 이메일");   // 이메일 부분임 수정필요
             }
             if (key.equals("userGender"))
                 variable.setUserGender(value.toString());
@@ -160,6 +162,8 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
             if (key.equals("userParticipateClass"))
                 variable.setUserParticipateClass(value.toString());
             if (key.equals("userOperateClass"))
+                variable.setUserOperateClass(value.toString());
+            if (key.equals("userPhoneNumber"))
                 variable.setUserOperateClass(value.toString());
 
 
@@ -187,7 +191,7 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
 
         for (int i = 0; i < userData.length; i++) { //
             int idx = userData[i].indexOf(":");
-            userValue[i] = userData[i].substring(idx + 2,userData[i].length()-1);
+            userValue[i] = userData[i].substring(idx + 2, userData[i].length() - 1);
             //userValue[i].replace("\"", ""); //처음이랑 마지막꺼는 버려야함 이상한 값임
         }
 
@@ -201,9 +205,10 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
         variable.setUserIdentity(userValue[8]);
         variable.setUserParticipateClass(userValue[9]);
         variable.setUserOperateClass(userValue[10]);
+        variable.setUserPhoneNumber(userValue[11]);
 
 
-            Log.e("추출", variable.getUserCategory());
+        Log.e("추출", variable.getUserCategory());
 
     }
 

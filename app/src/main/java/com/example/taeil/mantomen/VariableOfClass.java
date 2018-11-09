@@ -8,26 +8,30 @@ public class VariableOfClass { //클래스관련 전역변수모음 특정 클�
 
     private static VariableOfClass variableofclass;
 
-    private static String ClassPicture; // 강의이미지
-    private static String ClassName;  // 강의제목
-    private static String ClassTutorID; // 튜터아이디
-    private static String ClassCategory; //카테고리
-    private static String ClassTotalPeople;  // 모집인원
-    private static String ClassCurrentPeople; // 현재인원
-    private static String ClassTutorIntro; // 튜터소개
-    private static String ClassIntro; // 강의소개
-    private static String ClassContents; // 수업내용(커리큘럼)
-    private static String ClassWhom; // 수업대상
-    private static String ClassPrice; // 수강료
-    private static String ClassHour; // 1회에 몇시간씩
-    private static String ClassNumberOfTime; // 몇 회
-    private static String ClassPlace; // 수업 장소
-    private static String ClassPlaceDetail; //상세위치
-    private static String ClassWeek; // 수업 요일
-    private static String ClassTime; // 수업 시간
-    private static String ClassFirstTime; // 첫 수업일
+    private static String ClassPicture = null; // 강의이미지
+    private static String ClassName = null;  // 강의제목
+    private static String ClassTutorID = null; // 튜터아이디
+    private static String ClassTuteeID = null; // 튜티아이디들
+    private static String ClassCategory = null; //카테고리
+    private static String ClassTotalPeople = null;  // 모집인원
+    private static String ClassCurrentPeople = null; // 현재인원
+    private static String ClassTutorIntro = null; // 튜터소개
+    private static String ClassIntro = null; // 강의소개
+    private static String ClassContents = null; // 수업내용(커리큘럼)
+    private static String ClassWhom = null; // 수업대상
+    private static String ClassPrice = null; // 수강료
+    private static String ClassHour = null; // 1회에 몇시간씩
+    private static String ClassNumberOfTime = null; // 몇 회
+    private static String ClassPlace = null; // 수업 장소
+    private static String ClassPlaceDetail = null; //상세위치
+    private static String ClassWeek = null; // 수업 요일
+    private static String ClassTime = null; // 수업 시간
+    private static String ClassFirstTime = null; // 첫 수업일
+    private static String ClassIdentity = null;
+    private static String ClassScore = null;  // 강의 평점
 
-    private static ArrayList<AllClass> allClass;
+    private static ArrayList<AllClass> allClass = null;
+
     public static ArrayList<AllClass> getAllClass() {
         return allClass;
     }
@@ -47,10 +51,33 @@ public class VariableOfClass { //클래스관련 전역변수모음 특정 클�
     }
 
 
-    public static VariableOfClass getInstance(){
+    public static VariableOfClass getInstance() {
         return variableofclass;
     }
 
+    public static String getClassIdentity() {
+        return ClassIdentity;
+    }
+
+    public static void setClassIdentity(String classIdentity) {
+        ClassIdentity = classIdentity;
+    }
+
+    public static String getClassScore() {
+        return ClassScore;
+    }
+
+    public static void setClassScore(String classScore) {
+        ClassScore = classScore;
+    }
+
+    public static String getClassTuteeID() {
+        return ClassTuteeID;
+    }
+
+    public static void setClassTuteeID(String classTuteeID) {
+        ClassTuteeID = classTuteeID;
+    }
 
     public static String getClassPicture() {
         return ClassPicture;

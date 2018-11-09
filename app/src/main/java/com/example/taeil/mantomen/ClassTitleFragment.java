@@ -7,10 +7,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 
@@ -40,14 +42,26 @@ public class ClassTitleFragment extends Fragment {
         final Button nextbutton = classtitlefragment.findViewById(R.id.TutorRegister1_Next); // 다음
         final EditText ClassName = classtitlefragment.findViewById(R.id.TutorRegister1_ClassName);
         final ImageView ClassPicture = classtitlefragment.findViewById(R.id.TutorRegister1_ClassPicture);
-        final Button ClassCategory = classtitlefragment.findViewById(R.id.TutorRegister1_ClassCategory);  // 버튼을 누를 때 다이얼로그창이 뜨면서 카테고리선택
+        final Spinner ClassCategory = classtitlefragment.findViewById(R.id.TutorRegister1_ClassCategory);  // 스피너 누를 때 다이얼로그창이 뜨면서 카테고리선택
         final EditText ClassTotalPeople = classtitlefragment.findViewById(R.id.TutorRegister1_ClassTotalPeople);
 
+
+        ClassCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         previousbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((TutorRegisterActivity)getActivity()).switchFragment(1);  // 프래그먼트 교체
+                ((TutorRegisterActivity)getActivity()).switchFragment(0);  // 프래그먼트 교체
             }
         });
 
@@ -58,10 +72,10 @@ public class ClassTitleFragment extends Fragment {
 
                 variableOfClass.setClassName(ClassName.getText().toString());
                 // variableOfClass.setClassName(ClassPicture.getText().toString());  // 사진은 임의의 사진 일단 스트링으로 보냄시험삼아
-                variableOfClass.setClassName("시험사진");
-                variableOfClass.setClassName(ClassCategory.getText().toString());
-                variableOfClass.setClassName("Programing");
-                variableOfClass.setClassName(ClassTotalPeople.getText().toString());
+                variableOfClass.setClassPicture("시험사진");
+                //variableOfClass.setClassCategory(ClassCategory.getText().toString());
+                variableOfClass.setClassCategory("Programing");
+                variableOfClass.setClassTotalPeople(ClassTotalPeople.getText().toString());
                 ((TutorRegisterActivity)getActivity()).switchFragment(2);  // 프래그먼트 교체
 
             }

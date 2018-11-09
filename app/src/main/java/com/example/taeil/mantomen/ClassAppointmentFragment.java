@@ -1,7 +1,6 @@
 package com.example.taeil.mantomen;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -11,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -19,6 +17,8 @@ import org.json.JSONObject;
 
 public class ClassAppointmentFragment extends Fragment {
 
+
+    Variable variable = Variable.getInstance();
     VariableOfClass variableOfClass = VariableOfClass.getInstance();
 
     final static String TAG = "AndroidNodeJS";
@@ -44,7 +44,7 @@ public class ClassAppointmentFragment extends Fragment {
         Button completebutton = classappointmentfragment.findViewById(R.id.TutorRegister4_Complete); // 완료버튼을 누르면 자료 보내기
 
 
-        final EditText ClassPlace = classappointmentfragment.findViewById(R.id.TutorRegister4_ClassPlace);
+        final Button ClassPlace = classappointmentfragment.findViewById(R.id.TutorRegister4_ClassPlace);
         final EditText ClassPlaceDetail = classappointmentfragment.findViewById(R.id.TutorRegister4_ClassPlaceDetail);
         final Button ClassWeek1 = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek1);
         final Button ClassWeek2 = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek2);
@@ -70,7 +70,7 @@ public class ClassAppointmentFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                variableOfClass.setClassPlace(ClassPlace.getText().toString());
+                variableOfClass.setClassPlace("서울");
                 variableOfClass.setClassPlaceDetail(ClassPlaceDetail.getText().toString());
                 variableOfClass.setClassWeek("월");  // 임의로 정해둠
                 variableOfClass.setClassTime(ClassTime.getText().toString());
@@ -80,31 +80,30 @@ public class ClassAppointmentFragment extends Fragment {
                 JSONObject postDataParam = new JSONObject();
 
                 try {
-
-
 //                        Toast.makeText(RegisterActivity.this, "이메일형식을 입력해 주세요",
 //                                Toast.LENGTH_LONG).show();
 
-                    postDataParam.put("ClassPicture",variableOfClass.getClassPicture());
-                    postDataParam.put("ClassName",variableOfClass.getClassPicture());
-                    postDataParam.put("ClassTutorID",variableOfClass.getClassPicture());
-                    postDataParam.put("ClassCategory",variableOfClass.getClassPicture());
-                    postDataParam.put("ClassTotalPeople",variableOfClass.getClassPicture());
-                    postDataParam.put("ClassCurrentPeople",variableOfClass.getClassPicture());
-                    postDataParam.put("ClassTutorIntro",variableOfClass.getClassPicture());
-                    postDataParam.put("ClassIntro",variableOfClass.getClassPicture());
-                    postDataParam.put("ClassContents",variableOfClass.getClassPicture());
-                    postDataParam.put("ClassWhom",variableOfClass.getClassPicture());
-                    postDataParam.put("ClassPrice",variableOfClass.getClassPicture());
-                    postDataParam.put("ClassHour",variableOfClass.getClassPicture());
-                    postDataParam.put("ClassNumberOfTime",variableOfClass.getClassPicture());
-                    postDataParam.put("ClassPlace",variableOfClass.getClassPicture());
-                    postDataParam.put("ClassPlaceDetail",variableOfClass.getClassPicture());
-                    postDataParam.put("ClassWeek",variableOfClass.getClassPicture());
-                    postDataParam.put("ClassTime",variableOfClass.getClassPicture());
-                    postDataParam.put("ClassPlaceDetail",variableOfClass.getClassPicture());
-                    postDataParam.put("ClassFirstTime",variableOfClass.getClassPicture());
 
+                    // postDataParam.put("ClassPicture",variableOfClass.getClassPicture());
+                    postDataParam.put("ClassName",variableOfClass.getClassName());
+                    postDataParam.put("ClassTutorID",variableOfClass.getClassTutorID());
+                    postDataParam.put("ClassCategory",variableOfClass.getClassCategory());
+                    postDataParam.put("ClassTotalPeople",variableOfClass.getClassTotalPeople());
+                    //postDataParam.put("ClassCurrentPeople",variableOfClass.getClassCurrentPeople());
+
+                    postDataParam.put("ClassTutorIntro",variableOfClass.getClassTutorIntro());
+                    postDataParam.put("ClassIntro",variableOfClass.getClassIntro());
+                    postDataParam.put("ClassContents",variableOfClass.getClassContents());
+                    postDataParam.put("ClassWhom",variableOfClass.getClassWhom());
+                    postDataParam.put("ClassPrice",variableOfClass.getClassPrice());
+                    postDataParam.put("ClassHour",variableOfClass.getClassHour());
+                    postDataParam.put("ClassNumberOfTime",variableOfClass.getClassNumberOfTime());
+                    postDataParam.put("ClassPlace",variableOfClass.getClassPlace());
+                    postDataParam.put("ClassPlaceDetail",variableOfClass.getClassPlaceDetail());
+                    postDataParam.put("ClassWeek",variableOfClass.getClassWeek());
+                    postDataParam.put("ClassTime",variableOfClass.getClassTime());
+                    postDataParam.put("ClassFirstTime",variableOfClass.getClassFirstTime());
+                    postDataParam.put("userPhoneNumber",variable.getUserPhoneNumber());
 
                     new TutorRegisterInsertData(getActivity()).execute(postDataParam);
 

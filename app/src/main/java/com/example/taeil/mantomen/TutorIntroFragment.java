@@ -33,13 +33,22 @@ public class TutorIntroFragment extends Fragment {
 
         LinearLayout tutorintrofragment = (LinearLayout) inflater.inflate(R.layout.fragment_tutor_intro, container, false);
 
-        Button previousbutton = tutorintrofragment.findViewById(R.id.TutorRegister1_Previous); // 이전
-        Button nextbutton = tutorintrofragment.findViewById(R.id.TutorRegister1_Next); // 다음
+        Button previousbutton = tutorintrofragment.findViewById(R.id.TutorRegister2_Previous); // 이전
+        Button nextbutton = tutorintrofragment.findViewById(R.id.TutorRegister2_Next); // 다음
 
         final EditText ClassTutorIntro = tutorintrofragment.findViewById(R.id.TutorRegister2_TutorIntro);
         final EditText ClassIntro = tutorintrofragment.findViewById(R.id.TutorRegister2_ClassIntro);
         final EditText ClassContents = tutorintrofragment.findViewById(R.id.TutorRegister2_ClassContents);
         final EditText ClassWhom =  tutorintrofragment.findViewById(R.id.TutorRegister2_ClassWhom);
+
+
+        previousbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((TutorRegisterActivity)getActivity()).switchFragment(1);  // 프래그먼트 교체
+            }
+        });
+
 
         nextbutton.setOnClickListener(new View.OnClickListener() {
             @Override

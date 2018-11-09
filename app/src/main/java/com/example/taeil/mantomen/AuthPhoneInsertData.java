@@ -6,8 +6,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 
-public class TutorRegisterInsertData extends TutorRegisterPostRequest { //레지스터
-    public TutorRegisterInsertData(Activity activity) {
+public class AuthPhoneInsertData extends AuthPhonePostRequest { //레지스터
+    public AuthPhoneInsertData(Activity activity) {
         super(activity);
     }
 
@@ -16,7 +16,7 @@ public class TutorRegisterInsertData extends TutorRegisterPostRequest { //레지
 //      EditText server = activity.findViewById(R.id.server);
         String serverURLStr = Variable.HttpAddres;  //민영이 서버
         try {
-            url = new URL(serverURLStr + "/class/push");
+            url = new URL(serverURLStr + "/class/sms");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

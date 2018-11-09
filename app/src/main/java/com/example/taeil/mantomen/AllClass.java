@@ -10,6 +10,7 @@ public class AllClass { //클래스관련 전역변수모음 특정 클래스 �
     String ClassPicture; // 강의이미지
     String ClassName;  // 강의제목
     String ClassTutorID; // 튜터아이디
+    String ClassTuteeID; // 튜티아이디
     String ClassCategory; //카테고리
     String ClassTotalPeople;  // 모집인원
     String ClassCurrentPeople; // 현재인원
@@ -25,15 +26,18 @@ public class AllClass { //클래스관련 전역변수모음 특정 클래스 �
     String ClassWeek; // 수업 요일
     String ClassTime; // 수업 시간
     String ClassFirstTime; // 첫 수업일
+    String ClassIdentity; // 승인된클래스인지 아닌지
+    String ClassScore; // 클래스 점수
 
 
     public AllClass(String classPicture, String className, String classTutorID, String classCategory, String classTotalPeople,
-                    String classCurrentPeople, String classTutorIntro, String classIntro, String classContents, String classWhom, String classPrice,
+                    String classCurrentPeople, String classTutorIntro, String classTuteeID, String classIntro, String classContents, String classWhom, String classPrice,
                     String classHour, String classNumberOfTime, String classPlace, String classPlaceDetail, String classWeek, String classTime,
-                    String classFirstTime) {
+                    String classFirstTime, String classIdentity, String classScore) {
         ClassPicture = classPicture;
         ClassName = className;
         ClassTutorID = classTutorID;
+        ClassTuteeID  = classTuteeID;
         ClassCategory = classCategory;
         ClassTotalPeople = classTotalPeople;
         ClassCurrentPeople = classCurrentPeople;
@@ -49,8 +53,34 @@ public class AllClass { //클래스관련 전역변수모음 특정 클래스 �
         ClassWeek = classWeek;
         ClassTime = classTime;
         ClassFirstTime = classFirstTime;
+        ClassIdentity = classIdentity;
+        ClassScore = classScore;
 
 
+    }
+
+    public String getClassScore() {
+        return ClassScore;
+    }
+
+    public void setClassScore(String classScore) {
+        ClassScore = classScore;
+    }
+
+    public String getClassTuteeID() {
+        return ClassTuteeID;
+    }
+
+    public void setClassTuteeID(String classTuteeID) {
+        ClassTuteeID = classTuteeID;
+    }
+
+    public String getClassIdentity() {
+        return ClassIdentity;
+    }
+
+    public void setClassIdentity(String classIdentity) {
+        ClassIdentity = classIdentity;
     }
 
     public String getClassPicture() {

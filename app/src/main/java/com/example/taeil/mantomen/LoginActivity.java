@@ -17,7 +17,7 @@ public class LoginActivity extends AppCompatActivity {
     final static String TAG = "AndroidNodeJS";
     static Context mContext = null;
     Variable variable;
-    
+
     @Override
     protected void onPause() {
         super.onPause();
@@ -57,10 +57,11 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 new LoginInsertData(LoginActivity.this).execute(postDataParam);
+                // new GetData(LoginActivity.this).execute(); // 홈누르면 ㅇㅋ? ㅋ_ㅋ 잠시 꺼놔야함 ; 중요부분
 
 
-//                new GetData(LoginActivity.this).execute();
-//                Log.d("리뷰","실행되나?");
+                new GetData(LoginActivity.this).execute();
+                Log.d("리뷰", "실행되나?");
 
                 overridePendingTransition(0, 0);  //화면전환효과 없애기
             }

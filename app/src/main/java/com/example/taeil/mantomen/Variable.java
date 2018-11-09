@@ -16,10 +16,10 @@ public class Variable { //전역변수 저장 모음 로그인할 때 한번에 
     private static int userPicture; //사용자 사진
     private static String userParticipateClass = null; //사용자가 참여중인 클래스
     private static String userOperateClass = null; //사용자가 운영중인 클래스
-    public static String HttpAddres = "http://ec2-54-180-106-61.ap-northeast-2.compute.amazonaws.com";   //민영이 서버 입력하기
     private static String Authnumber = null;
-
     private static String userPhoneNumber = null;
+
+    public static String HttpAddres = "";   //민영이 서버 입력하기
 
     public static String getUserPhoneNumber() {
         return userPhoneNumber;
