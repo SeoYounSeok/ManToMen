@@ -1,5 +1,6 @@
 package com.example.taeil.mantomen;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
@@ -22,6 +24,7 @@ public class ClassAppointmentFragment extends Fragment {
     VariableOfClass variableOfClass = VariableOfClass.getInstance();
 
     final static String TAG = "AndroidNodeJS";
+    String ClassFirstTime = null;
 
     public ClassAppointmentFragment() {
         // Required empty public constructor
@@ -46,16 +49,37 @@ public class ClassAppointmentFragment extends Fragment {
 
         final Button ClassPlace = classappointmentfragment.findViewById(R.id.TutorRegister4_ClassPlace);
         final EditText ClassPlaceDetail = classappointmentfragment.findViewById(R.id.TutorRegister4_ClassPlaceDetail);
-        final Button ClassWeek1 = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek1);
-        final Button ClassWeek2 = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek2);
-        final Button ClassWeek3 = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek3);
-        final Button ClassWeek4 = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek4);
-        final Button ClassWeek5 = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek5);
-        final Button ClassWeek6 = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek6);
-        final Button ClassWeek7 = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek7);
+        final Button[] WeekButton = new Button[7];
+        WeekButton[0] = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek0);
+        WeekButton[1] = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek1);
+        WeekButton[2] = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek2);
+        WeekButton[3] = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek3);
+        WeekButton[4] = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek4);
+        WeekButton[5] = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek5);
+        WeekButton[6] = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek6);
         final EditText ClassTime = classappointmentfragment.findViewById(R.id.TutorRegister4_ClassTime);
-        final EditText ClassFirstTime = classappointmentfragment.findViewById(R.id.TutorRegister4_ClassFirstTime);
+        final CalendarView ClassFirstTimeCal = classappointmentfragment.findViewById(R.id.TutorRegister4_ClassFirstTime);
 
+//  월요일날 구현하기
+//        for(int i = 0; i<7 ; i++){
+//            final int buttonint = i;  //새변수가 필요하나봄
+//            WeekButton[i].setOnClickListener(new View.OnClickListener() {
+//                @SuppressLint("ResourceAsColor")
+//                @Override
+//                public void onClick(View v) {
+//                    WeekButton[buttonint].setBackgroundColor(R.color.pink);
+//                }
+//            });
+//
+//        }
+//
+
+        ClassFirstTimeCal.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                ClassFirstTime = year + "-" + month + "-" + dayOfMonth;
+            }
+        });
 
         previousbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +98,8 @@ public class ClassAppointmentFragment extends Fragment {
                 variableOfClass.setClassPlaceDetail(ClassPlaceDetail.getText().toString());
                 variableOfClass.setClassWeek("월");  // 임의로 정해둠
                 variableOfClass.setClassTime(ClassTime.getText().toString());
-                variableOfClass.setClassFirstTime(ClassFirstTime.getText().toString());
+
+                variableOfClass.setClassFirstTime(ClassFirstTime);
 
 
                 JSONObject postDataParam = new JSONObject();
@@ -85,25 +110,25 @@ public class ClassAppointmentFragment extends Fragment {
 
 
                     // postDataParam.put("ClassPicture",variableOfClass.getClassPicture());
-                    postDataParam.put("ClassName",variableOfClass.getClassName());
-                    postDataParam.put("ClassTutorID",variableOfClass.getClassTutorID());
-                    postDataParam.put("ClassCategory",variableOfClass.getClassCategory());
-                    postDataParam.put("ClassTotalPeople",variableOfClass.getClassTotalPeople());
+                    postDataParam.put("ClassName", variableOfClass.getClassName());
+                    postDataParam.put("ClassTutorID", variableOfClass.getClassTutorID());
+                    postDataParam.put("ClassCategory", variableOfClass.getClassCategory());
+                    postDataParam.put("ClassTotalPeople", variableOfClass.getClassTotalPeople());
                     //postDataParam.put("ClassCurrentPeople",variableOfClass.getClassCurrentPeople());
 
-                    postDataParam.put("ClassTutorIntro",variableOfClass.getClassTutorIntro());
-                    postDataParam.put("ClassIntro",variableOfClass.getClassIntro());
-                    postDataParam.put("ClassContents",variableOfClass.getClassContents());
-                    postDataParam.put("ClassWhom",variableOfClass.getClassWhom());
-                    postDataParam.put("ClassPrice",variableOfClass.getClassPrice());
-                    postDataParam.put("ClassHour",variableOfClass.getClassHour());
-                    postDataParam.put("ClassNumberOfTime",variableOfClass.getClassNumberOfTime());
-                    postDataParam.put("ClassPlace",variableOfClass.getClassPlace());
-                    postDataParam.put("ClassPlaceDetail",variableOfClass.getClassPlaceDetail());
-                    postDataParam.put("ClassWeek",variableOfClass.getClassWeek());
-                    postDataParam.put("ClassTime",variableOfClass.getClassTime());
-                    postDataParam.put("ClassFirstTime",variableOfClass.getClassFirstTime());
-                    postDataParam.put("userPhoneNumber",variable.getUserPhoneNumber());
+                    postDataParam.put("ClassTutorIntro", variableOfClass.getClassTutorIntro());
+                    postDataParam.put("ClassIntro", variableOfClass.getClassIntro());
+                    postDataParam.put("ClassContents", variableOfClass.getClassContents());
+                    postDataParam.put("ClassWhom", variableOfClass.getClassWhom());
+                    postDataParam.put("ClassPrice", variableOfClass.getClassPrice());
+                    postDataParam.put("ClassHour", variableOfClass.getClassHour());
+                    postDataParam.put("ClassNumberOfTime", variableOfClass.getClassNumberOfTime());
+                    postDataParam.put("ClassPlace", variableOfClass.getClassPlace());
+                    postDataParam.put("ClassPlaceDetail", variableOfClass.getClassPlaceDetail());
+                    postDataParam.put("ClassWeek", variableOfClass.getClassWeek());
+                    postDataParam.put("ClassTime", variableOfClass.getClassTime());
+                    postDataParam.put("ClassFirstTime", variableOfClass.getClassFirstTime());
+                    postDataParam.put("userPhoneNumber", variable.getUserPhoneNumber());
 
                     new TutorRegisterInsertData(getActivity()).execute(postDataParam);
 

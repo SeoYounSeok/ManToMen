@@ -7,6 +7,8 @@
     android:background="@color/white"
     android:orientation="vertical">
 
+
+
     <TextView
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -17,6 +19,7 @@
         android:text="4"
         android:textSize="20dp"
         android:textColor="@color/gray"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,57 +31,113 @@
         android:textColor="@color/gray"/>
 
 
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_margin="10dp"
-        android:gravity="center|left"
-        android:text="장 소"
-        android:textColor="@color/black"
-        android:background="@color/white"/>
-
-    <Button
-        android:id="@+id/TutorRegister4_ClassPlace"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="55dp"
+        android:orientation="vertical"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/border2"
+        android:layout_marginBottom="3dp"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="bottom|left"
+            android:text="장소"
+            android:textSize="17dp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
 
-        android:text="수업개설지역을 선택해 주세요"
-        android:gravity="left|center"/>
+    </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_margin="10dp"
-        android:gravity="center|left"
-        android:text="상세 위치"
-        android:textColor="@color/black"
-        android:background="@color/white"/>
-
-    <EditText
-        android:id="@+id/TutorRegister4_ClassPlaceDetail"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:orientation="vertical"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/border2"
-        android:hint="상세 위치"
-        android:gravity="left|center"/>
+        android:layout_marginBottom="3dp"
+        android:background="@drawable/border2">
+        <Button
+            android:id="@+id/TutorRegister4_ClassPlace"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:gravity="left|center"
+            android:hint="수업개설지역을 선택해 주세요"
+            android:textSize="17dp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
+    </LinearLayout>
 
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_margin="10dp"
-        android:gravity="center|left"
-        android:text="수업 요일"
-        android:textColor="@color/black"
-        android:background="@color/white"/>
+        android:layout_height="55dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="3dp"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="bottom|left"
+            android:text="상세 위치"
+            android:textSize="17dp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="3dp"
+        android:background="@drawable/border2">
+        <EditText
+            android:id="@+id/TutorRegister4_ClassPlaceDetail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:gravity="left|center"
+            android:hint="상세 위치"
+            android:textSize="17dp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="3dp"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="bottom|left"
+            android:text="수업 요일"
+            android:textSize="17dp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -88,49 +147,49 @@
         android:layout_marginBottom="10dp"
         android:orientation="horizontal">
         <Button
-            android:id="@+id/TutorRegister4_Classweek1"
+            android:id="@+id/TutorRegister4_Classweek0"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/border2"
             android:text="월"/>
         <Button
-            android:id="@+id/TutorRegister4_Classweek2"
+            android:id="@+id/TutorRegister4_Classweek1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/border2"
             android:text="화"/>
         <Button
-            android:id="@+id/TutorRegister4_Classweek3"
+            android:id="@+id/TutorRegister4_Classweek2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/border2"
             android:text="수"/>
         <Button
-            android:id="@+id/TutorRegister4_Classweek4"
+            android:id="@+id/TutorRegister4_Classweek3"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/border2"
             android:text="목"/>
         <Button
-            android:id="@+id/TutorRegister4_Classweek5"
+            android:id="@+id/TutorRegister4_Classweek4"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/border2"
             android:text="금"/>
         <Button
-            android:id="@+id/TutorRegister4_Classweek6"
+            android:id="@+id/TutorRegister4_Classweek5"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/border2"
             android:text="토"/>
         <Button
-            android:id="@+id/TutorRegister4_Classweek7"
+            android:id="@+id/TutorRegister4_Classweek6"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -140,46 +199,89 @@
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_margin="10dp"
-        android:gravity="center|left"
-        android:text="수업 시간"
-        android:textColor="@color/black"
-        android:background="@color/white"/>
 
-    <EditText
-        android:id="@+id/TutorRegister4_ClassTime"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="55dp"
+        android:orientation="vertical"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/border2"
-        android:gravity="left|center"
-        android:hint="10시~12시" />
+        android:layout_marginBottom="3dp"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="bottom|left"
+            android:text="수업 시간"
+            android:textSize="17dp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_margin="10dp"
-        android:gravity="center|left"
-        android:text="첫 수업일"
-        android:textColor="@color/black"
-        android:background="@color/white"/>
+    </LinearLayout>
 
-    <EditText
-        android:id="@+id/TutorRegister4_ClassFirstTime"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:orientation="vertical"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/border2"
-        android:gravity="left|center"
-        android:hint="10월 20일"/>
+        android:layout_marginBottom="3dp"
+        android:background="@drawable/border2">
+        <EditText
+            android:id="@+id/TutorRegister4_ClassTime"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:gravity="left|center"
+            android:hint="수업 시간"
+            android:textSize="17dp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="3dp"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="bottom|left"
+            android:text="첫 수업일"
+            android:textSize="17dp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="3dp"
+        android:background="@drawable/border2">
+        <CalendarView
+            android:id="@+id/TutorRegister4_ClassFirstTime"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:gravity="left|center"
+            android:textSize="17dp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
+    </LinearLayout>
 
 
     <LinearLayout

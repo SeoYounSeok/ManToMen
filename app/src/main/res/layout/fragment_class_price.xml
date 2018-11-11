@@ -28,101 +28,166 @@
         android:textSize="15dp"
         android:textColor="@color/gray"/>
 
-
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_margin="10dp"
-        android:gravity="center|left"
-        android:text="수강료"
-        android:textColor="@color/black"
-        android:background="@color/white"/>
-
-    <EditText
-        android:id="@+id/TutorRegister3_ClassPrice"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="55dp"
+        android:orientation="vertical"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/border2"
-        android:hint="수강료입력"
-        android:gravity="left|center"/>
+        android:layout_marginBottom="3dp"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="bottom|left"
+            android:text="수강료"
+            android:textSize="17dp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_margin="10dp"
-        android:gravity="center|left"
-        android:text="회당 수업시간"
-        android:textColor="@color/black"
-        android:background="@color/white"/>
+    </LinearLayout>
 
-    <EditText
-        android:id="@+id/TutorRegister3_ClassHour"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/border2"
-        android:hint="회당 몇 시간"
-        android:gravity="left|center"/>
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_margin="10dp"
-        android:gravity="center|left"
-        android:text="수업 횟수"
-        android:textColor="@color/black"
-        android:background="@color/white"/>
-
-    <EditText
-        android:id="@+id/TutorRegister3_ClassNumberOfTime"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:orientation="vertical"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/border2"
-        android:gravity="left|center"
-        android:hint="총 몇 회 수업" />
-
-
+        android:layout_marginBottom="3dp"
+        android:background="@drawable/border2">
+        <EditText
+            android:id="@+id/TutorRegister3_ClassPrice"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:gravity="left|center"
+            android:hint="수강료 입력"
+            android:textSize="17dp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
+    </LinearLayout>
 
 
     <LinearLayout
-        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="3dp"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="bottom|left"
+            android:text="회당 수업시간"
+            android:textSize="17dp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="3dp"
+        android:background="@drawable/border2">
+        <EditText
+            android:id="@+id/TutorRegister3_ClassHour"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:gravity="left|center"
+            android:hint="회당 몇 시간"
+            android:textSize="17dp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="3dp"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="bottom|left"
+            android:text="수업 횟수"
+            android:textSize="17dp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="3dp"
+        android:background="@drawable/border2">
+        <EditText
+            android:id="@+id/TutorRegister3_ClassNumberOfTime"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:gravity="left|center"
+            android:hint="총 몇 회 수업"
+            android:textSize="17dp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
+    </LinearLayout>
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:background="@color/brightgray"
         android:gravity="center"
-        android:background="@color/brightgray">
+
+        android:orientation="horizontal">
+
         <Button
             android:id="@+id/TutorRegister3_Previous"
-            android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_weight="1"
             android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/border2"
             android:text="이 전"
-            android:textColor="@color/gray"
-            android:background="@drawable/border2">
+            android:textColor="@color/gray">
 
         </Button>
+
         <Button
             android:id="@+id/TutorRegister3_Next"
-            android:layout_marginRight="10dp"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_weight="1"
             android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@color/pink"
             android:text="다 음"
-            android:textColor="@color/white"
-            android:background="@color/pink">
+            android:textColor="@color/white">
 
         </Button>
 

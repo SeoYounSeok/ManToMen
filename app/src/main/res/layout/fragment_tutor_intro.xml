@@ -50,6 +50,9 @@
 
     </LinearLayout>
 
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="120dp"
@@ -70,60 +73,141 @@
             android:background="@color/white"/>
     </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_margin="10dp"
-        android:gravity="center|left"
-        android:text="수업소개"
-        android:textColor="@color/black"
-        android:background="@color/white"/>
 
-    <EditText
-        android:id="@+id/TutorRegister2_ClassIntro"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_margin="10dp"
-        android:background="@drawable/border2"
-        />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_margin="10dp"
-        android:gravity="center|left"
-        android:text="수업내용(커리큘럼)"
-        android:textColor="@color/black"
-        android:background="@color/white"/>
-
-    <EditText
-        android:id="@+id/TutorRegister2_ClassContents"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="55dp"
+        android:orientation="vertical"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/border2"
-        />
+        android:layout_marginBottom="3dp"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="bottom|left"
+            android:text="수업 소개"
+            android:textSize="17dp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_margin="10dp"
-        android:gravity="center|left"
-        android:text="수업 대상"
-        android:textColor="@color/black"
-        android:background="@color/white"/>
+    </LinearLayout>
 
-    <EditText
-        android:id="@+id/TutorRegister2_ClassWhom"
+
+
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="120dp"
+        android:orientation="vertical"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/border2"
-        />
+        android:layout_marginBottom="3dp"
+        android:background="@drawable/border2">
+        <EditText
+            android:id="@+id/TutorRegister2_ClassIntro"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:gravity="top"
+            android:hint="수업 소개"
+            android:textSize="17dp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="3dp"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="bottom|left"
+            android:text="수업 내용(커리큘럼)"
+            android:textSize="17dp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
+
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="3dp"
+        android:background="@drawable/border2">
+        <EditText
+            android:id="@+id/TutorRegister2_ClassContents"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:gravity="top"
+            android:hint="수업 내용"
+            android:textSize="17dp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="3dp"
+        android:background="@color/white">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="bottom|left"
+            android:text="수업 대상"
+            android:textSize="17dp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="3dp"
+        android:background="@drawable/border2">
+        <EditText
+            android:id="@+id/TutorRegister2_ClassWhom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:gravity="top"
+            android:hint="수업 대상"
+            android:textSize="17dp"
+            android:textColor="@color/black"
+            android:background="@color/white"/>
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_marginTop="10dp"
