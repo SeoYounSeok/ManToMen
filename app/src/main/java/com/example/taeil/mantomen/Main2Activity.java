@@ -13,6 +13,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AbsListView;
@@ -27,13 +28,10 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
 
     static Context mContext = null;
     static Activity mActivity;
-    private boolean mLockScrollView = false;          // 데이터 불러올때 중복안되게 하기위한 변수
     static int page = 1;    //
-    VariableOfClass variableOfClass = VariableOfClass.getInstance();
-
+    boolean Lock = true;
     static ScrollView scrollView;
     static ProgressBar progressBar;
-
 
 
     // 리스너 생성
@@ -48,6 +46,8 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
     public void setOnBackPressedListener(OnBackPressedListener listener) {
         mBackListener = listener;
     }
+
+
 
 
     @Override
@@ -75,10 +75,10 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
+                    //new GetData(Main2Activity.this).execute(); // 홈누르면 ㅇㅋ? ㅋ_ㅋ 잠시 꺼놔야함 ; 중요부분
                     switchFragment(0);  //홈버튼이 눌리면 0전송
-                    page = 1; //초기화
                     // variableOfClass.getAllClass().clear();
-                    new GetData(Main2Activity.this).execute(); // 홈누르면 ㅇㅋ? ㅋ_ㅋ 잠시 꺼놔야함 ; 중요부분
+
 
                     //navigationImageview.setVisibility(View.INVISIBLE);
                     return true;
@@ -102,6 +102,7 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
     };
 
 
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,28 +115,8 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
 
         scrollView = findViewById(R.id.fragment);
         progressBar = findViewById(R.id.progressbar);
+        progressBar.setVisibility(View.GONE);
 
-//        scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
-//            @Override
-//            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-//                if(scrollY == 0){
-//                    progressBar.setVisibility(View.VISIBLE);
-//                    new GetDatamore(Main2Activity.this).execute();
-//
-//                    new Handler().postDelayed(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            page++;
-//                            // AllClassListAdapter.notifyDataSetChanged();
-//                            progressBar.setVisibility(View.GONE);
-//                        }
-//                    },1000);
-//
-//                }
-//            }
-//        });
-
-        progressBar.setVisibility(View.GONE); // 프로그레스바 숨기기
 
         //navigationImageview = (ImageView)findViewById(R.id.);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
@@ -143,7 +124,54 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
         //바텀바 연결
 
         switchFragment(0);  //홈버튼이 눌리면 0전송
+
+        scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                Log.d("페이지", String.valueOf(page));
+                Log.d("페이지", String.valueOf(scrollY));
+                if(page == 1){
+                    if(scrollY >=1089){
+                        progressBar.setVisibility(View.VISIBLE);
+                        new GetDatamore(Main2Activity.this).execute();
+                        HomeFragment.allClassListAdapter.notifyDataSetChanged();
+                        switchFragment(0);  //새로고침을 위한?
+                        page++;
+
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                // AllClassListAdapter.notifyDataSetChanged();
+                                progressBar.setVisibility(View.GONE);
+
+                            }
+                        },1000);
+                    }
+                } else if(page > 1){
+                    if(scrollY >= 1089+(page-1)*2403){
+                        progressBar.setVisibility(View.VISIBLE);
+                        new GetDatamore(Main2Activity.this).execute();
+                        HomeFragment.allClassListAdapter.notifyDataSetChanged();
+                        switchFragment(0);  //새로고침을 위한?
+                        page++;
+
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                // AllClassListAdapter.notifyDataSetChanged();
+                                progressBar.setVisibility(View.GONE);
+
+                            }
+                        },1000);
+                    }
+                }
+
+
+            }
+        });
     }
+
+
 
     final HomeFragment homeFragment = new HomeFragment();
     final SearchFragment searchFragment = new SearchFragment();

@@ -18,25 +18,21 @@ public class AllClassListAdapter extends BaseAdapter{
 
     private LayoutInflater inflate;
     private RecyclerView.ViewHolder viewHolder;
-
-
-
-
     private Context context;
     private List<AllClass> AllClass;
+    private int count;
 
     public AllClassListAdapter(Context context, List<AllClass> AllClass){
         // 메인에서 데이터 리스트를 넘겨받음
-
         notifyDataSetChanged();
-
         this.context = context;
+        this.count = AllClass.size();
         this.AllClass = AllClass;
     }
 
     @Override
     public int getCount() {
-        return AllClass.size();
+        return count;
     }
 
     @Override
