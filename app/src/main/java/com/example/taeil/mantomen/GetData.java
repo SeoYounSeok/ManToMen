@@ -33,6 +33,7 @@ public class GetData extends GetRequest {
     @Override
     protected void onPreExecute() {
         String serverURLStr = Variable.HttpAddres;  //민영이 서버
+        String page = HomeFragment.TAG;
         try {
             url = new URL(serverURLStr + "/class/get");  // http://serverURLStr/get-data
         } catch (MalformedURLException e) {

@@ -26,8 +26,9 @@ public class GetDatamore extends GetRequest {
     @Override
     protected void onPreExecute() {
         String serverURLStr = Variable.HttpAddres;  //민영이 서버
+        String page = String.valueOf(Main2Activity.page);
         try {
-            url = new URL(serverURLStr + "/class/get");  // http://serverURLStr/get-data
+            url = new URL(serverURLStr + "/class/get?value=" + page);  // http://serverURLStr/get-data
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

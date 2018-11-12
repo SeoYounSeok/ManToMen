@@ -37,7 +37,7 @@ public class ClassDetail extends AppCompatActivity {
     public void switchFragment(int id) {   //프래그먼트 교체 메인화면, 검색화면, 채팅화면, 마이페이지 총 네개의 프래그먼트 활용예정
         final FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         if (id == 0)
-            fragmentTransaction.replace(R.id.fragment, classIntromFragment);
+            fragmentTransaction.replace(R.id.fragment2, classIntromFragment);
 //        else if (id == 1)
 //            fragmentTransaction.replace(R.id.fragment, searchFragment);
 //        else if (id == 2)

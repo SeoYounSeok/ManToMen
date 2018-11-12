@@ -4,24 +4,43 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
+import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.ScrollView;
+
+import java.util.concurrent.Delayed;
 
 public class Main2Activity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener, SearchFragment.OnFragmentInteractionListener {
 
     static Context mContext = null;
     static Activity mActivity;
+    private boolean mLockScrollView = false;          // 데이터 불러올때 중복안되게 하기위한 변수
+    static int page = 1;    //
+    VariableOfClass variableOfClass = VariableOfClass.getInstance();
+
+    static ScrollView scrollView;
+    static ProgressBar progressBar;
+
+
 
     // 리스너 생성
     public interface OnBackPressedListener {
         public void onBack();
     }
+
     // 리스너 객체 생성
     private OnBackPressedListener mBackListener;
 
@@ -48,6 +67,7 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
         //finish();
     }
 
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -56,7 +76,8 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     switchFragment(0);  //홈버튼이 눌리면 0전송
-
+                    page = 1; //초기화
+                    // variableOfClass.getAllClass().clear();
                     new GetData(Main2Activity.this).execute(); // 홈누르면 ㅇㅋ? ㅋ_ㅋ 잠시 꺼놔야함 ; 중요부분
 
                     //navigationImageview.setVisibility(View.INVISIBLE);
@@ -80,24 +101,41 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
         }
     };
 
-    private ListView fitlistView;
-    private ListView recommendlistView;
-    private ListView mentolistView;
 
-    private ImageView homebutton1;
-    private ImageView serchbutton1;
-
-    private ImageView homebutton2;
-    private ImageView serchbutton2;
-
-
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
 
         super.onCreate(savedInstanceState);
         mActivity = Main2Activity.this;  //다른곳에서 이 액티비티를 끄기위해 지정
         setContentView(R.layout.activity_main2);
 
+
+        scrollView = findViewById(R.id.fragment);
+        progressBar = findViewById(R.id.progressbar);
+
+//        scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+//            @Override
+//            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+//                if(scrollY == 0){
+//                    progressBar.setVisibility(View.VISIBLE);
+//                    new GetDatamore(Main2Activity.this).execute();
+//
+//                    new Handler().postDelayed(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            page++;
+//                            // AllClassListAdapter.notifyDataSetChanged();
+//                            progressBar.setVisibility(View.GONE);
+//                        }
+//                    },1000);
+//
+//                }
+//            }
+//        });
+
+        progressBar.setVisibility(View.GONE); // 프로그레스바 숨기기
 
         //navigationImageview = (ImageView)findViewById(R.id.);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
@@ -105,10 +143,6 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
         //바텀바 연결
 
         switchFragment(0);  //홈버튼이 눌리면 0전송
-
-        Intent intent = getIntent();
-        //userID = intent.getStringExtra("userID"); //로그인을 통해 ID를 받아옴
-
     }
 
     final HomeFragment homeFragment = new HomeFragment();
