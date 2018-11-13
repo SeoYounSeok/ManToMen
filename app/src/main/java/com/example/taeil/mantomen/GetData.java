@@ -35,7 +35,7 @@ public class GetData extends GetRequest {
         String serverURLStr = Variable.HttpAddres;  //민영이 서버
         String page = HomeFragment.TAG;
         try {
-            url = new URL(serverURLStr + "/class/get?value=1");  // http://serverURLStr/get-data
+            url = new URL(serverURLStr + "/class/get");  // http://serverURLStr/get-data
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

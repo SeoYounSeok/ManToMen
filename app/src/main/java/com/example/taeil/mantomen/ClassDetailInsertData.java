@@ -6,7 +6,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 
-public class ClassDetailInsertData extends ClassDetailPostRequest { //레지스터
+public class ClassDetailInsertData extends ClassDetailPostRequest { //로그인할때 쓰는거 값을 받고 받아오는걸로 로그인함
     public ClassDetailInsertData(Activity activity) {
         super(activity);
     }
@@ -16,7 +16,7 @@ public class ClassDetailInsertData extends ClassDetailPostRequest { //레지스�
 //      EditText server = activity.findViewById(R.id.server);
         String serverURLStr = Variable.HttpAddres;  //민영이 서버
         try {
-            url = new URL(serverURLStr + "/class/get");
+            url = new URL(serverURLStr + "/class/detail");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

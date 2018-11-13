@@ -41,7 +41,7 @@ public class VariableOfClass { //클래스관련 전역변수모음 특정 클�
     }
 //리뷰스키마찾는거
 
-    private VariableOfClass() {
+    public VariableOfClass() {
         variableofclass = new VariableOfClass();
     }
 

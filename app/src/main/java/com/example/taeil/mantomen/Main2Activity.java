@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -48,8 +49,6 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
     }
 
 
-
-
     @Override
     public void onBackPressed() { //뒤로가기 버튼 누를때
         // 다른 Fragment 에서 리스너를 설정했을 때 처리됩니다.
@@ -75,11 +74,9 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    //new GetData(Main2Activity.this).execute(); // 홈누르면 ㅇㅋ? ㅋ_ㅋ 잠시 꺼놔야함 ; 중요부분
+                    new GetData(Main2Activity.this).execute(); // 홈누르면 ㅇㅋ? ㅋ_ㅋ 잠시 꺼놔야함 ; 중요부분
                     switchFragment(0);  //홈버튼이 눌리면 0전송
                     // variableOfClass.getAllClass().clear();
-
-
                     //navigationImageview.setVisibility(View.INVISIBLE);
                     return true;
 
@@ -125,55 +122,58 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
 
         switchFragment(0);  //홈버튼이 눌리면 0전송
 
-        scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
-            @Override
-            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                Log.d("페이지", String.valueOf(page));
-                Log.d("페이지", String.valueOf(scrollY));
-                if(page == 1){
-                    if(scrollY >=1089){
-                        progressBar.setVisibility(View.VISIBLE);
-                        new GetDatamore(Main2Activity.this).execute();
-                        HomeFragment.allClassListAdapter.notifyDataSetChanged();
-                        switchFragment(0);  //새로고침을 위한?
-                        page++;
-
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                // AllClassListAdapter.notifyDataSetChanged();
-                                progressBar.setVisibility(View.GONE);
-
-                            }
-                        },1000);
-                    }
-                } else if(page > 1){
-                    if(scrollY >= 1089+(page-1)*2403){
-                        progressBar.setVisibility(View.VISIBLE);
-                        new GetDatamore(Main2Activity.this).execute();
-                        HomeFragment.allClassListAdapter.notifyDataSetChanged();
-                        switchFragment(0);  //새로고침을 위한?
-                        page++;
-
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                // AllClassListAdapter.notifyDataSetChanged();
-                                progressBar.setVisibility(View.GONE);
-
-                            }
-                        },1000);
-                    }
-                }
-
-
-            }
-        });
+//        scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+//            @Override
+//            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+//                Log.d("페이지", String.valueOf(page));
+//                Log.d("페이지", String.valueOf(scrollY));
+//                if(page == 1){
+//                    if(scrollY >=1089){
+//                        progressBar.setVisibility(View.VISIBLE);
+//                        new GetDatamore(Main2Activity.this).execute();
+//                        HomeFragment.allClassListAdapter.notifyDataSetChanged();
+//                        switchFragment(0);  //새로고침을 위한?
+//                        page++;
+//
+//
+//
+//                        new Handler().postDelayed(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                // AllClassListAdapter.notifyDataSetChanged();
+//                                progressBar.setVisibility(View.GONE);
+//
+//                            }
+//                        },1000);
+//                    }
+//                } else if(page > 1){
+//                    if(scrollY >= 1089+(page-1)*2403){
+//                        progressBar.setVisibility(View.VISIBLE);
+//                        new GetDatamore(Main2Activity.this).execute();
+//                        HomeFragment.allClassListAdapter.notifyDataSetChanged();
+//
+//                        switchFragment(0);  //새로고침을 위한?
+//                        page++;
+//
+//                        new Handler().postDelayed(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                // AllClassListAdapter.notifyDataSetChanged();
+//                                progressBar.setVisibility(View.GONE);
+//
+//                            }
+//                        },1000);
+//                    }
+//                }
+//
+//
+//            }
+//        });
     }
 
 
 
-    final HomeFragment homeFragment = new HomeFragment();
+    HomeFragment homeFragment = new HomeFragment();
     final SearchFragment searchFragment = new SearchFragment();
     final ChatFragment chatFragment = new ChatFragment();
     final MypageFragment mypageFragment = new MypageFragment();

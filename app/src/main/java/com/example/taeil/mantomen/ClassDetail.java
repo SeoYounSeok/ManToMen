@@ -1,15 +1,18 @@
 package com.example.taeil.mantomen;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class ClassDetail extends AppCompatActivity {
+
+    VariableOfClass variableOfClass;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,18 +20,21 @@ public class ClassDetail extends AppCompatActivity {
         setContentView(R.layout.activity_class_detail);
 
         Intent intent = getIntent();
-        String ClassName = intent.getStringExtra("ClassName"); // 클래스 네임을 넘겨받고
-
+        // String ClassName = intent.getStringExtra("ClassName"); // 클래스 네임을 넘겨받고
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation2);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         //바텀바 연결
-
         switchFragment(0);  //홈버튼이 눌리면 0전송
+
+        TextView ClassName = findViewById(R.id.ClassDetail_ClassName);
+
+        ClassName.setText(variableOfClass.getClassName());
+
     }
 
 
-    final ClassIntromFragment classIntromFragment = new ClassIntromFragment();
+    final ClassIntroFragment classIntroFragment = new ClassIntroFragment();
 //    final SearchFragment searchFragment = new SearchFragment();
 //    final ChatFragment chatFragment = new ChatFragment();
 //    final MypageFragment mypageFragment = new MypageFragment();
@@ -37,7 +43,7 @@ public class ClassDetail extends AppCompatActivity {
     public void switchFragment(int id) {   //프래그먼트 교체 메인화면, 검색화면, 채팅화면, 마이페이지 총 네개의 프래그먼트 활용예정
         final FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         if (id == 0)
-            fragmentTransaction.replace(R.id.fragment2, classIntromFragment);
+            fragmentTransaction.replace(R.id.fragment2, classIntroFragment);
 //        else if (id == 1)
 //            fragmentTransaction.replace(R.id.fragment, searchFragment);
 //        else if (id == 2)

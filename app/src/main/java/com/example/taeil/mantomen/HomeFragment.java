@@ -29,17 +29,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class HomeFragment extends Fragment{
+public class HomeFragment extends Fragment {
     final static String TAG = "AndroidNodeJS";
     VariableOfClass variableOfClass;
     static AllClassListAdapter allClassListAdapter;
     List<AllClass> AllClassList;  //리스트뷰와 어댑터 초기화
 
-
-
     public HomeFragment() {
         // Required empty public constructor
-
 
     }
 
@@ -62,7 +59,7 @@ public class HomeFragment extends Fragment{
         if (variableOfClass.getAllClass() == null) {
 
         } else {
-           // List<AllClass> AllClassList;  //리스트뷰와 어댑터 초기화
+            // List<AllClass> AllClassList;  //리스트뷰와 어댑터 초기화
 
             AllClassList = variableOfClass.getAllClass();  //저장된 컬랙션호출
             allClassListAdapter = new AllClassListAdapter(getActivity(), AllClassList);
@@ -74,21 +71,23 @@ public class HomeFragment extends Fragment{
         }
 
 
-
-
-
         fitlistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {     // 클래스 상세 정보 요건 나중에 삭제 xx
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Main2Activity.mContext = getActivity();
 
-                Intent GoToClassDetailintent = new Intent(((Main2Activity) Main2Activity.mContext), ClassDetail.class); // ClassDetail액티비티로 보내는 인텐트
-                ((Main2Activity) Main2Activity.mContext).startActivity(GoToClassDetailintent);
 
+                JSONObject postDataParam = new JSONObject();
+                // variableOfClass.getAllClass().get(position).getClassName();
+                try {
+                    postDataParam.put("ClassName", variableOfClass.getAllClass().get(position).getClassName());
+                } catch (JSONException e) {
+                    Log.e(TAG, "JSONEXception");
+                }
+                new ClassDetailInsertData(getActivity()).execute(postDataParam);
+                Log.e("리뷰", variableOfClass.getAllClass().get(position).getClassName());
 
-                GoToClassDetailintent.putExtra("ClassName", variableOfClass.getAllClass().get(position).getClassName());  //클래스 네임 보내고
-                ((Main2Activity) Main2Activity.mContext).overridePendingTransition(0, 0);  //화면전환효과 없애기
-                //getActivity().finish();  // 액티비티 삭제
+                // getActivity().finish();  // 액티비티 삭제
             }
         });
 
@@ -124,7 +123,6 @@ public class HomeFragment extends Fragment{
         super.onDetach();
 
     }
-
 
 
     public interface OnFragmentInteractionListener {

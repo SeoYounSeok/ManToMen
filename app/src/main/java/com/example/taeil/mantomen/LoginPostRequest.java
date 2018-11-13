@@ -23,7 +23,6 @@ import javax.net.ssl.HttpsURLConnection;
 public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
     Activity activity;
     URL url;
-
     Variable variable;
 
     public LoginPostRequest(Activity activity) {

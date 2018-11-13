@@ -98,8 +98,8 @@ public class ClassAppointmentFragment extends Fragment {
                 variableOfClass.setClassPlaceDetail(ClassPlaceDetail.getText().toString());
                 variableOfClass.setClassWeek("월");  // 임의로 정해둠
                 variableOfClass.setClassTime(ClassTime.getText().toString());
-
-                variableOfClass.setClassFirstTime(ClassFirstTime);
+                variableOfClass.setClassFirstTime("2011-1010-12");
+                // variableOfClass.setClassFirstTime(ClassFirstTime);
 
 
                 JSONObject postDataParam = new JSONObject();

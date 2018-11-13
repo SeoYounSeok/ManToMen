@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
                 // new GetData(LoginActivity.this).execute(); // 홈누르면 ㅇㅋ? ㅋ_ㅋ 잠시 꺼놔야함 ; 중요부분
 
 
-                new GetData(LoginActivity.this).execute();
+                new GetData(LoginActivity.this).execute();  // 클래스 정보를 죄다 받아오는거
                 Log.d("리뷰", "실행되나?");
 
                 overridePendingTransition(0, 0);  //화면전환효과 없애기
