@@ -111,10 +111,12 @@ public class ClassAppointmentFragment extends Fragment {
 
                     // postDataParam.put("ClassPicture",variableOfClass.getClassPicture());
                     postDataParam.put("ClassName", variableOfClass.getClassName());
-                    postDataParam.put("ClassTutorID", variableOfClass.getClassTutorID());
+                    // postDataParam.put("ClassTutorID", variableOfClass.getClassTutorID());  // 튜터아이디이상
+                    postDataParam.put("ClassTutorID", variable.getUserID());  // 튜터아이디이상
+                    postDataParam.put("ClassTuteeID", "0");                      // 튜티이상
                     postDataParam.put("ClassCategory", variableOfClass.getClassCategory());
                     postDataParam.put("ClassTotalPeople", variableOfClass.getClassTotalPeople());
-                    //postDataParam.put("ClassCurrentPeople",variableOfClass.getClassCurrentPeople());
+                    //postDataParam.put("ClassCurrentPeople",variableOfClass.getClassCurrentPeople());    // <현인원
 
                     postDataParam.put("ClassTutorIntro", variableOfClass.getClassTutorIntro());
                     postDataParam.put("ClassIntro", variableOfClass.getClassIntro());

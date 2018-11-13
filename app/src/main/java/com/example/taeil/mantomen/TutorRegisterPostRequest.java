@@ -83,6 +83,7 @@ public class TutorRegisterPostRequest extends AsyncTask<JSONObject, Void, String
     protected void onPostExecute(String result) {
 
         super.onPostExecute(result);
+        Log.d("파람스", result);
         String temp;
         String message1 = "신청실패";
         String message2 = "신청완료";

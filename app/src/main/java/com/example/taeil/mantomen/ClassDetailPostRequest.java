@@ -189,14 +189,15 @@ public class ClassDetailPostRequest extends AsyncTask<JSONObject, Void, String> 
     private void SbExtraction(StringBuffer sb) {
 
         String SB = sb.toString(); //일단 String버퍼를 스트링 형식으로 변형
-
+        Log.d("파람스3", SB);
         String ClassData[] = SB.split(",");
         String ClassValue[] = new String[ClassData.length]; //추출후에 담을거
+
+        Log.d("파람스3", String.valueOf(ClassData.length));
 
         for (int i = 0; i < ClassData.length; i++) { //
             int idx = ClassData[i].indexOf(":");
             ClassValue[i] = ClassData[i].substring(idx + 2, ClassData[i].length() - 1);
-
             Log.e("확인", ClassValue[i]);
             //userValue[i].replace("\"", ""); //처음이랑 마지막꺼는 버려야함 이상한 값임
         }
@@ -223,8 +224,6 @@ public class ClassDetailPostRequest extends AsyncTask<JSONObject, Void, String> 
         variableOfClass.setClassFirstTime(ClassValue[19]);
         variableOfClass.setClassIdentity(ClassValue[20]);
         variableOfClass.setClassScore(ClassValue[21]);
-
-
 
         Log.e("추출", variableOfClass.getClassCategory());
 

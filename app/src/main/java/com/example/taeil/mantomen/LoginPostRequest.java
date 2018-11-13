@@ -94,7 +94,7 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
 //          Toast.makeText(activity, result,
 //                Toast.LENGTH_LONG).show();
         super.onPostExecute(result);
-        Log.d("파람스", result);
+
         variable = Variable.getInstance();
         String temp;
         String message1 = "아이디와 비밀번호를 확인해주세요";
@@ -206,7 +206,7 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
         variable.setUserPhoneNumber(userValue[11]);
 
 
-        Log.e("추출", variable.getUserCategory());
+        Log.e("추출", variable.getUserID());
 
     }
 

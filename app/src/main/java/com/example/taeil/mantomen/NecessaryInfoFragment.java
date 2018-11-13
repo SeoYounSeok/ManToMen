@@ -57,8 +57,8 @@ public class NecessaryInfoFragment extends Fragment {
         final Button InsertAuth = necessaryInfofragment.findViewById(R.id.TutorRegister0_InsertAuth);
 
 
-        tutorID.setText(variable.getUserName());
-        Log.d("오류", variable.getUserName());
+        tutorID.setText(variable.getUserID());
+        Log.d("오류", variable.getUserID());
 
 
 
