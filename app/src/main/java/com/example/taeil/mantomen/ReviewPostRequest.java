@@ -88,8 +88,8 @@ public class ReviewPostRequest extends AsyncTask<JSONObject, Void, String> {
         variable = Variable.getInstance();
         super.onPostExecute(result);
         String temp;
-        String message1 = "회원정보수정실패!";
-        String message2 = "회원정보수정성공!";
+        String message1 = "리뷰등록실패!";
+        String message2 = "리뷰등록성공!";
         temp = result.trim();
 
 
@@ -103,7 +103,7 @@ public class ReviewPostRequest extends AsyncTask<JSONObject, Void, String> {
             Toast.makeText(activity, message2,
                     Toast.LENGTH_LONG).show();
 
-            MemberModifyActivity.mContext = activity;
+
 
             String userID = variable.getUserID();
             String userPassword = variable.getUserPassword();

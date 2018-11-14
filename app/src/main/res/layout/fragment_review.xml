@@ -4,12 +4,84 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ReviewFragment">
+    tools:context=".ReviewFragment"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:gravity="center"
+        android:background="@drawable/border">
+
+        <Button
+            android:id="@+id/ReviewFragment_ReviewWrite"
+            android:layout_width="200dp"
+            android:layout_height="70dp"
+            android:background="@drawable/border3"
+            android:text="리뷰 작성하기"
+            android:textColor="@color/pink"
+            android:textSize="20dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:gravity="center"
+        android:background="@drawable/border">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="리뷰 평가"
+            android:textSize="30dp"
+            android:textColor="@color/black"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@drawable/border">
+        <TextView
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="5.0"
+            android:textSize="50dp"/>
+
+
+        <RatingBar
+            android:id="@+id/ClassScore"
+            style="?android:attr/ratingBarStyleIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:numStars="5"
+            android:rating="1"
+            android:stepSize="1"
+            android:textAlignment="center"
+            />
+
+
+
+    </LinearLayout>
+
+
+    <ListView
+        android:id="@+id/reviewlist"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:dividerHeight="5dp">
+
+
+    </ListView>
+
+
+
+
+
 
 </LinearLayout>

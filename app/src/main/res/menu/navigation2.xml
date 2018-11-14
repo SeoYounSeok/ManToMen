@@ -9,13 +9,6 @@
         />
 
     <item
-        android:id="@+id/navigation2_ETC1"
-        android:enabled="true"
-        android:title="튜터정보" />
-
-
-
-    <item
         android:id="@+id/navigation2_ClassReview"
         android:enabled="true"
         android:title="리뷰" />

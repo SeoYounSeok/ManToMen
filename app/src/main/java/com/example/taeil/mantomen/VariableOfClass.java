@@ -28,9 +28,25 @@ public class VariableOfClass { //클래스관련 전역변수모음 특정 클�
     private static String ClassTime = null; // 수업 시간
     private static String ClassFirstTime = null; // 첫 수업일
     private static String ClassIdentity = null;
-    private static String ClassScore = null;  // 강의 평점
+    private static String ClassScore = null;  // 강의 평균평점
 
-    private static ArrayList<AllClass> allClass = null;
+    private static String ReivewClassName = null;
+    private static String ReivewUserID = null;
+    private static String ReivewContents = null;
+    private static String ReivewDate = null;
+    private static String ReivewScore = null;
+
+    private static ArrayList<AllClass> allClass = null;  // 클래스관련 컬렉션
+    private static ArrayList<AllReview> allReview = null;  // 리뷰관련 컬렉션
+
+
+    public static ArrayList<AllReview> getAllReview() {
+        return allReview;
+    }
+
+    public static void setAllReview(ArrayList<AllReview> allReview) {
+        VariableOfClass.allReview = allReview;
+    }
 
     public static ArrayList<AllClass> getAllClass() {
         return allClass;

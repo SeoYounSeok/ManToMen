@@ -45,8 +45,6 @@ public class Mypage2Fragment extends Fragment {
         Button makeclass = (Button) mypage2fragment.findViewById(R.id.Mypage2_MakeClass); //클래스값받아오는버튼
         Button gotomypage = (Button) mypage2fragment.findViewById(R.id.Mypage2_Mypage); //마이페이지로가는버튼
         Button tutorregister = mypage2fragment.findViewById(R.id.Mypage2_TutorRegister); // 튜터등록 버튼
-        Button makereview = (Button) mypage2fragment.findViewById(R.id.Mypage2_MakeReview); //연습용 리
-
 
 
 
@@ -64,25 +62,6 @@ public class Mypage2Fragment extends Fragment {
             }
         });
 
-        makereview.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                // 이거 리뷰보내는거임
-                JSONObject postDataParam = new JSONObject();
-
-                try {
-                    postDataParam.put("userID", "리뷰 등록자");
-                    postDataParam.put("Contents", "리뷰 내용");
-                    postDataParam.put("Date", "리뷰 등록날짜");
-                    postDataParam.put("Score", "4.5");
-                } catch (JSONException e) {
-                    Log.e(TAG, "JSONEXception");
-                }
-                new ReviewInsertData(getActivity()).execute(postDataParam);
-                Log.d("리뷰등록",postDataParam.toString());
-            }
-        });
 
 
         gotomypage.setOnClickListener(new View.OnClickListener() {

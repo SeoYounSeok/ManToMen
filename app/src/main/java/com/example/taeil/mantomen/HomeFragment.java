@@ -32,7 +32,7 @@ import java.util.List;
 public class HomeFragment extends Fragment {
     final static String TAG = "AndroidNodeJS";
     VariableOfClass variableOfClass;
-    static AllClassListAdapter allClassListAdapter;
+    AllClassListAdapter allClassListAdapter;
     List<AllClass> AllClassList;  //리스트뷰와 어댑터 초기화
 
     public HomeFragment() {

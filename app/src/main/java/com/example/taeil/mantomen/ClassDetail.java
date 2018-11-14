@@ -35,6 +35,7 @@ public class ClassDetail extends AppCompatActivity {
 
 
     final ClassIntroFragment classIntroFragment = new ClassIntroFragment();
+    final ReviewFragment reviewFragment = new ReviewFragment();
 //    final SearchFragment searchFragment = new SearchFragment();
 //    final ChatFragment chatFragment = new ChatFragment();
 //    final MypageFragment mypageFragment = new MypageFragment();
@@ -44,8 +45,8 @@ public class ClassDetail extends AppCompatActivity {
         final FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         if (id == 0)
             fragmentTransaction.replace(R.id.fragment2, classIntroFragment);
-//        else if (id == 1)
-//            fragmentTransaction.replace(R.id.fragment, searchFragment);
+        else if (id == 1)
+            fragmentTransaction.replace(R.id.fragment2, reviewFragment);
 //        else if (id == 2)
 //            fragmentTransaction.replace(R.id.fragment, chatFragment);
 //        else if (id == 3)
@@ -68,16 +69,10 @@ public class ClassDetail extends AppCompatActivity {
                     //navigationImageview.setVisibility(View.INVISIBLE);
                     return true;
 
-//                case R.id.navigation2_ETC1:
-//                    switchFragment(1); //서치버튼이 눌리면
-//                    //181004 추후 메소드로 묶고 오류를 수정할 예정
-//                    return true;
-//
-//
-//                case R.id.navigation2_ClassReview:
-//                    //회원정보를 가져오는 메소드 로그인할 때 이미 변수에 로그인 패스워드가 담겨있음 그걸가지고 이제 민영이한테서 정보를 받아올거임
-//                    switchFragment(2); //마이페이지버튼이 눌리면
-//                    return true;
+                case R.id.navigation2_ClassReview:
+                    switchFragment(1); //서치버튼이 눌리면
+                    //181004 추후 메소드로 묶고 오류를 수정할 예정
+                    return true;
             }
             return false;
         }

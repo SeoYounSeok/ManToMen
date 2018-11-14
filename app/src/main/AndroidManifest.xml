@@ -31,7 +31,8 @@
         <activity android:name=".MemberModifyActivity" />
         <activity android:name=".ClassDetail" />
         <activity android:name=".MakeClassActivity" />
-        <activity android:name=".TutorRegisterActivity"></activity>
+        <activity android:name=".TutorRegisterActivity" />
+        <activity android:name=".ReviewWriteActivity"></activity>
     </application>
 
 </manifest>
