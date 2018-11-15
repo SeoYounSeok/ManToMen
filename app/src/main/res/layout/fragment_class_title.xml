@@ -116,7 +116,7 @@
             android:layout_margin="8dp"
             android:background="@color/white"
             android:textSize="15dp"
-            android:entries="@array/number"/>
+            android:entries="@array/category"/>
 
 
     </LinearLayout>

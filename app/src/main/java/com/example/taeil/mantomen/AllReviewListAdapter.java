@@ -45,7 +45,7 @@ public class AllReviewListAdapter extends BaseAdapter{
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
-        View v = View.inflate(context, R.layout.fitlist,null);
+        View v = View.inflate(context, R.layout.reviewlist,null);
 
         TextView userName = (TextView) v.findViewById(R.id.Reviewlist_userID);
         TextView Contents = (TextView) v.findViewById(R.id.Reviewlist_Contents);

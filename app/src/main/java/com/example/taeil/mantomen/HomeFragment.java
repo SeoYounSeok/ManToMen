@@ -34,6 +34,7 @@ public class HomeFragment extends Fragment {
     VariableOfClass variableOfClass;
     AllClassListAdapter allClassListAdapter;
     List<AllClass> AllClassList;  //리스트뷰와 어댑터 초기화
+    static String ClassName = "";
 
     public HomeFragment() {
         // Required empty public constructor
@@ -81,10 +82,13 @@ public class HomeFragment extends Fragment {
                 // variableOfClass.getAllClass().get(position).getClassName();
                 try {
                     postDataParam.put("ClassName", variableOfClass.getAllClass().get(position).getClassName());
+                    ClassName = variableOfClass.getAllClass().get(position).getClassName();
                 } catch (JSONException e) {
                     Log.e(TAG, "JSONEXception");
                 }
+
                 new ClassDetailInsertData(getActivity()).execute(postDataParam);
+                new GetReviewData(getActivity()).execute();
                 Log.e("리뷰", variableOfClass.getAllClass().get(position).getClassName());
 
                 // getActivity().finish();  // 액티비티 삭제

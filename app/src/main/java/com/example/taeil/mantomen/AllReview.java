@@ -3,14 +3,14 @@ package com.example.taeil.mantomen;
 public class AllReview {  // 리뷰관련 전역변수 모음
 
     String ReviewClassName;
-    String ReviewUserID;
+    String ReviewuserID;
     String ReviewContents;
     String ReviewDate;
     String ReviewScore;
 
-    public AllReview(String reviewClassName, String reviewUserID, String reviewContents, String reviewDate, String reviewScore) {
+    public AllReview(String reviewClassName, String reviewuserID, String reviewContents, String reviewDate, String reviewScore) {
         ReviewClassName = reviewClassName;
-        ReviewUserID = reviewUserID;
+        ReviewuserID = reviewuserID;
         ReviewContents = reviewContents;
         ReviewDate = reviewDate;
         ReviewScore = reviewScore;
@@ -25,11 +25,11 @@ public class AllReview {  // 리뷰관련 전역변수 모음
     }
 
     public String getReviewUserID() {
-        return ReviewUserID;
+        return ReviewuserID;
     }
 
     public void setReviewUserID(String reviewUserID) {
-        ReviewUserID = reviewUserID;
+        ReviewuserID = reviewUserID;
     }
 
     public String getReviewContents() {

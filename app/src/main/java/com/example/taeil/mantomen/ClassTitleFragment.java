@@ -44,19 +44,19 @@ public class ClassTitleFragment extends Fragment {
         final ImageView ClassPicture = classtitlefragment.findViewById(R.id.TutorRegister1_ClassPicture);
         final Spinner ClassCategory = classtitlefragment.findViewById(R.id.TutorRegister1_ClassCategory);  // 스피너 누를 때 다이얼로그창이 뜨면서 카테고리선택
         final EditText ClassTotalPeople = classtitlefragment.findViewById(R.id.TutorRegister1_ClassTotalPeople);
-
-
-        ClassCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
+//
+//
+//        ClassCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
 
         previousbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +74,7 @@ public class ClassTitleFragment extends Fragment {
                 // variableOfClass.setClassName(ClassPicture.getText().toString());  // 사진은 임의의 사진 일단 스트링으로 보냄시험삼아
                 variableOfClass.setClassPicture("시험사진");
                 //variableOfClass.setClassCategory(ClassCategory.getText().toString());
-                variableOfClass.setClassCategory("Programing");
+                variableOfClass.setClassCategory(ClassCategory.getSelectedItem().toString());
                 variableOfClass.setClassTotalPeople(ClassTotalPeople.getText().toString());
                 ((TutorRegisterActivity)getActivity()).switchFragment(2);  // 프래그먼트 교체
 

@@ -53,7 +53,7 @@ public class MypageFragment extends Fragment implements Main2Activity.OnBackPres
         Button deletebtn = (Button) mypagefragment.findViewById(R.id.Mypage_Memberdelete_Btn); //회원탈퇴버튼
 
         TextView UserID = (TextView) mypagefragment.findViewById(R.id.mypage_userID);
-        TextView UserPassword = (TextView) mypagefragment.findViewById(R.id.mypage_UserPassword);
+        // TextView UserPassword = (TextView) mypagefragment.findViewById(R.id.mypage_UserPassword);
         TextView UserEmail = (TextView) mypagefragment.findViewById(R.id.mypage_UserEmail);
         TextView UserGender = (TextView) mypagefragment.findViewById(R.id.mypage_UserGender);
         TextView UserName = (TextView) mypagefragment.findViewById(R.id.mypage_UserName);
@@ -65,7 +65,7 @@ public class MypageFragment extends Fragment implements Main2Activity.OnBackPres
 
 
         UserID.setText(variable.getUserID());
-        UserPassword.setText(variable.getUserPassword());
+        // UserPassword.setText(variable.getUserPassword());
         UserEmail.setText(variable.getUserEmail());
         UserGender.setText(variable.getUserGender());
         UserName.setText(variable.getUserName());

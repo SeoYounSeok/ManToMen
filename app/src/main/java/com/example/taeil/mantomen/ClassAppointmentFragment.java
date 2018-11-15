@@ -10,8 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -47,9 +49,9 @@ public class ClassAppointmentFragment extends Fragment {
         Button completebutton = classappointmentfragment.findViewById(R.id.TutorRegister4_Complete); // 완료버튼을 누르면 자료 보내기
 
 
-        final Button ClassPlace = classappointmentfragment.findViewById(R.id.TutorRegister4_ClassPlace);
+        final Spinner ClassPlace = classappointmentfragment.findViewById(R.id.TutorRegister4_ClassPlace);
         final EditText ClassPlaceDetail = classappointmentfragment.findViewById(R.id.TutorRegister4_ClassPlaceDetail);
-        final Button[] WeekButton = new Button[7];
+        final CheckBox[] WeekButton = new CheckBox[7];
         WeekButton[0] = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek0);
         WeekButton[1] = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek1);
         WeekButton[2] = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek2);
@@ -57,22 +59,19 @@ public class ClassAppointmentFragment extends Fragment {
         WeekButton[4] = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek4);
         WeekButton[5] = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek5);
         WeekButton[6] = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek6);
+
+        String selectWeek= "";
         final EditText ClassTime = classappointmentfragment.findViewById(R.id.TutorRegister4_ClassTime);
         final CalendarView ClassFirstTimeCal = classappointmentfragment.findViewById(R.id.TutorRegister4_ClassFirstTime);
 
-//  월요일날 구현하기
-//        for(int i = 0; i<7 ; i++){
-//            final int buttonint = i;  //새변수가 필요하나봄
-//            WeekButton[i].setOnClickListener(new View.OnClickListener() {
-//                @SuppressLint("ResourceAsColor")
-//                @Override
-//                public void onClick(View v) {
-//                    WeekButton[buttonint].setBackgroundColor(R.color.pink);
-//                }
-//            });
-//
-//        }
-//
+        //  월요일날 구현하기
+        for (int i = 0; i < 7; i++) {
+            if(WeekButton[i].isChecked()){   // 만약 체크되어있다면
+                selectWeek += WeekButton[i].getText().toString() + "//";
+            }
+
+        }
+
 
         ClassFirstTimeCal.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -90,16 +89,18 @@ public class ClassAppointmentFragment extends Fragment {
         });
 
 
+        final String ClassWeek = selectWeek;
+
         completebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                variableOfClass.setClassPlace("서울");
+                variableOfClass.setClassPlace(ClassPlace.getSelectedItem().toString());
                 variableOfClass.setClassPlaceDetail(ClassPlaceDetail.getText().toString());
-                variableOfClass.setClassWeek("월");  // 임의로 정해둠
+                variableOfClass.setClassWeek(ClassWeek);  // 임의로 정해둠
                 variableOfClass.setClassTime(ClassTime.getText().toString());
-                variableOfClass.setClassFirstTime("2011-1010-12");
-                // variableOfClass.setClassFirstTime(ClassFirstTime);
+                // variableOfClass.setClassFirstTime("2011-10-12");
+                variableOfClass.setClassFirstTime(ClassFirstTime);
 
 
                 JSONObject postDataParam = new JSONObject();
@@ -113,7 +114,7 @@ public class ClassAppointmentFragment extends Fragment {
                     postDataParam.put("ClassName", variableOfClass.getClassName());
                     // postDataParam.put("ClassTutorID", variableOfClass.getClassTutorID());  // 튜터아이디이상
                     postDataParam.put("ClassTutorID", variable.getUserID());  // 튜터아이디이상
-                    postDataParam.put("ClassTuteeID", "0");                      // 튜티이상
+                    // postDataParam.put("ClassTuteeID", "0");                      // 튜티이상
                     postDataParam.put("ClassCategory", variableOfClass.getClassCategory());
                     postDataParam.put("ClassTotalPeople", variableOfClass.getClassTotalPeople());
                     //postDataParam.put("ClassCurrentPeople",variableOfClass.getClassCurrentPeople());    // <현인원

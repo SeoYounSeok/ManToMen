@@ -120,32 +120,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:text="비밀번호 : "
-                android:textSize="15dp" />
-
-
-            <TextView
-                android:id="@+id/mypage_UserPassword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:text="12345"
-                android:textSize="15dp" />
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="3dp"
-            android:gravity="left"
-            android:orientation="horizontal"
-            android:paddingLeft="20dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
                 android:text="이메일 : "
                 android:textSize="15dp" />
 
@@ -159,8 +133,6 @@
                 android:textSize="15dp" />
 
         </LinearLayout>
-
-
 
 
         <LinearLayout
@@ -273,7 +245,6 @@
         </LinearLayout>
 
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -296,21 +267,20 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="bottom">
+
             <Button
                 android:id="@+id/Mypage_Membermodify_Btn"
                 android:layout_width="10dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="회원 정보수정"
-                />
+                android:text="회원 정보수정" />
 
             <Button
                 android:id="@+id/Mypage_Memberdelete_Btn"
                 android:layout_width="10dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="회원 탈퇴"
-                />
+                android:text="회원 탈퇴" />
         </LinearLayout>
 
 

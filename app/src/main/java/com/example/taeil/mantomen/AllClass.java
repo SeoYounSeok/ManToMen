@@ -30,8 +30,8 @@ public class AllClass { //클래스관련 전역변수모음 특정 클래스 �
     String ClassScore; // 클래스 점수
 
 
-    public AllClass(String classPicture, String className, String classTutorID, String classCategory, String classTotalPeople,
-                    String classCurrentPeople, String classTutorIntro, String classTuteeID, String classIntro, String classContents, String classWhom, String classPrice,
+    public AllClass(String classPicture, String className, String classTutorID, String classTuteeID, String classCategory, String classTotalPeople,
+                    String classCurrentPeople, String classTutorIntro,  String classIntro, String classContents, String classWhom, String classPrice,
                     String classHour, String classNumberOfTime, String classPlace, String classPlaceDetail, String classWeek, String classTime,
                     String classFirstTime, String classIdentity, String classScore) {
         ClassPicture = classPicture;

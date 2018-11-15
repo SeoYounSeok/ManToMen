@@ -103,14 +103,7 @@ public class ReviewPostRequest extends AsyncTask<JSONObject, Void, String> {
             Toast.makeText(activity, message2,
                     Toast.LENGTH_LONG).show();
 
-
-
-            String userID = variable.getUserID();
-            String userPassword = variable.getUserPassword();
-            Intent GoToLoginintent = new Intent((MemberModifyActivity.mContext), LoginActivity.class); //메인액티비티로 보내는 인텐트
-            ((MemberModifyActivity)MemberModifyActivity.mContext).startActivity(GoToLoginintent);
-            GoToLoginintent.putExtra("userID", userID);
-            ((MemberModifyActivity)MemberModifyActivity.mContext).overridePendingTransition(0, 0);  //화면전환효과 없애기
+            ReviewWriteActivity.mActivity.finish();
 
 
         }

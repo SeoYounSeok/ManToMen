@@ -30,11 +30,11 @@ public class VariableOfClass { //클래스관련 전역변수모음 특정 클�
     private static String ClassIdentity = null;
     private static String ClassScore = null;  // 강의 평균평점
 
-    private static String ReivewClassName = null;
-    private static String ReivewUserID = null;
-    private static String ReivewContents = null;
-    private static String ReivewDate = null;
-    private static String ReivewScore = null;
+    private static String ReviewClassName = null;
+    private static String ReviewuserID = null;
+    private static String ReviewContents = null;
+    private static String ReviewDate = null;
+    private static String ReviewScore = null;
 
     private static ArrayList<AllClass> allClass = null;  // 클래스관련 컬렉션
     private static ArrayList<AllReview> allReview = null;  // 리뷰관련 컬렉션
@@ -56,6 +56,47 @@ public class VariableOfClass { //클래스관련 전역변수모음 특정 클�
         VariableOfClass.allClass = allClasse;
     }
 //리뷰스키마찾는거
+
+
+    public static String getReviewClassName() {
+        return ReviewClassName;
+    }
+
+    public static void setReviewClassName(String reviewClassName) {
+        ReviewClassName = reviewClassName;
+    }
+
+    public static String getReviewuserID() {
+        return ReviewuserID;
+    }
+
+    public static void setReviewuserID(String reviewUserID) {
+        ReviewuserID = reviewUserID;
+    }
+
+    public static String getReviewContents() {
+        return ReviewContents;
+    }
+
+    public static void setReviewContents(String reviewContents) {
+        ReviewContents = reviewContents;
+    }
+
+    public static String getReviewDate() {
+        return ReviewDate;
+    }
+
+    public static void setReviewDate(String reviewDate) {
+        ReviewDate = reviewDate;
+    }
+
+    public static String getReviewScore() {
+        return ReviewScore;
+    }
+
+    public static void setReviewScore(String reviewScore) {
+        ReviewScore = reviewScore;
+    }
 
     private VariableOfClass() {
         variableofclass = new VariableOfClass();

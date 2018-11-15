@@ -100,7 +100,7 @@
 
             <TextView
                 android:id="@+id/Home_ClassTotalPeople"
-                android:layout_width="wrap_content"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:text="7명 모집"
@@ -120,7 +120,7 @@
             <RatingBar
                 android:id="@+id/ClassScore"
                 style="?android:attr/ratingBarStyleSmall"
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:numStars="5"

@@ -44,7 +44,9 @@
         android:orientation="horizontal"
         android:gravity="center"
         android:background="@drawable/border">
+
         <TextView
+            android:id="@+id/ReviewFragment_ReviewScore"
             android:layout_margin="20dp"
             android:gravity="center"
             android:layout_width="wrap_content"
@@ -54,7 +56,7 @@
 
 
         <RatingBar
-            android:id="@+id/ClassScore"
+            android:id="@+id/ReviewFragment_ReviewScoreRating"
             style="?android:attr/ratingBarStyleIndicator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

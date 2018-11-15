@@ -61,16 +61,15 @@
         android:layout_marginRight="10dp"
         android:layout_marginBottom="3dp"
         android:background="@drawable/border2">
-        <Button
+
+        <Spinner
             android:id="@+id/TutorRegister4_ClassPlace"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="8dp"
-            android:gravity="left|center"
-            android:hint="수업개설지역을 선택해 주세요"
-            android:textSize="17dp"
-            android:textColor="@color/black"
-            android:background="@color/white"/>
+            android:background="@color/white"
+            android:textSize="15dp"
+            android:entries="@array/place"/>
     </LinearLayout>
 
     <LinearLayout
@@ -146,54 +145,47 @@
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:orientation="horizontal">
-        <Button
+        <CheckBox
             android:id="@+id/TutorRegister4_Classweek0"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/border2"
             android:text="월"/>
-        <Button
+        <CheckBox
             android:id="@+id/TutorRegister4_Classweek1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/border2"
             android:text="화"/>
-        <Button
+        <CheckBox
             android:id="@+id/TutorRegister4_Classweek2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/border2"
             android:text="수"/>
-        <Button
+        <CheckBox
             android:id="@+id/TutorRegister4_Classweek3"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/border2"
             android:text="목"/>
-        <Button
+        <CheckBox
             android:id="@+id/TutorRegister4_Classweek4"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/border2"
             android:text="금"/>
-        <Button
+        <CheckBox
             android:id="@+id/TutorRegister4_Classweek5"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/border2"
             android:text="토"/>
-        <Button
+        <CheckBox
             android:id="@+id/TutorRegister4_Classweek6"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/border2"
             android:text="일"/>
 
 
@@ -266,7 +258,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"

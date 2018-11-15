@@ -115,8 +115,32 @@ public class GetData extends GetRequest {
                                 //리뷰는 잠깐 뺐음 json오브젝트라 이거 전역으로 뺄까??
                         );
 
+                Log.e( "알라2", allClass.getClassPicture());
+                Log.e( "알라2", allClass.getClassName());
+                Log.e( "알라2", allClass.getClassTutorID());
+                Log.e( "알라2", allClass.getClassTuteeID());
+                Log.e( "알라2", allClass.getClassCategory());
+                Log.e( "알라2", allClass.getClassTotalPeople());
+                Log.e( "알라2", allClass.getClassCurrentPeople());
+                Log.e( "알라2", allClass.getClassTutorIntro());
+                Log.e( "알라2", allClass.getClassIntro());
+                Log.e( "알라2", allClass.getClassContents());
+                Log.e( "알라2", allClass.getClassWhom());
+                Log.e( "알라2", allClass.getClassPrice());
+                Log.e( "알라2", allClass.getClassHour());
+                Log.e( "알라2", allClass.getClassNumberOfTime());
+                Log.e( "알라2", allClass.getClassPlace());
+                Log.e( "알라2", allClass.getClassPlaceDetail());
+                Log.e( "알라2", allClass.getClassWeek());
+                Log.e( "알라2", allClass.getClassTime());
+                Log.e( "알라2", allClass.getClassFirstTime());
+                Log.e( "알라2", allClass.getClassIdentity());
+                Log.e( "알라2", allClass.getClassScore());
 
-                Log.d("알라", "실행되네 ㅇㅇ");
+
+
+
+                Log.d("알라2", "실행되네 ㅇㅇ");
                 output.add(allClass); // 어레이 길이만큼 반복되니까 여기에 저장된다는거아녀 허허
             }
 

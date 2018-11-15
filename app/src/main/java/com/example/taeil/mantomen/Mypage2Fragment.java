@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -52,11 +53,18 @@ public class Mypage2Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // if문으로 튜티인지 튜터인지 확인 후 튜터이면 진행
-                Main2Activity.mContext = getActivity();
-                Variable variable = Variable.getInstance();
+                if(variable.getUserIdentity().equals("Tutee")){
+                    Main2Activity.mContext = getActivity();
+                    Variable variable = Variable.getInstance();
 
-                Intent GoToTutorregisterintent = new Intent(((Main2Activity)Main2Activity.mContext), TutorRegisterActivity.class); // TutorRegisterActivity로 보내는 인텐트
-                ((Main2Activity)Main2Activity.mContext).startActivity(GoToTutorregisterintent);
+                    Intent GoToTutorregisterintent = new Intent(((Main2Activity)Main2Activity.mContext), TutorRegisterActivity.class); // TutorRegisterActivity로 보내는 인텐트
+                    ((Main2Activity)Main2Activity.mContext).startActivity(GoToTutorregisterintent);
+
+                }else {
+                    Toast.makeText(getActivity(), "이미 등록되셨습니다.",
+                            Toast.LENGTH_LONG).show();
+                }
+
 
 
             }

@@ -16,7 +16,7 @@ public class ReviewInsertData extends ReviewPostRequest { //레지스터
 //      EditText server = activity.findViewById(R.id.server);
         String serverURLStr = Variable.HttpAddres;  //민영이 서버
         try {
-            url = new URL(serverURLStr + "/class/review");
+            url = new URL(serverURLStr + "/class/reviewinsert");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

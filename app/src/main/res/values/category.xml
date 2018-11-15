@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="number">
+    <string-array name="category">
         <item >프로그래밍</item>
         <item >디자인</item>
         <item >외국어</item>
