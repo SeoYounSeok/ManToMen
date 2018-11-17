@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         LoginButtonClick(Loginbutton, LoginIntent);  //로그인 클릭처리
         RegisterButtonClick(Registerbutton,RegisterIntent);  //회원가입 클릭처리
         //버튼과 인텐트를 객체로 받아 메소드 실행
+
+
 
         // 실험
 

@@ -1,12 +1,15 @@
 package com.example.taeil.mantomen;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.example.taeil.mantomen.R;
 
@@ -17,19 +20,31 @@ public class ChatFragment extends Fragment {
         // Required empty public constructor
     }
 
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_chat, container, false);
+        LinearLayout chatfragment = (LinearLayout) inflater.inflate(R.layout.fragment_chat, container, false);
+
+
+        Button gotochat = (Button) chatfragment.findViewById(R.id.gotochat); //마이페이지로가는버튼
+
+        gotochat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent GoToMainintent = new Intent(getContext(), ChattingRoomActivity.class); //메인액티비티로 보내는 인텐트
+                (getContext()).startActivity(GoToMainintent);
+
+            }
+        });
+
+
+        return chatfragment;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

@@ -18,11 +18,20 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AbsListView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
+import com.github.nkzawa.socketio.client.IO;
+import com.github.nkzawa.socketio.client.Socket;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.net.URISyntaxException;
 import java.util.concurrent.Delayed;
 
 public class Main2Activity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener, SearchFragment.OnFragmentInteractionListener {
@@ -33,7 +42,8 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
     boolean Lock = true;
     static ScrollView scrollView;
     static ProgressBar progressBar;
-
+    Variable variable;
+    VariableOfClass variableOfClass;
 
     // 리스너 생성
     public interface OnBackPressedListener {
@@ -65,7 +75,6 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
         super.onPause();
         //finish();
     }
-
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -99,10 +108,15 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
     };
 
 
-
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
+        Toast.makeText(getApplicationContext(),"Service 시작",Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(Main2Activity.this,MyService.class);
+        startService(intent);
 
 
         super.onCreate(savedInstanceState);
@@ -121,6 +135,22 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
         //바텀바 연결
 
         switchFragment(0);  //홈버튼이 눌리면 0전송
+
+
+        Button serviceend = findViewById(R.id.service_end);
+
+        serviceend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),"Service 끝",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Main2Activity.this,MyService.class);
+                stopService(intent);
+            }
+        });
+
+
+
+
 
 //        scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
 //            @Override
@@ -169,6 +199,8 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
 //
 //            }
 //        });
+
+
     }
 
 

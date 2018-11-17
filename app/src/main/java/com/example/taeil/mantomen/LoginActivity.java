@@ -8,8 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.github.nkzawa.socketio.client.IO;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.net.URISyntaxException;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -23,6 +27,10 @@ public class LoginActivity extends AppCompatActivity {
 
 //        finish();  //로그인 하고 없애버림
     }
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +65,8 @@ public class LoginActivity extends AppCompatActivity {
 
                 new LoginInsertData(LoginActivity.this).execute(postDataParam);
                 // new GetData(LoginActivity.this).execute(); // 홈누르면 ㅇㅋ? ㅋ_ㅋ 잠시 꺼놔야함 ; 중요부분
+
+
 
 
                 new GetData(LoginActivity.this).execute();  // 클래스 정보를 죄다 받아오는거

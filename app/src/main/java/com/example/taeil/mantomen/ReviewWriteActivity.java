@@ -28,7 +28,7 @@ public class ReviewWriteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review_write);
-
+        mActivity = this;
         variableOfClass.getInstance();
         variable.getInstance();
 

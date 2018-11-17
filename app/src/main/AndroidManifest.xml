@@ -32,7 +32,13 @@
         <activity android:name=".ClassDetail" />
         <activity android:name=".MakeClassActivity" />
         <activity android:name=".TutorRegisterActivity" />
-        <activity android:name=".ReviewWriteActivity"></activity>
+        <activity android:name=".ReviewWriteActivity" />
+        <activity android:name=".ChattingRoomActivity" />
+
+        <service
+            android:name=".MyService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>

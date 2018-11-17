@@ -26,8 +26,6 @@ public class MemberModifyPostRequest extends AsyncTask<JSONObject, Void, String>
     Variable variable;
 
 
-
-
     public MemberModifyPostRequest(Activity activity) {
         this.activity = activity;
     }

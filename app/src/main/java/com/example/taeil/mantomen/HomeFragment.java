@@ -89,6 +89,8 @@ public class HomeFragment extends Fragment {
 
                 new ClassDetailInsertData(getActivity()).execute(postDataParam);
                 new GetReviewData(getActivity()).execute();
+
+
                 Log.e("리뷰", variableOfClass.getAllClass().get(position).getClassName());
 
                 // getActivity().finish();  // 액티비티 삭제
