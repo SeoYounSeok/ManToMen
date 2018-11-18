@@ -3,6 +3,7 @@ package com.example.taeil.mantomen;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
@@ -112,8 +113,6 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
-
         Toast.makeText(getApplicationContext(),"Service 시작",Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(Main2Activity.this,MyService.class);
         startService(intent);
@@ -135,6 +134,20 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
         //바텀바 연결
 
         switchFragment(0);  //홈버튼이 눌리면 0전송
+
+        SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
+        //처음에는 SharedPreferences에 아무런 정보도 없으므로 값을 저장할 키들을 생성한다.
+        // getString의 첫 번째 인자는 저장될 키, 두 번쨰 인자는 값입니다.
+        final SharedPreferences.Editor editor = auto.edit();
+
+        Button logout = findViewById(R.id.logout);
+        logout.setOnClickListener(new View.OnClickListener() {   //로그아웃 누르면 쉐어드 프레퍼런스에 있는거 삭제
+            @Override
+            public void onClick(View v) {
+                editor.clear();
+                editor.commit();
+            }
+        });
 
 
         Button serviceend = findViewById(R.id.service_end);

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#eeeeee">
+
+   <TextView
+       android:id="@+id/chatlist_text"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="여기에 채팅 추가"
+       android:padding="10dp"
+       android:background="@drawable/border2"/>
+
+</LinearLayout>

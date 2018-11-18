@@ -24,7 +24,7 @@
         <activity
             android:name=".LoginActivity"
             android:noHistory="true" />
-        //pause시 액티비티 끝내기
+
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoadingActivity" />
         <activity android:name=".Main2Activity" />

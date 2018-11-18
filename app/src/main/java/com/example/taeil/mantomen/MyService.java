@@ -29,6 +29,7 @@ public class MyService extends Service {
     private static Socket mSocket;
     Variable variable;
     VariableOfClass variableOfClass;
+    ChatData chatData;
 
     public static Socket getmSocket() {
         return mSocket;
@@ -71,6 +72,7 @@ public class MyService extends Service {
         myServiceHandler handler = new myServiceHandler();
         thread = new ServiceThread(handler);
         thread.start();
+
         return START_STICKY;
     }
 
@@ -84,17 +86,9 @@ public class MyService extends Service {
         @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
         @Override
         public void handleMessage(android.os.Message msg) {
-            Intent intent = new Intent(MyService.this, ChattingRoomActivity.class);  // 채팅룸으로 이동
+            Intent intent = new Intent(MyService.this, LoginActivity.class);  // 로그인액티비티로 이동
             final PendingIntent pendingIntent = PendingIntent.getActivity(MyService.this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-//            JSONObject data = new JSONObject();
-//            try {
-//                data.put("userid", "홍길동");
-//                //data.put("message", "헬로 월드");
-//                mSocket.emit("login", data);
-//            } catch(JSONException e) {
-//                e.printStackTrace();
-//            }
 
             mSocket.on("receive", new Emitter.Listener() {
                 @Override
@@ -108,6 +102,8 @@ public class MyService extends Service {
                         Log.d("로그2", message);
 
                         variableOfClass.setChatObjectContents(message);  // 상대방 채팅을 저장
+                        chatData = new ChatData("상대아이디",message);
+                        variableOfClass.getChatData().add(chatData);  // 컬렉션에 채팅을 저장
 
                         Notifi = new Notification.Builder(getApplicationContext())
                                 .setContentTitle("맨투맨 알림")
