@@ -63,7 +63,7 @@ public class ChattingRoomActivity extends AppCompatActivity {
                 try {
                     data.put("userid", variable.getUserID());
                     // data.put("message", editText.getText().toString());
-                    MyService.getmSocket().emit("send", data);  // 이밋이 보낸느거 온이 받는거
+                    // MyService.getmSocket().emit("send", data);  // 이밋이 보낸느거 온이 받는거 서비스관련안한다
                     Log.d("소켓", data.toString());
                     chatData = new ChatData(variable.getUserID(), editText.getText().toString());
                     variableOfClass.getChatData().add(chatData);

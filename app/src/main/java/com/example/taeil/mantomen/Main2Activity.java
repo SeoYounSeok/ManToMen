@@ -114,12 +114,12 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
     protected void onCreate(Bundle savedInstanceState) {
 
 
-        if(serviceflag){
-            Toast.makeText(getApplicationContext(),"Service 시작",Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(Main2Activity.this,MyService.class);
-            startService(intent);
-            serviceflag = false;
-        }
+//        if(serviceflag){  // 서비스안해
+//            Toast.makeText(getApplicationContext(),"Service 시작",Toast.LENGTH_SHORT).show();
+//            Intent intent = new Intent(Main2Activity.this,MyService.class);
+//            startService(intent);
+//            serviceflag = false;
+//        }
 
 
         super.onCreate(savedInstanceState);
@@ -154,16 +154,16 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
         });
 
 
-        Button serviceend = findViewById(R.id.service_end);
-
-        serviceend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"Service 끝",Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(Main2Activity.this,MyService.class);
-                stopService(intent);
-            }
-        });
+//        Button serviceend = findViewById(R.id.service_end);  // 서비스관련 서비스안한다
+//
+//        serviceend.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getApplicationContext(),"Service 끝",Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(Main2Activity.this,MyService.class);
+//                stopService(intent);
+//            }
+//        });
 
 
 
