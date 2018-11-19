@@ -14,7 +14,6 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -95,12 +94,6 @@ public class ClassAppointmentFragment extends Fragment {
         completebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if (ClassWeek.equals("") || ClassPlaceDetail.getText() == null) {
-                    Toast.makeText(getActivity(), "빈칸을 채워주세요",
-                            Toast.LENGTH_LONG).show();
-
-                }
 
                 variableOfClass.setClassPlace(ClassPlace.getSelectedItem().toString());
                 variableOfClass.setClassPlaceDetail(ClassPlaceDetail.getText().toString());

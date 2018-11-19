@@ -152,15 +152,14 @@
         android:orientation="vertical"
         android:background="@drawable/border2">
 
-        <Spinner
+        <EditText
             android:id="@+id/TutorRegister1_ClassTotalPeople"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="8dp"
             android:background="@color/white"
-            android:textSize="15dp"
-            android:entries="@array/totalpeople"/>
-
+            android:hint="모집인원을 입력하세요"
+            android:textSize="15dp" />
     </LinearLayout>
 
 
