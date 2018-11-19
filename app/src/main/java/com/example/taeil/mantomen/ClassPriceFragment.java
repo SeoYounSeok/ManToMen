@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 
 public class ClassPriceFragment extends Fragment {
@@ -44,7 +45,7 @@ public class ClassPriceFragment extends Fragment {
         previousbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((TutorRegisterActivity)getActivity()).switchFragment(2);  // 프래그먼트 교체
+                ((TutorRegisterActivity) getActivity()).switchFragment(2);  // 프래그먼트 교체
 
             }
         });
@@ -54,12 +55,19 @@ public class ClassPriceFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                if (ClassPrice.getText() == null || ClassHour.getText() == null || ClassNumberOfTime.getText() == null) {
+                    Toast.makeText(getActivity(), "빈칸을 채워주세요",
+                            Toast.LENGTH_LONG).show();
+
+                }
+
+
                 variableOfClass.setClassPrice(ClassPrice.getText().toString());
                 variableOfClass.setClassHour(ClassHour.getText().toString());
                 variableOfClass.setClassNumberOfTime(ClassNumberOfTime.getText().toString());
 
 
-                ((TutorRegisterActivity)getActivity()).switchFragment(4);  // 프래그먼트 교체
+                ((TutorRegisterActivity) getActivity()).switchFragment(4);  // 프래그먼트 교체
 
             }
         });
@@ -67,7 +75,6 @@ public class ClassPriceFragment extends Fragment {
 
         return classpricefragment;
     }
-
 
 
     @Override

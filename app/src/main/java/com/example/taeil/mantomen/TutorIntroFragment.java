@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class TutorIntroFragment extends Fragment {
@@ -53,6 +54,13 @@ public class TutorIntroFragment extends Fragment {
         nextbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if (ClassTutorIntro.getText() == null || ClassIntro.getText() == null || ClassContents.getText() == null || ClassWhom.getText() == null) {
+                    Toast.makeText(getActivity(), "빈칸을 채워주세요",
+                            Toast.LENGTH_LONG).show();
+
+                }
+
 
                 variableOfClass.setClassTutorIntro(ClassTutorIntro.getText().toString());
                 variableOfClass.setClassIntro(ClassIntro.getText().toString());
