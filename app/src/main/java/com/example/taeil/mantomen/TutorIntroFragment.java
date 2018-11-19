@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class TutorIntroFragment extends Fragment {
@@ -39,13 +40,13 @@ public class TutorIntroFragment extends Fragment {
         final EditText ClassTutorIntro = tutorintrofragment.findViewById(R.id.TutorRegister2_TutorIntro);
         final EditText ClassIntro = tutorintrofragment.findViewById(R.id.TutorRegister2_ClassIntro);
         final EditText ClassContents = tutorintrofragment.findViewById(R.id.TutorRegister2_ClassContents);
-        final EditText ClassWhom =  tutorintrofragment.findViewById(R.id.TutorRegister2_ClassWhom);
+        final EditText ClassWhom = tutorintrofragment.findViewById(R.id.TutorRegister2_ClassWhom);
 
 
         previousbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((TutorRegisterActivity)getActivity()).switchFragment(1);  // 프래그먼트 교체
+                ((TutorRegisterActivity) getActivity()).switchFragment(1);  // 프래그먼트 교체
             }
         });
 
@@ -54,16 +55,22 @@ public class TutorIntroFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                variableOfClass.setClassTutorIntro(ClassTutorIntro.getText().toString());
-                variableOfClass.setClassIntro(ClassIntro.getText().toString());
-                variableOfClass.setClassContents(ClassContents.getText().toString());
-                variableOfClass.setClassWhom(ClassWhom.getText().toString());
+                if (ClassTutorIntro.getText() == null || ClassIntro.getText() == null || ClassContents.getText() == null || ClassWhom.getText() == null) {
+                    Toast.makeText(getActivity(), "빈칸을 채워주세요",
+                            Toast.LENGTH_LONG).show();
 
-                ((TutorRegisterActivity)getActivity()).switchFragment(3);  // 프래그먼트 교체
+                } else {
+                    variableOfClass.setClassTutorIntro(ClassTutorIntro.getText().toString());
+                    variableOfClass.setClassIntro(ClassIntro.getText().toString());
+                    variableOfClass.setClassContents(ClassContents.getText().toString());
+                    variableOfClass.setClassWhom(ClassWhom.getText().toString());
+
+                    ((TutorRegisterActivity) getActivity()).switchFragment(3);  // 프래그먼트 교체
+
+                }
 
             }
         });
-
 
 
         return tutorintrofragment;

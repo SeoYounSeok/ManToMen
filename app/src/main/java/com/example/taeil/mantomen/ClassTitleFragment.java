@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class ClassTitleFragment extends Fragment {
@@ -43,7 +44,7 @@ public class ClassTitleFragment extends Fragment {
         final EditText ClassName = classtitlefragment.findViewById(R.id.TutorRegister1_ClassName);
         final ImageView ClassPicture = classtitlefragment.findViewById(R.id.TutorRegister1_ClassPicture);
         final Spinner ClassCategory = classtitlefragment.findViewById(R.id.TutorRegister1_ClassCategory);  // 스피너 누를 때 다이얼로그창이 뜨면서 카테고리선택
-        final EditText ClassTotalPeople = classtitlefragment.findViewById(R.id.TutorRegister1_ClassTotalPeople);
+        final Spinner ClassTotalPeople = classtitlefragment.findViewById(R.id.TutorRegister1_ClassTotalPeople);
 //
 //
 //        ClassCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -70,13 +71,21 @@ public class ClassTitleFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                variableOfClass.setClassName(ClassName.getText().toString());
-                // variableOfClass.setClassName(ClassPicture.getText().toString());  // 사진은 임의의 사진 일단 스트링으로 보냄시험삼아
-                variableOfClass.setClassPicture("시험사진");
-                //variableOfClass.setClassCategory(ClassCategory.getText().toString());
-                variableOfClass.setClassCategory(ClassCategory.getSelectedItem().toString());
-                variableOfClass.setClassTotalPeople(ClassTotalPeople.getText().toString());
-                ((TutorRegisterActivity)getActivity()).switchFragment(2);  // 프래그먼트 교체
+
+                if (ClassName.getText() == null) {
+                    Toast.makeText(getActivity(), "빈칸을 채워주세요",
+                            Toast.LENGTH_LONG).show();
+
+                } else{
+                    variableOfClass.setClassName(ClassName.getText().toString());
+                    // variableOfClass.setClassName(ClassPicture.getText().toString());  // 사진은 임의의 사진 일단 스트링으로 보냄시험삼아
+                    variableOfClass.setClassPicture("시험사진");
+                    //variableOfClass.setClassCategory(ClassCategory.getText().toString());
+                    variableOfClass.setClassCategory(ClassCategory.getSelectedItem().toString());
+                    variableOfClass.setClassTotalPeople(ClassTotalPeople.getSelectedItem().toString());
+                    ((TutorRegisterActivity)getActivity()).switchFragment(2);  // 프래그먼트 교체
+
+                }
 
             }
         });

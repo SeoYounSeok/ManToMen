@@ -48,7 +48,7 @@ public class MyService extends Service {
     public void onCreate() {
         super.onCreate();
         try {
-            mSocket = IO.socket("http://ec2-54-180-106-61.ap-northeast-2.compute.amazonaws.com");
+            mSocket = IO.socket(variable.HttpAddres);
             mSocket.connect();
         } catch (URISyntaxException e) {
             e.printStackTrace();

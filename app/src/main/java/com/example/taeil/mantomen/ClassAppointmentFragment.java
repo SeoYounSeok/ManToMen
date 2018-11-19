@@ -14,6 +14,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -60,13 +61,13 @@ public class ClassAppointmentFragment extends Fragment {
         WeekButton[5] = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek5);
         WeekButton[6] = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek6);
 
-        String selectWeek= "";
+        String selectWeek = "";
         final EditText ClassTime = classappointmentfragment.findViewById(R.id.TutorRegister4_ClassTime);
         final CalendarView ClassFirstTimeCal = classappointmentfragment.findViewById(R.id.TutorRegister4_ClassFirstTime);
 
         //  월요일날 구현하기
         for (int i = 0; i < 7; i++) {
-            if(WeekButton[i].isChecked()){   // 만약 체크되어있다면
+            if (WeekButton[i].isChecked()) {   // 만약 체크되어있다면
                 selectWeek += WeekButton[i].getText().toString() + "//";
             }
 
@@ -95,51 +96,58 @@ public class ClassAppointmentFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                variableOfClass.setClassPlace(ClassPlace.getSelectedItem().toString());
-                variableOfClass.setClassPlaceDetail(ClassPlaceDetail.getText().toString());
-                variableOfClass.setClassWeek(ClassWeek);  // 임의로 정해둠
-                variableOfClass.setClassTime(ClassTime.getText().toString());
-                // variableOfClass.setClassFirstTime("2011-10-12");
-                variableOfClass.setClassFirstTime(ClassFirstTime);
+                if (ClassWeek.equals("") || ClassPlaceDetail.getText() == null) {
+                    Toast.makeText(getActivity(), "빈칸을 채워주세요",
+                            Toast.LENGTH_LONG).show();
+
+                } else {
 
 
-                JSONObject postDataParam = new JSONObject();
+                    variableOfClass.setClassPlace(ClassPlace.getSelectedItem().toString());
+                    variableOfClass.setClassPlaceDetail(ClassPlaceDetail.getText().toString());
+                    variableOfClass.setClassWeek(ClassWeek);  // 임의로 정해둠
+                    variableOfClass.setClassTime(ClassTime.getText().toString());
+                    // variableOfClass.setClassFirstTime("2011-10-12");
+                    variableOfClass.setClassFirstTime(ClassFirstTime);
 
-                try {
+
+                    JSONObject postDataParam = new JSONObject();
+
+                    try {
 //                        Toast.makeText(RegisterActivity.this, "이메일형식을 입력해 주세요",
 //                                Toast.LENGTH_LONG).show();
 
 
-                    // postDataParam.put("ClassPicture",variableOfClass.getClassPicture());
-                    postDataParam.put("ClassName", variableOfClass.getClassName());
-                    // postDataParam.put("ClassTutorID", variableOfClass.getClassTutorID());  // 튜터아이디이상
-                    postDataParam.put("ClassTutorID", variable.getUserID());  // 튜터아이디이상
-                    // postDataParam.put("ClassTuteeID", "0");                      // 튜티이상
-                    postDataParam.put("ClassCategory", variableOfClass.getClassCategory());
-                    postDataParam.put("ClassTotalPeople", variableOfClass.getClassTotalPeople());
-                    //postDataParam.put("ClassCurrentPeople",variableOfClass.getClassCurrentPeople());    // <현인원
+                        // postDataParam.put("ClassPicture",variableOfClass.getClassPicture());
+                        postDataParam.put("ClassName", variableOfClass.getClassName());
+                        // postDataParam.put("ClassTutorID", variableOfClass.getClassTutorID());  // 튜터아이디이상
+                        postDataParam.put("ClassTutorID", variable.getUserID());  // 튜터아이디이상
+                        // postDataParam.put("ClassTuteeID", "0");                      // 튜티이상
+                        postDataParam.put("ClassCategory", variableOfClass.getClassCategory());
+                        postDataParam.put("ClassTotalPeople", variableOfClass.getClassTotalPeople());
+                        //postDataParam.put("ClassCurrentPeople",variableOfClass.getClassCurrentPeople());    // <현인원
 
-                    postDataParam.put("ClassTutorIntro", variableOfClass.getClassTutorIntro());
-                    postDataParam.put("ClassIntro", variableOfClass.getClassIntro());
-                    postDataParam.put("ClassContents", variableOfClass.getClassContents());
-                    postDataParam.put("ClassWhom", variableOfClass.getClassWhom());
-                    postDataParam.put("ClassPrice", variableOfClass.getClassPrice());
-                    postDataParam.put("ClassHour", variableOfClass.getClassHour());
-                    postDataParam.put("ClassNumberOfTime", variableOfClass.getClassNumberOfTime());
-                    postDataParam.put("ClassPlace", variableOfClass.getClassPlace());
-                    postDataParam.put("ClassPlaceDetail", variableOfClass.getClassPlaceDetail());
-                    postDataParam.put("ClassWeek", variableOfClass.getClassWeek());
-                    postDataParam.put("ClassTime", variableOfClass.getClassTime());
-                    postDataParam.put("ClassFirstTime", variableOfClass.getClassFirstTime());
-                    postDataParam.put("userPhoneNumber", variable.getUserPhoneNumber());
+                        postDataParam.put("ClassTutorIntro", variableOfClass.getClassTutorIntro());
+                        postDataParam.put("ClassIntro", variableOfClass.getClassIntro());
+                        postDataParam.put("ClassContents", variableOfClass.getClassContents());
+                        postDataParam.put("ClassWhom", variableOfClass.getClassWhom());
+                        postDataParam.put("ClassPrice", variableOfClass.getClassPrice());
+                        postDataParam.put("ClassHour", variableOfClass.getClassHour());
+                        postDataParam.put("ClassNumberOfTime", variableOfClass.getClassNumberOfTime());
+                        postDataParam.put("ClassPlace", variableOfClass.getClassPlace());
+                        postDataParam.put("ClassPlaceDetail", variableOfClass.getClassPlaceDetail());
+                        postDataParam.put("ClassWeek", variableOfClass.getClassWeek());
+                        postDataParam.put("ClassTime", variableOfClass.getClassTime());
+                        postDataParam.put("ClassFirstTime", variableOfClass.getClassFirstTime());
+                        postDataParam.put("userPhoneNumber", variable.getUserPhoneNumber());
 
-                    new TutorRegisterInsertData(getActivity()).execute(postDataParam);
+                        new TutorRegisterInsertData(getActivity()).execute(postDataParam);
 
 
-                } catch (JSONException e) {
-                    Log.e(TAG, "JSONEXception");
+                    } catch (JSONException e) {
+                        Log.e(TAG, "JSONEXception");
+                    }
                 }
-
             }
         });
 
