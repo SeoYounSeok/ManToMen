@@ -40,7 +40,7 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
     static Context mContext = null;
     static Activity mActivity;
     static int page = 1;    //
-    boolean Lock = true;
+    boolean serviceflag = true;
     static ScrollView scrollView;
     static ProgressBar progressBar;
     Variable variable;
@@ -113,9 +113,13 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        Toast.makeText(getApplicationContext(),"Service 시작",Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(Main2Activity.this,MyService.class);
-        startService(intent);
+
+        if(serviceflag){
+            Toast.makeText(getApplicationContext(),"Service 시작",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(Main2Activity.this,MyService.class);
+            startService(intent);
+            serviceflag = false;
+        }
 
 
         super.onCreate(savedInstanceState);

@@ -31,6 +31,7 @@ public class MyService extends Service {
     VariableOfClass variableOfClass;
     ChatData chatData;
 
+
     public static Socket getmSocket() {
         return mSocket;
     }
@@ -55,12 +56,12 @@ public class MyService extends Service {
         }
         JSONObject data = new JSONObject();  // 최초 생성시에 아이디 보내준다.
         try {
-            data.put("userid",variable.getUserID());
+            data.put("userid", variable.getUserID());
             // data.put("message", editText.getText().toString());
             // editText.setText("");
             mSocket.emit("login", data);  // 이밋이 보낸느거 온이 받는거
-            Log.d("소켓",data.toString());
-        } catch(JSONException e) {
+            Log.d("소켓", data.toString());
+        } catch (JSONException e) {
             e.printStackTrace();
         }
 
@@ -89,7 +90,6 @@ public class MyService extends Service {
             Intent intent = new Intent(MyService.this, LoginActivity.class);  // 로그인액티비티로 이동
             final PendingIntent pendingIntent = PendingIntent.getActivity(MyService.this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-
             mSocket.on("receive", new Emitter.Listener() {
                 @Override
                 public void call(Object... args) {
@@ -102,9 +102,11 @@ public class MyService extends Service {
                         Log.d("로그2", message);
 
                         variableOfClass.setChatObjectContents(message);  // 상대방 채팅을 저장
-                        chatData = new ChatData("상대아이디",message);
+                        chatData = new ChatData("상대아이디", message);
                         variableOfClass.getChatData().add(chatData);  // 컬렉션에 채팅을 저장
-
+                        ChattingRoomActivity.chatDataListAdapter.upDateItemList(variableOfClass.getChatData()); // 이 부분입니다.
+                        ChattingRoomActivity.chatDataListAdapter.notifyDataSetChanged();
+                        //chatDataListAdapter.notifyDataSetChanged();
                         Notifi = new Notification.Builder(getApplicationContext())
                                 .setContentTitle("맨투맨 알림")
                                 .setContentText("확인해봐")
@@ -124,19 +126,15 @@ public class MyService extends Service {
                         Toast.makeText(MyService.this, "메시지도착", Toast.LENGTH_LONG).show();
                     } catch (JSONException e) {
                         return;
-                    } catch (RuntimeException e){
+                    } catch (RuntimeException e) {
                         return;
                     }
                     // 메시지를 받으면 data에 담고,
                     // username와 message라는 키값으로 들어왔다는 가정으로 작성된 코드다.
                     // addMessage(username, message); 이런 식으로 코드를 실행시키면 addMessage 쪽으로 인자를 담아 보내니 화면에 노출하게 만들면 될 것이다.
-
                 }
             });
-
-            mSocket.connect();
-
-
+            // mSocket.connect();  //이거때문에 커넥트가 두번되서 메시지를 두번받는건가??
 
 
         }

@@ -24,12 +24,20 @@ public class ChattingRoomActivity extends AppCompatActivity {
     // private Socket mSocket;
     ListView chatlist;
     EditText editText;
-    Button button;
+    Button sendbutton;
+    Button resetbutton;
     Variable variable;
     VariableOfClass variableOfClass;
     ChatData chatData;
-    ChatDataListAdapter chatDataListAdapter;
-    List<ChatData> ChatDataList;  //리스트뷰와 어댑터 초기화
+    public static ChatDataListAdapter chatDataListAdapter;  // 퍼블릭 스태틱으로 선언해서 서비스에서 이용가능하게 만듦
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // chatDataListAdapter.clearAllitems();  // 클리어
+        // chatDataListAdapter.upDateItemList(ChatDataList);
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,62 +45,36 @@ public class ChattingRoomActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chatting_room);
         // mSocket = MyService.getmSocket();  // 소켓생성
 
-        ListView chatlistView = findViewById(R.id.chatlist);
-
 
         chatlist = findViewById(R.id.chatlist);
         editText = findViewById(R.id.edittext);
-        button = findViewById(R.id.sendbutton);
+        sendbutton = findViewById(R.id.sendbutton);
+        resetbutton = findViewById(R.id.resetbutton);
 
+        // ChatDataList =   //저장된 컬랙션호출
 
-        if (variableOfClass.getChatData() == null) {
+        chatDataListAdapter = new ChatDataListAdapter(this, variableOfClass.getChatData());   // 처음으로 호출되는
+        chatlist.setAdapter(chatDataListAdapter);  // 어댑터연결
 
-        } else {
-            // List<AllClass> AllClassList;  //리스트뷰와 어댑터 초기화
-
-            ChatDataList = variableOfClass.getChatData();  //저장된 컬랙션호출
-            chatDataListAdapter = new ChatDataListAdapter(this, ChatDataList);
-            chatlist.setAdapter(chatDataListAdapter);  // 어댑터연결
-            chatDataListAdapter.notifyDataSetChanged();
-
-            //리스트뷰를 펼치기위해 높이를 설정한 메서드를 실행한것
-            // listViewHeightSet(allClassListAdapter, fitlistView);
-
-        }
-
-
-
-
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (true) {
-                    try {
-                        Thread.sleep(2000); //2초에 한번씩검사
-                        // textView.setText(variableOfClass.getChatObjectContents());
-                    } catch (Exception e) {
-                    }
-                }
-
-            }
-        }).start();
-
-        button.setOnClickListener(new View.OnClickListener() {  //센드 버튼이자나
+        sendbutton.setOnClickListener(new View.OnClickListener() {  //센드 버튼이자나
             @Override
             public void onClick(View v) {
                 JSONObject data = new JSONObject();
                 try {
                     data.put("userid", variable.getUserID());
                     // data.put("message", editText.getText().toString());
-                    MyService.getmSocket().emit("login", data);  // 이밋이 보낸느거 온이 받는거
-                    Log.d("소켓",data.toString());
-                    chatData = new ChatData(variable.getUserID(),"내용");
+                    MyService.getmSocket().emit("send", data);  // 이밋이 보낸느거 온이 받는거
+                    Log.d("소켓", data.toString());
+                    chatData = new ChatData(variable.getUserID(), editText.getText().toString());
                     variableOfClass.getChatData().add(chatData);
-
-
+                    // chatDataListAdapter.clearAllitems();  // 클리어
+                    //chatDataListAdapter.addItems(chatData);
+                    //ChattingRoomActivity.this.runOnUiThread(updateUI);
+                    chatDataListAdapter.upDateItemList(variableOfClass.getChatData()); // 이 부분입니다.
+                    chatDataListAdapter.notifyDataSetChanged();
+                    Log.d("태일3", String.valueOf(variableOfClass.getChatData()));
+                    Log.d("태일3", String.valueOf(chatDataListAdapter.getCount()));
                     editText.setText("");
-
 
                     // textView.setText(textView.getText().toString() + "\n" + editText.getText().toString());  // 내용을 추가
 
@@ -103,6 +85,12 @@ public class ChattingRoomActivity extends AppCompatActivity {
         });
 
 
+        resetbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                variableOfClass.getChatData().clear();
+            }
+        });
     }
 
 
