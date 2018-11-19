@@ -32,7 +32,7 @@ public class AllClassListAdapter extends BaseAdapter{
 
     @Override
     public int getCount() {
-        return count;
+        return count;  //요거도 수정해보자 실시간으로 바뀌게 나중에 지금은 무섭
     }
 
     @Override

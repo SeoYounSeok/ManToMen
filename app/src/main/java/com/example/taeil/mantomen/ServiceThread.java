@@ -17,11 +17,11 @@ public class ServiceThread extends Thread{
     }
 
     public void run(){
-        //반복적으로 수행할 작업을 한다.
-        while(isRun){
+        //반복적으로 수행할 작업을 한다. // 아 이걸 그러면 리시브가 있을 때만 true로 해두고
+        while(MyService.recieveflag){  //리시브 플래그가 트루일때만
         handler.sendEmptyMessage(0);//쓰레드에 있는 핸들러에게 메세지를 보냄 //10초마다 검사자나
         try{
-            Thread.sleep(10000); //5초씩 쉰다.
+            Thread.sleep(1000); // 1초씩 검사.
         }catch (Exception e) {}
     }
 }

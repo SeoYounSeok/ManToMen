@@ -30,6 +30,7 @@ public class MyService extends Service {
     Variable variable;
     VariableOfClass variableOfClass;
     ChatData chatData;
+    public static boolean recieveflag = false;
 
 
     public static Socket getmSocket() {
@@ -67,6 +68,9 @@ public class MyService extends Service {
 
     }
 
+
+
+
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Notifi_M = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -93,6 +97,7 @@ public class MyService extends Service {
             mSocket.on("receive", new Emitter.Listener() {
                 @Override
                 public void call(Object... args) {
+
                     JSONObject data = (JSONObject) args[0];
                     String username;
                     String message;
