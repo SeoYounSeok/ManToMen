@@ -54,7 +54,7 @@ public class AllReviewListAdapter extends BaseAdapter{
 
         userName.setText(AllReview.get(i).getReviewUserID());
         Contents.setText(AllReview.get(i).getReviewContents());
-        Date.setText(AllReview.get(i).getReviewDate());
+        Date.setText("작성날짜 : "+ AllReview.get(i).getReviewDate());
 
         // v.setTag(AllReview.get(i).getClassName()); 셋태그가 뭘까?
 

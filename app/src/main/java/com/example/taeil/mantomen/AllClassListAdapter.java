@@ -70,7 +70,7 @@ public class AllClassListAdapter extends BaseAdapter{
         ClassTutorID.setText(AllClass.get(i).getClassTutorID());
         ClassTotalPeople.setText(AllClass.get(i).getClassTotalPeople());
         // 현재원필요
-        ClassRPeriod.setText("~" + AllClass.get(i).getClassFirstTime());   // 모집기간인데 퍼스트 수업 날 전까지로하자 !!!!
+        ClassRPeriod.setText(AllClass.get(i).getClassFirstTime()+"까지");   // 모집기간인데 퍼스트 수업 날 전까지로하자 !!!!
         // 강의기간 필요
         // ClassScore.setRating(AllClass.get(i).getClassScore());
         ClassScore.setRating(5);  //5점으로고정 지금 없으니까

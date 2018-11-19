@@ -31,6 +31,7 @@ public class GetReviewData extends GetRequest {
 
         try {
             url = new URL(serverURLStr + "/class/review?value=" + ClassName);  // http://serverURLStr/get-data
+            Log.d("디테일", ClassName);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -40,6 +41,7 @@ public class GetReviewData extends GetRequest {
     protected void onPostExecute(String jsonString) {
         variableOfClass = VariableOfClass.getInstance();
         Log.d("리뷰", "겟데이터 온포스트익시큩 시작부분");
+
         if (jsonString == null) //받아온값이 없으면 리턴
             return;
 
@@ -53,19 +55,6 @@ public class GetReviewData extends GetRequest {
 
 
         }
-
-
-
-
-        //어레이리스트 각각 칸에는 클래스에대한 정보가 들어있음
-        //어레이리스튼데 이걸 지금 list뷰에 뿌렸단말이지 관우형이
-
-//        ArrayAdapter adapter = new ArrayAdapter(activity,
-//                android.R.layout.simple_list_item_1,
-//                arrayList.toArray());
-//        ListView txtList = activity.findViewById(R.id.txtList);
-//        txtList.setAdapter(adapter);
-
 
     }
 

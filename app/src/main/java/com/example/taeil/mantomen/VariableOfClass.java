@@ -39,6 +39,12 @@ public class VariableOfClass { //클래스관련 전역변수모음 특정 클�
     private static ArrayList<AllClass> allClass = null;  // 클래스관련 컬렉션
     private static ArrayList<AllReview> allReview = null;  // 리뷰관련 컬렉션
 
+    private static String ChatObjectID = null;
+    private static String ChatObjectContents = null;
+    private static String ChatMyID = null;
+    private static String ChatMyContents = null;
+
+    private static ArrayList<ChatData> chatData = null; // 채팅데이터를 담을 어레이리스트
 
     public static ArrayList<AllReview> getAllReview() {
         return allReview;
@@ -57,6 +63,46 @@ public class VariableOfClass { //클래스관련 전역변수모음 특정 클�
     }
 //리뷰스키마찾는거
 
+
+    public static ArrayList<ChatData> getChatData() {
+        return chatData;
+    }
+
+    public static void setChatData(ArrayList<ChatData> chatData) {
+        VariableOfClass.chatData = chatData;
+    }
+
+    public static String getChatObjectID() {
+        return ChatObjectID;
+    }
+
+    public static void setChatObjectID(String chatObjectID) {
+        ChatObjectID = chatObjectID;
+    }
+
+    public static String getChatObjectContents() {
+        return ChatObjectContents;
+    }
+
+    public static void setChatObjectContents(String chatObjectContents) {
+        ChatObjectContents = chatObjectContents;
+    }
+
+    public static String getChatMyID() {
+        return ChatMyID;
+    }
+
+    public static void setChatMyID(String chatMyID) {
+        ChatMyID = chatMyID;
+    }
+
+    public static String getChatMyContents() {
+        return ChatMyContents;
+    }
+
+    public static void setChatMyContents(String chatMyContents) {
+        ChatMyContents = chatMyContents;
+    }
 
     public static String getReviewClassName() {
         return ReviewClassName;
