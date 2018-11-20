@@ -15,10 +15,10 @@
         android:background="@drawable/border"
         android:gravity="center">
         <Button
-            android:id="@+id/service_end"
+            android:id="@+id/sendpost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="서비스종료"/>
+            android:text="신호보내기"/>
 
 
         <ImageView

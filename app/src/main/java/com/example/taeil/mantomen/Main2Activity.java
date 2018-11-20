@@ -154,16 +154,25 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
         });
 
 
-//        Button serviceend = findViewById(R.id.service_end);  // 서비스관련 서비스안한다
-//
-//        serviceend.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(getApplicationContext(),"Service 끝",Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(Main2Activity.this,MyService.class);
-//                stopService(intent);
-//            }
-//        });
+        Button sendpost = findViewById(R.id.sendpost);  // 서비스관련 서비스안한다
+
+        sendpost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                JSONObject postDataParam = new JSONObject();
+                try {
+                    postDataParam.put("user", variable.getCookies());
+                } catch (JSONException e) {
+                    Log.e("TAG", "JSONEXception");
+                }
+
+                new PlacticeInsertData(Main2Activity.this).execute(postDataParam);
+
+
+            }
+        });
 
 
 

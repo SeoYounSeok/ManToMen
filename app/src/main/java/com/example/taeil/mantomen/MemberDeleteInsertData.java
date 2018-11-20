@@ -16,7 +16,7 @@ public class MemberDeleteInsertData extends MemberDeletePostRequest { //레지�
 //      EditText server = activity.findViewById(R.id.server);
         String serverURLStr = Variable.HttpAddres;  //민영이 서버
         try {
-            url = new URL(serverURLStr + "/delete");
+            url = new URL(serverURLStr + "/index/delete");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

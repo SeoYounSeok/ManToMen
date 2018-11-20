@@ -16,7 +16,7 @@ public class RegisterInsertData extends RegisterPostRequest { //레지스터
 //      EditText server = activity.findViewById(R.id.server);
         String serverURLStr = Variable.HttpAddres;  //민영이 서버
         try {
-            url = new URL(serverURLStr + "/register");
+            url = new URL(serverURLStr + "/home/register");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

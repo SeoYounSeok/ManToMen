@@ -22,6 +22,7 @@ import javax.net.ssl.HttpsURLConnection;
 abstract public class GetRequest extends AsyncTask<String, Void, String> {
     final static String TAG = "AndroidNodeJS";
     Activity activity;
+    Variable variable;
     URL url;
 
     public GetRequest(Activity activity) {
@@ -46,6 +47,13 @@ abstract public class GetRequest extends AsyncTask<String, Void, String> {
             }
             conn.setConnectTimeout(10000);
             conn.setRequestMethod("GET");
+
+            String cookieString = variable.getCookies();
+            if (cookieString != null) {
+                conn.setRequestProperty("user", cookieString);
+            }
+//            Log.e("쿠키",cookieString);
+
             conn.setDoInput(true);
             conn.setDoOutput(false);
 

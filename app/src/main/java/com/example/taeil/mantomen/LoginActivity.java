@@ -47,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         final CheckBox autologin = findViewById(R.id.autologin);  // 자동로그인
 
         SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
+
         //처음에는 SharedPreferences에 아무런 정보도 없으므로 값을 저장할 키들을 생성한다.
         // getString의 첫 번째 인자는 저장될 키, 두 번쨰 인자는 값입니다.
         // 첨엔 값이 없으므로 키값은 원하는 것으로 하시고 값을 null을 줍니다.

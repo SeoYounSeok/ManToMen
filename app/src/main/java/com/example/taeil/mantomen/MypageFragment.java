@@ -19,7 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class MypageFragment extends Fragment implements Main2Activity.OnBackPressedListener{
+public class MypageFragment extends Fragment implements Main2Activity.OnBackPressedListener {
 
     // TODO: Rename and change types of parameters
 
@@ -46,7 +46,6 @@ public class MypageFragment extends Fragment implements Main2Activity.OnBackPres
                              Bundle savedInstanceState) {
 
 
-
         LinearLayout mypagefragment = (LinearLayout) inflater.inflate(R.layout.fragment_mypage, container, false);
 
         Button modifybtn = (Button) mypagefragment.findViewById(R.id.Mypage_Membermodify_Btn); //회원정보수정버튼
@@ -62,8 +61,6 @@ public class MypageFragment extends Fragment implements Main2Activity.OnBackPres
         TextView UserCategory = (TextView) mypagefragment.findViewById(R.id.mypage_UserCategory);
 
 
-
-
         UserID.setText(variable.getUserID());
         // UserPassword.setText(variable.getUserPassword());
         UserEmail.setText(variable.getUserEmail());
@@ -72,7 +69,6 @@ public class MypageFragment extends Fragment implements Main2Activity.OnBackPres
         UserAge.setText(variable.getUserAge());
         UserIdentity.setText(variable.getUserIdentity());
         UserCategory.setText(variable.getUserCategory());
-
 
 
         modifybtn.setOnClickListener(new View.OnClickListener() {  //버튼을 누르면 멤버 모디파이 액티비티로 이동
@@ -127,11 +123,11 @@ public class MypageFragment extends Fragment implements Main2Activity.OnBackPres
                                         Main2Activity.mContext = getActivity();
 
                                         String userID = variable.getUserID();
-                                        Intent GoToLoginintent = new Intent(((Main2Activity)Main2Activity.mContext), LoginActivity.class); //메인액티비티로 보내는 인텐트
-                                        ((Main2Activity)Main2Activity.mContext).startActivity(GoToLoginintent);
-                                        GoToLoginintent.putExtra("userID", userID);
-                                        ((Main2Activity)Main2Activity.mContext).overridePendingTransition(0, 0);  //화면전환효과 없애기
-                                        getActivity().finish();  // 액티비티 삭제
+                                        Intent GoToLoginintent = new Intent(((Main2Activity) Main2Activity.mContext), LoginActivity.class); //메인액티비티로 보내는 인텐트
+                                        ((Main2Activity) Main2Activity.mContext).startActivity(GoToLoginintent);
+//                                        GoToLoginintent.putExtra("userID", userID);
+//                                        ((Main2Activity)Main2Activity.mContext).overridePendingTransition(0, 0);  //화면전환효과 없애기
+//                                        getActivity().finish();  // 액티비티 삭제
                                     }
                                 })
                         .setNegativeButton("아니요",
@@ -165,7 +161,7 @@ public class MypageFragment extends Fragment implements Main2Activity.OnBackPres
     public void onBack() {
         Log.e("Other", "onBack()");
         // 리스너를 설정하기 위해 Activity 를 받아옵니다.
-        ((Main2Activity)getActivity()).switchFragment(3);
+        ((Main2Activity) getActivity()).switchFragment(3);
 
 
     }
@@ -190,7 +186,6 @@ public class MypageFragment extends Fragment implements Main2Activity.OnBackPres
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
-
 
 
 }

@@ -38,10 +38,6 @@
         <activity android:name=".ReviewWriteActivity" />
         <activity android:name=".ChattingRoomActivity" />
 
-        <service
-            android:name=".MyService"
-            android:enabled="true"
-            android:exported="true"></service>
     </application>
 
 </manifest>

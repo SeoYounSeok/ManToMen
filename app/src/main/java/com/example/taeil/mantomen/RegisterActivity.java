@@ -67,6 +67,10 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+
+
+
+
         inputauthbutton.setOnClickListener(new View.OnClickListener() {
 
             @Override

@@ -6,8 +6,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 
-public class LoginInsertData extends LoginPostRequest { //로그인할때 쓰는거 값을 받고 받아오는걸로 로그인함
-    public LoginInsertData(Activity activity) {
+public class PlacticeInsertData extends PlacticePostRequest { //로그인할때 쓰는거 값을 받고 받아오는걸로 로그인함
+    public PlacticeInsertData(Activity activity) {
         super(activity);
     }
 
@@ -16,7 +16,7 @@ public class LoginInsertData extends LoginPostRequest { //로그인할때 쓰는
 //      EditText server = activity.findViewById(R.id.server);
         String serverURLStr = Variable.HttpAddres;  //민영이 서버
         try {
-            url = new URL(serverURLStr + "/home/login");
+            url = new URL(serverURLStr + "/aa");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

@@ -26,7 +26,6 @@ public class MemberDeletePostRequest extends AsyncTask<JSONObject, Void, String>
     URL url;
 
 
-
     public MemberDeletePostRequest(Activity activity) {
         this.activity = activity;
     }
@@ -93,21 +92,16 @@ public class MemberDeletePostRequest extends AsyncTask<JSONObject, Void, String>
         temp = result.trim();
 
 
-        if (temp == null || temp.equals("0")){
+        if (temp == null || temp.equals("0")) {
             Toast.makeText(activity, message1,
                     Toast.LENGTH_LONG).show();
             return;
-        }
-
-        else if(temp.equals("1")){
+        } else if (temp.equals("1")) {
             Toast.makeText(activity, message2,
                     Toast.LENGTH_LONG).show();
 
-//            String userID = Variable.getUserID();
-//            Intent GoToMainintent = new Intent(((Main2Activity)Main2Activity.mContext), Main2Activity.class); //메인액티비티로 보내는 인텐트
-//            ((Main2Activity)Main2Activity.mContext).startActivity(GoToMainintent);
-//            GoToMainintent.putExtra("userID", userID);
-//            ((Main2Activity)Main2Activity.mContext).overridePendingTransition(0, 0);  //화면전환효과 없애기
+            Main2Activity.mActivity.finish();
+
 
         }
         Toast.makeText(activity, temp,

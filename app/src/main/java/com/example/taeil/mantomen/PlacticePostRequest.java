@@ -2,12 +2,10 @@ package com.example.taeil.mantomen;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
-import org.json.Cookie;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -23,13 +21,13 @@ import java.util.List;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
+public class PlacticePostRequest extends AsyncTask<JSONObject, Void, String> {
     Activity activity;
     URL url;
     Variable variable;
 
 
-    public LoginPostRequest(Activity activity) {
+    public PlacticePostRequest(Activity activity) {
         this.activity = activity;
     }
 
@@ -42,10 +40,11 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
             conn.setReadTimeout(10000 /* milliseconds */);
             conn.setConnectTimeout(10000 /* milliseconds */);
             conn.setRequestMethod("POST");
-//            String cookieString = variable.getCookies();
-//            if (cookieString != null) {
-//                conn.setRequestProperty("user", cookieString);
-//            }
+
+            String cookieString = variable.getCookies();
+            conn.setRequestProperty("user", cookieString);
+            Log.e("쿠키2",cookieString);
+
 //            conn.setRequestProperty("Content-Type", "application/json");//application JSON 형식으로 전송
 //            conn.setRequestProperty("Accept", "text/html");//서버에 response 데이터를 html로 받음
             conn.setDoInput(true);
@@ -73,24 +72,16 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
             if (responseCode == HttpsURLConnection.HTTP_OK) {
                 //서버로 부터 데이터를 받음
 
-                final String COOKIES_HEADER = "Set_Cookie";
-
-
-                variable.setCookies(conn.getHeaderField(COOKIES_HEADER));   // 공통 쿠키 선언 로그인할 때 최초로 이제 보낼때 헤더에 쿠키만 보내면 됨 쉐어드 프레퍼런스를 활용
-
-
-                List<String> cookies = conn.getHeaderFields().get("set-cookie"); // 쿠키 값 조회방법
-
-                if (cookies != null) {
-                    for (String cookie : cookies) {
-                        Log.d("@COOKIE", cookie.split(";\\s*")[0]);
-                        String cok = cookie.split(";\\s*")[0].substring(5);
-                        variable.setCookies(cok);
-                        Log.e("쿠키",variable.getCookies());
-                    }
-                }
-
-                //Log.e("쿠키",variable.getCookies());
+//                final String COOKIES_HEADER = "Set_Cookie";
+//                variable.setCookies(conn.getHeaderField(COOKIES_HEADER));   // 공통 쿠키 선언 로그인할 때 최초로 이제 보낼때 헤더에 쿠키만 보내면 됨 쉐어드 프레퍼런스를 활용
+//                Log.e("쿠키",variable.getCookies());
+//                List<String> cookies = conn.getHeaderFields().get("set-cookie"); // 쿠키 값 조회방법
+//
+//                if (cookies != null) {
+//                    for (String cookie : cookies) {
+//                        Log.d("@COOKIE", cookie.split(";\\s*")[0]);
+//                    }
+//                }
 
 
                 BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -128,29 +119,17 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
         String temp;
         String message1 = "아이디와 비밀번호를 확인해주세요";
         String message2 = "로그인성공";
-        temp = result.trim();
-        Log.d("오류", temp);
-
-        if (temp == null || temp.equals("0")) {
-            Toast.makeText(activity, message1,
-                    Toast.LENGTH_LONG).show();
-            return;
-        } else {
-            Toast.makeText(activity, temp,
-                    Toast.LENGTH_LONG).show();
-
-            activity.finish(); // 로그인 액티비티 끄는건데 잠시보류;
-
-
-            String userID = variable.getUserID();
-
-            Intent GoToMainintent = new Intent(((LoginActivity) LoginActivity.mContext), Main2Activity.class); //메인액티비티로 보내는 인텐트
-            ((LoginActivity) LoginActivity.mContext).startActivity(GoToMainintent);
-            GoToMainintent.putExtra("userID", userID);
-            ((LoginActivity) LoginActivity.mContext).overridePendingTransition(0, 0);  //화면전환효과 없애기
-            activity.finish();
-
-        }
+//        temp = result.trim();
+//        Log.d("오류", temp);
+//
+//        if (temp == null || temp.equals("0")) {
+//            Toast.makeText(activity, message1,
+//                    Toast.LENGTH_LONG).show();
+//            return;
+//        } else {
+//            Toast.makeText(activity, temp,
+//                    Toast.LENGTH_LONG).show();
+//        }
 
     }
 

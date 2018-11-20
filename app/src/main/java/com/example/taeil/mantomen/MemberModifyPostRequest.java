@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.webkit.CookieManager;
 import android.widget.Toast;
 
 import org.json.JSONObject;
@@ -36,11 +37,17 @@ public class MemberModifyPostRequest extends AsyncTask<JSONObject, Void, String>
 
         try {
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+
             conn.setReadTimeout(10000 /* milliseconds */);
             conn.setConnectTimeout(10000 /* milliseconds */);
             conn.setRequestMethod("POST");
 //            conn.setRequestProperty("Content-Type", "application/json");//application JSON 형식으로 전송
 //            conn.setRequestProperty("Accept", "text/html");//서버에 response 데이터를 html로 받음
+            String cookieString = variable.getCookies();
+            if (cookieString != null) {
+                conn.setRequestProperty("user", cookieString);
+            }
             conn.setDoInput(true);
             conn.setDoOutput(true);
 
