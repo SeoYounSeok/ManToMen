@@ -61,17 +61,11 @@ public class ClassAppointmentFragment extends Fragment {
         WeekButton[5] = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek5);
         WeekButton[6] = classappointmentfragment.findViewById(R.id.TutorRegister4_Classweek6);
 
-        String selectWeek = "";
+        final String[] selectWeek = {""};
         final EditText ClassTime = classappointmentfragment.findViewById(R.id.TutorRegister4_ClassTime);
         final CalendarView ClassFirstTimeCal = classappointmentfragment.findViewById(R.id.TutorRegister4_ClassFirstTime);
 
-        //  월요일날 구현하기
-        for (int i = 0; i < 7; i++) {
-            if (WeekButton[i].isChecked()) {   // 만약 체크되어있다면
-                selectWeek += WeekButton[i].getText().toString() + "//";
-            }
 
-        }
 
 
         ClassFirstTimeCal.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -90,18 +84,27 @@ public class ClassAppointmentFragment extends Fragment {
         });
 
 
-        final String ClassWeek = selectWeek;
 
         completebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (ClassWeek.equals("") || ClassPlaceDetail.getText() == null) {
+                //  월요일날 구현하기
+                for (int i = 0; i < 7; i++) {
+                    if (WeekButton[i].isChecked()) {   // 만약 체크되어있다면
+                        selectWeek[0] += WeekButton[i].getText().toString() + "//";
+                    }
+                }
+
+                String ClassWeek = selectWeek[0];
+
+
+                if (ClassWeek.equals("") || ClassPlaceDetail.getText().toString().equals("")) {
                     Toast.makeText(getActivity(), "빈칸을 채워주세요",
                             Toast.LENGTH_LONG).show();
-
+                    Log.e("빈칸",ClassWeek);
+                    Log.e("빈칸",ClassPlaceDetail.getText().toString());
                 } else {
-
 
                     variableOfClass.setClassPlace(ClassPlace.getSelectedItem().toString());
                     variableOfClass.setClassPlaceDetail(ClassPlaceDetail.getText().toString());

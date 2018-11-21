@@ -12,7 +12,6 @@
         android:id="@+id/ClassImg"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:src="@drawable/exintroduce"
         android:scaleType="fitCenter"
         android:layout_margin="10dp"
         android:background="@color/white">

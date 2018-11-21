@@ -48,9 +48,9 @@ abstract public class GetRequest extends AsyncTask<String, Void, String> {
             conn.setConnectTimeout(10000);
             conn.setRequestMethod("GET");
 
-            String cookieString = variable.getCookies();
+            String cookieString = variable.getCookies();  // 토큰확인
             if (cookieString != null) {
-                conn.setRequestProperty("user", cookieString);
+                conn.setRequestProperty("cookie", cookieString);
             }
 //            Log.e("쿠키",cookieString);
 

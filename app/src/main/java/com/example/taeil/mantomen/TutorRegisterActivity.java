@@ -1,11 +1,32 @@
 package com.example.taeil.mantomen;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class TutorRegisterActivity extends AppCompatActivity {
 
@@ -13,6 +34,7 @@ public class TutorRegisterActivity extends AppCompatActivity {
     static Activity mActivity;
 
     Variable variable = Variable.getInstance();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +48,7 @@ public class TutorRegisterActivity extends AppCompatActivity {
     final NecessaryInfoFragment necessaryInfoFragment = new NecessaryInfoFragment();  // 필수정보 입력칸
     final ClassTitleFragment classTitleFragment = new ClassTitleFragment(); // 클래스 타이틀 프래그먼트
     final TutorIntroFragment tutorIntroFragment = new TutorIntroFragment();
-    final ClassPriceFragment classPriceFragment  = new ClassPriceFragment();  // 클래스 프라이스 프래그먼트
+    final ClassPriceFragment classPriceFragment = new ClassPriceFragment();  // 클래스 프라이스 프래그먼트
     final ClassAppointmentFragment classAppointmentFragment = new ClassAppointmentFragment();
 
     public void switchFragment(int id) {   // 프래그먼트 교체 메인화면
@@ -44,8 +66,6 @@ public class TutorRegisterActivity extends AppCompatActivity {
             fragmentTransaction.replace(R.id.fragment3, classAppointmentFragment); //마이페이지1로연결
         fragmentTransaction.commit();
     }
-
-
 
 
 }

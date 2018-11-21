@@ -16,7 +16,7 @@ public class MemberModifyInsertData extends MemberModifyPostRequest { //레지�
 //      EditText server = activity.findViewById(R.id.server);
         String serverURLStr = Variable.HttpAddres;  //민영이 서버
         try {
-            url = new URL(serverURLStr + "/modify");
+            url = new URL(serverURLStr + "/index/modify");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

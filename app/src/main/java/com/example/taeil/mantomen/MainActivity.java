@@ -1,6 +1,10 @@
 package com.example.taeil.mantomen;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -30,6 +34,16 @@ public class MainActivity extends AppCompatActivity {
         LoginButtonClick(Loginbutton, LoginIntent);  //로그인 클릭처리
         RegisterButtonClick(Registerbutton,RegisterIntent);  //회원가입 클릭처리
         //버튼과 인텐트를 객체로 받아 메소드 실행
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.READ_EXTERNAL_STORAGE)) {
+
+            } else {
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        1);
+            }
+        }
 
 
 

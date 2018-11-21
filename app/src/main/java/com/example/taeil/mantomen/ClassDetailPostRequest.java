@@ -24,7 +24,7 @@ public class ClassDetailPostRequest extends AsyncTask<JSONObject, Void, String> 
     Activity activity;
     URL url;
     VariableOfClass variableOfClass;
-
+    Variable variable;
     public ClassDetailPostRequest(Activity activity) {
         this.activity = activity;
     }
@@ -38,6 +38,10 @@ public class ClassDetailPostRequest extends AsyncTask<JSONObject, Void, String> 
             conn.setReadTimeout(10000 /* milliseconds */);
             conn.setConnectTimeout(10000 /* milliseconds */);
             conn.setRequestMethod("POST");
+            String cookieString = variable.getCookies();   // 헤더에 로그인 토큰값 첨가
+            if (cookieString != null) {
+                conn.setRequestProperty("cookie", cookieString);
+            }
 //            conn.setRequestProperty("Content-Type", "application/json");//application JSON 형식으로 전송
 //            conn.setRequestProperty("Accept", "text/html");//서버에 response 데이터를 html로 받음
             conn.setDoInput(true);

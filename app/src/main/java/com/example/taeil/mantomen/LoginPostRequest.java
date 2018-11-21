@@ -84,7 +84,7 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
                 if (cookies != null) {
                     for (String cookie : cookies) {
                         Log.d("@COOKIE", cookie.split(";\\s*")[0]);
-                        String cok = cookie.split(";\\s*")[0].substring(5);
+                        String cok = cookie.split(";\\s*")[0];
                         variable.setCookies(cok);
                         Log.e("쿠키",variable.getCookies());
                     }
@@ -168,6 +168,8 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
             String key = itr.next();
             Object value = params.get(key);
 
+            if (key.equals("userPicture"))
+                variable.setUserPicture(value.toString());
             if (key.equals("userID"))
                 variable.setUserID(value.toString());
             if (key.equals("userPassword"))
@@ -222,20 +224,21 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
             //userValue[i].replace("\"", ""); //처음이랑 마지막꺼는 버려야함 이상한 값임
         }
 
-        variable.setUserID(userValue[1]);
-        variable.setUserPassword(userValue[2]);
-        variable.setUserEmail(userValue[3]);
-        variable.setUserName(userValue[4]);
-        variable.setUserAge(userValue[5]);
-        variable.setUserGender(userValue[6]);
-        variable.setUserCategory(userValue[7]);
-        variable.setUserIdentity(userValue[8]);
-        variable.setUserParticipateClass(userValue[9]);
-        variable.setUserOperateClass(userValue[10]);
-        variable.setUserPhoneNumber(userValue[11]);
+        variable.setUserPicture(userValue[1]);
+        variable.setUserID(userValue[2]);
+        variable.setUserPassword(userValue[3]);
+        variable.setUserEmail(userValue[4]);
+        variable.setUserName(userValue[5]);
+        variable.setUserAge(userValue[6]);
+        variable.setUserGender(userValue[7]);
+        variable.setUserCategory(userValue[8]);
+        variable.setUserIdentity(userValue[9]);
+        variable.setUserParticipateClass(userValue[10]);
+        variable.setUserOperateClass(userValue[11]);
+        variable.setUserPhoneNumber(userValue[12]);
 
 
-        Log.e("추출", variable.getUserID());
+        Log.e("사진추출", variable.getUserPicture());
 
     }
 

@@ -44,9 +44,9 @@ public class MemberModifyPostRequest extends AsyncTask<JSONObject, Void, String>
             conn.setRequestMethod("POST");
 //            conn.setRequestProperty("Content-Type", "application/json");//application JSON 형식으로 전송
 //            conn.setRequestProperty("Accept", "text/html");//서버에 response 데이터를 html로 받음
-            String cookieString = variable.getCookies();
+            String cookieString = variable.getCookies();   // 헤더에 로그인 토큰값 첨가
             if (cookieString != null) {
-                conn.setRequestProperty("user", cookieString);
+                conn.setRequestProperty("cookie", cookieString);
             }
             conn.setDoInput(true);
             conn.setDoOutput(true);

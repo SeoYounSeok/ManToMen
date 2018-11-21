@@ -19,7 +19,7 @@ public class AuthInsertData extends AuthPostRequest { //레지스터
 
         String serverURLStr = Variable.HttpAddres;  //민영이 서버
         try {
-            url = new URL(serverURLStr + "/auth");
+            url = new URL(serverURLStr + "/home/auth");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

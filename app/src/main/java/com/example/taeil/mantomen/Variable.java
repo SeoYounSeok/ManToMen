@@ -4,6 +4,7 @@ import android.widget.EditText;
 
 public class Variable { //전역변수 저장 모음 로그인할 때 한번에 받아와서 로그인한 user의 정보를 저장하는 변수 모음
 
+    private static String userPicture; //사용자 사진
     private static String userID = null;
     private static String userPassword = null;
     private static String userEmail = null;
@@ -13,13 +14,12 @@ public class Variable { //전역변수 저장 모음 로그인할 때 한번에 
     private static Variable variable;
     private static String userCategory = null; //사용자 관심분야 6칸으로 만들예정
     private static String userIdentity = null; //튜티인지 튜터인지
-    private static int userPicture; //사용자 사진
     private static String userParticipateClass = null; //사용자가 참여중인 클래스
     private static String userOperateClass = null; //사용자가 운영중인 클래스
     private static String Authnumber = null;
     private static String userPhoneNumber = null;
     private static String Cookies = null;
-    public static String HttpAddres = "";   //민영이 서버 입력하기
+    public static String HttpAddres = "http://ec2-54-180-106-61.ap-northeast-2.compute.amazonaws.com";   //민영이 서버 입력하기
 
     public static String getUserPhoneNumber() {
         return userPhoneNumber;
@@ -117,11 +117,11 @@ public class Variable { //전역변수 저장 모음 로그인할 때 한번에 
         Variable.userIdentity = userIdentity;
     }
 
-    public static int getUserPicture() {
+    public static String getUserPicture() {
         return userPicture;
     }
 
-    public static void setUserPicture(int userPicture) {
+    public static void setUserPicture(String userPicture) {
         Variable.userPicture = userPicture;
     }
 

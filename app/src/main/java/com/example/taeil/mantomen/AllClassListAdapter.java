@@ -1,7 +1,11 @@
 package com.example.taeil.mantomen;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +16,7 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.io.InputStream;
 import java.util.List;
 
 public class AllClassListAdapter extends BaseAdapter{
@@ -21,6 +26,7 @@ public class AllClassListAdapter extends BaseAdapter{
     private Context context;
     private List<AllClass> AllClass;
     private int count;
+    VariableOfClass variableOfClass;
 
     public AllClassListAdapter(Context context, List<AllClass> AllClass){
         // 메인에서 데이터 리스트를 넘겨받음
@@ -52,6 +58,8 @@ public class AllClassListAdapter extends BaseAdapter{
 
         // 클래스 확립될 동안 리스트뷰를 잠시꺼둠
 
+//        ImageView ClassPicture = (ImageView) v.findViewById(R.id.ClassImg);  //사진은 아직 안넣음
+//
         TextView ClassName= (TextView) v.findViewById(R.id.Home_ClassName);
         TextView ClassTutorID = (TextView) v.findViewById(R.id.Home_ClassTutorID);
         // ClassTuteeID 튜티들
@@ -62,9 +70,13 @@ public class AllClassListAdapter extends BaseAdapter{
         RatingBar ClassScore = (RatingBar) v.findViewById(R.id.ClassScore); //임의로 정해둬 지금은
         TextView ClassIntro = (TextView) v.findViewById(R.id.Home_ClassIntro);
 
-        //ImageView ClassPhoto= (ImageView) v.findViewById(R.id.ClassImg);  //사진은 아직 안넣음
+
         //ImageView MentorPhoto= (ImageView) v.findViewById(R.id.Mentor_Photo);
 
+
+
+        new DownloadImageTask((ImageView) v.findViewById(R.id.ClassImg))
+                .execute(AllClass.get(i).getClassPicture());
 
         ClassName.setText(AllClass.get(i).getClassName());
         ClassTutorID.setText(AllClass.get(i).getClassTutorID());
@@ -84,6 +96,32 @@ public class AllClassListAdapter extends BaseAdapter{
 
         return v;
     }
+
+    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+        ImageView bmImage;
+
+        public DownloadImageTask(ImageView bmImage) {
+            this.bmImage = bmImage;
+        }
+
+        protected Bitmap doInBackground(String... urls) {
+            String urldisplay = urls[0];
+            Bitmap mIcon11 = null;
+            try {
+                InputStream in = new java.net.URL(urldisplay).openStream();
+                mIcon11 = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                Log.e("Error", e.getMessage());
+                e.printStackTrace();
+            }
+            return mIcon11;
+        }
+
+        protected void onPostExecute(Bitmap result) {
+            bmImage.setImageBitmap(result);
+        }
+    }
+
 
 
 

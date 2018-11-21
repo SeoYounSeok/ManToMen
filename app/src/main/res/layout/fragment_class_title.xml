@@ -188,12 +188,13 @@
 
     <ImageView
         android:id="@+id/TutorRegister1_ClassPicture"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
         android:layout_margin="10dp"/>
 
     <Button
-        android:id="@+id/TutorRegister1_UploadButton"
+        android:id="@+id/TutorRegister1_SelectPrictureButton"
         android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginLeft="10dp"
@@ -202,7 +203,7 @@
         android:layout_gravity="center"
         android:background="@drawable/border3"
         android:textColor="@color/pink"
-        android:text="업로드"
+        android:text="사진선택"
         android:gravity="center"/>
 
     <LinearLayout

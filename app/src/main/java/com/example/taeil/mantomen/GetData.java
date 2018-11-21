@@ -138,8 +138,6 @@ public class GetData extends GetRequest {
                 Log.e( "알라2", allClass.getClassScore());
 
 
-
-
                 Log.d("알라2", "실행되네 ㅇㅇ");
                 output.add(allClass); // 어레이 길이만큼 반복되니까 여기에 저장된다는거아녀 허허
             }

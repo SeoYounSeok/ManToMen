@@ -21,41 +21,12 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="130dp"
-
-            android:background="@color/white"
-            android:orientation="horizontal"
-            android:gravity="center">
-
-            <ImageButton
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:scaleType="fitCenter"
-                android:src="@drawable/exbonobono"
-                android:background="@drawable/circle"
-                android:layout_margin="5dp"/>
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_margin="5dp"
-                android:gravity="left|center"
-                android:text="사진을 올려주세요 !!"/>
-
-
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
             android:background="@color/white">
