@@ -139,42 +139,19 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
 
         switchFragment(0);  //홈버튼이 눌리면 0전송
 
-        SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
-        //처음에는 SharedPreferences에 아무런 정보도 없으므로 값을 저장할 키들을 생성한다.
-        // getString의 첫 번째 인자는 저장될 키, 두 번쨰 인자는 값입니다.
-        final SharedPreferences.Editor editor = auto.edit();
-
-        Button logout = findViewById(R.id.logout);
-        logout.setOnClickListener(new View.OnClickListener() {   //로그아웃 누르면 쉐어드 프레퍼런스에 있는거 삭제
-            @Override
-            public void onClick(View v) {
-                editor.clear();
-                editor.commit();
-            }
-        });
-
-
-        Button sendpost = findViewById(R.id.sendpost);  // 서비스관련 서비스안한다
-
-        sendpost.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                JSONObject postDataParam = new JSONObject();
-                try {
-                    postDataParam.put("user", variable.getCookies());
-                } catch (JSONException e) {
-                    Log.e("TAG", "JSONEXception");
-                }
-
-                new PlacticeInsertData(Main2Activity.this).execute(postDataParam);
-
-
-            }
-        });
-
-
+//        SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
+//        //처음에는 SharedPreferences에 아무런 정보도 없으므로 값을 저장할 키들을 생성한다.
+//        // getString의 첫 번째 인자는 저장될 키, 두 번쨰 인자는 값입니다.
+//        final SharedPreferences.Editor editor = auto.edit();
+//
+//        Button logout = findViewById(R.id.logout);
+//        logout.setOnClickListener(new View.OnClickListener() {   //로그아웃 누르면 쉐어드 프레퍼런스에 있는거 삭제
+//            @Override
+//            public void onClick(View v) {
+//                editor.clear();
+//                editor.commit();
+//            }
+//        });
 
 
 

@@ -6,8 +6,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 
-public class MakeClassInsertData extends MakeClassPostRequest { //레지스터
-    public MakeClassInsertData(Activity activity) {
+public class ClassApplyInsertData extends ClassApplyPostRequest { //레지스터
+    public ClassApplyInsertData(Activity activity) {
         super(activity);
     }
 
@@ -16,7 +16,7 @@ public class MakeClassInsertData extends MakeClassPostRequest { //레지스터
 //      EditText server = activity.findViewById(R.id.server);
         String serverURLStr = Variable.HttpAddres;  //민영이 서버
         try {
-            url = new URL(serverURLStr + "/class/push");
+            url = new URL(serverURLStr + "/class/apply");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

@@ -1,15 +1,21 @@
 package com.example.taeil.mantomen;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import java.io.InputStream;
 
 
 public class ClassIntroFragment extends Fragment {
@@ -44,6 +50,9 @@ public class ClassIntroFragment extends Fragment {
         TextView ClassIntro = classIntro.findViewById(R.id.ClassIntro_ClassIntro);
         TextView ClassWhom = classIntro.findViewById(R.id.ClassIntro_ClassWhom);
 
+        ImageView ClassPicture = classIntro.findViewById(R.id.ClassIntro_ClassPicture);
+
+
         ClassPlace.setText(variableOfClass.getClassPlace());
         ClassPlaceDetail.setText(variableOfClass.getClassPlaceDetail());
         ClassNumberOfTime.setText(variableOfClass.getClassNumberOfTime());
@@ -54,11 +63,38 @@ public class ClassIntroFragment extends Fragment {
         ClassIntro.setText(variableOfClass.getClassIntro());
         ClassWhom.setText(variableOfClass.getClassWhom());
 
-        Log.d("클래스",variableOfClass.getClassIntro());
-        Log.d("클래스",variableOfClass.getClassPlace());
-        Log.d("클래스",variableOfClass.getClassPlaceDetail());
+
+        new DownloadImageTask((ImageView) classIntro.findViewById(R.id.ClassIntro_ClassPicture))
+                .execute(variableOfClass.getClassPicture());
+
         return classIntro;
     }
+
+    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+        ImageView bmImage;
+
+        public DownloadImageTask(ImageView bmImage) {
+            this.bmImage = bmImage;
+        }
+
+        protected Bitmap doInBackground(String... urls) {
+            String urldisplay = urls[0];
+            Bitmap mIcon11 = null;
+            try {
+                InputStream in = new java.net.URL(urldisplay).openStream();
+                mIcon11 = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                Log.e("Error", e.getMessage());
+                e.printStackTrace();
+            }
+            return mIcon11;
+        }
+
+        protected void onPostExecute(Bitmap result) {
+            bmImage.setImageBitmap(result);
+        }
+    }
+
 
 
     @Override

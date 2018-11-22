@@ -14,11 +14,7 @@
         android:layout_gravity="center"
         android:background="@drawable/border"
         android:gravity="center">
-        <Button
-            android:id="@+id/sendpost"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="신호보내기"/>
+
 
 
         <ImageView
@@ -29,12 +25,6 @@
             android:layout_margin="10dp"
             android:contentDescription="TODO"
             android:src="@drawable/logo" />
-
-        <Button
-            android:id="@+id/logout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="로그아웃"/>
 
     </LinearLayout>
 

@@ -2,7 +2,6 @@ package com.example.taeil.mantomen;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -20,8 +19,6 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
-
-import com.google.gson.Gson;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -295,7 +292,7 @@ public class RegisterActivity extends AppCompatActivity {
                 .baseUrl(url)
                 .build();
 
-        NetworkService service = retrofit.create(NetworkService.class);
+        NetworkServiceRegister service = retrofit.create(NetworkServiceRegister.class);
 
 
         /**

@@ -10,9 +10,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:background="@drawable/border">
+        android:background="@drawable/border"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,11 +39,11 @@
 
             <Button
                 android:id="@+id/Mypage2_Mypage"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:background="@color/white"
-                android:text="&gt;"
-                style="?android:attr/borderlessButtonStyle" />
+                android:text="&gt;" />
 
 
         </LinearLayout>
@@ -52,23 +51,19 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="75dp"
-            android:gravity="center"
             android:layout_margin="5dp"
-            >
+            android:gravity="center">
 
             <Button
                 android:id="@+id/Mypage2_TutorRegister"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:text="튜터 등록하기"
-                >
+                android:text="튜터 등록하기">
 
             </Button>
 
 
-
         </LinearLayout>
-
 
 
     </LinearLayout>
@@ -89,25 +84,25 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/border"
-            android:orientation="horizontal"
             android:gravity="center"
+            android:orientation="horizontal"
             android:paddingRight="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
+                android:layout_weight="1"
                 android:gravity="left|center"
                 android:text="수강중인 강의 보기"
                 android:textColor="@color/black" />
 
             <Button
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:background="@color/white"
-                android:text="&gt;"
-                style="?android:attr/borderlessButtonStyle"/>
+                android:text="&gt;" />
 
         </LinearLayout>
 
@@ -115,26 +110,26 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/border"
+            android:gravity="center"
             android:orientation="horizontal"
-            android:paddingRight="10dp"
-            android:gravity="center">
+            android:paddingRight="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
+                android:layout_weight="1"
                 android:gravity="left|center"
-                android:text="강의 개설"
+                android:text="운영중인 강의 보기"
                 android:textColor="@color/black" />
 
             <Button
-                android:id="@+id/Mypage2_MakeClass"
+                android:id="@+id/Mypage2_OperateClass"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:background="@color/white"
-                android:text="&gt;"
-                style="?android:attr/borderlessButtonStyle"/>
+                android:text="&gt;" />
 
         </LinearLayout>
 
@@ -156,26 +151,26 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/border"
-            android:orientation="horizontal"
             android:gravity="center"
+            android:orientation="horizontal"
             android:paddingRight="10dp">
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"
+                android:layout_weight="1"
                 android:gravity="left|center"
                 android:text="연습리뷰등록"
                 android:textColor="@color/black" />
 
             <Button
                 android:id="@+id/Mypage2_MakeReview"
+                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:background="@color/white"
-                android:text="&gt;"
-                style="?android:attr/borderlessButtonStyle"/>
+                android:text="&gt;" />
 
         </LinearLayout>
 
@@ -192,66 +187,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/border"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:paddingRight="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:gravity="left|center"
-                android:text="내용 없음"
-                android:textColor="@color/black" />
-
-            <Button
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="@color/white"
-                android:text="&gt;"
-                style="?android:attr/borderlessButtonStyle"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/border"
-            android:orientation="horizontal"
-            android:paddingRight="10dp"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:gravity="left|center"
-                android:text="내용 없음"
-                android:textColor="@color/black" />
-
-            <Button
-
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="@color/white"
-                android:text="&gt;"
-                style="?android:attr/borderlessButtonStyle"/>
-
-        </LinearLayout>
-
+        <Button
+            android:id="@+id/mypage2_LogoutButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="로그아웃" />
 
     </LinearLayout>
-
-
-
-
 
 </LinearLayout>

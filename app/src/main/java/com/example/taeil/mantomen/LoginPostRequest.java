@@ -209,7 +209,6 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
         return result.toString();
     }
 
-
     private void SbExtraction(StringBuffer sb) {
         Variable variable = Variable.getInstance();
 

@@ -6,12 +6,19 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class ClassDetail extends AppCompatActivity {
 
     VariableOfClass variableOfClass;
+    Variable variable;
 
 
     @Override
@@ -29,7 +36,29 @@ public class ClassDetail extends AppCompatActivity {
 
         TextView ClassName = findViewById(R.id.ClassDetail_ClassName);
 
+        Button ClassApply = findViewById(R.id.ClassDetail_ClassApply);
+
         ClassName.setText(variableOfClass.getClassName());
+
+
+
+        ClassApply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // 여기에 신청
+                JSONObject postDataParam = new JSONObject();
+                try {
+                    postDataParam.put("ClassName", variableOfClass.getClassName());
+                    postDataParam.put("userID", variable.getUserID());
+                } catch (JSONException e) {
+                    // Log.e(TAG, "JSONEXception");
+                }
+                new ClassApplyInsertData(ClassDetail.this).execute(postDataParam);
+
+            }
+        });
+
 
     }
 

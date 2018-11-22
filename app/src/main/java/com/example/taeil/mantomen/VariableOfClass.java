@@ -7,7 +7,6 @@ import java.util.ArrayList;
 public class VariableOfClass { //클래스관련 전역변수모음 특정 클래스 하나를 위한거
 
     private static VariableOfClass variableofclass;
-
     private static String ClassPicture = null; // 강의이미지
     private static String ClassName = null;  // 강의제목
     private static String ClassTutorID = null; // 튜터아이디

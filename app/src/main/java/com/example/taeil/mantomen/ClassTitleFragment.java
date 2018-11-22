@@ -224,7 +224,7 @@ public class ClassTitleFragment extends Fragment {
                 .build();
 
 
-        NetworkService2 service = retrofit.create(NetworkService2.class);
+        NetworkServiceClassRegister service = retrofit.create(NetworkServiceClassRegister.class);
 
         /**
          * 서버로 보낼 파일의 전체 url을 이용해 작업
@@ -254,7 +254,7 @@ public class ClassTitleFragment extends Fragment {
         /**
          * 사진 업로드하는 부분 // POST방식 이용
          */
-        Call<ResponseBody> call = service.upload2(body, description);
+        Call<ResponseBody> call = service.upload(body, description);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {

@@ -78,6 +78,8 @@ public class AllClassListAdapter extends BaseAdapter{
         new DownloadImageTask((ImageView) v.findViewById(R.id.ClassImg))
                 .execute(AllClass.get(i).getClassPicture());
 
+        Log.e("사진오류",AllClass.get(i).getClassPicture());
+
         ClassName.setText(AllClass.get(i).getClassName());
         ClassTutorID.setText(AllClass.get(i).getClassTutorID());
         ClassTotalPeople.setText(AllClass.get(i).getClassTotalPeople());
@@ -85,7 +87,7 @@ public class AllClassListAdapter extends BaseAdapter{
         ClassRPeriod.setText(AllClass.get(i).getClassFirstTime()+"까지");   // 모집기간인데 퍼스트 수업 날 전까지로하자 !!!!
         // 강의기간 필요
         // ClassScore.setRating(AllClass.get(i).getClassScore());
-        ClassScore.setRating(5);  //5점으로고정 지금 없으니까
+        ClassScore.setRating(Float.parseFloat(AllClass.get(i).getClassScore()));  // 점수
         ClassIntro.setText(AllClass.get(i).getClassIntro());
 
 //        ClassPhoto.setImageResource(AllClass.get(i).getClassPhoto());  //사진없으니까 뺌

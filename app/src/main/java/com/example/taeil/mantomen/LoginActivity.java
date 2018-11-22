@@ -35,7 +35,6 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-
 //        finish();  //로그인 하고 없애버림
     }
 
@@ -44,8 +43,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-
 
         mContext = this;
         final EditText IDText = (EditText) findViewById(R.id.ID_Input);

@@ -33,7 +33,7 @@
         <activity android:name=".Main2Activity" />
         <activity android:name=".MemberModifyActivity" />
         <activity android:name=".ClassDetail" />
-        <activity android:name=".MakeClassActivity" />
+        <activity android:name=".OperateClassActivity" />
         <activity android:name=".TutorRegisterActivity" />
         <activity android:name=".ReviewWriteActivity" />
         <activity android:name=".ChattingRoomActivity" />

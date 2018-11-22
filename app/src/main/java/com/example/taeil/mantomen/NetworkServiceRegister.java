@@ -10,7 +10,7 @@ import retrofit2.http.Part;
 
 
 
-public interface NetworkService {
+public interface NetworkServiceRegister {
     @Multipart
     @POST("/home/upload")
     Call<ResponseBody> upload(@Part MultipartBody.Part file, @Part("name") RequestBody description);

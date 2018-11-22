@@ -1,6 +1,7 @@
 package com.example.taeil.mantomen;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
@@ -19,11 +20,12 @@ import java.util.Iterator;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class MakeClassPostRequest extends AsyncTask<JSONObject, Void, String> {
+public class OperateClasslPostRequest extends AsyncTask<JSONObject, Void, String> {
     Activity activity;
     URL url;
-
-    public MakeClassPostRequest(Activity activity) {
+    VariableOfClass variableOfClass;
+    Variable variable;
+    public OperateClasslPostRequest(Activity activity) {
         this.activity = activity;
     }
 
@@ -36,6 +38,10 @@ public class MakeClassPostRequest extends AsyncTask<JSONObject, Void, String> {
             conn.setReadTimeout(10000 /* milliseconds */);
             conn.setConnectTimeout(10000 /* milliseconds */);
             conn.setRequestMethod("POST");
+            String cookieString = variable.getCookies();   // 헤더에 로그인 토큰값 첨가
+            if (cookieString != null) {
+                conn.setRequestProperty("cookie", cookieString);
+            }
 //            conn.setRequestProperty("Content-Type", "application/json");//application JSON 형식으로 전송
 //            conn.setRequestProperty("Accept", "text/html");//서버에 response 데이터를 html로 받음
             conn.setDoInput(true);
@@ -46,8 +52,11 @@ public class MakeClassPostRequest extends AsyncTask<JSONObject, Void, String> {
             //버퍼를 생성하고 넣음
             BufferedWriter writer = new BufferedWriter(
                     new OutputStreamWriter(os, "UTF-8"));
+
             String str = getPostDataString(postDataParams[0]);
+
             Log.e("params", "Post String = " + str);
+
             writer.write(str);
 
             writer.flush();
@@ -68,6 +77,10 @@ public class MakeClassPostRequest extends AsyncTask<JSONObject, Void, String> {
                 }
 
                 in.close();
+                if (!sb.toString().trim().equals("0"))
+                    SbExtraction(sb); // 스트링버퍼를 추출해서
+                Log.d("확인2",sb.toString());
+
                 return sb.toString(); //서버로 부터 받은 값을 리턴해줌 아마 OK!!가 들어올것임
 
             } else {
@@ -81,47 +94,39 @@ public class MakeClassPostRequest extends AsyncTask<JSONObject, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
-
         super.onPostExecute(result);
+        //Log.d("파람스3", result);
         String temp;
-        String message1 = "회원가입실패";
-        String message2 = "회원가입성공";
+        String message1 = "아이디와 비밀번호를 확인해주세요";
+        String message2 = "로그인성공";
         temp = result.trim();
+//        Log.d("오류", result);
 
+        Log.d("디테일",temp);
 
-        if (temp == null || temp.equals("0")){
+        if (temp == null || temp.equals("0")) {
             Toast.makeText(activity, message1,
                     Toast.LENGTH_LONG).show();
+
             return;
+
+        } else {
+//            Toast.makeText(activity, result,
+//                    Toast.LENGTH_LONG).show();
+            Intent GoToOperateintent = new Intent(((Main2Activity) Main2Activity.mContext), OperateClassActivity.class); //메인액티비티로 보내는 인텐트
+            ((Main2Activity) Main2Activity.mContext).startActivity(GoToOperateintent);
         }
-
-        else if(temp.equals("1")){
-            Toast.makeText(activity, message2,
-                    Toast.LENGTH_LONG).show();
-
-            activity.finish();
-
-//            RegisterActivity mContext = (RegisterActivity)RegisterActivity.mContext;
-//            mContext.finish();  //종료
-
-//            String userID = "ABC";
-//            Intent GoToMainintent = new Intent(((RegisterActivity)RegisterActivity.mContext), MainActivity.class); //메인액티비티로 보내는 인텐트
-//            ((RegisterActivity)RegisterActivity.mContext).startActivity(GoToMainintent);
-//            GoToMainintent.putExtra("userID", userID);
-//            ((RegisterActivity)RegisterActivity.mContext).overridePendingTransition(0, 0);  //화면전환효과 없애기
-
-        }
-        Toast.makeText(activity, temp,
-                Toast.LENGTH_LONG).show();
 
     }
 
     private String getPostDataString(JSONObject params) throws Exception {
 
+        variableOfClass.getInstance();
         StringBuilder result = new StringBuilder();
         boolean first = true;
 
         Iterator<String> itr = params.keys();
+
 
         while (itr.hasNext()) {
 
@@ -140,4 +145,47 @@ public class MakeClassPostRequest extends AsyncTask<JSONObject, Void, String> {
         }
         return result.toString();
     }
+
+    private void SbExtraction(StringBuffer sb) {
+
+        String SB = sb.toString(); //일단 String버퍼를 스트링 형식으로 변형
+        Log.d("파람스3", SB);
+        String ClassData[] = SB.split(",");
+        String ClassValue[] = new String[ClassData.length]; //추출후에 담을거
+
+        Log.d("파람스3", String.valueOf(ClassData.length));
+
+        for (int i = 0; i < ClassData.length; i++) { //
+            int idx = ClassData[i].indexOf(":");
+            ClassValue[i] = ClassData[i].substring(idx + 2, ClassData[i].length() - 1);
+            Log.e("확인", ClassValue[i]);
+            //userValue[i].replace("\"", ""); //처음이랑 마지막꺼는 버려야함 이상한 값임
+        }
+
+        variableOfClass.setClassPicture(ClassValue[1]);
+        variableOfClass.setClassName(ClassValue[2]);
+        variableOfClass.setClassTutorID(ClassValue[3]);
+        variableOfClass.setClassTuteeID(ClassValue[4]);
+        variableOfClass.setClassCategory(ClassValue[5]);
+        variableOfClass.setClassTotalPeople(ClassValue[6]);
+        variableOfClass.setClassCurrentPeople(ClassValue[7]);
+        variableOfClass.setClassTutorIntro(ClassValue[8]);
+        variableOfClass.setClassIntro(ClassValue[9]);
+        variableOfClass.setClassContents(ClassValue[10]);
+        variableOfClass.setClassWhom(ClassValue[11]);
+        variableOfClass.setClassPrice(ClassValue[12]);
+        variableOfClass.setClassHour(ClassValue[13]);
+        variableOfClass.setClassNumberOfTime(ClassValue[14]);
+        variableOfClass.setClassPlace(ClassValue[15]);
+        variableOfClass.setClassPlaceDetail(ClassValue[16]);
+        variableOfClass.setClassWeek(ClassValue[17]);
+        variableOfClass.setClassTime(ClassValue[18]);
+        variableOfClass.setClassFirstTime(ClassValue[19]);
+        variableOfClass.setClassIdentity(ClassValue[20]);
+        variableOfClass.setClassScore(ClassValue[21]);
+
+        Log.e("추출", variableOfClass.getClassCategory());
+
+    }
+
 }
