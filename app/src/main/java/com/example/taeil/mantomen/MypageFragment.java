@@ -70,7 +70,6 @@ public class MypageFragment extends Fragment implements Main2Activity.OnBackPres
         UserIdentity.setText(variable.getUserIdentity());
         UserCategory.setText(variable.getUserCategory());
 
-
         modifybtn.setOnClickListener(new View.OnClickListener() {  //버튼을 누르면 멤버 모디파이 액티비티로 이동
             @Override
             public void onClick(View v) {

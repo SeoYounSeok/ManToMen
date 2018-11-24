@@ -16,7 +16,7 @@ public class OperateClassInsertData extends OperateClasslPostRequest { //로그�
 //      EditText server = activity.findViewById(R.id.server);
         String serverURLStr = Variable.HttpAddres;  //민영이 서버
         try {
-            url = new URL(serverURLStr + "/class/manage");
+            url = new URL(serverURLStr + "/class/classmanage");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

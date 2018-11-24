@@ -47,7 +47,7 @@ public class ClassTitleFragment extends Fragment {
     String getServerURL = variable.HttpAddres;  //민영이 서버
     String getImgURL = "";
     String getImgName = "";
-
+    boolean pictureflag = false;
 
     public ClassTitleFragment() {
         // Required empty public constructor
@@ -98,7 +98,7 @@ public class ClassTitleFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if (ClassName.getText() == null) {
+                if (ClassName.getText() == null || pictureflag == false) {
                     Toast.makeText(getActivity(), "빈칸을 채워주세요",
                             Toast.LENGTH_LONG).show();
 
@@ -155,6 +155,9 @@ public class ClassTitleFragment extends Fragment {
 
                     // show dialog
                     asyncDialog.show();
+
+                    pictureflag = true;
+
 
                     uploadFile(getImgURL, getImgName);
                     //Toast.makeText(getBaseContext(), "name_Str : "+name_Str , Toast.LENGTH_SHORT).show();
