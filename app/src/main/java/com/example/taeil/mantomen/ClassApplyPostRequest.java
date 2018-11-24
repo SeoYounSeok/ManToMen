@@ -114,6 +114,11 @@ public class ClassApplyPostRequest extends AsyncTask<JSONObject, Void, String> {
 
         }
 
+        Toast.makeText(activity, temp,
+                Toast.LENGTH_LONG).show();
+        return;
+
+
     }
 
     private String getPostDataString(JSONObject params) throws Exception {

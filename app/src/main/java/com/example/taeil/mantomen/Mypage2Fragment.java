@@ -67,6 +67,8 @@ public class Mypage2Fragment extends Fragment {
 
         new DownloadImageTask((ImageView) mypage2fragment.findViewById(R.id.Mypage2_userPicture))
                 .execute(variable.getUserPicture());
+
+
         Log.e("수정후",variable.getUserPicture());
 
         tutorregister.setOnClickListener(new View.OnClickListener() {
