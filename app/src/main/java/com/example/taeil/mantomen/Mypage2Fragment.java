@@ -104,19 +104,20 @@ public class Mypage2Fragment extends Fragment {
                 // 여기서 이동이 아니라 해도되는데 값 받아오는걸로
                 // 오퍼레ㅣ트클래스인서트로 userID값을 보내면 서버에서 tutorID에 맞는 정보들을 이제 줌
 
-
-                JSONObject postDataParam = new JSONObject();
-                try {
-                    postDataParam.put("ClassTutorID", variable.getUserID());
-                } catch (JSONException e) {
-                    Log.e(TAG, "JSONEXception");
+                if(variable.getUserIdentity().equals("Tutee")){
+                    Toast.makeText(getActivity(), "튜티는 들어갈 수 없습니다.",
+                            Toast.LENGTH_LONG).show();
+                } else{
+                    JSONObject postDataParam = new JSONObject();
+                    try {
+                        postDataParam.put("ClassTutorID", variable.getUserID());
+                    } catch (JSONException e) {
+                        Log.e(TAG, "JSONEXception");
+                    }
+                    new OperateClassInsertData(getActivity()).execute(postDataParam);
                 }
-                new OperateClassInsertData(getActivity()).execute(postDataParam);
-
 
                 // new GetData(LoginActivity.this).execute(); // 홈누르면 ㅇㅋ? ㅋ_ㅋ 잠시 꺼놔야함 ; 중요부분
-
-
 
 //                Main2Activity.mContext = getActivity();
 //                Intent GoToOperateClassintent = new Intent(((Main2Activity) Main2Activity.mContext), OperateClassActivity.class); //MakeClass액티비티로 보내는 인텐트
