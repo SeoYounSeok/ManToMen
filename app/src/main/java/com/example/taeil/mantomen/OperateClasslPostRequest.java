@@ -113,9 +113,8 @@ public class OperateClasslPostRequest extends AsyncTask<JSONObject, Void, String
         } else {
 //            Toast.makeText(activity, result,
 //                    Toast.LENGTH_LONG).show();
-
-            Intent GoToOperateintent = new Intent((Main2Activity.mContext), OperateClassActivity.class); //메인액티비티로 보내는 인텐트
-            (Main2Activity.mContext).startActivity(GoToOperateintent);
+            Intent GoToOperateintent = new Intent(((Main2Activity) Main2Activity.mContext), OperateClassActivity.class); //메인액티비티로 보내는 인텐트
+            ((Main2Activity) Main2Activity.mContext).startActivity(GoToOperateintent);
         }
 
     }

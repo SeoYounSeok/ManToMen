@@ -124,7 +124,6 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
 
         super.onCreate(savedInstanceState);
         mActivity = Main2Activity.this;  //다른곳에서 이 액티비티를 끄기위해 지정
-        mContext = this;
         setContentView(R.layout.activity_main2);
 
 

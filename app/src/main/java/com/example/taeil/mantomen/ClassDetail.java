@@ -40,6 +40,8 @@ public class ClassDetail extends AppCompatActivity {
 
         ClassName.setText(variableOfClass.getClassName());
 
+
+
         ClassApply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,8 +51,6 @@ public class ClassDetail extends AppCompatActivity {
                 try {
                     postDataParam.put("ClassName", variableOfClass.getClassName());
                     postDataParam.put("userID", variable.getUserID());
-                    Log.e("튜티",variable.getUserID());
-                    Log.e("튜티",variableOfClass.getClassName());
                 } catch (JSONException e) {
                     // Log.e(TAG, "JSONEXception");
                 }

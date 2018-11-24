@@ -7,11 +7,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.google.gson.JsonParser;
-
 import org.json.Cookie;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -90,7 +86,7 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
                         Log.d("@COOKIE", cookie.split(";\\s*")[0]);
                         String cok = cookie.split(";\\s*")[0];
                         variable.setCookies(cok);
-                        Log.e("쿠키", variable.getCookies());
+                        Log.e("쿠키",variable.getCookies());
                     }
                 }
 
@@ -135,10 +131,6 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
         temp = result.trim();
         Log.d("오류", temp);
 
-
-
-
-
         if (temp == null || temp.equals("0")) {
             Toast.makeText(activity, message1,
                     Toast.LENGTH_LONG).show();
@@ -147,7 +139,11 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
             Toast.makeText(activity, temp,
                     Toast.LENGTH_LONG).show();
 
+            activity.finish(); // 로그인 액티비티 끄는건데 잠시보류;
+
+
             String userID = variable.getUserID();
+
             Intent GoToMainintent = new Intent(((LoginActivity) LoginActivity.mContext), Main2Activity.class); //메인액티비티로 보내는 인텐트
             ((LoginActivity) LoginActivity.mContext).startActivity(GoToMainintent);
             GoToMainintent.putExtra("userID", userID);
@@ -171,33 +167,33 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
 
             String key = itr.next();
             Object value = params.get(key);
-            // 이거
-//            if (key.equals("userPicture"))
-//                variable.setUserPicture(value.toString());
-//            if (key.equals("userID"))
-//                variable.setUserID(value.toString());
-//            if (key.equals("userPassword"))
-//                variable.setUserPassword(value.toString());
-//            if (key.equals("userEmail")) {
-//                variable.setUserEmail(value.toString());   // 이메일 부분임 수정필요
-//                //variable.setUserEmail("수정필요한 이메일");   // 이메일 부분임 수정필요
-//            }
-//            if (key.equals("userGender"))
-//                variable.setUserGender(value.toString());
-//            if (key.equals("userName"))
-//                variable.setUserName(value.toString());
-//            if (key.equals("userAge"))
-//                variable.setUserAge(value.toString());
-//            if (key.equals("userCategory"))
-//                variable.setUserCategory(value.toString());
-//            if (key.equals("userIdentity"))
-//                variable.setUserIdentity(value.toString());
-//            if (key.equals("userParticipateClass"))
-//                variable.setUserParticipateClass(value.toString());
-//            if (key.equals("userOperateClass"))
-//                variable.setUserOperateClass(value.toString());
-//            if (key.equals("userPhoneNumber"))
-//                variable.setUserOperateClass(value.toString());
+
+            if (key.equals("userPicture"))
+                variable.setUserPicture(value.toString());
+            if (key.equals("userID"))
+                variable.setUserID(value.toString());
+            if (key.equals("userPassword"))
+                variable.setUserPassword(value.toString());
+            if (key.equals("userEmail")) {
+                variable.setUserEmail(value.toString());   // 이메일 부분임 수정필요
+                //variable.setUserEmail("수정필요한 이메일");   // 이메일 부분임 수정필요
+            }
+            if (key.equals("userGender"))
+                variable.setUserGender(value.toString());
+            if (key.equals("userName"))
+                variable.setUserName(value.toString());
+            if (key.equals("userAge"))
+                variable.setUserAge(value.toString());
+            if (key.equals("userCategory"))
+                variable.setUserCategory(value.toString());
+            if (key.equals("userIdentity"))
+                variable.setUserIdentity(value.toString());
+            if (key.equals("userParticipateClass"))
+                variable.setUserParticipateClass(value.toString());
+            if (key.equals("userOperateClass"))
+                variable.setUserOperateClass(value.toString());
+            if (key.equals("userPhoneNumber"))
+                variable.setUserOperateClass(value.toString());
 
 
             if (first)
@@ -214,56 +210,34 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
     }
 
     private void SbExtraction(StringBuffer sb) {
+        Variable variable = Variable.getInstance();
 
         String SB = sb.toString(); //일단 String버퍼를 스트링 형식으로 변형
 
-        try {
-            JSONObject jsonObject = new JSONObject(SB);
-            Log.e("로그5",jsonObject.toString());
-            Log.e("로그5",jsonObject.getString("userPicture"));
-            variable.setUserPicture(jsonObject.getString("userPicture"));
-            variable.setUserID(jsonObject.getString("userID"));
-            variable.setUserPassword(jsonObject.getString("userPassword"));
-            variable.setUserEmail(jsonObject.getString("userEmail"));
-            variable.setUserName(jsonObject.getString("userName"));
-            variable.setUserAge(jsonObject.getString("userAge"));
-            variable.setUserGender(jsonObject.getString("userGender"));
-            variable.setUserCategory(jsonObject.getString("userCategory"));
-            variable.setUserIdentity(jsonObject.getString("userIdentity"));
-            variable.setUserParticipateClass(jsonObject.getString("userParticipateClass"));
-            variable.setUserOperateClass(jsonObject.getString("userOperateClass"));
-            variable.setUserPhoneNumber(jsonObject.getString("userPhoneNumber"));
-            Log.e("로그5",variable.getUserPicture());
-        } catch (JSONException e) {
-            e.printStackTrace();
-            Log.e("로그5",variable.getUserPicture());
+        String userData[] = SB.split(",");
+        String userValue[] = new String[userData.length]; //추출후에 담을거
+
+        for (int i = 0; i < userData.length; i++) { //
+            int idx = userData[i].indexOf(":");
+            userValue[i] = userData[i].substring(idx + 2, userData[i].length() - 1);
+            //userValue[i].replace("\"", ""); //처음이랑 마지막꺼는 버려야함 이상한 값임
         }
 
+        variable.setUserPicture(userValue[1]);
+        variable.setUserID(userValue[2]);
+        variable.setUserPassword(userValue[3]);
+        variable.setUserEmail(userValue[4]);
+        variable.setUserName(userValue[5]);
+        variable.setUserAge(userValue[6]);
+        variable.setUserGender(userValue[7]);
+        variable.setUserCategory(userValue[8]);
+        variable.setUserIdentity(userValue[9]);
+        variable.setUserParticipateClass(userValue[10]);
+        variable.setUserOperateClass(userValue[11]);
+        variable.setUserPhoneNumber(userValue[12]);
 
-//        String userData[] = SB.split(",");
-//        String userValue[] = new String[userData.length]; //추출후에 담을거
-//
-//        for (int i = 0; i < userData.length; i++) { //
-//            int idx = userData[i].indexOf(":");
-//            userValue[i] = userData[i].substring(idx + 2, userData[i].length() - 1);
-//            //userValue[i].replace("\"", ""); //처음이랑 마지막꺼는 버려야함 이상한 값임
-//        }
-//
-//        variable.setUserPicture(userValue[1]);
-//        variable.setUserID(userValue[2]);
-//        variable.setUserPassword(userValue[3]);
-//        variable.setUserEmail(userValue[4]);
-//        variable.setUserName(userValue[5]);
-//        variable.setUserAge(userValue[6]);
-//        variable.setUserGender(userValue[7]);
-//        variable.setUserCategory(userValue[8]);
-//        variable.setUserIdentity(userValue[9]);
-//        variable.setUserParticipateClass(userValue[10]);
-//        variable.setUserOperateClass(userValue[11]);
-//        variable.setUserPhoneNumber(userValue[12]);
-//
-//
-//        Log.e("사진추출", variable.getUserPicture());
+
+        Log.e("사진추출", variable.getUserPicture());
 
     }
 
