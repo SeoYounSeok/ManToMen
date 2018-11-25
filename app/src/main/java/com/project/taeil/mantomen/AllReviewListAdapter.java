@@ -30,7 +30,9 @@ public class AllReviewListAdapter extends BaseAdapter{
 
     @Override
     public int getCount() {
-        return count;
+        // return count;
+        return AllReview.size();
+
     }
 
     @Override

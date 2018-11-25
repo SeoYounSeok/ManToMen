@@ -21,20 +21,25 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:src="@drawable/serch" />
 
             <EditText
+                android:id="@+id/SearchFragment_SearchEdit"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_margin="10dp"
                 android:layout_weight="9"
                 android:gravity="center_vertical"
                 android:hint="배우고 싶은 과목을 검색해 보세요!" />
+
+            <ImageView
+                android:id="@+id/SearchFragment_SearchButton"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:src="@drawable/serch" />
+
+
 
         </LinearLayout>
 
@@ -71,6 +76,7 @@
                     android:gravity="center">
 
                     <ImageView
+                        android:id="@+id/SearchFragment_Programing"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:src="@drawable/it_engineering" />
@@ -102,6 +108,7 @@
                     android:gravity="center">
 
                     <ImageView
+                        android:id="@+id/SearchFragment_Design"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:src="@drawable/design" />
@@ -142,6 +149,7 @@
                     android:gravity="center">
 
                     <ImageView
+                        android:id="@+id/SearchFragment_Language"
                         android:layout_width="70dp"
                         android:layout_height="65dp"
                         android:src="@drawable/language" />
@@ -173,6 +181,7 @@
                     android:gravity="center">
 
                     <ImageView
+                        android:id="@+id/SearchFragment_Music"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:src="@drawable/music" />
@@ -213,6 +222,7 @@
                     android:gravity="center">
 
                     <ImageView
+                        android:id="@+id/SearchFragment_Beauty"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:src="@drawable/beauty" />
@@ -244,6 +254,7 @@
                     android:gravity="center">
 
                     <ImageView
+                        android:id="@+id/SearchFragment_ETC"
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:src="@drawable/idea" />

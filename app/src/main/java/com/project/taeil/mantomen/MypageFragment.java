@@ -165,16 +165,26 @@ public class MypageFragment extends Fragment implements Main2Activity.OnBackPres
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        Log.e("Other", "onAttach()");
+        ((Main2Activity) context).setOnBackPressedListener(this);
     }
+
 
     @Override
     public void onBack() {
         Log.e("Other", "onBack()");
         // 리스너를 설정하기 위해 Activity 를 받아옵니다.
+        Main2Activity activity = (Main2Activity) getActivity();
+        // 한번 뒤로가기 버튼을 눌렀다면 Listener 를 null 로 해제해줍니다.
+        activity.setOnBackPressedListener(null);
+        // MainFragment 로 교체
         ((Main2Activity) getActivity()).switchFragment(3);
-
+        // Activity 에서도 뭔가 처리하고 싶은 내용이 있다면 하단 문장처럼 호출해주면 됩니다.
+        // activity.onBackPressed();
 
     }
+
+
 
     private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
         ImageView bmImage;

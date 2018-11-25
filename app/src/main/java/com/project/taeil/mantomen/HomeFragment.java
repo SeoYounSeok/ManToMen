@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.project.taeil.mantomen.R;
 
@@ -19,12 +20,13 @@ import org.json.JSONObject;
 import java.util.List;
 
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements Main2Activity.OnBackPressedListener{
     final static String TAG = "AndroidNodeJS";
     VariableOfClass variableOfClass;
     AllClassListAdapter allClassListAdapter;
     List<AllClass> AllClassList;  //리스트뷰와 어댑터 초기화
     static String ClassName = "";
+
 
     public HomeFragment() {
         // Required empty public constructor
@@ -34,6 +36,8 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        new GetData(getActivity()).execute(); //
+
     }
 
 
@@ -42,7 +46,6 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {     // 연습으로 주석처리함
         //Inflate the layout for this fragment
 
-        variableOfClass.getInstance();
         LinearLayout homefragment = (LinearLayout) inflater.inflate(R.layout.fragment_home, container, false); //밑에 주석처리는 리스트뷰 처리 이건 수정요망
         ListView fitlistView = homefragment.findViewById(R.id.Fitlistview);
 
@@ -78,9 +81,8 @@ public class HomeFragment extends Fragment {
                 }
 
                 new ClassDetailInsertData(getActivity()).execute(postDataParam);
+
                 new GetReviewData(getActivity()).execute();
-
-
                 Log.e("리뷰", variableOfClass.getAllClass().get(position).getClassName());
 
                 // getActivity().finish();  // 액티비티 삭제
@@ -120,8 +122,8 @@ public class HomeFragment extends Fragment {
 
     }
 
+    @Override
+    public void onBack() {
 
-    public interface OnFragmentInteractionListener {
     }
-
 }

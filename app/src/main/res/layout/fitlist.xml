@@ -43,16 +43,16 @@
 
             android:layout_margin="5dp">
 
-            <ImageView
-                android:id="@+id/Mentor_Photo"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity=""
-                android:layout_margin="5dp"
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/ic_android_black_24dp" />
+                android:text="멘토 : "
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textSize="13dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/Home_ClassTutorID"
@@ -60,6 +60,17 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:text="서윤석"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textSize="13dp"
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="멘토의 한 마디 : "
                 android:layout_gravity="center"
                 android:textAlignment="center"
                 android:textSize="13dp"
@@ -83,27 +94,16 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_margin="3dp"
-            android:gravity="center"
-
-            >
+            android:gravity="left">
 
             <TextView
-                android:id="@+id/home_ClassCurrentPeople"
-                android:layout_width="70dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:text="5명 신청"
-                android:textAlignment="center" />
-
-
-            <TextView
-                android:id="@+id/Home_ClassTotalPeople"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:text="7명 모집"
+                android:text="모집 기간 :"
                 android:textAlignment="center"
                 />
+
             <TextView
                 android:id="@+id/Home_ClassRPeriod"
                 android:layout_width="100dp"
@@ -114,6 +114,29 @@
                 android:textColor="@color/pink"
                 android:textAlignment="center"
                 />
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="3dp"
+            android:gravity="left">
+
+            <TextView
+                android:id="@+id/Home_ClassPrice"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:textColor="@color/pink"
+                android:text="15000원"
+                android:textAlignment="center" />
+
+
 
             <RatingBar
                 android:id="@+id/ClassScore"
@@ -131,6 +154,7 @@
 
 
         </LinearLayout>
+
 
 
     </LinearLayout>

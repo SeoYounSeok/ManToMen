@@ -48,7 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
     String getServerURL = variable.HttpAddres;  //민영이 서버
     String getImgURL = "";
     String getImgName = "";
-
+    boolean pictureflag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -156,17 +156,17 @@ public class RegisterActivity extends AppCompatActivity {
                 String userCategory = "";
 
                 if (Checkbox1.isChecked())
-                    userCategory = "Programing//";
+                    userCategory = "programing//";
                 if (Checkbox2.isChecked())
-                    userCategory += "Design//";
+                    userCategory += "design//";
                 if (Checkbox3.isChecked())
-                    userCategory += "Language//";
+                    userCategory += "language//";
                 if (Checkbox4.isChecked())
-                    userCategory += "Music//";
+                    userCategory += "music//";
                 if (Checkbox5.isChecked())
-                    userCategory += "Beauty//";
+                    userCategory += "beauty//";
                 if (Checkbox6.isChecked())
-                    userCategory += "Etc//";
+                    userCategory += "etc//";
 
 //                for(int i=0; i<6; i++){ //모든값을 공백
 //                    userCategory[i] = "";
@@ -179,7 +179,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                 JSONObject postDataParam = new JSONObject();
 
-                if (userID == null || userPassword == null || userName == null || userAge == null || userGender == null || userCategory == null) {
+                if (userID == null || userPassword == null || userName == null || userAge == null || userGender == null || userCategory == null|| pictureflag == false) {
                     Toast.makeText(RegisterActivity.this, "값을 다 입력해 주세요",
                             Toast.LENGTH_LONG).show();
                 } else {
@@ -246,6 +246,9 @@ public class RegisterActivity extends AppCompatActivity {
 
                     uploadFile(getImgURL, getImgName);
                     //Toast.makeText(getBaseContext(), "name_Str : "+name_Str , Toast.LENGTH_SHORT).show();
+
+                    pictureflag = true;
+
 
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();

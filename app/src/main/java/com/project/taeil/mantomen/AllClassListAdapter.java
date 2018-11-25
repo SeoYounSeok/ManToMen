@@ -38,7 +38,8 @@ public class AllClassListAdapter extends BaseAdapter{
 
     @Override
     public int getCount() {
-        return count;  //요거도 수정해보자 실시간으로 바뀌게 나중에 지금은 무섭
+         //return count;   // 프래그먼트 실시간 수정에서 생기는 오류
+         return AllClass.size();  //요거도 수정해보자 실시간으로 바뀌게 나중에 지금은 무섭
     }
 
     @Override
@@ -63,7 +64,8 @@ public class AllClassListAdapter extends BaseAdapter{
         TextView ClassName= (TextView) v.findViewById(R.id.Home_ClassName);
         TextView ClassTutorID = (TextView) v.findViewById(R.id.Home_ClassTutorID);
         // ClassTuteeID 튜티들
-        TextView ClassTotalPeople = (TextView) v.findViewById(R.id.Home_ClassTotalPeople);  //클래스 수강인원
+//        TextView ClassTotalPeople = (TextView) v.findViewById(R.id.Home_ClassTotalPeople);  //클래스 수강인원
+//        TextView ClassCurrentPeople = (TextView) v.findViewById(R.id.Home_ClassCurrentPeople);
         // ClassCurrentPeople 현재원
         TextView ClassRPeriod = (TextView) v.findViewById(R.id.Home_ClassRPeriod);  //신청기간
         // ClassOPeriod 강의기간
@@ -82,7 +84,9 @@ public class AllClassListAdapter extends BaseAdapter{
 
         ClassName.setText(AllClass.get(i).getClassName());
         ClassTutorID.setText(AllClass.get(i).getClassTutorID());
-        ClassTotalPeople.setText(AllClass.get(i).getClassTotalPeople());
+//        ClassCurrentPeople.setText(AllClass.get(i).getClassCurrentPeople() + "신청");
+//        ClassTotalPeople.setText(AllClass.get(i).getClassTotalPeople() + "모집");
+
         // 현재원필요
         ClassRPeriod.setText(AllClass.get(i).getClassFirstTime()+"까지");   // 모집기간인데 퍼스트 수업 날 전까지로하자 !!!!
         // 강의기간 필요

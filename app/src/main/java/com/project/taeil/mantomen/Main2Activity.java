@@ -2,6 +2,7 @@ package com.project.taeil.mantomen;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.NonNull;
@@ -10,14 +11,16 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import com.project.taeil.mantomen.R;
 
-public class Main2Activity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener, SearchFragment.OnFragmentInteractionListener {
+public class Main2Activity extends AppCompatActivity {
 
     static Context mContext = null;
     static Activity mActivity;
@@ -27,6 +30,10 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
     static ProgressBar progressBar;
     Variable variable;
     VariableOfClass variableOfClass;
+
+
+    private long time= 0;
+
 
     // 리스너 생성
     public interface OnBackPressedListener {
@@ -48,10 +55,19 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
         if (mBackListener != null) {
             mBackListener.onBack();
         } else {
-            super.onBackPressed();
+            Log.e("Other", "onBack()");
+            // 리스너를 설정하기 위해 Activity 를 받아옵니다.   // 백버튼을 누르면 홈 프래그먼트로 이동
+            if(System.currentTimeMillis()-time>=2000){
+                time=System.currentTimeMillis();
+                Toast.makeText(getApplicationContext(),"뒤로 버튼을 한번 더 누르면 종료합니다.",Toast.LENGTH_SHORT).show();
+            }else if(System.currentTimeMillis()-time<2000){
+                finish();
+            }
+
         }
 
     }
+
 
     @Override
     protected void onPause() {
@@ -66,8 +82,8 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    new GetData(Main2Activity.this).execute(); // 홈누르면 ㅇㅋ? ㅋ_ㅋ 잠시 꺼놔야함 ; 중요부분
                     switchFragment(0);  //홈버튼이 눌리면 0전송
+
                     // variableOfClass.getAllClass().clear();
                     //navigationImageview.setVisibility(View.INVISIBLE);
                     return true;
@@ -192,7 +208,10 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
 
     }
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
 
     HomeFragment homeFragment = new HomeFragment();
     final SearchFragment searchFragment = new SearchFragment();
@@ -202,8 +221,9 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
 
     public void switchFragment(int id) {   //프래그먼트 교체 메인화면, 검색화면, 채팅화면, 마이페이지 총 네개의 프래그먼트 활용예정
         final FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        if (id == 0)
+        if (id == 0) {
             fragmentTransaction.replace(R.id.fragment, homeFragment);
+        }
         else if (id == 1)
             fragmentTransaction.replace(R.id.fragment, searchFragment);
         else if (id == 2)
@@ -215,12 +235,4 @@ public class Main2Activity extends AppCompatActivity implements HomeFragment.OnF
             fragmentTransaction.replace(R.id.fragment, mypageFragment); //마이페이지1로연결
         fragmentTransaction.commit();
     }
-
-
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
-
-
 }
