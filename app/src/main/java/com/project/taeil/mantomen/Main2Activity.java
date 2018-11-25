@@ -72,6 +72,7 @@ public class Main2Activity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+        new GetData(Main2Activity.this).execute();  // 클래스 정보를 죄다 받아오는거
         //finish();
     }
 
@@ -82,6 +83,7 @@ public class Main2Activity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
+                    new GetData(Main2Activity.this).execute(); //
                     switchFragment(0);  //홈버튼이 눌리면 0전송
 
                     // variableOfClass.getAllClass().clear();

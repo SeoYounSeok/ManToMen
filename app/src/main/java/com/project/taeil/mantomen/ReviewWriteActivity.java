@@ -74,6 +74,9 @@ public class ReviewWriteActivity extends AppCompatActivity {
                     Log.e(TAG, "JSONEXception");
                 }
                 new ReviewInsertData(ReviewWriteActivity.this).execute(postDataParam);
+
+
+
                 Log.d("리뷰등록",postDataParam.toString());
             }
         });

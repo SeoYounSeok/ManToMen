@@ -22,7 +22,7 @@ public class ReviewFragment extends Fragment {
 
     final static String TAG = "AndroidNodeJS";
     VariableOfClass variableOfClass;
-    AllReviewListAdapter allReviewListAdapter;
+    static AllReviewListAdapter allReviewListAdapter;
     List<AllReview> AllReviewList;  //리스트뷰와 어댑터 초기화
 
     public ReviewFragment() {

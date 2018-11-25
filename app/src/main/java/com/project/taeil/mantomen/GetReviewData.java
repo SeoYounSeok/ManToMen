@@ -46,11 +46,16 @@ public class GetReviewData extends GetRequest {
             return;
 
         else if(jsonString.trim().equals("0")){
+            if(variableOfClass.getAllReview() == null){
+
+            }else{
+                variableOfClass.getAllReview().clear();
+            }
+
             return;
         }
 
         else{
-
             ArrayList<AllReview> arrayList = getArrayListFromJSONString(jsonString); //전체를 저장해야하니까
             variableOfClass.setAllReview(arrayList);  //
 

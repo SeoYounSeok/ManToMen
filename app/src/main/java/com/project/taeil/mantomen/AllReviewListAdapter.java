@@ -1,15 +1,21 @@
 package com.project.taeil.mantomen;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.project.taeil.mantomen.R;
 
+import java.io.InputStream;
 import java.util.List;
 
 public class AllReviewListAdapter extends BaseAdapter{
@@ -50,6 +56,7 @@ public class AllReviewListAdapter extends BaseAdapter{
 
         View v = View.inflate(context, R.layout.reviewlist,null);
 
+
         TextView userName = (TextView) v.findViewById(R.id.Reviewlist_userID);
         TextView Contents = (TextView) v.findViewById(R.id.Reviewlist_Contents);
         TextView Date = (TextView) v.findViewById(R.id.Reviewlist_Date);
@@ -64,7 +71,5 @@ public class AllReviewListAdapter extends BaseAdapter{
 
         return v;
     }
-
-
 
 }

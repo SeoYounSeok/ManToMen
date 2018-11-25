@@ -21,10 +21,7 @@
             android:orientation="horizontal"
             android:gravity="center">
 
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/exbonobono"/>
+
 
             <TextView
                 android:id="@+id/Reviewlist_userID"

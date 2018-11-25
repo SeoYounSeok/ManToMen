@@ -21,6 +21,12 @@ public class ClassDetail extends AppCompatActivity {
     VariableOfClass variableOfClass;
     Variable variable;
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        new GetReviewData(ClassDetail.this).execute();
+        // ReviewFragment.allReviewListAdapter.notifyDataSetChanged(); // 리스트뷰갱신? 갱신전에 호출이 필요
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

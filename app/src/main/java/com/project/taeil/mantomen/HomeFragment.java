@@ -36,7 +36,7 @@ public class HomeFragment extends Fragment implements Main2Activity.OnBackPresse
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        new GetData(getActivity()).execute(); //
+
 
     }
 

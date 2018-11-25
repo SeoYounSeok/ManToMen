@@ -68,6 +68,9 @@ public class AllClassListAdapter extends BaseAdapter{
 //        TextView ClassCurrentPeople = (TextView) v.findViewById(R.id.Home_ClassCurrentPeople);
         // ClassCurrentPeople 현재원
         TextView ClassRPeriod = (TextView) v.findViewById(R.id.Home_ClassRPeriod);  //신청기간
+
+        TextView ClassPrice = v.findViewById(R.id.Home_ClassPrice);  // 강의가격
+
         // ClassOPeriod 강의기간
         RatingBar ClassScore = (RatingBar) v.findViewById(R.id.ClassScore); //임의로 정해둬 지금은
         TextView ClassIntro = (TextView) v.findViewById(R.id.Home_ClassIntro);
@@ -87,6 +90,7 @@ public class AllClassListAdapter extends BaseAdapter{
 //        ClassCurrentPeople.setText(AllClass.get(i).getClassCurrentPeople() + "신청");
 //        ClassTotalPeople.setText(AllClass.get(i).getClassTotalPeople() + "모집");
 
+        ClassPrice.setText(AllClass.get(i).getClassPrice() + "원"); // 가격
         // 현재원필요
         ClassRPeriod.setText(AllClass.get(i).getClassFirstTime()+"까지");   // 모집기간인데 퍼스트 수업 날 전까지로하자 !!!!
         // 강의기간 필요
