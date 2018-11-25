@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.taeil.mantomen">
+    package="com.project.taeil.mantomen">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name="com.project.taeil.mantomen.MainActivity"
             android:label="@string/title_activity_ManToMen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,18 +25,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name="com.project.taeil.mantomen.LoginActivity"
             android:noHistory="true" />
 
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoadingActivity" />
-        <activity android:name=".Main2Activity" />
-        <activity android:name=".MemberModifyActivity" />
-        <activity android:name=".ClassDetail" />
-        <activity android:name=".OperateClassActivity" />
-        <activity android:name=".TutorRegisterActivity" />
-        <activity android:name=".ReviewWriteActivity" />
-        <activity android:name=".ChattingRoomActivity" />
+        <activity android:name="com.project.taeil.mantomen.RegisterActivity" />
+        <activity android:name="com.project.taeil.mantomen.LoadingActivity" />
+        <activity android:name="com.project.taeil.mantomen.Main2Activity" />
+        <activity android:name="com.project.taeil.mantomen.MemberModifyActivity" />
+        <activity android:name="com.project.taeil.mantomen.ClassDetail" />
+        <activity android:name="com.project.taeil.mantomen.OperateClassActivity" />
+        <activity android:name="com.project.taeil.mantomen.TutorRegisterActivity" />
+        <activity android:name="com.project.taeil.mantomen.ReviewWriteActivity" />
+        <activity android:name="com.project.taeil.mantomen.ChattingRoomActivity" />
 
     </application>
 

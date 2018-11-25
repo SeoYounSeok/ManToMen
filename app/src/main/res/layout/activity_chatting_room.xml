@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ChattingRoomActivity">
+    tools:context="com.project.taeil.mantomen.ChattingRoomActivity">
 
     <ListView
         android:id="@+id/chatlist"
