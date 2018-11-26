@@ -20,12 +20,12 @@ import java.util.Iterator;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class OperateClasslPostRequest extends AsyncTask<JSONObject, Void, String> {
+public class OperateClassPostRequest extends AsyncTask<JSONObject, Void, String> {
     Activity activity;
     URL url;
     VariableOfClass variableOfClass;
     Variable variable;
-    public OperateClasslPostRequest(Activity activity) {
+    public OperateClassPostRequest(Activity activity) {
         this.activity = activity;
     }
 

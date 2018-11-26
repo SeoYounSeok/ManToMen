@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.project.taeil.mantomen.R;
@@ -63,9 +64,11 @@ public class Mypage2Fragment extends Fragment implements Main2Activity.OnBackPre
         Button gotomypage = (Button) mypage2fragment.findViewById(R.id.Mypage2_Mypage); //마이페이지로가는버튼
         Button tutorregister = mypage2fragment.findViewById(R.id.Mypage2_TutorRegister); // 튜터등록 버튼
 
+        TextView userID = mypage2fragment.findViewById(R.id.Mypage2_userID);
 
         // ImageView userPicture = getActivity().findViewById(R.id.Mypage2_userPicture); // 유저사진
 
+        userID.setText(variable.getUserID());
 
         new DownloadImageTask((ImageView) mypage2fragment.findViewById(R.id.Mypage2_userPicture))
                 .execute(variable.getUserPicture());

@@ -29,6 +29,7 @@
                 android:background="@drawable/circle" />
 
             <TextView
+                android:id="@+id/Mypage2_userID"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_margin="10dp"

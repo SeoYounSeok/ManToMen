@@ -72,7 +72,7 @@ public class Main2Activity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        new GetData(Main2Activity.this).execute();  // 클래스 정보를 죄다 받아오는거
+        // new GetData(Main2Activity.this).execute();  // 클래스 정보를 죄다 받아오는거
         //finish();
     }
 
@@ -213,6 +213,8 @@ public class Main2Activity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        new GetData(Main2Activity.this).execute();  // 클래스 정보를 죄다 받아오는거
+
     }
 
     HomeFragment homeFragment = new HomeFragment();

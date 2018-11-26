@@ -64,14 +64,9 @@ public class OperateClassActivity extends AppCompatActivity {
         ClassScore.setText(variableOfClass.getClassScore() + " 점");
 
 
-
-
-
-
         Log.d("클래스",variableOfClass.getClassIntro());
         Log.d("클래스",variableOfClass.getClassPlace());
         Log.d("클래스",variableOfClass.getClassPlaceDetail());
-
 
 
     }

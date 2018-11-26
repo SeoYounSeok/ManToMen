@@ -228,7 +228,7 @@
             android:layout_height="match_parent"
             android:layout_margin="8dp"
             android:gravity="left|center"
-            android:hint="수업 시간"
+            android:hint="수업 시간, ex) 저녁 6시부터"
             android:textSize="17dp"
             android:textColor="@color/black"
             android:background="@color/white"/>

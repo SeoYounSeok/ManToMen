@@ -51,19 +51,21 @@ public class ClassIntroFragment extends Fragment {
         TextView ClassIntro = classIntro.findViewById(R.id.ClassIntro_ClassIntro);
         TextView ClassWhom = classIntro.findViewById(R.id.ClassIntro_ClassWhom);
 
+        TextView ClassFirstTime = classIntro.findViewById(R.id.ClassIntro_ClassFirstTime);
+
         ImageView ClassPicture = classIntro.findViewById(R.id.ClassIntro_ClassPicture);
 
 
         ClassPlace.setText(variableOfClass.getClassPlace());
         ClassPlaceDetail.setText(variableOfClass.getClassPlaceDetail());
-        ClassNumberOfTime.setText(variableOfClass.getClassNumberOfTime());
-        ClassHour.setText(variableOfClass.getClassHour());
-        ClassWeek.setText(variableOfClass.getClassWeek());
-        ClassTotalPeople.setText(variableOfClass.getClassTotalPeople());
-        ClassPrice.setText(variableOfClass.getClassPrice());
+        ClassNumberOfTime.setText(variableOfClass.getClassNumberOfTime() + "회");
+        ClassHour.setText(variableOfClass.getClassHour() + "시간씩");
+        ClassWeek.setText(variableOfClass.getClassWeek() + "요일");
+        ClassTotalPeople.setText(variableOfClass.getClassTotalPeople() + "명 모집 중");
+        ClassPrice.setText(variableOfClass.getClassPrice() + "원");
         ClassIntro.setText(variableOfClass.getClassIntro());
         ClassWhom.setText(variableOfClass.getClassWhom());
-
+        ClassFirstTime.setText(variableOfClass.getClassFirstTime() + "까지");
 
         new DownloadImageTask((ImageView) classIntro.findViewById(R.id.ClassIntro_ClassPicture))
                 .execute(variableOfClass.getClassPicture());

@@ -6,7 +6,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 
-public class OperateClassInsertData extends OperateClasslPostRequest { //로그인할때 쓰는거 값을 받고 받아오는걸로 로그인함
+public class OperateClassInsertData extends OperateClassPostRequest { //로그인할때 쓰는거 값을 받고 받아오는걸로 로그인함
     public OperateClassInsertData(Activity activity) {
         super(activity);
     }

@@ -67,7 +67,8 @@
             android:hint="수강료 입력"
             android:textSize="17dp"
             android:textColor="@color/black"
-            android:background="@color/white"/>
+            android:background="@color/white"
+            android:inputType="number"/>
     </LinearLayout>
 
 
@@ -110,7 +111,8 @@
             android:hint="회당 몇 시간"
             android:textSize="17dp"
             android:textColor="@color/black"
-            android:background="@color/white"/>
+            android:background="@color/white"
+            android:inputType="number"/>
     </LinearLayout>
 
     <LinearLayout
@@ -152,7 +154,8 @@
             android:hint="총 몇 회 수업"
             android:textSize="17dp"
             android:textColor="@color/black"
-            android:background="@color/white"/>
+            android:background="@color/white"
+            android:inputType="number"/>
     </LinearLayout>
 
 

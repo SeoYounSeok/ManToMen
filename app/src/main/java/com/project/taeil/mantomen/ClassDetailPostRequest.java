@@ -100,15 +100,13 @@ public class ClassDetailPostRequest extends AsyncTask<JSONObject, Void, String> 
         super.onPostExecute(result);
         //Log.d("파람스3", result);
         String temp;
-        String message1 = "아이디와 비밀번호를 확인해주세요";
-        String message2 = "로그인성공";
         temp = result.trim();
 //        Log.d("오류", result);
 
         Log.d("디테일", temp);
 
         if (temp == null || temp.equals("0")) {
-            Toast.makeText(activity, message1,
+            Toast.makeText(activity, temp,
                     Toast.LENGTH_LONG).show();
 
             return;

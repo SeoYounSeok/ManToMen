@@ -95,11 +95,11 @@ public class MemberDeletePostRequest extends AsyncTask<JSONObject, Void, String>
 
 
         if (temp == null || temp.equals("0")) {
-            Toast.makeText(activity, message1,
+            Toast.makeText(activity, temp,
                     Toast.LENGTH_LONG).show();
             return;
         } else if (temp.equals("1")) {
-            Toast.makeText(activity, message2,
+            Toast.makeText(activity, "탈퇴되었습니다.",
                     Toast.LENGTH_LONG).show();
             Main2Activity.mActivity.finish();
 

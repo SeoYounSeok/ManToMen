@@ -135,7 +135,7 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
                     Toast.LENGTH_LONG).show();
             return;
         } else {
-            Toast.makeText(activity, temp,
+            Toast.makeText(activity, "환영합니다.",
                     Toast.LENGTH_LONG).show();
 
             activity.finish(); // 로그인 액티비티 끄는건데 잠시보류;

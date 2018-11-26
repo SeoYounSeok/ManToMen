@@ -6,6 +6,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -24,8 +25,16 @@ public class ClassDetail extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        new GetReviewData(ClassDetail.this).execute();
-        // ReviewFragment.allReviewListAdapter.notifyDataSetChanged(); // 리스트뷰갱신? 갱신전에 호출이 필요
+//        JSONObject postDataParam = new JSONObject();
+//        // variableOfClass.getAllClass().get(position).getClassName();
+//        try {
+//            postDataParam.put("ClassName", variableOfClass.getClassName());
+//
+//        } catch (JSONException e) {
+//            // Log.e(TAG, "JSONEXception");
+//        }
+//         new ClassDetailInsertData(ClassDetail.this).execute(postDataParam);
+//        // ReviewFragment.allReviewListAdapter.notifyDataSetChanged(); // 리스트뷰갱신? 갱신전에 호출이 필요
     }
 
     @Override
