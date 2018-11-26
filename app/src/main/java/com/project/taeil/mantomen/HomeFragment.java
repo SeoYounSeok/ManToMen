@@ -3,6 +3,7 @@ package com.project.taeil.mantomen;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,10 +37,17 @@ public class HomeFragment extends Fragment implements Main2Activity.OnBackPresse
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.detach(this).attach(this).commit();
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        //allClassListAdapter.notifyDataSetChanged();
+        Log.d("리쥼","확인");
+    }
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
@@ -106,8 +114,6 @@ public class HomeFragment extends Fragment implements Main2Activity.OnBackPresse
         params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
         listView.setLayoutParams(params);
         //Log.d("높이3", String.valueOf(params.height));
-
-
     }
 
 

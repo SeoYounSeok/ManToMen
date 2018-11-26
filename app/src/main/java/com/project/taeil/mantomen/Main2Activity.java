@@ -25,7 +25,7 @@ public class Main2Activity extends AppCompatActivity {
     static Context mContext = null;
     static Activity mActivity;
     static int page = 1;    //
-    boolean serviceflag = true;
+    boolean pausecheck = true;
     static ScrollView scrollView;
     static ProgressBar progressBar;
     Variable variable;
@@ -72,8 +72,14 @@ public class Main2Activity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        // new GetData(Main2Activity.this).execute();  // 클래스 정보를 죄다 받아오는거
+        // new GetData(Main2Activity.this).execute();  // 클래스 정보를 죄다 받아오는거  // 개많이 받아옴 계속해서
         //finish();
+        if(pausecheck){
+            switchFragment(0);
+            Log.d("포즈","확인");
+            pausecheck = false;
+        }
+
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -113,6 +119,7 @@ public class Main2Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        pausecheck = true;
 
 //        if(serviceflag){  // 서비스안해
 //            Toast.makeText(getApplicationContext(),"Service 시작",Toast.LENGTH_SHORT).show();
@@ -210,19 +217,12 @@ public class Main2Activity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        new GetData(Main2Activity.this).execute();  // 클래스 정보를 죄다 받아오는거
-
-    }
-
     HomeFragment homeFragment = new HomeFragment();
+
     final SearchFragment searchFragment = new SearchFragment();
     final ChatFragment chatFragment = new ChatFragment();
     final MypageFragment mypageFragment = new MypageFragment();
     final Mypage2Fragment mypage2Fragment = new Mypage2Fragment();
-
     public void switchFragment(int id) {   //프래그먼트 교체 메인화면, 검색화면, 채팅화면, 마이페이지 총 네개의 프래그먼트 활용예정
         final FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         if (id == 0) {
@@ -238,5 +238,13 @@ public class Main2Activity extends AppCompatActivity {
         else if (id == 4)
             fragmentTransaction.replace(R.id.fragment, mypageFragment); //마이페이지1로연결
         fragmentTransaction.commit();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        new GetData(Main2Activity.this).execute();  // 클래스 정보를 죄다 받아오는거
+        switchFragment(0);
+        Log.d("메인리쥼","화인");
     }
 }

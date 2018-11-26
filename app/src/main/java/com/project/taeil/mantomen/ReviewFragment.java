@@ -36,6 +36,12 @@ public class ReviewFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        allReviewListAdapter.notifyDataSetChanged();
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
@@ -58,7 +64,6 @@ public class ReviewFragment extends Fragment {
             AllReviewList = variableOfClass.getAllReview();  //저장된 컬랙션호출
             allReviewListAdapter = new AllReviewListAdapter(getActivity(), AllReviewList);
             reviewlistview.setAdapter(allReviewListAdapter);  // 어댑터연결
-            allReviewListAdapter.notifyDataSetChanged();
             //리스트뷰를 펼치기위해 높이를 설정한 메서드를 실행한것
             listViewHeightSet(allReviewListAdapter, reviewlistview);
 

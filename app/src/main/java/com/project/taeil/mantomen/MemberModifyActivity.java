@@ -69,6 +69,8 @@ public class MemberModifyActivity extends AppCompatActivity {
     CheckBox Checkbox6;
     ImageView UserPicture;
 
+    boolean picturecheck = false;
+
     ProgressDialog asyncDialog;
     String getServerURL = variable.HttpAddres;  //민영이 서버
     String getImgURL = "";
@@ -160,6 +162,10 @@ public class MemberModifyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if(!picturecheck){  // 픽쳐체커가 false면
+
+
+                }
                 String userCategory = "";
 
                 if (Checkbox1.isChecked())
@@ -174,6 +180,7 @@ public class MemberModifyActivity extends AppCompatActivity {
                     userCategory += "Beauty//";
                 if (Checkbox6.isChecked())
                     userCategory += "Etc//";
+
 
 
                 String userPassword = UserPassword.getText().toString();
@@ -252,6 +259,7 @@ public class MemberModifyActivity extends AppCompatActivity {
                     asyncDialog.show();
 
                     uploadFile(getImgURL, getImgName);
+                    picturecheck = true;
                     //Toast.makeText(getBaseContext(), "name_Str : "+name_Str , Toast.LENGTH_SHORT).show();
 
                 } catch (FileNotFoundException e) {
