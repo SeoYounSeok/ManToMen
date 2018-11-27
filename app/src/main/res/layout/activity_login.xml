@@ -22,7 +22,7 @@
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:contentDescription="TODO"
-            android:src="@drawable/logo3" />
+            android:src="@drawable/logo4" />
 
     </LinearLayout>
 

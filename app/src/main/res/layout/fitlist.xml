@@ -133,7 +133,7 @@
                 android:layout_margin="2dp"
                 android:textSize="10dp"
                 android:text="2018-11-06마감"
-                android:textColor="@color/brightgray"
+                android:textColor="@color/gray"
                 android:textAlignment="center"
                 />
 
