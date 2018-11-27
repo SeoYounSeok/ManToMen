@@ -22,6 +22,7 @@ public class ClassDetail extends AppCompatActivity {
     VariableOfClass variableOfClass;
     Variable variable;
 
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -38,12 +39,23 @@ public class ClassDetail extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+//        variableOfClass.getAllClass().clear();
+//        new GetData(ClassDetail.this).execute();
+
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_class_detail);
 
-        Intent intent = getIntent();
-        // String ClassName = intent.getStringExtra("ClassName"); // 클래스 네임을 넘겨받고
+
+
+        Main2Activity.FRAGE_KEY = 1;
+        Log.d("메인리쥼디테일", String.valueOf(Main2Activity.FRAGE_KEY));
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation2);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);

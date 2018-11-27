@@ -30,10 +30,15 @@ public class AllClassListAdapter extends BaseAdapter{
 
     public AllClassListAdapter(Context context, List<AllClass> AllClass){
         // 메인에서 데이터 리스트를 넘겨받음
-        notifyDataSetChanged();
         this.context = context;
         this.count = AllClass.size();
         this.AllClass = AllClass;
+        notifyDataSetChanged();
+
+    }
+
+    public void upDateItemList(List<AllClass> allClass){
+        this.AllClass = allClass;
     }
 
     @Override
@@ -55,6 +60,10 @@ public class AllClassListAdapter extends BaseAdapter{
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
+//        if(variableOfClass.getAllClass() != null){
+//            variableOfClass.getAllClass().clear();
+//
+//        }
         View v = View.inflate(context, R.layout.fitlist,null);
 
         // 클래스 확립될 동안 리스트뷰를 잠시꺼둠
@@ -73,7 +82,7 @@ public class AllClassListAdapter extends BaseAdapter{
 
         // ClassOPeriod 강의기간
         RatingBar ClassScore = (RatingBar) v.findViewById(R.id.ClassScore); //임의로 정해둬 지금은
-        TextView ClassIntro = (TextView) v.findViewById(R.id.Home_ClassIntro);
+//        TextView ClassIntro = (TextView) v.findViewById(R.id.Home_ClassIntro);
 
 
         //ImageView MentorPhoto= (ImageView) v.findViewById(R.id.Mentor_Photo);
@@ -96,14 +105,13 @@ public class AllClassListAdapter extends BaseAdapter{
         // 강의기간 필요
         // ClassScore.setRating(AllClass.get(i).getClassScore());
         ClassScore.setRating(Float.parseFloat(AllClass.get(i).getClassScore()));  // 점수
-        ClassIntro.setText(AllClass.get(i).getClassIntro());
+//        ClassIntro.setText(AllClass.get(i).getClassIntro());
 
 //        ClassPhoto.setImageResource(AllClass.get(i).getClassPhoto());  //사진없으니까 뺌
 //        MentorPhoto.setImageResource(AllClass.get(i).getMentorPhoto());
 
         v.setTag(AllClass.get(i).getClassName());
-
-
+        notifyDataSetChanged();
         return v;
     }
 

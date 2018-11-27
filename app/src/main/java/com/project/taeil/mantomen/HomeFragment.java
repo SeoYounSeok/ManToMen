@@ -28,7 +28,6 @@ public class HomeFragment extends Fragment implements Main2Activity.OnBackPresse
     List<AllClass> AllClassList;  //리스트뷰와 어댑터 초기화
     static String ClassName = "";
 
-
     public HomeFragment() {
         // Required empty public constructor
 
@@ -37,8 +36,8 @@ public class HomeFragment extends Fragment implements Main2Activity.OnBackPresse
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FragmentTransaction ft = getFragmentManager().beginTransaction();
-        ft.detach(this).attach(this).commit();
+
+
 
     }
 
@@ -47,7 +46,17 @@ public class HomeFragment extends Fragment implements Main2Activity.OnBackPresse
         super.onResume();
         //allClassListAdapter.notifyDataSetChanged();
         Log.d("리쥼","확인");
+
+        if(Main2Activity.FRAGE_KEY==1){
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.detach(this).attach(this).commit();
+            Log.d("메인리쥼디테일2", String.valueOf(Main2Activity.FRAGE_KEY));
+        }
+        Main2Activity.FRAGE_KEY = 0;
+        Log.d("메인리쥼","화인");
     }
+
+
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
@@ -66,11 +75,13 @@ public class HomeFragment extends Fragment implements Main2Activity.OnBackPresse
             AllClassList = variableOfClass.getAllClass();  //저장된 컬랙션호출
             allClassListAdapter = new AllClassListAdapter(getActivity(), AllClassList);
             fitlistView.setAdapter(allClassListAdapter);  // 어댑터연결
-            allClassListAdapter.notifyDataSetChanged();
+            //allClassListAdapter.notifyDataSetChanged();
             //리스트뷰를 펼치기위해 높이를 설정한 메서드를 실행한것
             listViewHeightSet(allClassListAdapter, fitlistView);
 
+
         }
+
 
 
         fitlistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {     // 클래스 상세 정보 요건 나중에 삭제 xx
@@ -120,6 +131,9 @@ public class HomeFragment extends Fragment implements Main2Activity.OnBackPresse
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.detach(this).attach(this).commit();
+
     }
 
     @Override

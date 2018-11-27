@@ -8,6 +8,7 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,8 +32,10 @@ public class Main2Activity extends AppCompatActivity {
     Variable variable;
     VariableOfClass variableOfClass;
 
+    static int FRAGE_KEY = 0;
 
-    private long time= 0;
+
+    private long time = 0;
 
 
     // 리스너 생성
@@ -57,10 +60,10 @@ public class Main2Activity extends AppCompatActivity {
         } else {
             Log.e("Other", "onBack()");
             // 리스너를 설정하기 위해 Activity 를 받아옵니다.   // 백버튼을 누르면 홈 프래그먼트로 이동
-            if(System.currentTimeMillis()-time>=2000){
-                time=System.currentTimeMillis();
-                Toast.makeText(getApplicationContext(),"뒤로 버튼을 한번 더 누르면 종료합니다.",Toast.LENGTH_SHORT).show();
-            }else if(System.currentTimeMillis()-time<2000){
+            if (System.currentTimeMillis() - time >= 2000) {
+                time = System.currentTimeMillis();
+                Toast.makeText(getApplicationContext(), "뒤로 버튼을 한번 더 누르면 종료합니다.", Toast.LENGTH_SHORT).show();
+            } else if (System.currentTimeMillis() - time < 2000) {
                 finish();
             }
 
@@ -74,11 +77,11 @@ public class Main2Activity extends AppCompatActivity {
         super.onPause();
         // new GetData(Main2Activity.this).execute();  // 클래스 정보를 죄다 받아오는거  // 개많이 받아옴 계속해서
         //finish();
-        if(pausecheck){
-            switchFragment(0);
-            Log.d("포즈","확인");
-            pausecheck = false;
-        }
+//        if(pausecheck){
+//            switchFragment(0);
+//            Log.d("포즈","확인");
+//            pausecheck = false;
+//        }
 
     }
 
@@ -165,7 +168,6 @@ public class Main2Activity extends AppCompatActivity {
 //        });
 
 
-
 //        scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
 //            @Override
 //            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
@@ -223,12 +225,12 @@ public class Main2Activity extends AppCompatActivity {
     final ChatFragment chatFragment = new ChatFragment();
     final MypageFragment mypageFragment = new MypageFragment();
     final Mypage2Fragment mypage2Fragment = new Mypage2Fragment();
+
     public void switchFragment(int id) {   //프래그먼트 교체 메인화면, 검색화면, 채팅화면, 마이페이지 총 네개의 프래그먼트 활용예정
         final FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         if (id == 0) {
             fragmentTransaction.replace(R.id.fragment, homeFragment);
-        }
-        else if (id == 1)
+        } else if (id == 1)
             fragmentTransaction.replace(R.id.fragment, searchFragment);
         else if (id == 2)
             fragmentTransaction.replace(R.id.fragment, chatFragment);
@@ -244,7 +246,25 @@ public class Main2Activity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         new GetData(Main2Activity.this).execute();  // 클래스 정보를 죄다 받아오는거
-        switchFragment(0);
-        Log.d("메인리쥼","화인");
+        //homeFragment.allClassListAdapter.upDateItemList(variableOfClass.getAllClass());
+//        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//        fragmentTransaction.replace(R.id.fragment, new MypageFragment());
+
+
+//        if(FRAGE_KEY==1){
+//            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//            fragmentTransaction.replace(R.id.fragment, new MypageFragment());
+//            Log.d("메인리쥼","화인2");
+//            Log.d("메인리쥼디테일2", String.valueOf(Main2Activity.FRAGE_KEY));
+//        }
+//        FRAGE_KEY = 0;
+//        Log.d("메인리쥼","화인");
+//        Bundle args = new Bundle();
+//        args.putString("key",value);
+//        mypageFragment.setArguments(args);
+//        fragmentTransaction.replace(R.id.fragment, mypageFragment);
+//        fragmentTransaction.commit();
+
+
     }
 }

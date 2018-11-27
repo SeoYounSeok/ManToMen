@@ -18,9 +18,9 @@
 
         <ImageView
             android:layout_width="300dp"
-            android:layout_height="100dp"
+            android:layout_height="150dp"
             android:layout_gravity="center"
-            android:src="@drawable/logo"
+            android:src="@drawable/logo3"
             android:layout_margin="10dp"
             android:contentDescription="TODO" />
 
@@ -39,23 +39,21 @@
             android:id="@+id/Loginbutton"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-
             android:layout_margin="5dp"
-            android:background="@color/pink"
+            android:background="@color/pink2"
             android:textColor="@color/white"
             android:text="로그인"
-            android:textSize="20dp"/>
+            android:textSize="18dp"/>
 
         <Button
             android:id="@+id/RegisterButton"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:background="@color/pink"
+            android:background="@color/pink2"
             android:textColor="@color/white"
             android:text="회원가입"
-            android:textSize="20dp"
-
+            android:textSize="18dp"
             />
 
     </LinearLayout>

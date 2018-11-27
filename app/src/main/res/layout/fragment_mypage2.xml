@@ -162,11 +162,11 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:gravity="left|center"
-                android:text="연습리뷰등록"
+                android:text="포인트 충전하기"
                 android:textColor="@color/black" />
 
             <Button
-                android:id="@+id/Mypage2_MakeReview"
+                android:id="@+id/Mypage2_BuyPoint"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="30dp"
                 android:layout_height="30dp"

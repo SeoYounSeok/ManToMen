@@ -83,7 +83,7 @@ public class MemberModifyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_member_modify);
-
+        picturecheck = false;
         Intent intent = getIntent();
         //String userID = intent.getStringExtra("userID"); //마이페이지수정버튼을 통해 ID를 받아옴
 
@@ -132,7 +132,6 @@ public class MemberModifyActivity extends AppCompatActivity {
         });
 
 
-
         if (variable.getUserCategory().matches(".*Programing.*")) {
             Checkbox1.setChecked(true);
 
@@ -162,10 +161,6 @@ public class MemberModifyActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(!picturecheck){  // 픽쳐체커가 false면
-
-
-                }
                 String userCategory = "";
 
                 if (Checkbox1.isChecked())
@@ -180,7 +175,6 @@ public class MemberModifyActivity extends AppCompatActivity {
                     userCategory += "Beauty//";
                 if (Checkbox6.isChecked())
                     userCategory += "Etc//";
-
 
 
                 String userPassword = UserPassword.getText().toString();
@@ -216,10 +210,12 @@ public class MemberModifyActivity extends AppCompatActivity {
 
                 new MemberModifyInsertData(MemberModifyActivity.this).execute(postDataParam);
 
-                Main2Activity mActivity = (Main2Activity)Main2Activity.mActivity;
+                Main2Activity mActivity = (Main2Activity) Main2Activity.mActivity;
                 mActivity.finish();   //메인액티비티 종료
                 finish();
             }
+
+
         });
 
 
@@ -322,7 +318,6 @@ public class MemberModifyActivity extends AppCompatActivity {
         });
 
         OkHttpClient client = httpClient.build();
-
 
 
         Retrofit retrofit = new Retrofit.Builder()

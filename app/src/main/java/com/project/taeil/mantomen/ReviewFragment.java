@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +39,7 @@ public class ReviewFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        allReviewListAdapter.notifyDataSetChanged();
+//        allReviewListAdapter.notifyDataSetChanged();
     }
 
     @Override
@@ -68,6 +69,10 @@ public class ReviewFragment extends Fragment {
             listViewHeightSet(allReviewListAdapter, reviewlistview);
 
         }
+
+//        FragmentTransaction ft = getFragmentManager().beginTransaction();
+//        ft.detach(this).attach(this).commit();
+
 
 
         reviewwrite.setOnClickListener(new View.OnClickListener() {  // 리뷰작성하는 액티비티로 이동하게하자

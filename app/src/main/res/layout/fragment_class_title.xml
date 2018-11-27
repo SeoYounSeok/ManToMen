@@ -202,7 +202,7 @@
         android:layout_marginBottom="10dp"
         android:layout_gravity="center"
         android:background="@drawable/border3"
-        android:textColor="@color/pink"
+        android:textColor="@color/pink2"
         android:text="사진선택"
         android:gravity="center"/>
 
@@ -234,7 +234,7 @@
             android:layout_gravity="center"
             android:text="다 음"
             android:textColor="@color/white"
-            android:background="@color/pink">
+            android:background="@color/pink2">
 
         </Button>
 

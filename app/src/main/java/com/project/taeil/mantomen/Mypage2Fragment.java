@@ -64,6 +64,8 @@ public class Mypage2Fragment extends Fragment implements Main2Activity.OnBackPre
         Button gotomypage = (Button) mypage2fragment.findViewById(R.id.Mypage2_Mypage); //마이페이지로가는버튼
         Button tutorregister = mypage2fragment.findViewById(R.id.Mypage2_TutorRegister); // 튜터등록 버튼
 
+        Button pointbuy = mypage2fragment.findViewById(R.id.Mypage2_BuyPoint);
+
         TextView userID = mypage2fragment.findViewById(R.id.Mypage2_userID);
 
         // ImageView userPicture = getActivity().findViewById(R.id.Mypage2_userPicture); // 유저사진
@@ -80,7 +82,6 @@ public class Mypage2Fragment extends Fragment implements Main2Activity.OnBackPre
                 // if문으로 튜티인지 튜터인지 확인 후 튜터이면 진행
                 if (variable.getUserIdentity().equals("Tutee")) {
                     Main2Activity.mContext = getActivity();
-                    Variable variable = Variable.getInstance();
 
                     Intent GoToTutorregisterintent = new Intent(((Main2Activity) Main2Activity.mContext), TutorRegisterActivity.class); // TutorRegisterActivity로 보내는 인텐트
                     ((Main2Activity) Main2Activity.mContext).startActivity(GoToTutorregisterintent);
@@ -90,6 +91,14 @@ public class Mypage2Fragment extends Fragment implements Main2Activity.OnBackPre
                             Toast.LENGTH_LONG).show();
                 }
 
+            }
+        });
+
+        pointbuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent GoToBuyPointrintent = new Intent(((Main2Activity) Main2Activity.mContext), PointBuyActivity.class); // TutorRegisterActivity로 보내는 인텐트
+                ((Main2Activity) Main2Activity.mContext).startActivity(GoToBuyPointrintent);
             }
         });
 
