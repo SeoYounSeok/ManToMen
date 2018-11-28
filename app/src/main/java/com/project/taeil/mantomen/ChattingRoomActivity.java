@@ -140,7 +140,7 @@ public class ChattingRoomActivity extends AppCompatActivity {
 
     void checkChatRoom() {
 
-        FirebaseDatabase.getInstance().getReference().child("chatrooms").orderByChild("users/" + uid).equalTo(true).addListenerForSingleValueEvent(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference().child("chatrooms").orderByChild("users/"+uid).equalTo(true).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(dataSnapshot.getValue() == null){
@@ -158,7 +158,7 @@ public class ChattingRoomActivity extends AppCompatActivity {
 
                 for (DataSnapshot item: dataSnapshot.getChildren()){
                     ChatModel chatModel =item.getValue(ChatModel.class);
-                    if(chatModel.users.containsKey(destinatonUid)){
+                    if(chatModel.users.containsKey(destinatonUid) && chatModel.users.size() == 2){
                         chatRoomUid = item.getKey();
                         sendbutton.setEnabled(true);
                         recyclerView.setLayoutManager(new LinearLayoutManager(ChattingRoomActivity.this));

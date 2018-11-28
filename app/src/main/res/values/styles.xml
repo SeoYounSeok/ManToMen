@@ -11,5 +11,9 @@
         <!-- 풀스크린 -->-->
 
     </style>
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/brightgray</item>
+        <item name="colorControlActivated">#FFC812</item>
+    </style>
 
 </resources>

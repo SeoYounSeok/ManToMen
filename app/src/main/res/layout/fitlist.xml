@@ -5,23 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="#eeeeee"
+    android:background="#F7F7F7"
     >
 
     <ImageView
         android:id="@+id/ClassImg"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:scaleType="fitCenter"
-        android:layout_marginTop="10dp"
+        android:scaleType="fitXY"
+        android:layout_height="200dp"
+        android:layout_marginTop="15dp"
         android:background="@color/white">
-
     </ImageView>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="130dp"
         android:orientation="vertical"
+        android:gravity="center_vertical"
         android:background="@color/white"
         android:layout_marginBottom="5dp">
 
@@ -30,8 +30,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-
-            android:layout_margin="2dp">
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="6dp"
+            >
 
 
 
@@ -39,9 +42,10 @@
                 android:id="@+id/Home_ClassName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:text="서윤석의 안드로이드 마스터"
                 android:layout_margin="2dp"
-                android:textSize="15dp"
+                android:textSize="17dp"
                 android:textStyle="bold"
                 />
             <LinearLayout
@@ -86,7 +90,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_margin="3dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="6dp"
             android:gravity="left">
 
             <TextView
@@ -96,8 +103,7 @@
                 android:layout_margin="2dp"
                 android:textColor="@color/pink"
                 android:text="15000원"
-                android:textStyle="bold"
-                android:textSize="18dp"
+                android:textSize="19dp"
                 android:textAlignment="center" />
 
 
@@ -111,7 +117,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_margin="3dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="6dp"
             android:gravity="left|center">
 
             <RatingBar
@@ -123,6 +131,7 @@
                 android:stepSize="1"
                 android:numStars="5"
                 android:rating="1"
+                android:theme="@style/RatingBar"
                 android:textAlignment="center"
                 />
 
