@@ -66,6 +66,9 @@
             android:layout_height="50dp"
             android:layout_margin="8dp"
             android:background="@color/white"
+            android:maxLines="1"
+            android:inputType="text"
+            android:imeOptions="actionNext"
             android:hint="수업 제목입력"
             android:textSize="15dp" />
     </LinearLayout>

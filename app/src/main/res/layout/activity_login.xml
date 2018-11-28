@@ -40,7 +40,11 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:hint="이메일을 입력해 주세요"
+            android:hint="아이디를 입력해 주세요"
+            android:maxLines="1"
+            android:inputType="text"
+            android:imeOptions="actionNext"
+            android:nextFocusDown="@id/PW_Input"
             android:textSize="18dp" />
 
         <EditText
@@ -49,8 +53,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:hint="비밀번호를 입력해 주세요"
-            android:inputType="textPassword"
-            android:textSize="18dp" />
+            android:maxLines="1"
+            android:inputType="text"
+            android:textSize="18dp"
+            android:imeOptions="actionDone" />
 
         <CheckBox
             android:id="@+id/autologin"
