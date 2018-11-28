@@ -61,10 +61,6 @@ public class AllClassListAdapter extends BaseAdapter{
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
-//        if(variableOfClass.getAllClass() != null){
-//            variableOfClass.getAllClass().clear();
-//
-//        }
         View v = View.inflate(context, R.layout.fitlist,null);
 
         // 클래스 확립될 동안 리스트뷰를 잠시꺼둠
@@ -112,7 +108,6 @@ public class AllClassListAdapter extends BaseAdapter{
 //        MentorPhoto.setImageResource(AllClass.get(i).getMentorPhoto());
 
         v.setTag(AllClass.get(i).getClassName());
-        notifyDataSetChanged();
         return v;
     }
 

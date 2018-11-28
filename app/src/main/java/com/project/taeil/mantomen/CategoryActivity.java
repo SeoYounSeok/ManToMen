@@ -30,7 +30,7 @@ public class CategoryActivity extends AppCompatActivity {
         TextView value = findViewById(R.id.CategroyActivity_value);   // 검색했던 거
         value.setText(SearchFragment.SelectedCategory);
 
-        if (variableOfClass.getAllClass() == null) {
+        if (variableOfClass.getAllClass().size() == 0) {
 
             value.setText(SearchFragment.SelectedCategory + "에 대한 검색 결과가 없습니다.");
 
@@ -38,9 +38,9 @@ public class CategoryActivity extends AppCompatActivity {
             // List<AllClass> AllClassList;  //리스트뷰와 어댑터 초기화
 
             AllClassList = variableOfClass.getAllClass();  //저장된 컬랙션호출
-            allClassListAdapter = new AllClassListAdapter(this, AllClassList);
+            allClassListAdapter = new AllClassListAdapter(CategoryActivity.this, AllClassList);
             fitlistView2.setAdapter(allClassListAdapter);  // 어댑터연결
-            allClassListAdapter.notifyDataSetChanged();
+            // allClassListAdapter.notifyDataSetChanged();
             // 리스트뷰를 펼치기위해 높이를 설정한 메서드를 실행한것
             // listViewHeightSet(allClassListAdapter, fitlistView);
 

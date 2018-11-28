@@ -22,7 +22,7 @@ import org.json.JSONObject;
 import java.util.List;
 
 
-public class HomeFragment extends Fragment implements Main2Activity.OnBackPressedListener{
+public class HomeFragment extends Fragment implements Main2Activity.OnBackPressedListener {
     final static String TAG = "AndroidNodeJS";
     VariableOfClass variableOfClass;
     AllClassListAdapter allClassListAdapter;
@@ -39,17 +39,20 @@ public class HomeFragment extends Fragment implements Main2Activity.OnBackPresse
         super.onCreate(savedInstanceState);
 
 
-
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        // allClassListAdapter.upDateItemList(variableOfClass.getAllClass());
-        //allClassListAdapter.notifyDataSetChanged();
-        Log.d("리쥼","확인");
-    }
+        if(variableOfClass.getAllClass() == null){
 
+        }else{
+            allClassListAdapter.upDateItemList(variableOfClass.getAllClass());
+            allClassListAdapter.notifyDataSetChanged();
+            Log.d("리쥼", "확인");
+        }
+
+    }
 
 
     @Override
@@ -75,7 +78,6 @@ public class HomeFragment extends Fragment implements Main2Activity.OnBackPresse
             ClassNumber.setText(variableOfClass.getAllClass().size() + "개 수업");
 
         }
-
 
 
         fitlistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {     // 클래스 상세 정보 요건 나중에 삭제 xx
