@@ -111,7 +111,11 @@
             android:hint="상세 위치"
             android:textSize="17dp"
             android:textColor="@color/black"
-            android:background="@color/white"/>
+            android:background="@color/white"
+            android:maxLines="1"
+            android:inputType="text"
+            android:imeOptions="actionNext"
+            android:nextFocusDown="@id/TutorRegister4_ClassTime"/>
     </LinearLayout>
 
 

@@ -86,7 +86,8 @@
                     android:layout_margin="10dp"
                     android:hint="전화번호를 입력해주세요"
                     android:textSize="13dp"
-                    android:inputType="number"/>
+                    android:inputType="number"
+                    android:maxLines="1"/>
 
                 <Button
                     android:id="@+id/TutorRegister0_Sendnumber"
@@ -110,7 +111,8 @@
                     android:layout_margin="10dp"
                     android:hint="인증번호를 입력해주세요"
                     android:textSize="13dp"
-                    android:inputType="number"/>
+                    android:inputType="number"
+                    android:maxLines="1"/>
 
                 <Button
                     android:id="@+id/TutorRegister0_InsertAuth"
