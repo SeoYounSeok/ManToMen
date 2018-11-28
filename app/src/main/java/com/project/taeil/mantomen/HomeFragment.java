@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.project.taeil.mantomen.R;
@@ -44,16 +45,9 @@ public class HomeFragment extends Fragment implements Main2Activity.OnBackPresse
     @Override
     public void onResume() {
         super.onResume();
+        // allClassListAdapter.upDateItemList(variableOfClass.getAllClass());
         //allClassListAdapter.notifyDataSetChanged();
         Log.d("리쥼","확인");
-
-        if(Main2Activity.FRAGE_KEY==1){
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.detach(this).attach(this).commit();
-            Log.d("메인리쥼디테일2", String.valueOf(Main2Activity.FRAGE_KEY));
-        }
-        Main2Activity.FRAGE_KEY = 0;
-        Log.d("메인리쥼","화인");
     }
 
 
@@ -65,7 +59,7 @@ public class HomeFragment extends Fragment implements Main2Activity.OnBackPresse
 
         LinearLayout homefragment = (LinearLayout) inflater.inflate(R.layout.fragment_home, container, false); //밑에 주석처리는 리스트뷰 처리 이건 수정요망
         ListView fitlistView = homefragment.findViewById(R.id.Fitlistview);
-
+        TextView ClassNumber = homefragment.findViewById(R.id.HomeFragment_Number);
 
         if (variableOfClass.getAllClass() == null) {
 
@@ -78,7 +72,7 @@ public class HomeFragment extends Fragment implements Main2Activity.OnBackPresse
             //allClassListAdapter.notifyDataSetChanged();
             //리스트뷰를 펼치기위해 높이를 설정한 메서드를 실행한것
             listViewHeightSet(allClassListAdapter, fitlistView);
-
+            ClassNumber.setText(variableOfClass.getAllClass().size() + "개 수업");
 
         }
 

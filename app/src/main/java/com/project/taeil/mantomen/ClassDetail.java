@@ -52,8 +52,6 @@ public class ClassDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_class_detail);
 
-
-
         Main2Activity.FRAGE_KEY = 1;
         Log.d("메인리쥼디테일", String.valueOf(Main2Activity.FRAGE_KEY));
 
@@ -66,9 +64,18 @@ public class ClassDetail extends AppCompatActivity {
 
         Button ClassApply = findViewById(R.id.ClassDetail_ClassApply);
 
+        Button talk = findViewById(R.id.talk);
+
         ClassName.setText(variableOfClass.getClassName());
 
 
+        talk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent GoToChatintent = new Intent(ClassDetail.this, ChattingRoomActivity.class);
+                startActivity(GoToChatintent);
+            }
+        });
 
         ClassApply.setOnClickListener(new View.OnClickListener() {
             @Override

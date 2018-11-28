@@ -19,7 +19,10 @@ import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.project.taeil.mantomen.R;
+import com.project.taeil.mantomen.firebase.UserData;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -153,69 +156,7 @@ public class Main2Activity extends AppCompatActivity {
 
         switchFragment(0);  //홈버튼이 눌리면 0전송
 
-//        SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
-//        //처음에는 SharedPreferences에 아무런 정보도 없으므로 값을 저장할 키들을 생성한다.
-//        // getString의 첫 번째 인자는 저장될 키, 두 번쨰 인자는 값입니다.
-//        final SharedPreferences.Editor editor = auto.edit();
-//
-//        Button logout = findViewById(R.id.logout);
-//        logout.setOnClickListener(new View.OnClickListener() {   //로그아웃 누르면 쉐어드 프레퍼런스에 있는거 삭제
-//            @Override
-//            public void onClick(View v) {
-//                editor.clear();
-//                editor.commit();
-//            }
-//        });
-
-
-//        scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
-//            @Override
-//            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-//                Log.d("페이지", String.valueOf(page));
-//                Log.d("페이지", String.valueOf(scrollY));
-//                if(page == 1){
-//                    if(scrollY >=1089){
-//                        progressBar.setVisibility(View.VISIBLE);
-//                        new GetDatamore(Main2Activity.this).execute();
-//                        HomeFragment.allClassListAdapter.notifyDataSetChanged();
-//                        switchFragment(0);  //새로고침을 위한?
-//                        page++;
-//
-//
-//
-//                        new Handler().postDelayed(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                // AllClassListAdapter.notifyDataSetChanged();
-//                                progressBar.setVisibility(View.GONE);
-//
-//                            }
-//                        },1000);
-//                    }
-//                } else if(page > 1){
-//                    if(scrollY >= 1089+(page-1)*2403){
-//                        progressBar.setVisibility(View.VISIBLE);
-//                        new GetDatamore(Main2Activity.this).execute();
-//                        HomeFragment.allClassListAdapter.notifyDataSetChanged();
-//
-//                        switchFragment(0);  //새로고침을 위한?
-//                        page++;
-//
-//                        new Handler().postDelayed(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                // AllClassListAdapter.notifyDataSetChanged();
-//                                progressBar.setVisibility(View.GONE);
-//
-//                            }
-//                        },1000);
-//                    }
-//                }
-//
-//
-//            }
-//        });
-
+        passPushTokenToServer();  //
 
     }
 
@@ -240,6 +181,14 @@ public class Main2Activity extends AppCompatActivity {
         else if (id == 4)
             fragmentTransaction.replace(R.id.fragment, mypageFragment); //마이페이지1로연결
         fragmentTransaction.commit();
+    }
+
+    void passPushTokenToServer(){
+        String uid = Variable.getUserID();
+        String token = FirebaseInstanceId.getInstance().getToken();
+        UserData userData = new UserData();
+        userData.users.put("pushToken",token);
+        FirebaseDatabase.getInstance().getReference().child("users").child(uid).updateChildren(userData.users);
     }
 
     @Override

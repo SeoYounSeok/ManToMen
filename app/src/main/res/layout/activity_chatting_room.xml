@@ -7,15 +7,13 @@
     android:orientation="vertical"
     tools:context="com.project.taeil.mantomen.ChattingRoomActivity">
 
-    <ListView
-        android:id="@+id/chatlist"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1">
 
-
-    </ListView>
-
+    </android.support.v7.widget.RecyclerView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,18 +24,13 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:hint="텍스트 입력요망"/>
+            android:hint="텍스트 입력요망" />
         <Button
             android:id="@+id/sendbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="보내기"/>
 
-        <Button
-            android:id="@+id/resetbutton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="초기화"/>
 
 
 

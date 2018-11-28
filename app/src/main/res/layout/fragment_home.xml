@@ -17,6 +17,7 @@
         >
 
         <TextView
+            android:id="@+id/HomeFragment_Number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="10개 수업"

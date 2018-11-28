@@ -41,7 +41,7 @@ public class VariableOfClass { //클래스관련 전역변수모음 특정 클�
     private static String ChatMyID = null;
     private static String ChatMyContents = null;
 
-    private static ArrayList<ChatData> chatData = new ArrayList<ChatData>(); // 채팅데이터를 담을 어레이리스트
+    // private static ArrayList<ChatData> chatData = new ArrayList<ChatData>(); // 채팅데이터를 담을 어레이리스트
 
     public static ArrayList<AllReview> getAllReview() {
         return allReview;
@@ -61,13 +61,13 @@ public class VariableOfClass { //클래스관련 전역변수모음 특정 클�
 //리뷰스키마찾는거
 
 
-    public static ArrayList<ChatData> getChatData() {
-        return chatData;
-    }
-
-    public static void setChatData(ArrayList<ChatData> chatData) {
-        VariableOfClass.chatData = chatData;
-    }
+    //public static ArrayList<ChatData> getChatData() {
+//        return chatData;
+//    }
+//
+//    public static void setChatData(ArrayList<ChatData> chatData) {
+//        VariableOfClass.chatData = chatData;
+//    }
 
     public static String getChatObjectID() {
         return ChatObjectID;

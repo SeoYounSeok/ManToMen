@@ -39,6 +39,7 @@ public class AllClassListAdapter extends BaseAdapter{
 
     public void upDateItemList(List<AllClass> allClass){
         this.AllClass = allClass;
+        notifyDataSetChanged();
     }
 
     @Override
