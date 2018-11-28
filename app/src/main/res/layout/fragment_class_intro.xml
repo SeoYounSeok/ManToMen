@@ -10,7 +10,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical">
 
 
         <ImageView
@@ -25,20 +26,23 @@
 
 
         <LinearLayout
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
-            android:orientation="horizontal">
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            >
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity=""
-                android:layout_margin="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/ic_room_black_24dp" />
 
-            <TextView
+            <!--<TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -47,50 +51,51 @@
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="17dp"
-                android:textStyle="bold" />
+                android:textStyle="bold" />-->
 
             <TextView
                 android:id="@+id/ClassIntro_ClassPlace"
+                android:layout_marginLeft="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="5dp"
+                android:layout_gravity="center_vertical"
                 android:text="장소쓰는곳"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="17dp"
-                android:textStyle="bold" />
+                />
 
             <TextView
                 android:id="@+id/ClassIntro_ClassPlaceDetail"
+                android:layout_marginLeft="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="5dp"
+                android:layout_gravity="center_vertical"
                 android:text="상세장소"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="17dp"
-                android:textStyle="bold" />
+                />
 
 
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity=""
-                android:layout_margin="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/ic_access_time_black_24dp" />
 
-            <TextView
+          <!--  <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -98,61 +103,59 @@
                 android:text="시간 :"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="17dp"
-                android:textStyle="bold" />
+                android:textSize="17dp" />-->
 
             <TextView
                 android:id="@+id/ClassIntro_ClassNumberOfTime"
+                android:layout_marginLeft="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="5dp"
+                android:layout_gravity="center_vertical"
                 android:text="몇 회"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="17dp"
-                android:textStyle="bold" />
+                android:textSize="17dp" />
 
             <TextView
                 android:id="@+id/ClassIntro_ClassHour"
+                android:layout_marginLeft="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="5dp"
+                android:layout_gravity="center_vertical"
                 android:text="몇 시간"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="17dp"
-                android:textStyle="bold" />
+                android:textSize="17dp" />
 
             <TextView
                 android:id="@+id/ClassIntro_ClassWeek"
+                android:layout_marginLeft="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="5dp"
+                android:layout_gravity="center_vertical"
                 android:text="수업요일"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="17dp"
-                android:textStyle="bold" />
+                android:textSize="17dp" />
 
 
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity=""
-                android:layout_margin="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/ic_today_black_24dp" />
+<!--
 
             <TextView
                 android:layout_width="wrap_content"
@@ -164,34 +167,37 @@
                 android:textColor="@color/black"
                 android:textSize="17dp"
                 android:textStyle="bold" />
+-->
 
             <TextView
                 android:id="@+id/ClassIntro_ClassFirstTime"
+                android:layout_marginLeft="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="5dp"
+                android:layout_gravity="center_vertical"
                 android:text=" ~ 첫 수업일"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="17dp"
-                android:textStyle="bold" />
+                android:textSize="17dp" />
         </LinearLayout>
 
 
         <LinearLayout
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity=""
-                android:layout_margin="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/ic_face_black_24dp" />
+
+
+            <!--
 
             <TextView
                 android:layout_width="wrap_content"
@@ -203,31 +209,43 @@
                 android:textColor="@color/black"
                 android:textSize="17dp"
                 android:textStyle="bold" />
+-->
 
             <TextView
                 android:id="@+id/ClassIntro_ClassTotalPeople"
+                android:layout_marginLeft="15dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="5dp"
+                android:layout_gravity="center_vertical"
                 android:text="모집인원 쓰는 곳"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="17dp"
-                android:textStyle="bold" />
+                android:textSize="17dp" />
         </LinearLayout>
 
 
+        <LinearLayout
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/brightgray"
+            ></LinearLayout>
 
         <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:background="@drawable/rounded2"
             android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="right"
+            >
 
 
-            <TextView
+            <!--<TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -235,24 +253,32 @@
                 android:text="수강료 :"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="17dp"
-                android:textStyle="bold" />
+                android:textSize="20dp"
+                android:textStyle="bold" />-->
 
             <TextView
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_marginRight="15dp"
                 android:id="@+id/ClassIntro_ClassPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="5dp"
                 android:text="수강료 쓰는 곳"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="17dp"
-                android:textStyle="bold" />
+                android:textSize="20dp"
+                 />
 
         </LinearLayout>
 
-
+        <LinearLayout
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/brightgray"
+            ></LinearLayout>
 
     </LinearLayout>
 
