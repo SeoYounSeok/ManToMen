@@ -44,7 +44,7 @@
             android:maxLines="1"
             android:inputType="text"
             android:imeOptions="actionNext"
-            android:nextFocusDown="PW_Input"
+            android:nextFocusDown="@id/PW_Input"
             android:textSize="18dp" />
 
         <EditText
