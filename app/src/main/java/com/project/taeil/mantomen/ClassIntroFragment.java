@@ -12,9 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.project.taeil.mantomen.R;
+
+import org.w3c.dom.Text;
 
 import java.io.InputStream;
 
@@ -50,8 +53,16 @@ public class ClassIntroFragment extends Fragment {
         TextView ClassPrice = classIntro.findViewById(R.id.ClassIntro_ClassPrice);
         TextView ClassIntro = classIntro.findViewById(R.id.ClassIntro_ClassIntro);
         TextView ClassWhom = classIntro.findViewById(R.id.ClassIntro_ClassWhom);
-
+        TextView ClassTutorName = classIntro.findViewById(R.id.mypage_ClassTutorName);
         TextView ClassFirstTime = classIntro.findViewById(R.id.ClassIntro_ClassFirstTime);
+        TextView ClassNumberOfTime2 = classIntro.findViewById(R.id.ClassIntro_ClassNumberOfTime2);
+        TextView ClassHour2 = classIntro.findViewById(R.id.ClassIntro_ClassHour2);
+        TextView ClassTutorIntro = classIntro.findViewById(R.id.mypage_ClassTutorIntro);
+        TextView ClassPrice2 = classIntro.findViewById(R.id.ClassIntro_ClassPrice2);
+        TextView ClassName = classIntro.findViewById(R.id.ClassIntro_ClassName);
+        RatingBar Classratingbar = classIntro.findViewById(R.id.ClassIntro_ClassScore);
+
+
 
         ImageView ClassPicture = classIntro.findViewById(R.id.ClassIntro_ClassPicture);
 
@@ -59,13 +70,24 @@ public class ClassIntroFragment extends Fragment {
         ClassPlace.setText(variableOfClass.getClassPlace());
         ClassPlaceDetail.setText(variableOfClass.getClassPlaceDetail());
         ClassNumberOfTime.setText(variableOfClass.getClassNumberOfTime() + "회");
-        ClassHour.setText(variableOfClass.getClassHour() + "시간씩");
+        ClassHour.setText(variableOfClass.getClassHour() + "시간");
         ClassWeek.setText(variableOfClass.getClassWeek() + "요일");
         ClassTotalPeople.setText(variableOfClass.getClassTotalPeople() + "명 모집 중");
-        ClassPrice.setText(variableOfClass.getClassPrice() + "원");
+        ClassPrice.setText(variableOfClass.getClassPrice());
         ClassIntro.setText(variableOfClass.getClassIntro());
         ClassWhom.setText(variableOfClass.getClassWhom());
         ClassFirstTime.setText(variableOfClass.getClassFirstTime() + "까지");
+        ClassTutorName.setText(variableOfClass.getClassTutorID());
+        ClassNumberOfTime2.setText(variableOfClass.getClassNumberOfTime() + "회");
+        ClassHour2.setText(variableOfClass.getClassHour() + "시간");
+        ClassTutorIntro.setText(variableOfClass.getClassTutorIntro());
+        ClassPrice2.setText(variableOfClass.getClassPrice() + "원");
+        ClassName.setText(variableOfClass.getClassName());
+        Classratingbar.setRating(Float.parseFloat(variableOfClass.getClassScore()));
+
+
+
+        Log.d("튜터인트로",variableOfClass.getClassTutorIntro());
 
         new DownloadImageTask((ImageView) classIntro.findViewById(R.id.ClassIntro_ClassPicture))
                 .execute(variableOfClass.getClassPicture());
