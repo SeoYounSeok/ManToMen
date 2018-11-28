@@ -97,8 +97,12 @@ public class Mypage2Fragment extends Fragment implements Main2Activity.OnBackPre
         pointbuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent GoToBuyPointrintent = new Intent(((Main2Activity) Main2Activity.mContext), PointBuyActivity.class); // TutorRegisterActivity로 보내는 인텐트
+//                Intent GoToBuyPointrintent = new Intent(((Main2Activity) Main2Activity.mContext), PointBuyActivity.class); // TutorRegisterActivity로 보내는 인텐트
+//                ((Main2Activity) Main2Activity.mContext).startActivity(GoToBuyPointrintent);
+
+                Intent GoToBuyPointrintent = new Intent(((Main2Activity) Main2Activity.mContext), PointActivity.class); // TutorRegisterActivity로 보내는 인텐트
                 ((Main2Activity) Main2Activity.mContext).startActivity(GoToBuyPointrintent);
+
             }
         });
 

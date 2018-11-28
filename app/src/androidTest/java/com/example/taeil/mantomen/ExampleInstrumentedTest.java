@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.taeil.mantomen", appContext.getPackageName());
+        assertEquals("com.project.taeil.mantomen", appContext.getPackageName());
     }
 }
