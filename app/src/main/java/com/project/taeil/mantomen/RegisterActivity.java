@@ -75,11 +75,11 @@ public class RegisterActivity extends AppCompatActivity {
         final Button authbutton = findViewById(R.id.Register_Sendnumber);  // 인증번호 보내기 버튼
         final Button inputauthbutton = findViewById(R.id.Register_InsertAuth); // 인증번호 확인 버튼
 
-        // final ImageView userImage = findViewById(R.id.Img_R_Input);  // 유저사진
-        final Button selectpicture = findViewById(R.id.select_picture);  // 셀릭트 버튼
+        final ImageView userImage = findViewById(R.id.Img_R_Input);  // 유저사진
+        // final Button selectpicture = findViewById(R.id.select_picture);  // 셀릭트 버튼
 
 
-        selectpicture.setOnClickListener(new View.OnClickListener() {  // 사진선택 버튼
+        userImage.setOnClickListener(new View.OnClickListener() {  // 사진선택 버튼
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_PICK);

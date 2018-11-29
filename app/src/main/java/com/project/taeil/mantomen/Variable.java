@@ -9,7 +9,6 @@ public class Variable { //전역변수 저장 모음 로그인할 때 한번에 
     private static String userName = null;
     private static String userAge = null;
     private static String userGender = null;
-    private static Variable variable;
     private static String userCategory = null; //사용자 관심분야 6칸으로 만들예정
     private static String userIdentity = null; //튜티인지 튜터인지
     private static String userParticipateClass = null; //사용자가 참여중인 클래스
@@ -17,6 +16,9 @@ public class Variable { //전역변수 저장 모음 로그인할 때 한번에 
     private static String Authnumber = null;
     private static String userPhoneNumber = null;
     private static String Cookies = null;
+    private static int Point = 0;
+
+    private static Variable variable;
     public static String HttpAddres = "http://ec2-54-180-106-61.ap-northeast-2.compute.amazonaws.com";   //민영이 서버 입력하기
 
     public static String getUserPhoneNumber() {

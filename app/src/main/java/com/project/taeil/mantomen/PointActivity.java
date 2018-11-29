@@ -193,7 +193,7 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
 
     private class InAppPurchaseItems {
 
-        ArrayList<String> IDS;
+        ArrayList<String> IDS = new ArrayList<String>();
 
         SkuDetails sku = bp.getPurchaseListingDetails(productId);   // 아이디를 주면 스쿠를 만들어줌
 
