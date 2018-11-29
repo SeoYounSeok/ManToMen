@@ -9,7 +9,7 @@
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -25,18 +25,20 @@
             <EditText
                 android:id="@+id/SearchFragment_SearchEdit"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_height="50dp"
                 android:layout_margin="10dp"
-                android:layout_weight="9"
+                android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:hint="배우고 싶은 과목을 검색해 보세요!" />
+                android:background="@android:color/transparent"
+                android:hint="배우고 싶은 과목을 검색해 보세요!"
+                android:textSize="14dp"
+                android:textColor="@color/gray"/>
 
             <ImageView
                 android:id="@+id/SearchFragment_SearchButton"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_marginRight="10dp"
-                android:layout_weight="1"
                 android:src="@drawable/serch" />
 
 
@@ -48,17 +50,15 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:gravity="center"
-        android:background="@color/brightgray"
+        android:background="#F7F7F7"
         android:orientation="vertical">
 
         <LinearLayout
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="3dp"
-            android:gravity="center"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -69,24 +69,23 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="3dp"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
                     android:background="@drawable/circle"
                     android:gravity="center">
 
                     <ImageView
                         android:id="@+id/SearchFragment_Programing"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:src="@drawable/it_engineering" />
 
                 </LinearLayout>
 
                 <TextView
+                    android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="3dp"
                     android:text="프로그래밍"
                     android:textColor="#000000" />
 
@@ -101,24 +100,23 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="3dp"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
                     android:background="@drawable/circle"
                     android:gravity="center">
 
                     <ImageView
                         android:id="@+id/SearchFragment_Design"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:src="@drawable/design" />
 
                 </LinearLayout>
 
                 <TextView
+                    android:layout_marginTop="7dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="3dp"
                     android:text="디자인"
                     android:textColor="#000000" />
 
@@ -128,9 +126,9 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="3dp"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -142,16 +140,15 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="3dp"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
                     android:background="@drawable/circle"
                     android:gravity="center">
 
                     <ImageView
                         android:id="@+id/SearchFragment_Language"
-                        android:layout_width="70dp"
-                        android:layout_height="65dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:src="@drawable/language" />
 
                 </LinearLayout>
@@ -159,7 +156,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="3dp"
+                    android:layout_marginTop="7dp"
                     android:text="외국어"
                     android:textColor="#000000" />
 
@@ -174,16 +171,15 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="3dp"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
                     android:background="@drawable/circle"
                     android:gravity="center">
 
                     <ImageView
                         android:id="@+id/SearchFragment_Music"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:src="@drawable/music" />
 
                 </LinearLayout>
@@ -191,7 +187,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="3dp"
+                    android:layout_marginTop="7dp"
                     android:text="음악"
                     android:textColor="#000000" />
 
@@ -201,9 +197,9 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="3dp"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -215,16 +211,15 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="3dp"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
                     android:background="@drawable/circle"
                     android:gravity="center">
 
                     <ImageView
                         android:id="@+id/SearchFragment_Beauty"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:src="@drawable/beauty" />
 
                 </LinearLayout>
@@ -232,7 +227,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="3dp"
+                    android:layout_marginTop="7dp"
                     android:text="뷰티"
                     android:textColor="#000000" />
 
@@ -247,16 +242,15 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_margin="3dp"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
                     android:background="@drawable/circle"
                     android:gravity="center">
 
                     <ImageView
                         android:id="@+id/SearchFragment_ETC"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:src="@drawable/idea" />
 
                 </LinearLayout>
@@ -264,7 +258,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="3dp"
+                    android:layout_marginTop="7dp"
                     android:text="기타"
                     android:textColor="#000000" />
 

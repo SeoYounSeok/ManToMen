@@ -1,79 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="60dp"
+        android:background="@drawable/border"
+        android:gravity="center"
+        android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="100dp"
+        <Button
+            android:id="@+id/ClassDetail_Back"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_gravity="center"
-            android:src="@drawable/logo"
-            android:layout_margin="10dp" />
+            android:layout_margin="10dp"
+            android:background="@color/white"
+            android:text="&lt;" />
+
+        <TextView
+            android:id="@+id/ClassDetail_ClassName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:text="사용자 정보"
+            android:textColor="@color/black"
+            android:textSize="18dp" />
+
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp">
-
-    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="#F7F7F7"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="top|center"
-
             android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp">
+                <ImageView
+                    android:id="@+id/Img_R_Input"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="300px"
+                    android:layout_gravity="center" />
+                <Button
+                    android:id="@+id/select_picture"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_gravity="center"
+                    android:text="사진 선택" />
+
+
+
+            </LinearLayout>
 
             <EditText
                 android:id="@+id/Register_ID"
-                android:layout_width="300dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
                 android:hint="아이디를 입력해 주세요"
-                android:textSize="18dp" />
+                android:textSize="13dp" />
 
             <EditText
                 android:id="@+id/PW_R_Input"
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
                 android:hint="비밀번호를 입력해 주세요"
-                android:textSize="18dp"
-                android:inputType="textPassword"/>
+                android:inputType="textPassword"
+                android:textSize="13dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <EditText
                     android:id="@+id/Register_userEmail"
-                    android:layout_width="200dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_weight="1"
                     android:hint="이메일을 입력해주세요"
-                    android:textSize="18dp" />
+                    android:textSize="13dp" />
 
                 <Button
                     android:id="@+id/Register_Sendnumber"
-                    android:layout_width="100dp"
+                    android:layout_weight="3"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="인증번호    보내기"/>
+                    android:text="인증번호 보내기" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/Register_AuthNumber"
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:hint="인증번호를 입력해주세요"
+                    android:textSize="13dp" />
+
+                <Button
+                    android:id="@+id/Register_InsertAuth"
+                    android:layout_width="match_parent"
+                    android:layout_weight="3"
+                    android:layout_height="wrap_content"
+                    android:text="인증하기" />
 
             </LinearLayout>
 
@@ -81,61 +150,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center">
-
-                <EditText
-                    android:id="@+id/Register_AuthNumber"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:hint="인증번호를 입력해주세요"
-                    android:textSize="18dp" />
-
-                <Button
-                    android:id="@+id/Register_InsertAuth"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="인증하기"/>
-
-            </LinearLayout>
-
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp">
 
             <EditText
                 android:id="@+id/Name_R_Input"
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_weight="1"
                 android:hint="이름을 입력해주세요"
-                android:textSize="18dp" />
+                android:textSize="13dp" />
 
             <EditText
                 android:id="@+id/Age_R_Input"
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_weight="1"
                 android:hint="나이를 입력해 주세요"
-                android:textSize="18dp" />
-
-            <Button
-                android:id="@+id/select_picture"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="사진을 선택해주세요"
-                />
-
-            <ImageView
-                android:id="@+id/Img_R_Input"
-                android:layout_width="400px"
-                android:layout_height="400px"
-                android:layout_gravity="center"
-                />
+                android:textSize="13dp" />
+            </LinearLayout>
 
             <RadioGroup
                 android:id="@+id/GenderRadio"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:gravity="center"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <RadioButton
                     android:id="@+id/Man_R_Input"
                     android:layout_width="wrap_content"
@@ -143,6 +185,7 @@
                     android:layout_margin="10dp"
                     android:text="남자"
                     android:textSize="15dp" />
+
                 <RadioButton
                     android:id="@+id/Woman_R_Input"
                     android:layout_width="wrap_content"
@@ -152,11 +195,12 @@
                     android:textSize="15dp" />
 
             </RadioGroup>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <CheckBox
                     android:id="@+id/checkBox1"
@@ -183,6 +227,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="horizontal">
+
                 <CheckBox
                     android:id="@+id/checkBox4"
                     android:layout_width="wrap_content"
@@ -203,34 +248,21 @@
 
 
             </LinearLayout>
-
-
-
-
-            <Button
-                android:id="@+id/RegisterSubmitbutton"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-
-                android:layout_margin="5dp"
-                android:background="@color/pink"
-                android:text="회원가입"
-                android:textColor="@color/white"
-                android:textSize="20dp" />
-
-        </LinearLayout>
-
-
-
-
+            </LinearLayout>
     </ScrollView>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/RegisterSubmitbutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
-
-
-
-
-
-
+            android:background="@color/pink2"
+            android:text="회원가입"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+    </LinearLayout>
 
 </LinearLayout>

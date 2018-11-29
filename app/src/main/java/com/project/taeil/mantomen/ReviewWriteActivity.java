@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.project.taeil.mantomen.R;
@@ -26,7 +27,7 @@ public class ReviewWriteActivity extends AppCompatActivity {
     final static String TAG = "AndroidNodeJS";
     VariableOfClass variableOfClass;
     Variable variable;
-
+    String Score;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,13 +38,20 @@ public class ReviewWriteActivity extends AppCompatActivity {
 
         final EditText ReviewContents = findViewById(R.id.ReviewActivity_Contents);
         Button CompleteButton = findViewById(R.id.ReviewActivity_Complete);
-        final RadioGroup ScoreRadio = findViewById(R.id.ReviewActivity_ScoreRadio);  //라디오 그룹에서
         TextView Review_ClassName = findViewById(R.id.ReviewWrite_ClassName);
         TextView Review_userID = findViewById(R.id.ReviewWrite_userID);
+        final RatingBar Review_Ratingbar = findViewById(R.id.ReviewWrite_ReviewScoreRating);
 
 
         Review_ClassName.setText(variableOfClass.getClassName());
         Review_userID.setText(variable.getUserID());
+
+        Review_Ratingbar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                Score = String.valueOf((int)rating);
+            }
+        });
 
         CompleteButton.setOnClickListener(new View.OnClickListener() {  // 완료버튼누르면 전송 리뷰보내기
             @Override
@@ -54,8 +62,9 @@ public class ReviewWriteActivity extends AppCompatActivity {
                 SimpleDateFormat formatType = new SimpleDateFormat("yyyy-MM-dd");
                 String Date = formatType.format(date);
 
-                RadioButton ReviewScore = (RadioButton) findViewById(ScoreRadio.getCheckedRadioButtonId());  //라디오 그룹에서
-                String Score = ReviewScore.getText().toString();  //라디오버튼
+
+
+               //라디오버튼
 
 
                 // 이거 리뷰보내는거임
