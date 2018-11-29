@@ -1,6 +1,9 @@
 package com.project.taeil.mantomen;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentTransaction;
@@ -10,12 +13,16 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.project.taeil.mantomen.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.InputStream;
 
 public class ClassDetail extends AppCompatActivity {
 
@@ -65,6 +72,22 @@ public class ClassDetail extends AppCompatActivity {
         Button ClassApply = findViewById(R.id.ClassDetail_ClassApply);
 
         Button talk = findViewById(R.id.talk);
+
+        TextView ClassPrice = findViewById(R.id.ClassIntro_ClassPrice);
+        TextView ClassName2 = findViewById(R.id.ClassIntro_ClassName);
+        RatingBar Classratingbar = findViewById(R.id.ClassIntro_ClassScore);
+
+        new DownloadImageTask((ImageView) findViewById(R.id.ClassIntro_ClassPicture))
+                .execute(variableOfClass.getClassPicture());
+
+
+
+        ClassPrice.setText(variableOfClass.getClassPrice());
+
+        ClassName2.setText(variableOfClass.getClassName());
+        Classratingbar.setRating(Float.parseFloat(variableOfClass.getClassScore()));
+
+
 
         ClassName.setText(variableOfClass.getClassName());
 
@@ -143,7 +166,30 @@ public class ClassDetail extends AppCompatActivity {
     };
 
 
+    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+        ImageView bmImage;
 
+        public DownloadImageTask(ImageView bmImage) {
+            this.bmImage = bmImage;
+        }
+
+        protected Bitmap doInBackground(String... urls) {
+            String urldisplay = urls[0];
+            Bitmap mIcon11 = null;
+            try {
+                InputStream in = new java.net.URL(urldisplay).openStream();
+                mIcon11 = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                Log.e("Error", e.getMessage());
+                e.printStackTrace();
+            }
+            return mIcon11;
+        }
+
+        protected void onPostExecute(Bitmap result) {
+            bmImage.setImageBitmap(result);
+        }
+    }
 
 
 

@@ -50,7 +50,6 @@ public class ClassIntroFragment extends Fragment {
         TextView ClassHour = classIntro.findViewById(R.id.ClassIntro_ClassHour);
         TextView ClassWeek = classIntro.findViewById(R.id.ClassIntro_ClassWeek);
         TextView ClassTotalPeople = classIntro.findViewById(R.id.ClassIntro_ClassTotalPeople);
-        TextView ClassPrice = classIntro.findViewById(R.id.ClassIntro_ClassPrice);
         TextView ClassIntro = classIntro.findViewById(R.id.ClassIntro_ClassIntro);
         TextView ClassWhom = classIntro.findViewById(R.id.ClassIntro_ClassWhom);
         TextView ClassTutorName = classIntro.findViewById(R.id.mypage_ClassTutorName);
@@ -59,8 +58,7 @@ public class ClassIntroFragment extends Fragment {
         TextView ClassHour2 = classIntro.findViewById(R.id.ClassIntro_ClassHour2);
         TextView ClassTutorIntro = classIntro.findViewById(R.id.mypage_ClassTutorIntro);
         TextView ClassPrice2 = classIntro.findViewById(R.id.ClassIntro_ClassPrice2);
-        TextView ClassName = classIntro.findViewById(R.id.ClassIntro_ClassName);
-        RatingBar Classratingbar = classIntro.findViewById(R.id.ClassIntro_ClassScore);
+
 
 
 
@@ -73,7 +71,6 @@ public class ClassIntroFragment extends Fragment {
         ClassHour.setText(variableOfClass.getClassHour() + "시간");
         ClassWeek.setText(variableOfClass.getClassWeek() + "요일");
         ClassTotalPeople.setText(variableOfClass.getClassTotalPeople() + "명 모집 중");
-        ClassPrice.setText(variableOfClass.getClassPrice());
         ClassIntro.setText(variableOfClass.getClassIntro());
         ClassWhom.setText(variableOfClass.getClassWhom());
         ClassFirstTime.setText(variableOfClass.getClassFirstTime() + "까지");
@@ -82,43 +79,16 @@ public class ClassIntroFragment extends Fragment {
         ClassHour2.setText(variableOfClass.getClassHour() + "시간");
         ClassTutorIntro.setText(variableOfClass.getClassTutorIntro());
         ClassPrice2.setText(variableOfClass.getClassPrice() + "원");
-        ClassName.setText(variableOfClass.getClassName());
-        Classratingbar.setRating(Float.parseFloat(variableOfClass.getClassScore()));
 
 
 
         Log.d("튜터인트로",variableOfClass.getClassTutorIntro());
 
-        new DownloadImageTask((ImageView) classIntro.findViewById(R.id.ClassIntro_ClassPicture))
-                .execute(variableOfClass.getClassPicture());
 
         return classIntro;
     }
 
-    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
-        ImageView bmImage;
 
-        public DownloadImageTask(ImageView bmImage) {
-            this.bmImage = bmImage;
-        }
-
-        protected Bitmap doInBackground(String... urls) {
-            String urldisplay = urls[0];
-            Bitmap mIcon11 = null;
-            try {
-                InputStream in = new java.net.URL(urldisplay).openStream();
-                mIcon11 = BitmapFactory.decodeStream(in);
-            } catch (Exception e) {
-                Log.e("Error", e.getMessage());
-                e.printStackTrace();
-            }
-            return mIcon11;
-        }
-
-        protected void onPostExecute(Bitmap result) {
-            bmImage.setImageBitmap(result);
-        }
-    }
 
 
 

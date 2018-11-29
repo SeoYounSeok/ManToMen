@@ -9,71 +9,90 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="1dp"
+        android:background="@color/brightgray"
+        ></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:gravity="center"
-        android:background="@drawable/border">
+        android:background="@android:color/white">
 
         <Button
             android:id="@+id/ReviewFragment_ReviewWrite"
-            android:layout_width="200dp"
-            android:layout_height="70dp"
-            android:background="@drawable/border3"
+
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/rounded4"
             android:text="리뷰 작성하기"
             android:textColor="@color/pink"
             android:textSize="20dp"/>
 
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:gravity="center"
-        android:background="@drawable/border">
+        android:layout_height="1dp"
+        android:background="@color/brightgray"
+        ></LinearLayout>
+
+    <LinearLayout
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@android:color/white">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="리뷰 평가"
-            android:textSize="30dp"
+            android:textSize="20dp"
             android:textColor="@color/black"/>
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:background="@drawable/border">
-
-        <TextView
-            android:id="@+id/ReviewFragment_ReviewScore"
-            android:layout_margin="20dp"
-            android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="5.0"
-            android:textSize="50dp"/>
-
-
-        <RatingBar
-            android:id="@+id/ReviewFragment_ReviewScoreRating"
-            style="?android:attr/ratingBarStyleIndicator"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:numStars="5"
-            android:rating="1"
-            android:stepSize="1"
-            android:theme="@style/RatingBar"
-            android:textAlignment="center"
-            />
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical"
+            android:background="@android:color/white">
+
+            <TextView
+                android:id="@+id/ReviewFragment_ReviewScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="10dp"
+                android:textStyle="bold"
+                android:textSize="40dp"/>
+
+
+            <RatingBar
+                android:id="@+id/ReviewFragment_ReviewScoreRating"
+                style="?android:attr/ratingBarStyleIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:numStars="5"
+                android:rating="1"
+                android:stepSize="1"
+                android:theme="@style/RatingBar"
+                android:textAlignment="center"
+                />
 
 
 
+        </LinearLayout>
     </LinearLayout>
+
+
 
 
     <ListView
+        android:background="@android:color/white"
         android:id="@+id/reviewlist"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
