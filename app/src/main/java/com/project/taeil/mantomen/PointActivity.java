@@ -25,7 +25,7 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
 
 
     private BillingProcessor bp;
-    public static ArrayList<SkuDetails> products;
+    public static SkuDetails products;
     private MaterialDialog purchaseDialog;
     Button POINT;
     String productId = "p10000";
@@ -38,6 +38,7 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_point);
         bp = new BillingProcessor(this, license, this);
+        POINT = findViewById(R.id.POINT);
         POINT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,6 +59,7 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
         int amount = 0;
         try {
             Count += 10000;
+            Toast.makeText(this, Count, Toast.LENGTH_SHORT).show();
             // 사용자의 하트 100개를 추가
 //            amount = Integer.parseInt(productId.substring(1));
 //            userStore.purchaseHearts(amount, tvNavigationHearts);
@@ -83,18 +85,18 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
 
     @Override
     public void onBillingInitialized() {
-        //products = (ArrayList<SkuDetails>) bp.getPurchaseListingDetails(new InAppPurchaseItems().getIds());
+        products =  bp.getPurchaseListingDetails(productId);
         // Sort ascending order
-        Collections.sort(products, new Comparator<SkuDetails>() {
-            @Override
-            public int compare(SkuDetails o1, SkuDetails o2) {
-                if (o1.priceLong > o2.priceLong) {
-                    return 1;
-                } else if (o1.priceLong < o2.priceLong) {
-                    return -1;
-                } else return 0;
-            }
-        });
+//        Collections.sort(products, new Comparator<SkuDetails>() {
+//            @Override
+//            public int compare(SkuDetails o1, SkuDetails o2) {
+//                if (o1.priceLong > o2.priceLong) {
+//                    return 1;
+//                } else if (o1.priceLong < o2.priceLong) {
+//                    return -1;
+//                } else return 0;
+//            }
+//        });
 
         // 결제 아이템 다이얼로그 설정  // 아 이게 리스트뷰를 아 알았다 ㅋㅋㅋ 필요없죠 ㅅㅅㅅ
 
@@ -112,7 +114,6 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
                     }
                 })
                 .build();
-
         BTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

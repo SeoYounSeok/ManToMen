@@ -8,8 +8,6 @@
     tools:context=".PointBuyActivity">
 
 
-
-
     <Button
         android:id="@+id/clickButton"
         android:layout_width="wrap_content"
