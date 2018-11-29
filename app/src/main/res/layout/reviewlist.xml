@@ -6,6 +6,11 @@
     android:background="@android:color/white"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/brightgray"
+        ></LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,6 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="리뷰 콘텐츠"
+                android:textSize="10dp"
                 android:textColor="@color/black"/>
 
         </LinearLayout>
@@ -51,7 +57,8 @@
             android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="7dp"
+            android:textSize="10dp"
+            android:textStyle="bold"
             android:text="2018-11-14 리뷰작성날짜"/>
 
     </LinearLayout>

@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import com.project.taeil.mantomen.R;
 
@@ -35,18 +36,14 @@ public class ReviewWriteActivity extends AppCompatActivity {
         variable.getInstance();
 
         final EditText ReviewContents = findViewById(R.id.ReviewActivity_Contents);
-        Button CancleButton = findViewById(R.id.ReviewActivity_Cancle);
         Button CompleteButton = findViewById(R.id.ReviewActivity_Complete);
         final RadioGroup ScoreRadio = findViewById(R.id.ReviewActivity_ScoreRadio);  //라디오 그룹에서
+        TextView Review_ClassName = findViewById(R.id.ReviewWrite_ClassName);
+        TextView Review_userID = findViewById(R.id.ReviewWrite_userID);
 
 
-        CancleButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();  // 걍 나가기 액티비티 종료해버리기
-            }
-        });
-
+        Review_ClassName.setText(variableOfClass.getClassName());
+        Review_userID.setText(variable.getUserID());
 
         CompleteButton.setOnClickListener(new View.OnClickListener() {  // 완료버튼누르면 전송 리뷰보내기
             @Override

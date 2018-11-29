@@ -76,7 +76,6 @@ public class AllClassListAdapter extends BaseAdapter{
         TextView ClassRPeriod = (TextView) v.findViewById(R.id.Home_ClassRPeriod);  //신청기간
 
         TextView ClassPrice = v.findViewById(R.id.Home_ClassPrice);  // 강의가격
-
         // ClassOPeriod 강의기간
         RatingBar ClassScore = (RatingBar) v.findViewById(R.id.ClassScore); //임의로 정해둬 지금은
 //        TextView ClassIntro = (TextView) v.findViewById(R.id.Home_ClassIntro);
@@ -102,7 +101,6 @@ public class AllClassListAdapter extends BaseAdapter{
         // ClassScore.setRating(AllClass.get(i).getClassScore());
         ClassScore.setRating(Float.parseFloat(AllClass.get(i).getClassScore()));  // 점수
 //        ClassIntro.setText(AllClass.get(i).getClassIntro());
-
 //        ClassPhoto.setImageResource(AllClass.get(i).getClassPhoto());  //사진없으니까 뺌
 //        MentorPhoto.setImageResource(AllClass.get(i).getMentorPhoto());
 

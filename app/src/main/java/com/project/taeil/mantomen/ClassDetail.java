@@ -76,14 +76,14 @@ public class ClassDetail extends AppCompatActivity {
         TextView ClassPrice = findViewById(R.id.ClassIntro_ClassPrice);
         TextView ClassName2 = findViewById(R.id.ClassIntro_ClassName);
         RatingBar Classratingbar = findViewById(R.id.ClassIntro_ClassScore);
-
+        TextView ClassScore = findViewById(R.id.ClassDetail_ClassScore);
         new DownloadImageTask((ImageView) findViewById(R.id.ClassIntro_ClassPicture))
                 .execute(variableOfClass.getClassPicture());
 
 
 
         ClassPrice.setText(variableOfClass.getClassPrice());
-
+        ClassScore.setText(variableOfClass.getClassScore());
         ClassName2.setText(variableOfClass.getClassName());
         Classratingbar.setRating(Float.parseFloat(variableOfClass.getClassScore()));
 

@@ -5,42 +5,112 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.project.taeil.mantomen.ReviewWriteActivity"
     android:background="@color/white">
 
 
+<LinearLayout
+    android:layout_marginTop="20dp"
+    android:layout_gravity="center"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="리뷰 작성하기"
+        android:textSize="20dp"
+        android:textColor="@color/black"/>
+
+</LinearLayout>
+
+
     <LinearLayout
-        android:layout_margin="5dp"
+        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="1dp"
+        android:background="@color/brightgray"
+        ></LinearLayout>
+<RelativeLayout
+    android:layout_margin="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="리뷰 작성하기"
-            android:textSize="30dp"
-            android:layout_margin="5dp"
-            android:textColor="@color/black"
-            android:background="@drawable/border"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray"
+        android:id="@+id/classinfo"
+        android:text="클래스 정보"
+        android:textSize="13dp"/>
+    <TextView
+        android:id="@+id/ReviewWrite_ClassName"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_toRightOf="@+id/classinfo"
+        android:layout_height="wrap_content"
+        android:textSize="14dp"
+        android:textColor="@color/black"
+        android:text="클래스명 표시부분"/>
 
-        <EditText
-            android:id="@+id/ReviewActivity_Contents"
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/userID"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/classinfo"
+        android:layout_height="wrap_content"
+        android:textSize="13dp"
+        android:textColor="@color/gray"
+        android:text="작성자명"/>
+
+    <TextView
+        android:id="@+id/ReviewWrite_userID"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/classinfo"
+        android:layout_toRightOf="@+id/userID"
+        android:layout_height="wrap_content"
+        android:textSize="14dp"
+        android:textColor="@color/pink2"
+        android:text="작성자 아이디 들어갈곳"/>
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/userID"
+        android:layout_height="wrap_content"
+        android:textColor="@color/gray"
+        android:text="※ 작성한 내용이 이상할 경우 삭제 조치가 될 수 있습니다."/>
+</RelativeLayout>
+
+    <LinearLayout
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/brightgray"
+        ></LinearLayout>
+
+        <LinearLayout
+            android:layout_margin="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
             android:layout_weight="1"
-            android:gravity="left|top"
-            android:hint="리뷰를 작성해주세요"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
-
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="점수를 선택해주세요!"
+                android:textColor="@color/black"
+                />
         <RadioGroup
             android:id="@+id/ReviewActivity_ScoreRadio"
+            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:gravity="center_vertical">
             <RadioButton
                 android:id="@+id/ReviewActivity_Score1"
                 android:layout_width="wrap_content"
@@ -79,51 +149,57 @@
 
         </RadioGroup>
 
+            <LinearLayout
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/brightgray"
+                ></LinearLayout>
 
+        <EditText
+            android:id="@+id/ReviewActivity_Contents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left|top"
+            android:hint="리뷰를 꼼꼼히 작성해 주세요 (2줄 이상)"
+            android:background="@android:color/transparent"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/brightgray"
+        ></LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="30dp"
-            android:background="@color/brightgray"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
             android:gravity="center"
 
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/ReviewActivity_Cancle"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/border2"
-                android:text="취 소"
-                android:textColor="@color/gray">
 
-            </Button>
 
             <Button
                 android:id="@+id/ReviewActivity_Complete"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:background="@color/pink2"
-                android:text="작 성"
+                android:text="등 록 하 기"
                 android:textColor="@color/white">
 
             </Button>
-
-
-        </LinearLayout>
-
-
-
-
-
-
 
     </LinearLayout>
 
