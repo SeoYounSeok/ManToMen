@@ -92,12 +92,12 @@ public class MemberModifyActivity extends AppCompatActivity {
         UserID = findViewById(R.id.modify_userID);
 
         UserPassword = findViewById(R.id.modify_UserPassword);
-        UserEmail = findViewById(R.id.modify_UserEmail);
+        // UserEmail = findViewById(R.id.modify_UserEmail);
         UserGender = findViewById(R.id.modify_UserGender);
-        UserName = findViewById(R.id.modify_UserName);
+        // UserName = findViewById(R.id.modify_UserName);
         UserName2 = findViewById(R.id.modify_UserName2);
         UserAge = findViewById(R.id.modify_UserAge);
-        UserIdentity = findViewById(R.id.modify_UserIdentity);
+        // UserIdentity = findViewById(R.id.modify_UserIdentity);
 
         Checkbox1 = findViewById(R.id.modify_checkBox1);
         Checkbox2 = findViewById(R.id.modify_checkBox2);

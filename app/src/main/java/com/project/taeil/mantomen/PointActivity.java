@@ -5,8 +5,11 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
@@ -23,10 +26,16 @@ import java.util.Comparator;
 
 public class PointActivity extends AppCompatActivity implements BillingProcessor.IBillingHandler {
 
+    private View view;
+    private ListView lvLog;
+    private Button btnPurchaseHeart;
+    private MaterialDialog purchaseDialog;
+
+   private PurchaseHeartsAdapter skusAdapter;
+
 
     private BillingProcessor bp;
-    public static SkuDetails products;
-    private MaterialDialog purchaseDialog;
+    public static ArrayList<SkuDetails> products;
     Button POINT;
     String productId = "p10000";
     int Count = 0;
@@ -38,18 +47,23 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_point);
         bp = new BillingProcessor(this, license, this);
-        POINT = findViewById(R.id.POINT);
-        POINT.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                purchaseProduct(productId);
-            }
-        });
+
+        init();
+
+        //        POINT = findViewById(R.id.POINT);
+//        POINT.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                purchaseProduct(productId);
+//            }
+//        });
+
+
     }
 
     @Override
     public void onProductPurchased(@NonNull String productId, @Nullable TransactionDetails details) {
-        // 구매한 아이템 정보
+        // 구매한 아이템 정보 //구매성공시 띄우는거
         SkuDetails sku = bp.getPurchaseListingDetails(productId);
         // 하트 100개 구매에 성공하였습니다! 메세지 띄우기
         String purchaseMessage = sku.title + "구매 성공!";
@@ -83,30 +97,77 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
     }
 
 
-    @Override
-    public void onBillingInitialized() {
-        products =  bp.getPurchaseListingDetails(productId);
-        // Sort ascending order
-//        Collections.sort(products, new Comparator<SkuDetails>() {
-//            @Override
-//            public int compare(SkuDetails o1, SkuDetails o2) {
-//                if (o1.priceLong > o2.priceLong) {
-//                    return 1;
-//                } else if (o1.priceLong < o2.priceLong) {
-//                    return -1;
-//                } else return 0;
-//            }
-//        });
-
-        // 결제 아이템 다이얼로그 설정  // 아 이게 리스트뷰를 아 알았다 ㅋㅋㅋ 필요없죠 ㅅㅅㅅ
-
+    private void init() {
+        // 결제 아이템 다이얼로그
+        skusAdapter = new PurchaseHeartsAdapter(this);
         View purchaseView = getLayoutInflater().inflate(R.layout.layout_dialog_heartstore, null);
-
-        Button BTN = purchaseView.findViewById(R.id.BUY);
+        ListView lvSkus = purchaseView.findViewById(R.id.lv_skus);
+        lvSkus.setAdapter(skusAdapter);
 
         purchaseDialog = new MaterialDialog.Builder(this)
                 .customView(purchaseView, false)
-                .negativeText("취소~")
+                .negativeText("취소")
+                .onNegative(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        dialog.dismiss();
+                    }
+                }).build();
+
+//        lvSkus.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                purchaseProduct(productId);
+//            }
+//        });
+
+//        RelativeLayout BUY = purchaseView.findViewById(R.id.BUY);
+//
+//        BUY.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
+
+        btnPurchaseHeart = findViewById(R.id.POINT);
+        btnPurchaseHeart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {  // 이게 다이얼로그를 부르는 버튼클릭리스너
+                purchaseDialog.show();
+            }
+        });
+
+
+        // skusAdapter.update(MainActivity.products);
+
+    }
+
+
+    @Override
+    public void onBillingInitialized() {   //구매준비가 되면 호출 다이얼로그를띄워야지
+        products = (ArrayList<SkuDetails>) bp.getPurchaseListingDetails(new InAppPurchaseItems().getIds());
+        // Sort ascending order
+        Collections.sort(products, new Comparator<SkuDetails>() {   // 소트는 정렬하는거
+            @Override
+            public int compare(SkuDetails o1, SkuDetails o2) {
+                if (o1.priceLong > o2.priceLong) {  // 이게 가격에 따라서 맥이는거같은데
+                    return 1;
+                } else if (o1.priceLong < o2.priceLong) {
+                    return -1;
+                } else return 0;
+            }
+        });
+
+        // 결제 아이템 다이얼로그 설정
+        skusAdapter = new PurchaseHeartsAdapter(this);
+        View purchaseView = getLayoutInflater().inflate(R.layout.layout_dialog_heartstore, null);
+        ListView lvSkus = purchaseView.findViewById(R.id.lv_skus);
+        lvSkus.setAdapter(skusAdapter);
+
+        purchaseDialog = new MaterialDialog.Builder(this)
+                .customView(purchaseView, false)
+                .negativeText("취소")
                 .onNegative(new MaterialDialog.SingleButtonCallback() {
                     @Override
                     public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
@@ -114,12 +175,10 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
                     }
                 })
                 .build();
-        BTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                purchaseProduct(productId);
-            }
-        });
+
+        skusAdapter.update(products);
+
+
 
     }
 
@@ -132,4 +191,18 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
     }
 
 
+    private class InAppPurchaseItems {
+
+        ArrayList<String> IDS;
+
+        SkuDetails sku = bp.getPurchaseListingDetails(productId);   // 아이디를 주면 스쿠를 만들어줌
+
+
+
+        public ArrayList<String> getIds() {
+            IDS.add(sku.title);
+            return IDS;
+        }
+
+    }
 }
