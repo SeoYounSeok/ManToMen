@@ -2,6 +2,10 @@ package com.project.taeil.mantomen;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -61,7 +65,8 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
 
     }
 
-    @Override
+
+        @Override
     public void onProductPurchased(@NonNull String productId, @Nullable TransactionDetails details) {
         // 구매한 아이템 정보 //구매성공시 띄우는거
         SkuDetails sku = bp.getPurchaseListingDetails(productId);
@@ -190,8 +195,7 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
         bp.purchase(this, productId);  // 이게 그거랬음 띄우는거! 구매절차 띄우는거 그니까 저 프로덕트 아이디에 맞는거를 줘야함
     }
 
-
-    private class InAppPurchaseItems {
+        private class InAppPurchaseItems {
 
         ArrayList<String> IDS = new ArrayList<String>();
 

@@ -86,30 +86,21 @@ public class RegisterPostRequest extends AsyncTask<JSONObject, Void, String> {
 
         super.onPostExecute(result);
         String temp;
-        String message1 = "회원가입실패";
-        String message2 = "회원가입성공";
+//        String message1 = "회원가입실패";
+//        String message2 = "회원가입성공";
         temp = result.trim();
 
 
         if (temp == null || temp.equals("0")){
-            Toast.makeText(activity, message1,
+            Toast.makeText(activity, temp,
                     Toast.LENGTH_LONG).show();
             return;
         }
 
         else if(temp.equals("1")){
-            Toast.makeText(activity, message2,
+            Toast.makeText(activity, temp,
                     Toast.LENGTH_LONG).show();
             activity.finish();
-
-//            RegisterActivity mContext = (RegisterActivity)RegisterActivity.mContext;
-//            mContext.finish();  //종료
-
-//            String userID = "ABC";
-//            Intent GoToMainintent = new Intent(((RegisterActivity)RegisterActivity.mContext), MainActivity.class); //메인액티비티로 보내는 인텐트
-//            ((RegisterActivity)RegisterActivity.mContext).startActivity(GoToMainintent);
-//            GoToMainintent.putExtra("userID", userID);
-//            ((RegisterActivity)RegisterActivity.mContext).overridePendingTransition(0, 0);  //화면전환효과 없애기
 
         }
         Toast.makeText(activity, temp,

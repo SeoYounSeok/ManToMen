@@ -8,5 +8,9 @@
     <color name="gray">#AAAAAA</color>
     <color name="brightgray">#EEEEEE</color>
     <color name="brightgray2">#EfEfEf</color>
+    <color name="brightgray3">#F7F7F7</color>
+
+    <color name="gold">#FFC812</color>
+
     <color name="black">#000000</color>
 </resources>

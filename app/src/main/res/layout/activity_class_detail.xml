@@ -54,7 +54,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:background="@color/white"
-                android:scaleType="fitCenter"></ImageView>
+                android:scaleType="fitCenter">
+
+            </ImageView>
 
             <LinearLayout
                 android:layout_width="match_parent"
