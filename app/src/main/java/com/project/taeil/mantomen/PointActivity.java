@@ -43,7 +43,7 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
 
 
     private BillingProcessor bp;
-    public static ArrayList<SkuDetails> products;
+    public static ArrayList<SkuDetails> products = new ArrayList<SkuDetails>();
     Button POINT;
     String productId = "p10000";
     int Count = 0;
@@ -159,7 +159,7 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
     @Override
     public void onBillingInitialized() {   //구매준비가 되면 호출 다이얼로그를띄워야지
         products = (ArrayList<SkuDetails>) bp.getPurchaseListingDetails(new InAppPurchaseItems().getIds());
-        Log.e("스쿠", products.get(0).toString());
+        // Log.e("스쿠아이디",bp.getPurchaseListingDetails(new InAppPurchaseItems().getIds()).get(0).productId);
         // Sort ascending order
         Collections.sort(products, new Comparator<SkuDetails>() {   // 소트는 정렬하는거
             @Override
