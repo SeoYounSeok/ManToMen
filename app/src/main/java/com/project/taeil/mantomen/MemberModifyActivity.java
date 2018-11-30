@@ -92,9 +92,9 @@ public class MemberModifyActivity extends AppCompatActivity {
         UserID = findViewById(R.id.modify_userID);
 
         UserPassword = findViewById(R.id.modify_UserPassword);
-        // UserEmail = findViewById(R.id.modify_UserEmail);
+        UserEmail = findViewById(R.id.modify_UserEmail);
         UserGender = findViewById(R.id.modify_UserGender);
-        // UserName = findViewById(R.id.modify_UserName);
+        UserName = findViewById(R.id.modify_UserName);
         UserName2 = findViewById(R.id.modify_UserName2);
         UserAge = findViewById(R.id.modify_UserAge);
         // UserIdentity = findViewById(R.id.modify_UserIdentity);
@@ -110,10 +110,10 @@ public class MemberModifyActivity extends AppCompatActivity {
         // UserPassword.setText(variable.getUserPassword());
         UserEmail.setText(variable.getUserEmail());
         UserGender.setText(variable.getUserGender());
-        UserName.setText(variable.getUserName());
+        //UserName.setText(variable.getUserName());
         UserName2.setText(variable.getUserName());
         UserAge.setText(variable.getUserAge());
-        UserIdentity.setText(variable.getUserIdentity());
+        //UserIdentity.setText(variable.getUserIdentity());
         Button modifybtn = findViewById(R.id.Membermodify_Btn);
 
         UserPicture = findViewById(R.id.modify_userPicture);
