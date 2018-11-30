@@ -23,7 +23,7 @@ public class AdvPage_3 extends android.support.v4.app.Fragment {
         TextView Adv_Name = linearLayout.findViewById(R.id.Adv_Name);
         TextView Adv_Intro = linearLayout.findViewById(R.id.Adv_Intro);
 
-        Adv_Picture.setImageResource(R.drawable.adv1);
+        Adv_Picture.setImageResource(R.drawable.adv3);
         Adv_Name.setText("신비한 동물사전");
         Adv_Intro.setText("신비한 동물들을 구하라!");
 

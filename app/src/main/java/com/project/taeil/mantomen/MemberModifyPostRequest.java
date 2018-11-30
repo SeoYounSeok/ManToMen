@@ -111,17 +111,15 @@ public class MemberModifyPostRequest extends AsyncTask<JSONObject, Void, String>
 
             MemberModifyActivity.mContext = activity;
 
-            String userID = variable.getUserID();
-            String userPassword = variable.getUserPassword();
+//            String userID = variable.getUserID();
+//            String userPassword = variable.getUserPassword();
             Intent GoToLoginintent = new Intent((MemberModifyActivity.mContext), LoginActivity.class); //메인액티비티로 보내는 인텐트
             ((MemberModifyActivity)MemberModifyActivity.mContext).startActivity(GoToLoginintent);
-            GoToLoginintent.putExtra("userID", userID);
+            // GoToLoginintent.putExtra("userID", userID);
             ((MemberModifyActivity)MemberModifyActivity.mContext).overridePendingTransition(0, 0);  //화면전환효과 없애기
 
 
         }
-        Toast.makeText(activity, temp,
-                Toast.LENGTH_LONG).show();
 
     }
 

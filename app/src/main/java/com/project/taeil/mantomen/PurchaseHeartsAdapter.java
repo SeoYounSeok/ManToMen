@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class PurchaseHeartsAdapter extends BaseAdapter {
     private Context context;
     private ArrayList<SkuDetails> products;
-    // private InAppPurchaseItems items;
+     // private InAppPurchaseItems items;
     private PointActivity activity;
 
     public PurchaseHeartsAdapter(Activity activity) {

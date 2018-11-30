@@ -53,6 +53,7 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
 
             //서버로 보내기위해서 스트림 만듬
             OutputStream os = conn.getOutputStream();
+
             //버퍼를 생성하고 넣음
             BufferedWriter writer = new BufferedWriter(
                     new OutputStreamWriter(os, "UTF-8"));
@@ -113,6 +114,8 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
             }
         } catch (Exception e) {
             e.printStackTrace();
+            Toast.makeText(activity, "서버가꺼져있습니다.",
+                    Toast.LENGTH_LONG).show();
         }
         return null;
     }
@@ -134,12 +137,13 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
             Toast.makeText(activity, message1,
                     Toast.LENGTH_LONG).show();
             return;
-        } else {
+        } else {  // 0이 아닐때
+            new GetData(LoginActivity.mActivity).execute();  // 클래스 정보를 죄다 받아오는거
+
             Toast.makeText(activity, "환영합니다.",
                     Toast.LENGTH_LONG).show();
 
             activity.finish(); // 로그인 액티비티 끄는건데 잠시보류;
-
 
             String userID = variable.getUserID();
 

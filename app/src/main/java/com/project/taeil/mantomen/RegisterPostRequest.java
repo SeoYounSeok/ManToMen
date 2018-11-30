@@ -86,25 +86,22 @@ public class RegisterPostRequest extends AsyncTask<JSONObject, Void, String> {
 
         super.onPostExecute(result);
         String temp;
-//        String message1 = "회원가입실패";
-//        String message2 = "회원가입성공";
+
         temp = result.trim();
 
 
-        if (temp == null || temp.equals("0")){
-            Toast.makeText(activity, temp,
-                    Toast.LENGTH_LONG).show();
-            return;
-        }
-
-        else if(temp.equals("1")){
-            Toast.makeText(activity, temp,
+        if (temp.equals("1")) {
+            Toast.makeText(activity, "회원가입에 성공했습니다.",
                     Toast.LENGTH_LONG).show();
             activity.finish();
 
+        } else {
+            Toast.makeText(activity, temp,
+                    Toast.LENGTH_LONG).show();
+            return;
+
         }
-        Toast.makeText(activity, temp,
-                Toast.LENGTH_LONG).show();
+
 
     }
 

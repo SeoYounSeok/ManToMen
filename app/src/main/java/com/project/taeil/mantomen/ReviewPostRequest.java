@@ -108,8 +108,6 @@ public class ReviewPostRequest extends AsyncTask<JSONObject, Void, String> {
             ReviewWriteActivity.mActivity.finish();
 
         }
-        Toast.makeText(activity, temp,
-                Toast.LENGTH_LONG).show();
 
     }
 

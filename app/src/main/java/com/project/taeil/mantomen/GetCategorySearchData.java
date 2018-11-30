@@ -3,6 +3,7 @@ package com.project.taeil.mantomen;
 import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -40,14 +41,15 @@ public class GetCategorySearchData extends GetRequest {
     protected void onPostExecute(String jsonString) {
         variableOfClass = VariableOfClass.getInstance();
         Log.d("리뷰", "겟데이터 온포스트익시큩 시작부분");
-        if (jsonString == null) //받아온값이 없으면 리턴
-            return;
 
-        else if(jsonString.trim().equals("0")){
+        if(jsonString.trim().equals("0")){  // 검색결과없음
+            Toast.makeText(activity, "검색된 결과가 없습니다.",
+                    Toast.LENGTH_LONG).show();
+
             return;
         }
 
-        else{
+        else{  //
             ArrayList<AllClass> arrayList = getArrayListFromJSONString(jsonString); //전체를 저장해야하니까
             variableOfClass.setAllClass(arrayList);  //
             // Log.d("어레이", arrayList.get(0).getClassCategory());

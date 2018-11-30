@@ -91,28 +91,19 @@ public class ClassApplyPostRequest extends AsyncTask<JSONObject, Void, String> {
         String temp;
         temp = result.trim();
 
+        if(temp.equals("1")){
+            Toast.makeText(activity, "신청에 성공했습니다.",
+                    Toast.LENGTH_LONG).show();
+            activity.finish();
 
-        if (temp == null || temp.equals("0")){
+        }
+
+        else {   // 각종 오류
             Toast.makeText(activity, temp,
                     Toast.LENGTH_LONG).show();
             return;
         }
 
-        else if(temp.equals("1")){
-            Toast.makeText(activity, "성공",
-                    Toast.LENGTH_LONG).show();
-            activity.finish();
-
-//            RegisterActivity mContext = (RegisterActivity)RegisterActivity.mContext;
-//            mContext.finish();  //종료
-
-//            String userID = "ABC";
-//            Intent GoToMainintent = new Intent(((RegisterActivity)RegisterActivity.mContext), MainActivity.class); //메인액티비티로 보내는 인텐트
-//            ((RegisterActivity)RegisterActivity.mContext).startActivity(GoToMainintent);
-//            GoToMainintent.putExtra("userID", userID);
-//            ((RegisterActivity)RegisterActivity.mContext).overridePendingTransition(0, 0);  //화면전환효과 없애기
-
-        }
 
     }
 

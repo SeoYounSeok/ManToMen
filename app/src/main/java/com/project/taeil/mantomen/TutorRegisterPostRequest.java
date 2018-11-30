@@ -87,28 +87,22 @@ public class TutorRegisterPostRequest extends AsyncTask<JSONObject, Void, String
     protected void onPostExecute(String result) {
 
         super.onPostExecute(result);
-        Log.d("파람스", result);
         String temp;
-        String message1 = "신청실패";
-        String message2 = "신청완료";
         temp = result.trim();
 
 
         if (temp == null || temp.equals("0")){
-            Toast.makeText(activity, message1,
+            Toast.makeText(activity, "서버에러발생",
                     Toast.LENGTH_LONG).show();
             return;
         }
 
         else if(temp.equals("1")){
-            Toast.makeText(activity, message2,
+            Toast.makeText(activity, "튜터신청이 완료되었습니다. 승인될 때까지 기다려주세요",
                     Toast.LENGTH_LONG).show();
             activity.finish();
 
         }
-        Toast.makeText(activity, temp,
-                Toast.LENGTH_LONG).show();
-
     }
 
     private String getPostDataString(JSONObject params) throws Exception {

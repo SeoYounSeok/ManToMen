@@ -24,7 +24,7 @@ public class AdvPage_2 extends android.support.v4.app.Fragment {
         TextView Adv_Intro = linearLayout.findViewById(R.id.Adv_Intro);
 
 
-        Adv_Picture.setImageResource(R.drawable.adv1);
+        Adv_Picture.setImageResource(R.drawable.adv2);
         Adv_Name.setText("독전");
         Adv_Intro.setText("독한 자들의 전쟁이 시작된다.");
 

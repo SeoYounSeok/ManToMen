@@ -2,6 +2,7 @@ package com.project.taeil.mantomen;
 
 import android.app.Activity;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -42,20 +43,21 @@ public class GetReviewData extends GetRequest {
         variableOfClass = VariableOfClass.getInstance();
         Log.d("리뷰", "겟데이터 온포스트익시큩 시작부분");
 
-        if (jsonString == null) //받아온값이 없으면 리턴
+
+        if(jsonString.trim().equals("0")){   // 0일때 에러
+            Toast.makeText(activity, "서버에러발생",
+                    Toast.LENGTH_LONG).show();
             return;
 
-        else if(jsonString.trim().equals("0")){
+        } else if(jsonString.trim().equals("2")){
             if(variableOfClass.getAllReview() == null){
 
             }else{
                 variableOfClass.getAllReview().clear();
             }
-
             return;
         }
-
-        else{
+        else{  // 리뷰 받아오는 부분
             ArrayList<AllReview> arrayList = getArrayListFromJSONString(jsonString); //전체를 저장해야하니까
             variableOfClass.setAllReview(arrayList);  //
 

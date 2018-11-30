@@ -20,6 +20,9 @@ import com.project.taeil.mantomen.R;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 public class ClassAppointmentFragment extends Fragment {
 
@@ -66,8 +69,10 @@ public class ClassAppointmentFragment extends Fragment {
         final EditText ClassTime = classappointmentfragment.findViewById(R.id.TutorRegister4_ClassTime);
         final CalendarView ClassFirstTimeCal = classappointmentfragment.findViewById(R.id.TutorRegister4_ClassFirstTime);
 
+        Date today = new Date();
 
-
+        SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+        ClassFirstTime = date.format(today);
 
         ClassFirstTimeCal.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -83,7 +88,6 @@ public class ClassAppointmentFragment extends Fragment {
 
             }
         });
-
 
 
         completebutton.setOnClickListener(new View.OnClickListener() {
@@ -103,8 +107,8 @@ public class ClassAppointmentFragment extends Fragment {
                 if (ClassWeek.equals("") || ClassPlaceDetail.getText().toString().equals("")) {
                     Toast.makeText(getActivity(), "빈칸을 채워주세요",
                             Toast.LENGTH_LONG).show();
-                    Log.e("빈칸",ClassWeek);
-                    Log.e("빈칸",ClassPlaceDetail.getText().toString());
+                    Log.e("빈칸", ClassWeek);
+                    Log.e("빈칸", ClassPlaceDetail.getText().toString());
                 } else {
 
                     variableOfClass.setClassPlace(ClassPlace.getSelectedItem().toString());

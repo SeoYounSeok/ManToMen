@@ -105,8 +105,8 @@ public class ClassDetailPostRequest extends AsyncTask<JSONObject, Void, String> 
 
         Log.d("디테일", temp);
 
-        if (temp == null || temp.equals("0")) {
-            Toast.makeText(activity, temp,
+        if (temp == null || temp.equals("0")) {  // 에러났을때
+            Toast.makeText(activity, "서버에러발생",
                     Toast.LENGTH_LONG).show();
 
             return;

@@ -95,7 +95,7 @@ public class MemberDeletePostRequest extends AsyncTask<JSONObject, Void, String>
 
 
         if (temp == null || temp.equals("0")) {
-            Toast.makeText(activity, temp,
+            Toast.makeText(activity, "서버오류발생",
                     Toast.LENGTH_LONG).show();
             return;
         } else if (temp.equals("1")) {
@@ -105,8 +105,6 @@ public class MemberDeletePostRequest extends AsyncTask<JSONObject, Void, String>
 
 
         }
-        Toast.makeText(activity, temp,
-                Toast.LENGTH_LONG).show();
 
     }
 

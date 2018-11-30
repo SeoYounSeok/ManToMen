@@ -22,6 +22,7 @@ import org.json.JSONObject;
 public class LoginActivity extends AppCompatActivity {
 
     final static String TAG = "AndroidNodeJS";
+    static Activity mActivity = null;
     static Context mContext = null;
     Variable variable;
     String loginId, loginPwd;
@@ -40,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        mActivity = this;
         mContext = this;
         final EditText IDText = (EditText) findViewById(R.id.ID_Input);
         final EditText PWText = (EditText) findViewById(R.id.PW_Input);
@@ -91,8 +92,7 @@ public class LoginActivity extends AppCompatActivity {
                             Log.e(TAG, "JSONEXception");
                         }
                         new LoginInsertData(LoginActivity.this).execute(postDataParam);
-                        // new GetData(LoginActivity.this).execute(); // 홈누르면 ㅇㅋ? ㅋ_ㅋ 잠시 꺼놔야함 ; 중요부분
-                        new GetData(LoginActivity.this).execute();  // 클래스 정보를 죄다 받아오는거
+                        // new GetData(LoginActivity.this).execute();  // 클래스 정보를 죄다 받아오는거
 
                         overridePendingTransition(0, 0);  //화면전환효과 없애기
 
@@ -120,7 +120,7 @@ public class LoginActivity extends AppCompatActivity {
             new LoginInsertData(LoginActivity.this).execute(postDataParam);
             // new GetData(LoginActivity.this).execute(); // 홈누르면 ㅇㅋ? ㅋ_ㅋ 잠시 꺼놔야함 ; 중요부분
 
-            new GetData(LoginActivity.this).execute();  // 클래스 정보를 죄다 받아오는거
+            // new GetData(LoginActivity.this).execute();  // 클래스 정보를 죄다 받아오는거
 
             overridePendingTransition(0, 0);  //화면전환효과 없애기
 
@@ -156,7 +156,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 new LoginInsertData(LoginActivity.this).execute(postDataParam);
                 // new GetData(LoginActivity.this).execute(); // 홈누르면 ㅇㅋ? ㅋ_ㅋ 잠시 꺼놔야함 ; 중요부분
-                new GetData(LoginActivity.this).execute();  // 클래스 정보를 죄다 받아오는거
+                // new GetData(LoginActivity.this).execute();  // 클래스 정보를 죄다 받아오는거
 
                 overridePendingTransition(0, 0);  //화면전환효과 없애기
             }

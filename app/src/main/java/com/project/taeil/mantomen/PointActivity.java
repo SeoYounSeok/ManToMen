@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -35,7 +36,10 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
     private Button btnPurchaseHeart;
     private MaterialDialog purchaseDialog;
 
-   private PurchaseHeartsAdapter skusAdapter;
+    int MAX_PAGE = 3;
+    Fragment cur_fragment = new Fragment();
+
+    private PurchaseHeartsAdapter skusAdapter;
 
 
     private BillingProcessor bp;
@@ -52,6 +56,9 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
         setContentView(R.layout.activity_point);
         bp = new BillingProcessor(this, license, this);
 
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        viewPager.setAdapter(new adapter(getSupportFragmentManager()));
+
         init();
 
         //        POINT = findViewById(R.id.POINT);
@@ -66,7 +73,7 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
     }
 
 
-        @Override
+    @Override
     public void onProductPurchased(@NonNull String productId, @Nullable TransactionDetails details) {
         // 구매한 아이템 정보 //구매성공시 띄우는거
         SkuDetails sku = bp.getPurchaseListingDetails(productId);
@@ -152,6 +159,7 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
     @Override
     public void onBillingInitialized() {   //구매준비가 되면 호출 다이얼로그를띄워야지
         products = (ArrayList<SkuDetails>) bp.getPurchaseListingDetails(new InAppPurchaseItems().getIds());
+        Log.e("스쿠", products.get(0).toString());
         // Sort ascending order
         Collections.sort(products, new Comparator<SkuDetails>() {   // 소트는 정렬하는거
             @Override
@@ -184,7 +192,6 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
         skusAdapter.update(products);
 
 
-
     }
 
 
@@ -195,18 +202,47 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
         bp.purchase(this, productId);  // 이게 그거랬음 띄우는거! 구매절차 띄우는거 그니까 저 프로덕트 아이디에 맞는거를 줘야함
     }
 
-        private class InAppPurchaseItems {
+    private class InAppPurchaseItems {
 
         ArrayList<String> IDS = new ArrayList<String>();
 
         SkuDetails sku = bp.getPurchaseListingDetails(productId);   // 아이디를 주면 스쿠를 만들어줌
 
 
-
         public ArrayList<String> getIds() {
             IDS.add(sku.title);
+            Log.e("스쿠", sku.title);
             return IDS;
         }
 
+    }
+
+    private class adapter extends FragmentPagerAdapter {
+        public adapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            if (position < 0 || MAX_PAGE <= position)
+                return null;
+            switch (position) {
+                case 0:
+                    cur_fragment = new AdvPage_1();
+                    break;
+                case 1:
+                    cur_fragment = new AdvPage_2();
+                    break;
+                case 2:
+                    cur_fragment = new AdvPage_3();
+                    break;
+            }
+            return cur_fragment;
+        }
+
+        @Override
+        public int getCount() {
+            return MAX_PAGE;
+        }
     }
 }
