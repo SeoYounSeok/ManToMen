@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
@@ -25,27 +26,33 @@ import com.anjlab.android.iab.v3.SkuDetails;
 import com.anjlab.android.iab.v3.TransactionDetails;
 import com.google.android.gms.common.internal.service.Common;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+import static java.lang.Integer.parseInt;
+
 public class PointActivity extends AppCompatActivity implements BillingProcessor.IBillingHandler {
 
-
+    Variable variable;
     private Button btnPurchaseHeart;
     private MaterialDialog purchaseDialog;
-
+    TextView Point;
     int MAX_PAGE = 3;
     Fragment cur_fragment = new Fragment();
-
     private PurchaseHeartsAdapter skusAdapter;
+
+
 
 
     private BillingProcessor bp;
     public static ArrayList<SkuDetails> products = new ArrayList<SkuDetails>();
     Button POINT;
     String productId = "p10000";
-    int Count = 0;
+
     String license = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlM8kG6jtaLKEXekt0ksubCwra/dsbYssKlCH+2mkQhv1IkOZYl3+6mEm5BhbwFaI2hRuTXyeNNbFERvCLERT5yEgJcUnYzsKv45vCBiqXdBq12gscPPhEnG1OVijCgHfS84HBkYBovAoW4zpUn5FxA7FTwOOVM1iom4W5vLCYSkyX8YwiYXYY2pfAdGO/wP4LvK9DAa7DAZDPKpqUKcNwe3hV52HiN3cKp9c+V/u5bXrkR9dZP2gQYXy/ikZFmJYe8XQzDv2MwiVV8iwGbAgJuuAdfQzdNvhON1ar4h5wJ904UqfyCjEE0JMXzONuvqsfudW6FBCZsa8Z74pShE25QIDAQAB";
 
 
@@ -54,7 +61,9 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_point);
         bp = new BillingProcessor(this, license, this);
+        Point = findViewById(R.id.point2);
 
+        Point.setText(variable.getUserPoint());
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setAdapter(new adapter(getSupportFragmentManager()));
 
@@ -85,10 +94,25 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
         try {
 
             Toast.makeText(this, purchaseMessage, Toast.LENGTH_SHORT).show();
+
+            JSONObject postDataParam = new JSONObject();
+
+            postDataParam.put("userPoint", productId.substring(1));  // p1000에서 p를 지우고 1000만 보내는거
+
+            int point2 = variable.getUserPoint();
+            int point = Integer.parseInt(productId.substring(1));
+            Log.d("포인트", String.valueOf(point));
+
+            variable.setUserPoint(point+point2);   // 변수에 저장
+
+            new PointBuyInsertData(PointActivity.this).execute(postDataParam);
+
             // 사용자의 하트 100개를 추가
 //            Count += 10000;  // 여기에 포인트 추가하는거
-//            amount = Integer.parseInt(productId.substring(1));
+//              variable.getUserPoint() += parseInt(productId.substring(1));
 //            userStore.purchaseHearts(amount, tvNavigationHearts);
+
+
         } catch (Exception e) {
             //Toast.makeText(this, R.string.purchase_error, Toast.LENGTH_LONG).show();
             e.printStackTrace();

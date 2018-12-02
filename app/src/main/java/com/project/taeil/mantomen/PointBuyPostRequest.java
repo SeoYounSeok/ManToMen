@@ -19,12 +19,12 @@ import java.util.Iterator;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class ClassApplyPostRequest extends AsyncTask<JSONObject, Void, String> {
+public class PointBuyPostRequest extends AsyncTask<JSONObject, Void, String> {
     Activity activity;
     URL url;
     Variable variable;
     VariableOfClass variableOfClass;
-    public ClassApplyPostRequest(Activity activity) {
+    public PointBuyPostRequest(Activity activity) {
         this.activity = activity;
     }
 
@@ -92,9 +92,8 @@ public class ClassApplyPostRequest extends AsyncTask<JSONObject, Void, String> {
         temp = result.trim();
 
         if(temp.equals("1")){
-            Toast.makeText(activity, "신청에 성공했습니다.",
+            Toast.makeText(activity, "충전에 성공했습니다.",
                     Toast.LENGTH_LONG).show();
-
             activity.finish();
 
         }
