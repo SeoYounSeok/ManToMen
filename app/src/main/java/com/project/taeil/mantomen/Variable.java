@@ -17,7 +17,7 @@ public class Variable { //전역변수 저장 모음 로그인할 때 한번에 
     private static String userPhoneNumber = null;
     private static String Cookies = null;
 
-    private static int userPoint = 0;
+    private static String Point = "0";
 
     private static Variable variable;
     public static String HttpAddres = "http://ec2-54-180-106-61.ap-northeast-2.compute.amazonaws.com";   //민영이 서버 입력하기
@@ -28,14 +28,6 @@ public class Variable { //전역변수 저장 모음 로그인할 때 한번에 
 
     public static void setUserPhoneNumber(String userPhoneNumber) {
         Variable.userPhoneNumber = userPhoneNumber;
-    }
-
-    public static int getUserPoint() {
-        return userPoint;
-    }
-
-    public static void setUserPoint(int userPoint) {
-        Variable.userPoint = userPoint;
     }
 
     public static String getCookies() {

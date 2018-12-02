@@ -120,7 +120,7 @@ public class Mypage2Fragment extends Fragment implements Main2Activity.OnBackPre
                             Toast.LENGTH_LONG).show();
                 } else{
 
-
+                    
                     new GetParticipateDatamore(getActivity()).execute();
 
                 }

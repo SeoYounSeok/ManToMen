@@ -94,7 +94,6 @@ public class ClassApplyPostRequest extends AsyncTask<JSONObject, Void, String> {
         if(temp.equals("1")){
             Toast.makeText(activity, "신청에 성공했습니다.",
                     Toast.LENGTH_LONG).show();
-
             activity.finish();
 
         }

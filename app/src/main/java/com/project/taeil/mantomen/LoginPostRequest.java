@@ -236,8 +236,6 @@ public class LoginPostRequest extends AsyncTask<JSONObject, Void, String> {
             variable.setUserOperateClass(jsonObject.getString("userOperateClass"));
             variable.setUserPhoneNumber(jsonObject.getString("userPhoneNumber"));
 
-            variable.setUserPoint(Integer.parseInt(jsonObject.getString("userPoint")));  // 포인트 받는 부분
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
