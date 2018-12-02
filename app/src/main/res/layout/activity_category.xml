@@ -10,14 +10,23 @@
 
 
 
-    <TextView
-        android:id="@+id/CategroyActivity_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="프로그래밍"
-        android:textSize="30dp"
-        android:layout_margin="10dp"
-        android:textColor="@color/black"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:background="@drawable/border"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:contentDescription="TODO"
+            android:src="@drawable/logo4" />
+
+    </LinearLayout>
 
     <ListView
         android:id="@+id/Fitlistview2"

@@ -31,8 +31,7 @@ import java.util.Comparator;
 
 public class PointActivity extends AppCompatActivity implements BillingProcessor.IBillingHandler {
 
-    private View view;
-    private ListView lvLog;
+
     private Button btnPurchaseHeart;
     private MaterialDialog purchaseDialog;
 
@@ -111,7 +110,13 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
 
     private void init() {
         // 결제 아이템 다이얼로그
+
+        products = (ArrayList<SkuDetails>) bp.getPurchaseListingDetails(new InAppPurchaseItems().getIds());  // 내가볼땐 여기서
+
+
         skusAdapter = new PurchaseHeartsAdapter(this);
+        skusAdapter.update(products);
+
         View purchaseView = getLayoutInflater().inflate(R.layout.layout_dialog_heartstore, null);
         ListView lvSkus = purchaseView.findViewById(R.id.lv_skus);
         lvSkus.setAdapter(skusAdapter);
@@ -126,21 +131,6 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
                     }
                 }).build();
 
-//        lvSkus.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                purchaseProduct(productId);
-//            }
-//        });
-
-//        RelativeLayout BUY = purchaseView.findViewById(R.id.BUY);
-//
-//        BUY.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
 
         btnPurchaseHeart = findViewById(R.id.POINT);
         btnPurchaseHeart.setOnClickListener(new View.OnClickListener() {
@@ -151,32 +141,41 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
         });
 
 
-        // skusAdapter.update(MainActivity.products);
-
     }
 
 
     @Override
     public void onBillingInitialized() {   //구매준비가 되면 호출 다이얼로그를띄워야지
-        products = (ArrayList<SkuDetails>) bp.getPurchaseListingDetails(new InAppPurchaseItems().getIds());
+
+
+        products = (ArrayList<SkuDetails>) bp.getPurchaseListingDetails(new InAppPurchaseItems().getIds());  // 내가볼땐 여기서
+
+
+        SkuDetails sku = bp.getPurchaseListingDetails(productId);
+        products.add(sku);
+
+
         // Log.e("스쿠아이디",bp.getPurchaseListingDetails(new InAppPurchaseItems().getIds()).get(0).productId);
         // Sort ascending order
-        Collections.sort(products, new Comparator<SkuDetails>() {   // 소트는 정렬하는거
-            @Override
-            public int compare(SkuDetails o1, SkuDetails o2) {
-                if (o1.priceLong > o2.priceLong) {  // 이게 가격에 따라서 맥이는거같은데
-                    return 1;
-                } else if (o1.priceLong < o2.priceLong) {
-                    return -1;
-                } else return 0;
-            }
-        });
+//        Collections.sort(products, new Comparator<SkuDetails>() {   // 소트는 정렬하는거
+//            @Override
+//            public int compare(SkuDetails o1, SkuDetails o2) {
+//                if (o1.priceLong > o2.priceLong) {  // 이게 가격에 따라서 맥이는거같은데
+//                    return 1;
+//                } else if (o1.priceLong < o2.priceLong) {
+//                    return -1;
+//                } else return 0;
+//            }
+//        });
 
         // 결제 아이템 다이얼로그 설정
         skusAdapter = new PurchaseHeartsAdapter(this);
+
         View purchaseView = getLayoutInflater().inflate(R.layout.layout_dialog_heartstore, null);
         ListView lvSkus = purchaseView.findViewById(R.id.lv_skus);
         lvSkus.setAdapter(skusAdapter);
+
+        skusAdapter.update(products);
 
         purchaseDialog = new MaterialDialog.Builder(this)
                 .customView(purchaseView, false)

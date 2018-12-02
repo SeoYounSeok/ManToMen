@@ -40,9 +40,9 @@ public class GetCategorySearchData extends GetRequest {
     @Override
     protected void onPostExecute(String jsonString) {
         variableOfClass = VariableOfClass.getInstance();
-        Log.d("리뷰", "겟데이터 온포스트익시큩 시작부분");
+        Log.d("서치!", jsonString.trim());
 
-        if(jsonString.trim().equals("0")){  // 검색결과없음
+        if(jsonString.trim().equals("[]")){  // 검색결과없음
             Toast.makeText(activity, "검색된 결과가 없습니다.",
                     Toast.LENGTH_LONG).show();
 

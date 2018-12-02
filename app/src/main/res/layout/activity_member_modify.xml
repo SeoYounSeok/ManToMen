@@ -42,19 +42,21 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:background="#eeeeee"
         android:gravity="top|center"
         android:orientation="vertical">
         <LinearLayout
+            android:layout_weight="4"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
             android:background="@color/brightgray">
 
         </LinearLayout>
 
         <LinearLayout
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/border2"
@@ -89,8 +91,9 @@
 
 
         <LinearLayout
+            android:layout_weight="2"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:background="@color/brightgray">
 
             <TextView
@@ -103,6 +106,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/border"
@@ -114,6 +118,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
+                android:layout_gravity="center_vertical"
                 app:srcCompat="@drawable/ic_id_card" />
 
 
@@ -132,6 +137,7 @@
 
 
         <LinearLayout
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/border"
@@ -156,6 +162,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/border"
@@ -183,6 +190,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/border"
@@ -210,6 +218,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/border"
@@ -237,6 +246,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/border"
@@ -264,6 +274,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/border"
@@ -291,6 +302,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/border"
@@ -320,24 +332,23 @@
 
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white"
-            android:gravity="bottom">
-
-            <Button
-                android:id="@+id/Membermodify_Btn"
-                android:layout_width="10dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="회원 정보수정" />
-
-
-        </LinearLayout>
-
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="bottom">
 
+        <Button
+            android:id="@+id/Membermodify_Btn"
+            android:layout_width="match_parent"
+            android:background="@color/pink2"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="회원 정보수정" />
+
+
+    </LinearLayout>
 </LinearLayout>

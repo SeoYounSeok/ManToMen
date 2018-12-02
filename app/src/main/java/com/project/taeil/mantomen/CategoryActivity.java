@@ -27,12 +27,12 @@ public class CategoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_category);
 
         ListView fitlistView2 = findViewById(R.id.Fitlistview2);   // 핏뷰2
-        TextView value = findViewById(R.id.CategroyActivity_value);   // 검색했던 거
-        value.setText(SearchFragment.SelectedCategory);
+       // TextView value = findViewById(R.id.CategroyActivity_value);   // 검색했던 거
+        //value.setText(SearchFragment.SelectedCategory);
 
         if (variableOfClass.getAllClass().size() == 0) {
 
-            value.setText(SearchFragment.SelectedCategory + "에 대한 검색 결과가 없습니다.");
+            //value.setText(SearchFragment.SelectedCategory + "에 대한 검색 결과가 없습니다.");
 
         } else {
             // List<AllClass> AllClassList;  //리스트뷰와 어댑터 초기화
