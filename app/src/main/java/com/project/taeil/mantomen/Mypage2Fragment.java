@@ -115,16 +115,16 @@ public class Mypage2Fragment extends Fragment implements Main2Activity.OnBackPre
         participate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(variable.getUserParticipateClass().equals("[]") || variable.getUserParticipateClass().equals("") || variable.getUserParticipateClass() == null){
+                /*if(variable.getUserParticipateClass().equals("0") || variable.getUserParticipateClass().equals("") || variable.getUserParticipateClass() == null){
                     Toast.makeText(getActivity(), "참여중인 클래스가 없습니다.",
                             Toast.LENGTH_LONG).show();
                 } else{
 
                     
-                    new GetParticipateDatamore(getActivity()).execute();
+                    new GetParticipation(getActivity()).execute();
 
                 }
-
+*/      new GetParticipation(getActivity()).execute();
             }
         });
 
