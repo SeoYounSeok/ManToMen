@@ -78,6 +78,14 @@ public class RegisterActivity extends AppCompatActivity {
         final ImageView userImage = findViewById(R.id.Img_R_Input);  // 유저사진
         // final Button selectpicture = findViewById(R.id.select_picture);  // 셀릭트 버튼
 
+        Button backBtn = findViewById(R.id.Register_Back);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();  // 백버튼
+            }
+        });
 
         userImage.setOnClickListener(new View.OnClickListener() {  // 사진선택 버튼
             @Override

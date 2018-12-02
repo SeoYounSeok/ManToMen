@@ -68,6 +68,14 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
         new DownloadImageTask((ImageView) findViewById(R.id.PointActivity_UserPicture))
                 .execute(variable.getUserPicture());
 
+        Button backBtn = findViewById(R.id.PointActivity_Back);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();  // 백버튼
+            }
+        });
 
         TextView userID = findViewById(R.id.PointActivity_UserID);
         userID.setText(variable.getUserID());
@@ -75,7 +83,16 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
         bp = new BillingProcessor(this, license, this);
         Point = findViewById(R.id.point2);
 
-        Point.setText(Integer.toString(variable.getUserPoint()));
+
+
+        String str = String.format("%,d", Integer.toString(variable.getUserPoint()));
+        Point.setText(str);
+//        Point.setText(Integer.toString(variable.getUserPoint()));
+
+
+
+
+
         Log.e("포인트확인", Integer.toString(variable.getUserPoint()));
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setAdapter(new adapter(getSupportFragmentManager()));

@@ -94,7 +94,13 @@ public class AllClassListAdapter extends BaseAdapter{
         ClassTutorID.setText(AllClass.get(i).getClassTutorID());
 //        ClassCurrentPeople.setText(AllClass.get(i).getClassCurrentPeople() + "신청");
 //        ClassTotalPeople.setText(AllClass.get(i).getClassTotalPeople() + "모집");
-        ClassPrice.setText('\uFFE6'+ AllClass.get(i).getClassPrice()); // 가격
+
+
+        int price = Integer.parseInt(AllClass.get(i).getClassPrice());  // 인트형으로 바꾼후에
+        String str = String.format("%,d", price);
+        ClassPrice.setText('\uFFE6'+ str); // 가격
+
+
         // 현재원필요
         ClassRPeriod.setText(AllClass.get(i).getClassFirstTime()+"까지");   // 모집기간인데 퍼스트 수업 날 전까지로하자 !!!!
         // 강의기간 필요

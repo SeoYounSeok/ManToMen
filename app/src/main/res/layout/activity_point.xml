@@ -16,7 +16,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/PintActivity_Back"
+            android:id="@+id/PointActivity_Back"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="30dp"
             android:layout_height="30dp"
@@ -154,7 +154,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@color/white"
+                    android:background="@drawable/border2"
                     android:text="포인트 충전하기!"
                     android:textColor="@color/pink"
                     android:textStyle="bold" />

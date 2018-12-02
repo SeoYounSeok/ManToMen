@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,7 +60,7 @@ public class MemberModifyActivity extends AppCompatActivity {
     TextView UserEmail;
     EditText UserGender;
     TextView UserName;
-    EditText UserAge;
+    Spinner UserAge;
     TextView UserIdentity;
     CheckBox Checkbox1;
     CheckBox Checkbox2;
@@ -112,9 +113,23 @@ public class MemberModifyActivity extends AppCompatActivity {
         UserGender.setText(variable.getUserGender());
         //UserName.setText(variable.getUserName());
         UserName2.setText(variable.getUserName());
-        UserAge.setText(variable.getUserAge());
+        // UserAge.setText(variable.getUserAge());
         //UserIdentity.setText(variable.getUserIdentity());
+
+        Button backBtn = findViewById(R.id.modify_Back);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();  // 백버튼
+            }
+        });
+
+
         Button modifybtn = findViewById(R.id.Membermodify_Btn);
+
+
+
 
         UserPicture = findViewById(R.id.modify_userPicture);
 
@@ -179,7 +194,7 @@ public class MemberModifyActivity extends AppCompatActivity {
 
                 String userPassword = UserPassword.getText().toString();
                 String userName = UserName.getText().toString();
-                String userAge = UserAge.getText().toString();
+                String userAge = UserAge.getSelectedItem().toString();
 
 
 //                Variable.setUserCN(String.valueOf(UserCN.getText()));

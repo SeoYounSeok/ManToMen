@@ -73,6 +73,15 @@ public class ClassDetail extends AppCompatActivity {
 
         Button talk = findViewById(R.id.talk);
 
+        Button backBtn = findViewById(R.id.ClassDetail_Back);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();  // 백버튼
+            }
+        });
+
         TextView ClassPrice = findViewById(R.id.ClassIntro_ClassPrice);
         TextView ClassName2 = findViewById(R.id.ClassIntro_ClassName);
         RatingBar Classratingbar = findViewById(R.id.ClassIntro_ClassScore);
@@ -82,7 +91,13 @@ public class ClassDetail extends AppCompatActivity {
 
 
 
-        ClassPrice.setText(variableOfClass.getClassPrice());
+        int price = Integer.parseInt(variableOfClass.getClassPrice());  // 인트형으로 바꾼후에
+        String str = String.format("%,d", price);
+        ClassPrice.setText(str);
+        // ClassPrice.setText(variableOfClass.getClassPrice());
+
+
+
         ClassScore.setText(variableOfClass.getClassScore());
         ClassName2.setText(variableOfClass.getClassName());
         Classratingbar.setRating(Float.parseFloat(variableOfClass.getClassScore()));

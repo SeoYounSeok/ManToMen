@@ -12,14 +12,14 @@
         android:id="@+id/clickButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="클릭해씨발려나"
+        android:text=";"
         android:onClick="buttonClicked"/>
 
     <Button
         android:id="@+id/buyButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="살려면 클릭해 시발려나"
+        android:text=";ll"
         android:onClick="buyClick"/>
 
 
