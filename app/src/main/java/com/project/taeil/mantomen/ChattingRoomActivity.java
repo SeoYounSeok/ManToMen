@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -33,7 +32,6 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.TimeZone;
 
@@ -240,16 +238,16 @@ public class ChattingRoomActivity extends AppCompatActivity {
             MessageViewHolder messageViewHolder = ((MessageViewHolder)viewHolder);
             if(comments.get(i).uid.equals(uid)){
                 ((MessageViewHolder)viewHolder).textView_message.setText(comments.get(i).message);
-                messageViewHolder.textView_message.setBackgroundResource(R.drawable.rightbubble9);
-                messageViewHolder.textView_message.setTextSize(20);
+                messageViewHolder.textView_message.setBackgroundResource(R.drawable.in_message_bg);
+                messageViewHolder.textView_message.setTextSize(15);
                 messageViewHolder.linearLayout_destination.setVisibility(View.INVISIBLE);
                 messageViewHolder.linearLayout_main.setGravity(Gravity.RIGHT);
             }else{
                 messageViewHolder.textView_name.setText(destinatonUid);
                 messageViewHolder.linearLayout_destination.setVisibility(View.VISIBLE);
-                messageViewHolder.textView_message.setBackgroundResource(R.drawable.leftbubble9);
+                messageViewHolder.textView_message.setBackgroundResource(R.drawable.out_message_bg);
                 messageViewHolder.textView_message.setText(comments.get(i).message);
-                messageViewHolder.textView_message.setTextSize(20);
+                messageViewHolder.textView_message.setTextSize(15);
                 messageViewHolder.linearLayout_main.setGravity(Gravity.LEFT);
             }
             long unixTime = (long) comments.get(i).timestamp;
