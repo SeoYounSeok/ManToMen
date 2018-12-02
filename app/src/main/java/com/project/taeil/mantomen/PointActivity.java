@@ -58,7 +58,7 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setAdapter(new adapter(getSupportFragmentManager()));
 
-        init();
+//        init();
 
         //        POINT = findViewById(R.id.POINT);
 //        POINT.setOnClickListener(new View.OnClickListener() {
@@ -83,9 +83,10 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
         // 구매 처리
         int amount = 0;
         try {
-            Count += 10000;
-            Toast.makeText(this, Count, Toast.LENGTH_SHORT).show();
+
+            Toast.makeText(this, purchaseMessage, Toast.LENGTH_SHORT).show();
             // 사용자의 하트 100개를 추가
+//            Count += 10000;  // 여기에 포인트 추가하는거
 //            amount = Integer.parseInt(productId.substring(1));
 //            userStore.purchaseHearts(amount, tvNavigationHearts);
         } catch (Exception e) {
@@ -111,15 +112,39 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
     private void init() {
         // 결제 아이템 다이얼로그
 
-        products = (ArrayList<SkuDetails>) bp.getPurchaseListingDetails(new InAppPurchaseItems().getIds());  // 내가볼땐 여기서
+        // products = (ArrayList<SkuDetails>) bp.getPurchaseListingDetails(new InAppPurchaseItems().getIds());  // 내가볼땐 여기서
+        SkuDetails sku1;
+        SkuDetails sku2;
+        SkuDetails sku3;
+        SkuDetails sku4;
+
+        SkuDetails sku = bp.getPurchaseListingDetails("p1000");  // 수동으로 추가
+        products.add(sku);
+        Log.e("스쿠1", sku.title);
+
+//         sku2 = bp.getPurchaseListingDetails("p5000");  // 수동으로 추가
+//         products.add(sku2);
+//         Log.e("스쿠2", sku2.title);
+
+        sku3 = bp.getPurchaseListingDetails("p10000");  // 수동으로 추가
+        products.add(sku3);
+        Log.e("스쿠3", sku3.title);
+
+        sku4 = bp.getPurchaseListingDetails("p100000");  // 수동으로 추가
+        products.add(sku4);
+        Log.e("스쿠4", sku4.title);
 
 
         skusAdapter = new PurchaseHeartsAdapter(this);
-        skusAdapter.update(products);
 
         View purchaseView = getLayoutInflater().inflate(R.layout.layout_dialog_heartstore, null);
         ListView lvSkus = purchaseView.findViewById(R.id.lv_skus);
+
+        skusAdapter.update(products);
+
+
         lvSkus.setAdapter(skusAdapter);
+
 
         purchaseDialog = new MaterialDialog.Builder(this)
                 .customView(purchaseView, false)
@@ -147,48 +172,33 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
     @Override
     public void onBillingInitialized() {   //구매준비가 되면 호출 다이얼로그를띄워야지
 
+        init();
 
-        products = (ArrayList<SkuDetails>) bp.getPurchaseListingDetails(new InAppPurchaseItems().getIds());  // 내가볼땐 여기서
-
-
-        SkuDetails sku = bp.getPurchaseListingDetails(productId);
-        products.add(sku);
-
-
-        // Log.e("스쿠아이디",bp.getPurchaseListingDetails(new InAppPurchaseItems().getIds()).get(0).productId);
-        // Sort ascending order
-//        Collections.sort(products, new Comparator<SkuDetails>() {   // 소트는 정렬하는거
-//            @Override
-//            public int compare(SkuDetails o1, SkuDetails o2) {
-//                if (o1.priceLong > o2.priceLong) {  // 이게 가격에 따라서 맥이는거같은데
-//                    return 1;
-//                } else if (o1.priceLong < o2.priceLong) {
-//                    return -1;
-//                } else return 0;
-//            }
-//        });
-
-        // 결제 아이템 다이얼로그 설정
-        skusAdapter = new PurchaseHeartsAdapter(this);
-
-        View purchaseView = getLayoutInflater().inflate(R.layout.layout_dialog_heartstore, null);
-        ListView lvSkus = purchaseView.findViewById(R.id.lv_skus);
-        lvSkus.setAdapter(skusAdapter);
-
-        skusAdapter.update(products);
-
-        purchaseDialog = new MaterialDialog.Builder(this)
-                .customView(purchaseView, false)
-                .negativeText("취소")
-                .onNegative(new MaterialDialog.SingleButtonCallback() {
-                    @Override
-                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
-                        dialog.dismiss();
-                    }
-                })
-                .build();
-
-        skusAdapter.update(products);
+//        products = (ArrayList<SkuDetails>) bp.getPurchaseListingDetails(new InAppPurchaseItems().getIds());  // 내가볼땐 여기서
+//        SkuDetails sku = bp.getPurchaseListingDetails(productId);
+//        products.add(sku);
+//
+//        // 결제 아이템 다이얼로그 설정
+//        skusAdapter = new PurchaseHeartsAdapter(this);
+//
+//        View purchaseView = getLayoutInflater().inflate(R.layout.layout_dialog_heartstore, null);
+//        ListView lvSkus = purchaseView.findViewById(R.id.lv_skus);
+//        lvSkus.setAdapter(skusAdapter);
+//
+//        skusAdapter.update(products);
+//
+//        purchaseDialog = new MaterialDialog.Builder(this)
+//                .customView(purchaseView, false)
+//                .negativeText("취소")
+//                .onNegative(new MaterialDialog.SingleButtonCallback() {
+//                    @Override
+//                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+//                        dialog.dismiss();
+//                    }
+//                })
+//                .build();
+//
+//        skusAdapter.update(products);
 
 
     }
@@ -209,8 +219,8 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
 
 
         public ArrayList<String> getIds() {
-            IDS.add(sku.title);
             Log.e("스쿠", sku.title);
+            IDS.add(sku.title);
             return IDS;
         }
 

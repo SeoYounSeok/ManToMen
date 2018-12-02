@@ -34,12 +34,8 @@ public class Mypage2Fragment extends Fragment implements Main2Activity.OnBackPre
     final static String TAG = "AndroidNodeJS";
 
     Variable variable = Variable.getInstance();
-    final int REQ_CODE_SELECT_IMAGE = 100;
-    ProgressDialog asyncDialog;
-    String getServerURL = variable.HttpAddres;  //민영이 서버
-    String getImgURL = "";
-    String getImgName = "";
-    Bitmap bitmap;   // 비트맵을 담기위한 비트맵 객체선언
+
+
 
     public Mypage2Fragment() {
         // Required empty public constructor
@@ -60,6 +56,7 @@ public class Mypage2Fragment extends Fragment implements Main2Activity.OnBackPre
         LinearLayout mypage2fragment = (LinearLayout) inflater.inflate(R.layout.fragment_mypage2, container, false);
 
         Button operateclass = (Button) mypage2fragment.findViewById(R.id.Mypage2_OperateClass); //클래스값받아오는버튼
+        Button participate = mypage2fragment.findViewById(R.id.Mypage2_ParticipateClass);
 
         Button gotomypage = (Button) mypage2fragment.findViewById(R.id.Mypage2_Mypage); //마이페이지로가는버튼
         Button tutorregister = mypage2fragment.findViewById(R.id.Mypage2_TutorRegister); // 튜터등록 버튼
@@ -111,6 +108,22 @@ public class Mypage2Fragment extends Fragment implements Main2Activity.OnBackPre
             @Override
             public void onClick(View v) {
                 ((Main2Activity) getActivity()).switchFragment(4);
+
+            }
+        });
+
+        participate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(variable.getUserParticipateClass().equals("[]") || variable.getUserParticipateClass().equals("") || variable.getUserParticipateClass() == null){
+                    Toast.makeText(getActivity(), "참여중인 클래스가 없습니다.",
+                            Toast.LENGTH_LONG).show();
+                } else{
+
+                    
+                    new GetParticipateDatamore(getActivity()).execute();
+
+                }
 
             }
         });

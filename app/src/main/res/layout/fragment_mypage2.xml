@@ -100,6 +100,7 @@
                 android:textColor="@color/black" />
 
             <Button
+                android:id="@+id/Mypage2_ParticipateClass"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
