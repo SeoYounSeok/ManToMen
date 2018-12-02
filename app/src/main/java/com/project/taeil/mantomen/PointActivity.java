@@ -1,5 +1,9 @@
 package com.project.taeil.mantomen;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
@@ -29,6 +34,7 @@ import com.google.android.gms.common.internal.service.Common;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -46,8 +52,6 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
     private PurchaseHeartsAdapter skusAdapter;
 
 
-
-
     private BillingProcessor bp;
     public static ArrayList<SkuDetails> products = new ArrayList<SkuDetails>();
     Button POINT;
@@ -60,12 +64,22 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_point);
+
+        new DownloadImageTask((ImageView) findViewById(R.id.PointActivity_UserPicture))
+                .execute(variable.getUserPicture());
+
+
+        TextView userID = findViewById(R.id.PointActivity_UserID);
+        userID.setText(variable.getUserID());
+
         bp = new BillingProcessor(this, license, this);
         Point = findViewById(R.id.point2);
 
-        Point.setText(variable.getUserPoint());
+        Point.setText(Integer.toString(variable.getUserPoint()));
+        Log.e("포인트확인", Integer.toString(variable.getUserPoint()));
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setAdapter(new adapter(getSupportFragmentManager()));
+        Log.e("스쿠절차", "onCreate");
 
 //        init();
 
@@ -83,6 +97,9 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
 
     @Override
     public void onProductPurchased(@NonNull String productId, @Nullable TransactionDetails details) {
+
+        Log.e("스쿠절차", "onProductPurchased");
+
         // 구매한 아이템 정보 //구매성공시 띄우는거
         SkuDetails sku = bp.getPurchaseListingDetails(productId);
         // 하트 100개 구매에 성공하였습니다! 메세지 띄우기
@@ -94,17 +111,13 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
         try {
 
             Toast.makeText(this, purchaseMessage, Toast.LENGTH_SHORT).show();
-
             JSONObject postDataParam = new JSONObject();
-
+            postDataParam.put("userID", variable.getUserID());  // p1000에서 p를 지우고 1000만 보내는거
             postDataParam.put("userPoint", productId.substring(1));  // p1000에서 p를 지우고 1000만 보내는거
-
-            int point2 = variable.getUserPoint();
-            int point = Integer.parseInt(productId.substring(1));
-            Log.d("포인트", String.valueOf(point));
-
-            variable.setUserPoint(point+point2);   // 변수에 저장
-
+//            int point2 = variable.getUserPoint();
+//            int point = Integer.parseInt(productId.substring(1));
+//            Log.d("포인트", String.valueOf(point));
+//            variable.setUserPoint(point + point2);   // 변수에 저장
             new PointBuyInsertData(PointActivity.this).execute(postDataParam);
 
             // 사용자의 하트 100개를 추가
@@ -125,6 +138,16 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (!bp.handleActivityResult(requestCode, resultCode, data)){
+            super.onActivityResult(requestCode, resultCode, data);
+            finish();
+
+        }
+
+    }
+
+    @Override
     public void onBillingError(int errorCode, @Nullable Throwable error) {
         if (errorCode != Constants.BILLING_RESPONSE_RESULT_USER_CANCELED) {
             String errorMessage = "취소" + " (" + errorCode + ")";
@@ -135,8 +158,11 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
 
     private void init() {
         // 결제 아이템 다이얼로그
+        Log.e("스쿠절차", "init");
 
         // products = (ArrayList<SkuDetails>) bp.getPurchaseListingDetails(new InAppPurchaseItems().getIds());  // 내가볼땐 여기서
+        products.clear();
+
         SkuDetails sku1;
         SkuDetails sku2;
         SkuDetails sku3;
@@ -195,6 +221,7 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
 
     @Override
     public void onBillingInitialized() {   //구매준비가 되면 호출 다이얼로그를띄워야지
+        Log.e("스쿠절차", "onBillingInitialized");
 
         init();
 
@@ -229,9 +256,8 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
 
 
     public void purchaseProduct(final String productId) {
-        if (bp.isPurchased(productId)) {
-            bp.consumePurchase(productId);
-        }
+        Log.e("스쿠절차", "purchaseProduct");
+        bp.consumePurchase(productId);
         bp.purchase(this, productId);  // 이게 그거랬음 띄우는거! 구매절차 띄우는거 그니까 저 프로덕트 아이디에 맞는거를 줘야함
     }
 
@@ -278,4 +304,30 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
             return MAX_PAGE;
         }
     }
+
+    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+        ImageView bmImage;
+
+        public DownloadImageTask(ImageView bmImage) {
+            this.bmImage = bmImage;
+        }
+
+        protected Bitmap doInBackground(String... urls) {
+            String urldisplay = urls[0];
+            Bitmap mIcon11 = null;
+            try {
+                InputStream in = new java.net.URL(urldisplay).openStream();
+                mIcon11 = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                Log.e("Error", e.getMessage());
+                e.printStackTrace();
+            }
+            return mIcon11;
+        }
+
+        protected void onPostExecute(Bitmap result) {
+            bmImage.setImageBitmap(result);
+        }
+    }
+
 }

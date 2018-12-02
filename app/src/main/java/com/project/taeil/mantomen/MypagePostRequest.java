@@ -78,6 +78,8 @@ public class MypagePostRequest extends AsyncTask<JSONObject, Void, String> {
                 }
 
                 in.close();
+                if (!sb.toString().trim().equals("0"))
+                    SbExtraction(sb); // 스트링버퍼를 추출해서 세팅해줌
                 return sb.toString(); //서버로 부터 받은 값을 리턴해줌 아마 OK!!가 들어올것임
 
             } else {
@@ -180,6 +182,7 @@ public class MypagePostRequest extends AsyncTask<JSONObject, Void, String> {
             variable.setUserPhoneNumber(jsonObject.getString("userPhoneNumber"));
 
             variable.setUserPoint(Integer.parseInt(jsonObject.getString("userPoint")));  // 포인트 받는 부분
+            Log.e("포인트확인2", Integer.toString(variable.getUserPoint()));
 
         } catch (JSONException e) {
             e.printStackTrace();

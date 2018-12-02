@@ -99,8 +99,8 @@ public class PointBuyPostRequest extends AsyncTask<JSONObject, Void, String> {
         }
 
         else {   // 각종 오류
-            Toast.makeText(activity, temp,
-                    Toast.LENGTH_LONG).show();
+//            Toast.makeText(activity, temp,
+//                    Toast.LENGTH_LONG).show();
             return;
         }
 

@@ -28,13 +28,12 @@ import org.json.JSONObject;
 import java.io.InputStream;
 
 
-public class Mypage2Fragment extends Fragment implements Main2Activity.OnBackPressedListener{
+public class Mypage2Fragment extends Fragment implements Main2Activity.OnBackPressedListener {
 
     static Context mContext = null;
     final static String TAG = "AndroidNodeJS";
 
     Variable variable = Variable.getInstance();
-
 
 
     public Mypage2Fragment() {
@@ -44,6 +43,22 @@ public class Mypage2Fragment extends Fragment implements Main2Activity.OnBackPre
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        JSONObject postDataParam = new JSONObject();
+
+        try {
+            postDataParam.put("userID", variable.getUserID());
+        } catch (JSONException e) {
+            Log.e("태그", "JSONEXception");
+        }
+        new MypageInsertData(Main2Activity.mActivity).execute(postDataParam);
+        //여기에 값을 받아오는 메소드를 추가
 
 
     }
@@ -71,7 +86,7 @@ public class Mypage2Fragment extends Fragment implements Main2Activity.OnBackPre
 
         new DownloadImageTask((ImageView) mypage2fragment.findViewById(R.id.Mypage2_userPicture))
                 .execute(variable.getUserPicture());
-        Log.e("수정후",variable.getUserPicture());
+        Log.e("수정후", variable.getUserPicture());
 
         tutorregister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,11 +135,17 @@ public class Mypage2Fragment extends Fragment implements Main2Activity.OnBackPre
                             Toast.LENGTH_LONG).show();
                 } else{
 
+<<<<<<< HEAD
                     
                     new GetParticipation(getActivity()).execute();
+=======
+
+                    new GetParticipateDatamore(getActivity()).execute();
+>>>>>>> parent of d98f3db... Revert "포인트 추가"
 
                 }
-*/      new GetParticipation(getActivity()).execute();
+*/
+                new GetParticipation(getActivity()).execute();
             }
         });
 
@@ -135,10 +156,10 @@ public class Mypage2Fragment extends Fragment implements Main2Activity.OnBackPre
                 // 여기서 이동이 아니라 해도되는데 값 받아오는걸로
                 // 오퍼레ㅣ트클래스인서트로 userID값을 보내면 서버에서 tutorID에 맞는 정보들을 이제 줌
 
-                if(variable.getUserIdentity().equals("Tutee")){
+                if (variable.getUserIdentity().equals("Tutee")) {
                     Toast.makeText(getActivity(), "튜티는 들어갈 수 없습니다.",
                             Toast.LENGTH_LONG).show();
-                } else{
+                } else {
                     JSONObject postDataParam = new JSONObject();
                     try {
                         postDataParam.put("ClassTutorID", variable.getUserID());
@@ -176,8 +197,6 @@ public class Mypage2Fragment extends Fragment implements Main2Activity.OnBackPre
                 variable.setCookies("");  // 나중에 이거 쿠키가 가지고있는 토큰도 쉐어드 프레퍼런스로 만들기
             }
         });
-
-
 
 
         // Inflate the layout for this fragment
@@ -236,8 +255,6 @@ public class Mypage2Fragment extends Fragment implements Main2Activity.OnBackPre
             bmImage.setImageBitmap(result);
         }
     }
-
-
 
 
 }
