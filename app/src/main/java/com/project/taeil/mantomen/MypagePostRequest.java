@@ -1,10 +1,12 @@
 package com.project.taeil.mantomen;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -19,12 +21,13 @@ import java.util.Iterator;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class ClassApplyPostRequest extends AsyncTask<JSONObject, Void, String> {
+public class MypagePostRequest extends AsyncTask<JSONObject, Void, String> {
     Activity activity;
     URL url;
     Variable variable;
-    VariableOfClass variableOfClass;
-    public ClassApplyPostRequest(Activity activity) {
+
+
+    public MypagePostRequest(Activity activity) {
         this.activity = activity;
     }
 
@@ -34,15 +37,17 @@ public class ClassApplyPostRequest extends AsyncTask<JSONObject, Void, String> {
 
         try {
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+
             conn.setReadTimeout(10000 /* milliseconds */);
             conn.setConnectTimeout(10000 /* milliseconds */);
             conn.setRequestMethod("POST");
+//            conn.setRequestProperty("Content-Type", "application/json");//application JSON 형식으로 전송
+//            conn.setRequestProperty("Accept", "text/html");//서버에 response 데이터를 html로 받음
             String cookieString = variable.getCookies();   // 헤더에 로그인 토큰값 첨가
             if (cookieString != null) {
                 conn.setRequestProperty("cookie", cookieString);
             }
-//            conn.setRequestProperty("Content-Type", "application/json");//application JSON 형식으로 전송
-//            conn.setRequestProperty("Accept", "text/html");//서버에 response 데이터를 html로 받음
             conn.setDoInput(true);
             conn.setDoOutput(true);
 
@@ -87,24 +92,33 @@ public class ClassApplyPostRequest extends AsyncTask<JSONObject, Void, String> {
     @Override
     protected void onPostExecute(String result) {
 
+        variable = Variable.getInstance();
         super.onPostExecute(result);
         String temp;
+        String message1 = "회원정보수정실패!";
+        String message2 = "회원정보수정성공!";
         temp = result.trim();
 
-        if(temp.equals("1")){
-            Toast.makeText(activity, "신청에 성공했습니다.",
-                    Toast.LENGTH_LONG).show();
-
-            activity.finish();
-
-        }
-
-        else {   // 각종 오류
-            Toast.makeText(activity, temp,
-                    Toast.LENGTH_LONG).show();
-            return;
-        }
-
+//
+//        if (temp == null || temp.equals("0")) {
+//            Toast.makeText(activity, message1,
+//                    Toast.LENGTH_LONG).show();
+//            return;
+//        } else if (temp.equals("1")) {
+//            Toast.makeText(activity, message2,
+//                    Toast.LENGTH_LONG).show();
+//
+//            MemberModifyActivity.mContext = activity;
+//
+////            String userID = variable.getUserID();
+////            String userPassword = variable.getUserPassword();
+//            Intent GoToLoginintent = new Intent((MemberModifyActivity.mContext), LoginActivity.class); //메인액티비티로 보내는 인텐트
+//            ((MemberModifyActivity) MemberModifyActivity.mContext).startActivity(GoToLoginintent);
+//            // GoToLoginintent.putExtra("userID", userID);
+//            ((MemberModifyActivity) MemberModifyActivity.mContext).overridePendingTransition(0, 0);  //화면전환효과 없애기
+//
+//
+//        }
 
     }
 
@@ -112,13 +126,23 @@ public class ClassApplyPostRequest extends AsyncTask<JSONObject, Void, String> {
 
         StringBuilder result = new StringBuilder();
         boolean first = true;
+        variable = Variable.getInstance();
 
         Iterator<String> itr = params.keys();
+
 
         while (itr.hasNext()) {
 
             String key = itr.next();
             Object value = params.get(key);
+
+            if (key.equals("userPicture"))
+                variable.setUserPicture(value.toString());
+            if (key.equals("userID"))
+                variable.setUserID(value.toString());
+            if (key.equals("userPassword"))
+                variable.setUserPassword(value.toString());
+
 
             if (first)
                 first = false;
@@ -132,4 +156,37 @@ public class ClassApplyPostRequest extends AsyncTask<JSONObject, Void, String> {
         }
         return result.toString();
     }
+
+    private void SbExtraction(StringBuffer sb) {
+
+        String SB = sb.toString(); //일단 String버퍼를 스트링 형식으로 변형
+
+        try {
+//            JSONArray jsonArray = new JSONArray(SB);
+//            JSONObject jsonObject = (JSONObject) jsonArray.get(0);
+            JSONObject jsonObject = new JSONObject(SB);
+
+            variable.setUserPicture(jsonObject.getString("userPicture"));
+            variable.setUserID(jsonObject.getString("userID"));
+            variable.setUserPassword(jsonObject.getString("userPassword"));
+            variable.setUserEmail(jsonObject.getString("userEmail"));
+            variable.setUserName(jsonObject.getString("userName"));
+            variable.setUserAge(jsonObject.getString("userAge"));
+            variable.setUserGender(jsonObject.getString("userGender"));
+            variable.setUserCategory(jsonObject.getString("userCategory"));
+            variable.setUserIdentity(jsonObject.getString("userIdentity"));
+            variable.setUserParticipateClass(jsonObject.getString("userParticipateClass"));
+            variable.setUserOperateClass(jsonObject.getString("userOperateClass"));
+            variable.setUserPhoneNumber(jsonObject.getString("userPhoneNumber"));
+
+            variable.setUserPoint(Integer.parseInt(jsonObject.getString("userPoint")));  // 포인트 받는 부분
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+
 }

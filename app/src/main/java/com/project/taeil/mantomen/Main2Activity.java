@@ -24,6 +24,9 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import com.project.taeil.mantomen.R;
 import com.project.taeil.mantomen.firebase.UserData;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class Main2Activity extends AppCompatActivity {
 
     static Context mContext = null;
@@ -175,19 +178,27 @@ public class Main2Activity extends AppCompatActivity {
             fragmentTransaction.replace(R.id.fragment, searchFragment);
         else if (id == 2)
             fragmentTransaction.replace(R.id.fragment, chatFragment);
-        else if (id == 3)
+        else if (id == 3) {
+            JSONObject postDataParam = new JSONObject();
+            try {
+                postDataParam.put("userID", variable.getUserID());
+            } catch (JSONException e) {
+                Log.e("태그", "JSONEXception");
+            }
+            new MypageInsertData(this).execute(postDataParam);
             //여기에 값을 받아오는 메소드를 추가
             fragmentTransaction.replace(R.id.fragment, mypage2Fragment); //마이페이지2로연결
-        else if (id == 4)
+        } else if (id == 4) {
             fragmentTransaction.replace(R.id.fragment, mypageFragment); //마이페이지1로연결
+        }
         fragmentTransaction.commit();
     }
 
-    void passPushTokenToServer(){
+    void passPushTokenToServer() {
         String uid = Variable.getUserID();
         String token = FirebaseInstanceId.getInstance().getToken();
         UserData userData = new UserData();
-        userData.users.put("pushToken",token);
+        userData.users.put("pushToken", token);
         FirebaseDatabase.getInstance().getReference().child("users").child(uid).updateChildren(userData.users);
     }
 
