@@ -60,7 +60,6 @@ public class GetData extends GetRequest {
             ArrayList<AllClass> arrayList = getArrayListFromJSONString(jsonString); //전체를 저장해야하니까
             variableOfClass.setAllClass(arrayList);  //
             // Log.d("어레이", arrayList.get(0).getClassCategory());
-
         }
 
 

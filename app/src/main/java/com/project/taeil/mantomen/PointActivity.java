@@ -84,8 +84,11 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
         Point = findViewById(R.id.point2);
 
 
+//        String str = String.format("%,d", price);
+//        ClassPrice.setText('\uFFE6'+ str); // 가격
 
-        String str = String.format("%,d", Integer.toString(variable.getUserPoint()));
+        //int price = Integer.parseInt(AllClass.get(i).getClassPrice());  // 인트형으로 바꾼후에
+        String str = String.format("%,d", variable.getUserPoint());
         Point.setText(str);
 //        Point.setText(Integer.toString(variable.getUserPoint()));
 
