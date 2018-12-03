@@ -8,7 +8,11 @@
     android:orientation="vertical"
     android:background="@color/white">
 
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_weight="1">
     <TextView
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -45,7 +49,7 @@
             android:layout_marginBottom="8dp"
             android:gravity="bottom|left"
             android:text="수업 제목"
-            android:textSize="17dp"
+            android:textSize="15dp"
             android:textColor="@color/black"
             android:background="@color/white"/>
 
@@ -70,7 +74,7 @@
             android:maxLines="1"
             android:inputType="text"
             android:imeOptions="actionNext"
-            android:textSize="15dp" />
+            android:textSize="13dp" />
     </LinearLayout>
 
 
@@ -97,7 +101,7 @@
             android:layout_marginBottom="8dp"
             android:gravity="bottom|left"
             android:text="카테고리"
-            android:textSize="17dp"
+            android:textSize="15dp"
             android:textColor="@color/black"
             android:background="@color/white"/>
 
@@ -118,7 +122,7 @@
             android:layout_height="50dp"
             android:layout_margin="8dp"
             android:background="@color/white"
-            android:textSize="15dp"
+            android:textSize="13dp"
             android:entries="@array/category"/>
 
 
@@ -140,7 +144,7 @@
             android:layout_marginBottom="8dp"
             android:gravity="bottom|left"
             android:text="모집 인원"
-            android:textSize="17dp"
+            android:textSize="15dp"
             android:textColor="@color/black"
             android:background="@color/white"/>
 
@@ -161,7 +165,7 @@
             android:layout_height="50dp"
             android:layout_margin="8dp"
             android:background="@color/white"
-            android:textSize="15dp"
+            android:textSize="13dp"
             android:entries="@array/totalpeople"/>
     </LinearLayout>
 
@@ -182,7 +186,7 @@
             android:layout_marginBottom="8dp"
             android:gravity="bottom|left"
             android:text="강의 사진"
-            android:textSize="17dp"
+            android:textSize="15dp"
             android:textColor="@color/black"
             android:background="@color/white"/>
 
@@ -208,6 +212,10 @@
         android:textColor="@color/pink2"
         android:text="사진선택"
         android:gravity="center"/>
+
+</LinearLayout>
+
+
 
     <LinearLayout
         android:layout_marginTop="30dp"

@@ -58,7 +58,7 @@ public class MemberModifyActivity extends AppCompatActivity {
     TextView UserName2;
     EditText UserPassword;
     TextView UserEmail;
-    EditText UserGender;
+    Spinner UserGender;
     TextView UserName;
     Spinner UserAge;
     TextView UserIdentity;
@@ -110,7 +110,7 @@ public class MemberModifyActivity extends AppCompatActivity {
         UserID.setText(variable.getUserID());
         // UserPassword.setText(variable.getUserPassword());
         UserEmail.setText(variable.getUserEmail());
-        UserGender.setText(variable.getUserGender());
+        //UserGender.setText(variable.getUserGender());
         //UserName.setText(variable.getUserName());
         UserName2.setText(variable.getUserName());
         // UserAge.setText(variable.getUserAge());
@@ -195,6 +195,7 @@ public class MemberModifyActivity extends AppCompatActivity {
                 String userPassword = UserPassword.getText().toString();
                 String userName = UserName.getText().toString();
                 String userAge = UserAge.getSelectedItem().toString();
+                String userGender = UserGender.getSelectedItem().toString();
 
 
 //                Variable.setUserCN(String.valueOf(UserCN.getText()));
@@ -213,7 +214,7 @@ public class MemberModifyActivity extends AppCompatActivity {
                     postDataParam.put("userEmail", variable.getUserEmail());
                     postDataParam.put("userName", userName);
                     postDataParam.put("userAge", userAge);
-                    postDataParam.put("userGender", variable.getUserGender());
+                    postDataParam.put("userGender", userGender);
                     postDataParam.put("userCategory", userCategory);
                     postDataParam.put("userIdentity", variable.getUserIdentity());
                     postDataParam.put("userParticipateClass", variable.getUserParticipateClass());
