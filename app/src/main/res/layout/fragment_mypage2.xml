@@ -178,6 +178,34 @@
         </LinearLayout>
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingRight="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:gravity="left|center"
+                android:text="도움말"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/Mypage2_Help"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@color/white"
+                android:text="&gt;" />
+
+        </LinearLayout>
+
+
     </LinearLayout>
 
 

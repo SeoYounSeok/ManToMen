@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -78,11 +79,23 @@ public class Mypage2Fragment extends Fragment implements Main2Activity.OnBackPre
 
         Button pointbuy = mypage2fragment.findViewById(R.id.Mypage2_BuyPoint);
 
+        Button help = mypage2fragment.findViewById(R.id.Mypage2_Help);
+
         TextView userID = mypage2fragment.findViewById(R.id.Mypage2_userID);
 
         // ImageView userPicture = getActivity().findViewById(R.id.Mypage2_userPicture); // 유저사진
 
         userID.setText(variable.getUserID());
+
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(variable.HttpAddres +"/chatbot"));
+                startActivity(intent);
+
+            }
+        });
 
         new DownloadImageTask((ImageView) mypage2fragment.findViewById(R.id.Mypage2_userPicture))
                 .execute(variable.getUserPicture());

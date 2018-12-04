@@ -47,10 +47,11 @@ public class ChattingRoomActivity extends AppCompatActivity {
     VariableOfClass variableOfClass;
 
     private String uid; //채팅하는 ID
-    private  String chatRoomUid= null;
+    private String chatRoomUid = null;
     private String destinatonUid; //채팅 당하는 ID
     private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy.MM.dd HH:mm");
     public UserData user;
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -66,9 +67,9 @@ public class ChattingRoomActivity extends AppCompatActivity {
         // mSocket = MyService.getmSocket();  // 소켓생성
 
         uid = Variable.getUserID();
-        if(getIntent().getStringExtra("destinationUid")==null){
+        if (getIntent().getStringExtra("destinationUid") == null) {
             destinatonUid = VariableOfClass.getClassTutorID();
-        }else{
+        } else {
             destinatonUid = getIntent().getStringExtra("destinationUid");
         }
         recyclerView = findViewById(R.id.recyclerView);
@@ -84,10 +85,10 @@ public class ChattingRoomActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ChatModel chatModel = new ChatModel();
-                chatModel.users.put(uid,true);
-                chatModel.users.put(destinatonUid,true);
+                chatModel.users.put(uid, true);
+                chatModel.users.put(destinatonUid, true);
 
-                if(chatRoomUid == null){
+                if (chatRoomUid == null) {  // 챗룸없으면 만들어라이건데
                     sendbutton.setEnabled(false);
                     FirebaseDatabase.getInstance().getReference().child("chatrooms").push().setValue(chatModel).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
@@ -95,8 +96,7 @@ public class ChattingRoomActivity extends AppCompatActivity {
                             checkChatRoom();
                         }
                     });
-                }
-                else{
+                } else {  // 챗룸이있으면 코멘트 추가지
                     ChatModel.Comment comment = new ChatModel.Comment();
                     comment.uid = uid;
                     comment.message = editText.getText().toString();
@@ -135,13 +135,16 @@ public class ChattingRoomActivity extends AppCompatActivity {
     }
 
 
-
     void checkChatRoom() {
 
-        FirebaseDatabase.getInstance().getReference().child("chatrooms").orderByChild("users/"+uid).equalTo(true).addListenerForSingleValueEvent(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference().child("chatrooms").orderByChild("users/" + uid).equalTo(true).addListenerForSingleValueEvent(new ValueEventListener() {
+            // 챗룸에 users에 uid가 true면 이 add싱글밸류 이벤트를 한다는 내용이겠지 ㅇㅇ
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.getValue() == null){
+            public void onDataChange(DataSnapshot dataSnapshot) {  // ondata체인지는 데이터가 체인지 되면 호출되는 메소드야
+
+
+                if (dataSnapshot.getValue() == null) {  // 이때 데이터 스냅샷.getValue가널이야 즉 uid로 된게 없으면 이야  없으면 챗룸을 만드는 거지
+                    Log.d("채팅", "채팅방 생성");
                     ChatModel newRoom = new ChatModel();
                     newRoom.users.put(uid, true);
                     newRoom.users.put(destinatonUid, true);
@@ -154,9 +157,12 @@ public class ChattingRoomActivity extends AppCompatActivity {
                     return;
                 }
 
-                for (DataSnapshot item: dataSnapshot.getChildren()){
-                    ChatModel chatModel =item.getValue(ChatModel.class);
-                    if(chatModel.users.containsKey(destinatonUid) && chatModel.users.size() == 2){
+
+                for (DataSnapshot item : dataSnapshot.getChildren()) {
+                    ChatModel chatModel = item.getValue(ChatModel.class);
+                    if (chatModel.users.containsKey(destinatonUid) && chatModel.users.size() == 2) { // users에 데스티네이션uid키가 있거나 사이즈가 2일때
+                        Log.d("채팅", "사이즈 2일때");
+                        Log.d("채팅", String.valueOf(chatModel.users.containsKey(destinatonUid)));
                         chatRoomUid = item.getKey();
                         sendbutton.setEnabled(true);
                         recyclerView.setLayoutManager(new LinearLayoutManager(ChattingRoomActivity.this));
@@ -200,19 +206,21 @@ public class ChattingRoomActivity extends AppCompatActivity {
 //            });
 //        }
 //    };
-    class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+    class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
         List<ChatModel.Comment> comments;
+
         public RecyclerViewAdapter() {
             comments = new ArrayList<>();
             getMessageList();
         }
-        void getMessageList(){
+
+        void getMessageList() {
             FirebaseDatabase.getInstance().getReference().child("chatrooms").child(chatRoomUid).child("comments").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     comments.clear();
-                    for(DataSnapshot item : dataSnapshot.getChildren()){
+                    for (DataSnapshot item : dataSnapshot.getChildren()) {
                         comments.add(item.getValue(ChatModel.Comment.class));
                     }
                     notifyDataSetChanged();
@@ -229,20 +237,20 @@ public class ChattingRoomActivity extends AppCompatActivity {
         @NonNull
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-            View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_message,viewGroup,false);
+            View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_message, viewGroup, false);
             return new MessageViewHolder(view);
         }
 
         @Override
         public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-            MessageViewHolder messageViewHolder = ((MessageViewHolder)viewHolder);
-            if(comments.get(i).uid.equals(uid)){
-                ((MessageViewHolder)viewHolder).textView_message.setText(comments.get(i).message);
+            MessageViewHolder messageViewHolder = ((MessageViewHolder) viewHolder);
+            if (comments.get(i).uid.equals(uid)) {
+                ((MessageViewHolder) viewHolder).textView_message.setText(comments.get(i).message);
                 messageViewHolder.textView_message.setBackgroundResource(R.drawable.in_message_bg);
                 messageViewHolder.textView_message.setTextSize(15);
                 messageViewHolder.linearLayout_destination.setVisibility(View.INVISIBLE);
                 messageViewHolder.linearLayout_main.setGravity(Gravity.RIGHT);
-            }else{
+            } else {
                 messageViewHolder.textView_name.setText(destinatonUid);
                 messageViewHolder.linearLayout_destination.setVisibility(View.VISIBLE);
                 messageViewHolder.textView_message.setBackgroundResource(R.drawable.out_message_bg);
@@ -268,6 +276,7 @@ public class ChattingRoomActivity extends AppCompatActivity {
             public TextView textView_name;
             public LinearLayout linearLayout_destination;
             public TextView textView_timestamp;
+
             public MessageViewHolder(View view) {
                 super(view);
                 textView_message = view.findViewById(R.id.messageItem_textView_message);
@@ -287,12 +296,12 @@ public class ChattingRoomActivity extends AppCompatActivity {
             @Override
             public void onDataChange(final DataSnapshot dataSnapshot) {
 
-                FirebaseDatabase.getInstance().getReference().child("users/"+destinatonUid).addListenerForSingleValueEvent(new ValueEventListener() {
+                FirebaseDatabase.getInstance().getReference().child("users/" + destinatonUid).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        for (DataSnapshot item: dataSnapshot.getChildren()) {
+                        for (DataSnapshot item : dataSnapshot.getChildren()) {
                             Token = item.getValue().toString().trim();
-                            Log.d("body",Token);
+                            Log.d("body", Token);
                         }
                     }
 
@@ -311,7 +320,7 @@ public class ChattingRoomActivity extends AppCompatActivity {
                             notification.put("body", messagetext);
                             notification.put("title", getString(R.string.app_name));
                             root.put("notification", notification);
-                            root.put("to",Token);
+                            root.put("to", Token);
                             // FMC 메시지 생성 end
 
                             URL Url = new URL(FCM_MESSAGE_URL);
