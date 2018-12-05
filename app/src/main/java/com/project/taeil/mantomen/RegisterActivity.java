@@ -164,7 +164,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String userCategory = "";
 
                 if (Checkbox1.isChecked())
-                    userCategory = "programing//";
+                    userCategory = "programming//";
                 if (Checkbox2.isChecked())
                     userCategory += "design//";
                 if (Checkbox3.isChecked())

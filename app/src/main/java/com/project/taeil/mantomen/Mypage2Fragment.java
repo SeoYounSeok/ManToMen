@@ -91,7 +91,7 @@ public class Mypage2Fragment extends Fragment implements Main2Activity.OnBackPre
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(variable.HttpAddres +"/chatbot"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(variable.HttpAddres +"/#/chatbot"));
                 startActivity(intent);
 
             }

@@ -147,7 +147,7 @@ public class MemberModifyActivity extends AppCompatActivity {
         });
 
 
-        if (variable.getUserCategory().matches(".*Programing.*")) {
+        if (variable.getUserCategory().matches(".*Programming.*")) {
             Checkbox1.setChecked(true);
 
         }
@@ -179,7 +179,7 @@ public class MemberModifyActivity extends AppCompatActivity {
                 String userCategory = "";
 
                 if (Checkbox1.isChecked())
-                    userCategory = "Programing//";
+                    userCategory = "Programming//";
                 if (Checkbox2.isChecked())
                     userCategory += "Design//";
                 if (Checkbox3.isChecked())
