@@ -1,6 +1,7 @@
 package com.project.taeil.mantomen;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -14,6 +15,8 @@ public class AuthInsertData extends AuthPostRequest { //레지스터
     @Override
     protected void onPreExecute() {
 //      EditText server = activity.findViewById(R.id.server);
+
+
 
         String serverURLStr = Variable.HttpAddres;  //민영이 서버
         try {

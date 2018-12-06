@@ -1,5 +1,6 @@
 package com.project.taeil.mantomen;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -51,6 +52,7 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
     Fragment cur_fragment = new Fragment();
     private PurchaseHeartsAdapter skusAdapter;
 
+//    static ProgressDialog LoadingDialog;
 
     private BillingProcessor bp;
     public static ArrayList<SkuDetails> products = new ArrayList<SkuDetails>();
@@ -64,6 +66,8 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_point);
+
+
 
         new DownloadImageTask((ImageView) findViewById(R.id.PointActivity_UserPicture))
                 .execute(variable.getUserPicture());
@@ -91,9 +95,6 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
         String str = String.format("%,d", variable.getUserPoint());
         Point.setText(str);
 //        Point.setText(Integer.toString(variable.getUserPoint()));
-
-
-
 
 
         Log.e("포인트확인", Integer.toString(variable.getUserPoint()));
@@ -159,7 +160,7 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if (!bp.handleActivityResult(requestCode, resultCode, data)){
+        if (!bp.handleActivityResult(requestCode, resultCode, data)) {
             super.onActivityResult(requestCode, resultCode, data);
             finish();
 
@@ -276,9 +277,20 @@ public class PointActivity extends AppCompatActivity implements BillingProcessor
 
 
     public void purchaseProduct(final String productId) {
+
         Log.e("스쿠절차", "purchaseProduct");
+
+//        LoadingDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+//        LoadingDialog.setMessage("로딩중입니다..");
+//
+//        // show dialog
+//        LoadingDialog.show();
+
+
         bp.consumePurchase(productId);
         bp.purchase(this, productId);  // 이게 그거랬음 띄우는거! 구매절차 띄우는거 그니까 저 프로덕트 아이디에 맞는거를 줘야함
+
+        //LoadingDialog.dismiss();
     }
 
     private class InAppPurchaseItems {

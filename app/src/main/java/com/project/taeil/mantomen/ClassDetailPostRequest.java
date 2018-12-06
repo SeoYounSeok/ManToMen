@@ -1,6 +1,7 @@
 package com.project.taeil.mantomen;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -31,7 +32,6 @@ public class ClassDetailPostRequest extends AsyncTask<JSONObject, Void, String> 
     public ClassDetailPostRequest(Activity activity) {
         this.activity = activity;
     }
-
 
     @Override
     protected String doInBackground(JSONObject... postDataParams) {
@@ -97,6 +97,12 @@ public class ClassDetailPostRequest extends AsyncTask<JSONObject, Void, String> 
 
     @Override
     protected void onPostExecute(String result) {
+        if (Main2Activity.loading) {
+            ClassDetailInsertData.LoadingDialog.dismiss();
+        } else{
+            CategoryActivity.LoadingDialog2.dismiss();
+        }
+
         super.onPostExecute(result);
         //Log.d("파람스3", result);
         String temp;

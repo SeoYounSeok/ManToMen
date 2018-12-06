@@ -1,5 +1,7 @@
 package com.project.taeil.mantomen;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,15 +22,23 @@ public class CategoryActivity extends AppCompatActivity {
     AllClassListAdapter allClassListAdapter;
     List<AllClass> AllClassList;  //리스트뷰와 어댑터 초기화
     static String ClassName = "";
-
+//    static Activity mActivity;
+    static ProgressDialog LoadingDialog2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
 
+         LoadingDialog2 = new ProgressDialog(CategoryActivity.this);
+
+
         ListView fitlistView2 = findViewById(R.id.Fitlistview2);   // 핏뷰2
-       // TextView value = findViewById(R.id.CategroyActivity_value);   // 검색했던 거
+        // TextView value = findViewById(R.id.CategroyActivity_value);   // 검색했던 거
         //value.setText(SearchFragment.SelectedCategory);
+
+        Main2Activity.loading = false;
+
+        //mActivity = this;
 
         if (variableOfClass.getAllClass().size() == 0) {
 

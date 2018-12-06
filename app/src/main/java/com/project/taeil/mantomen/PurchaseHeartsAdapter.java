@@ -1,5 +1,6 @@
 package com.project.taeil.mantomen;
 
+import android.app.ProgressDialog;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.app.Activity;
@@ -67,7 +68,15 @@ public class PurchaseHeartsAdapter extends BaseAdapter {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//                PointActivity.LoadingDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+//                PointActivity.LoadingDialog.setMessage("로딩중입니다..");
+//
+//                // show dialog
+//                PointActivity.LoadingDialog.show();
+
                 activity.purchaseProduct(sku.productId);
+
+
             }
         });
 

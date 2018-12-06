@@ -40,7 +40,7 @@ public class Main2Activity extends AppCompatActivity {
 
     static int FRAGE_KEY = 0;
 
-
+    public static boolean loading;
     private long time = 0;
 
 
@@ -205,6 +205,7 @@ public class Main2Activity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        loading = true;
         new GetData(Main2Activity.this).execute();  // 클래스 정보를 죄다 받아오는거
         //homeFragment.allClassListAdapter.upDateItemList(variableOfClass.getAllClass());
 //        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
