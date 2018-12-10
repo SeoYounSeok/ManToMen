@@ -9,9 +9,7 @@ import java.net.URL;
 
 public class ClassDetailInsertData extends ClassDetailPostRequest { //로그인할때 쓰는거 값을 받고 받아오는걸로 로그인함
 
-    static ProgressDialog LoadingDialog = new ProgressDialog(
-            Main2Activity.mActivity);
-
+    static ProgressDialog LoadingDialog;
 
 
     public ClassDetailInsertData(Activity activity) {
@@ -20,18 +18,27 @@ public class ClassDetailInsertData extends ClassDetailPostRequest { //로그인�
 
     @Override
     protected void onPreExecute() {
+
+        LoadingDialog = new ProgressDialog(Main2Activity.mActivity);
+
         if (Main2Activity.loading) {
             LoadingDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
             LoadingDialog.setMessage("로딩중입니다..");
 
             // show dialog
-            LoadingDialog.show();
-        } else{
+            if (!Main2Activity.mActivity.isFinishing()) {
+                LoadingDialog.show();
+            }
+
+        } else {
             CategoryActivity.LoadingDialog2.setProgressStyle(ProgressDialog.STYLE_SPINNER);
             CategoryActivity.LoadingDialog2.setMessage("로딩중입니다..");
 
             // show dialog
-            CategoryActivity.LoadingDialog2.show();
+            if (!Main2Activity.mActivity.isFinishing()) {
+                CategoryActivity.LoadingDialog2.show();
+            }
+
         }
 
 //      EditText server = activity.findViewById(R.id.server);

@@ -97,6 +97,10 @@ public class ClassDetailPostRequest extends AsyncTask<JSONObject, Void, String> 
 
     @Override
     protected void onPostExecute(String result) {
+
+
+
+
         if (Main2Activity.loading) {
             ClassDetailInsertData.LoadingDialog.dismiss();
         } else{
