@@ -3,154 +3,169 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.project.taeil.mantomen.NecessaryInfoFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context="com.project.taeil.mantomen.NecessaryInfoFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:gravity="center"
-        android:background="@drawable/border">
+        android:background="@drawable/border"
+        android:gravity="center">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="가입에 필요한 필수 확인 정보를 입력해 주세요"/>
+            android:text="가입에 필요한 필수 확인 정보를 입력해 주세요"
+            android:textColor="@color/black" />
 
     </LinearLayout>
 
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@color/white"
         android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:background="@color/white"
+            android:gravity="left|center"
+            android:text="기본정보"
+            android:textColor="@color/black" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:background="@color/white">
+            android:layout_height="55dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="3dp"
+            android:background="@drawable/border2">
 
             <TextView
+                android:id="@+id/TutorRegister0_ID"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@color/white"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
                 android:gravity="left|center"
-                android:text="기본정보"/>
 
+                android:text="아이디" />
+        </LinearLayout>
 
-            <LinearLayout
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="3dp"
+            android:background="@drawable/border2">
+
+            <TextView
+                android:id="@+id/TutorRegister0_PhoneNumber"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:background="@drawable/border2"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="3dp">
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:gravity="center|left"
+                android:hint="전화번호" />
+        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/TutorRegister0_ID"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="8dp"
-                    android:gravity="left|center"
-                    android:text="아이디"/>
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:background="@drawable/border2"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="3dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="3dp"
+            android:background="@drawable/border2"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/TutorRegister0_PhoneNumber"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="8dp"
-                    android:gravity="center|left"
-                    android:hint="전화번호"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <EditText
+                android:id="@+id/TutorRegister0_InputPhoneNumber"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
-
-                <EditText
-                    android:id="@+id/TutorRegister0_InputPhoneNumber"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:hint="전화번호를 입력해주세요"
-                    android:textSize="13dp"
-                    android:inputType="number"
-                    android:maxLines="1"/>
-
-                <Button
-                    android:id="@+id/TutorRegister0_Sendnumber"
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content"
-                    android:text="인증번호 보내기"
-                    android:textSize="10dp"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
-
-                <EditText
-                    android:id="@+id/TutorRegister0_AuthNumber"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:hint="인증번호를 입력해주세요"
-                    android:textSize="13dp"
-                    android:inputType="number"
-                    android:maxLines="1"/>
-
-                <Button
-                    android:id="@+id/TutorRegister0_InsertAuth"
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content"
-                    android:text="인증하기"
-                    android:textSize="10dp"/>
-
-            </LinearLayout>
-
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_margin="8dp"
                 android:layout_weight="1"
+                android:hint="전화번호를 입력해주세요"
+                android:inputType="number"
+                android:maxLines="1"
+                android:textSize="13dp" />
+
+            <Button
+                android:id="@+id/TutorRegister0_Sendnumber"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center">
+                android:layout_margin="10dp"
+                android:background="@drawable/border2"
+                android:text="인 증"
+                android:textColor="@color/pink"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
-                <Button
-                    android:id="@+id/TutorRegister0_nextbutton"
+        </LinearLayout>
 
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:text="다 음"
-                    android:textColor="@color/white"
-                    android:background="@drawable/rounded">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="3dp"
+            android:background="@drawable/border2"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-                </Button>
+            <EditText
+                android:id="@+id/TutorRegister0_AuthNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:hint="인증번호를 입력해주세요"
+                android:inputType="number"
+                android:maxLines="1"
+                android:textSize="13dp" />
 
-            </LinearLayout>
-
+            <Button
+                android:id="@+id/TutorRegister0_InsertAuth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/border2"
+                android:text="확 인"
+                android:textColor="@color/pink"
+                android:textSize="10dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/TutorRegister0_nextbutton"
+
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rounded"
+            android:text="다 음"
+            android:textColor="@color/white">
+
+        </Button>
+
+    </LinearLayout>
 
 
 </LinearLayout>

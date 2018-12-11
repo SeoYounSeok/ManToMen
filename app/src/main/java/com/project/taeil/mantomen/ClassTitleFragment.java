@@ -50,7 +50,7 @@ public class ClassTitleFragment extends Fragment {
     String getImgURL = "";
     String getImgName = "";
     boolean pictureflag = false;
-
+    ImageView ClassPicture;
     public ClassTitleFragment() {
         // Required empty public constructor
     }
@@ -70,12 +70,15 @@ public class ClassTitleFragment extends Fragment {
         final Button previousbutton = classtitlefragment.findViewById(R.id.TutorRegister1_Previous); // 이전
         final Button nextbutton = classtitlefragment.findViewById(R.id.TutorRegister1_Next); // 다음
         final EditText ClassName = classtitlefragment.findViewById(R.id.TutorRegister1_ClassName);
-        final ImageView ClassPicture = classtitlefragment.findViewById(R.id.TutorRegister1_ClassPicture);
+        ClassPicture = classtitlefragment.findViewById(R.id.TutorRegister1_ClassPicture);
         final Spinner ClassCategory = classtitlefragment.findViewById(R.id.TutorRegister1_ClassCategory);  // 스피너 누를 때 다이얼로그창이 뜨면서 카테고리선택
         final Spinner ClassTotalPeople = classtitlefragment.findViewById(R.id.TutorRegister1_ClassTotalPeople);
 
 
         final Button selectpicture = classtitlefragment.findViewById(R.id.TutorRegister1_SelectPrictureButton);  // 셀릭트 버튼
+
+        ClassPicture.setVisibility(View.GONE);
+
 
         selectpicture.setOnClickListener(new View.OnClickListener() {  // 사진선택 버튼
             @Override
@@ -125,6 +128,7 @@ public class ClassTitleFragment extends Fragment {
 
     // 선택된 이미지 가져오기
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        ClassPicture.setVisibility(View.VISIBLE);
 //        Toast.makeText(getBaseContext(), "resultCode : "+resultCode,Toast.LENGTH_SHORT).show();
 
         if (requestCode == REQ_CODE_SELECT_IMAGE) {

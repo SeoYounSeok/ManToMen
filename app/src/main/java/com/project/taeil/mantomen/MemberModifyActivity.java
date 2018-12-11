@@ -70,7 +70,7 @@ public class MemberModifyActivity extends AppCompatActivity {
     CheckBox Checkbox6;
     ImageView UserPicture;
 
-    boolean picturecheck = false;
+    boolean picturecheck;
 
     ProgressDialog asyncDialog;
     String getServerURL = variable.HttpAddres;  //민영이 서버
