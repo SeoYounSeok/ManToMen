@@ -86,6 +86,8 @@ public class TutorRegisterPostRequest extends AsyncTask<JSONObject, Void, String
     @Override
     protected void onPostExecute(String result) {
 
+        TutorRegisterInsertData.LoadingDialog.dismiss();
+
         super.onPostExecute(result);
         String temp;
         temp = result.trim();
