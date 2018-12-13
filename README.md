@@ -96,3 +96,6 @@ Install MongoDB Community Edition on Ubuntu
   - 구글 플레이스토어에서 라이센스키를 찾아 PointActivity클래스의 license 변수 안에 넣어줍니다.
   - 플레이스토어에 인앱상품을 등록해 두고 PointActivity클래스에 Products Arraylist에 인앱상품 ID들을 add해줍니다.
   - 마지막으로 어플 출시 후 알파버전(비공개 테스트)으로 출시했다면 테스터목록에 테스터들의 구글 계정을 추가하여 초대 메시지로 어플을 다운받게 합니다.
+
+
+### 1)  사전준비
