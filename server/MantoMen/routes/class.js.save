@@ -1,0 +1,48 @@
+var express = require('express');
+var router = express.Router();
+var Class = require('../models/class.js');
+
+router.post('/push', function(req, res, next) {
+    var s = JSON.stringify(req.body.ClassReview);
+    var
+    var newClass = new Class();
+    newClass.ClassName = req.body.ClassName;
+    newClass.ClassTutorID = req.body.ClassTutorID;
+    newClass.ClassTuteeID = req.body.ClassTuteeID;
+    newClass.ClassCategory = req.body.ClassCategory;
+    newClass.ClassCurrentPeople = req.body.ClassCurrentPeople;
+    newClass.ClassRPeriod = req.body.ClassRPeriod;
+    newClass.ClassOPeriod = req.body.ClassOPeriod;
+    newClass.ClassIntro = req.body.ClassIntro;
+    newClass.ClassReview = {userID: req.body.ClassReview.userName,
+    Contents: req.body.ClassReview.Contents,
+    Date: req.body.ClassReview.Date};
+
+    console.log("\n\n post Class Name="+s);
+    newClass.save(function(err){
+        if(err){
+            console.error(err);
+            res.send(err);
+            return;
+        }
+        res.send("1");
+    });
+});
+
+
+router.post('/get', function(req, res, next) {
+    console.log("\n\n post req.body.title="+req.body.userID);
+    Login.findOne({userID: req.body.userID, userPassword: req.body.userPassword}, function(err, result){
+        if(err) return res.status(500).send({error: 'database failure'});
+        if(result != null){res.send(result);}
+        else{res.send("0");}
+    })
+});
+
+
+/* GET users listing. */
+router.get('/', function(req, res, next) {
+  res.send('respond with a resource');
+});
+
+module.exports = router;
