@@ -75,7 +75,7 @@ Install MongoDB Community Edition on Ubuntu
 	[ubuntu ~]$ sudo node app.js&
 	```
 
-4. 서버가 정상적으로 실행되면, https://github.com/YunTaeIl/ManToMen 안드로이드 프로젝트를 다운받아 디바이스에 설치하고 실행해 본다.
+4. 서버가 정상적으로 실행되면, https://github.com/YunTaeIl/ManToMen 안드로이드 프로젝트를 다운받아 디바이스에 설치하고 실행 한다.
 
 ### 1) 안드로이드 사전준비
   1. 서버준비 
