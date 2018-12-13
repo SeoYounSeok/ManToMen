@@ -1,8 +1,8 @@
 # ManToMen
 ## 개요
 기존의 멘토와 멘티간 튜터링을 연결하는 서비스를 모티브한 튜터링 서비스
-![info1](./doc/info1.jpg)
-![info2](./doc/info2.jpg)
+![info1](./doc/info1.JPG)
+![info2](./doc/info2.JPG)
 
 ## 1. 사전준비
 ### 1) AWS 사전준비
