@@ -43,8 +43,11 @@ public class ReviewWriteActivity extends AppCompatActivity {
         final RatingBar Review_Ratingbar = findViewById(R.id.ReviewWrite_ReviewScoreRating);
 
 
+
         Review_ClassName.setText(variableOfClass.getClassName());
         Review_userID.setText(variable.getUserID());
+
+        Score = "5";  // 기본값을 5로지정
 
         Review_Ratingbar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override

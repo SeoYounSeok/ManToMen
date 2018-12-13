@@ -111,7 +111,7 @@ public class MemberModifyActivity extends AppCompatActivity {
         // UserPassword.setText(variable.getUserPassword());
         UserEmail.setText(variable.getUserEmail());
         //UserGender.setText(variable.getUserGender());
-        //UserName.setText(variable.getUserName());
+        UserName.setText(variable.getUserName());
         UserName2.setText(variable.getUserName());
         // UserAge.setText(variable.getUserAge());
         //UserIdentity.setText(variable.getUserIdentity());
@@ -196,6 +196,7 @@ public class MemberModifyActivity extends AppCompatActivity {
                 String userName = UserName.getText().toString();
                 String userAge = UserAge.getSelectedItem().toString();
                 String userGender = UserGender.getSelectedItem().toString();
+                Log.e("젠더", UserGender.getSelectedItem().toString());
 
 
 //                Variable.setUserCN(String.valueOf(UserCN.getText()));
@@ -215,6 +216,7 @@ public class MemberModifyActivity extends AppCompatActivity {
                     postDataParam.put("userName", userName);
                     postDataParam.put("userAge", userAge);
                     postDataParam.put("userGender", userGender);
+                    Log.e("젠더", userGender);
                     postDataParam.put("userCategory", userCategory);
                     postDataParam.put("userIdentity", variable.getUserIdentity());
                     postDataParam.put("userParticipateClass", variable.getUserParticipateClass());

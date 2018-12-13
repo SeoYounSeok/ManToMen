@@ -96,16 +96,15 @@ public class ReviewPostRequest extends AsyncTask<JSONObject, Void, String> {
         temp = result.trim();
 
 
-        if (temp == null || temp.equals("0")){
-            Toast.makeText(activity, message1,
-                    Toast.LENGTH_LONG).show();
-            return;
-        }
-
-        else if(temp.equals("1")){
+        if (temp.equals("1")) {
             Toast.makeText(activity, message2,
                     Toast.LENGTH_LONG).show();
             ReviewWriteActivity.mActivity.finish();
+
+        } else{
+            Toast.makeText(activity, temp,
+                    Toast.LENGTH_LONG).show();
+            return;
 
         }
 

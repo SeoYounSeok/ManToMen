@@ -72,6 +72,7 @@ public class MypageFragment extends Fragment implements Main2Activity.OnBackPres
         // UserPassword.setText(variable.getUserPassword());
         UserEmail.setText(variable.getUserEmail());
         UserGender.setText(variable.getUserGender());
+        Log.e("젠더2",variable.getUserGender());
         UserName.setText(variable.getUserName());
         UserAge.setText(variable.getUserAge());
         UserIdentity.setText(variable.getUserIdentity());
