@@ -77,7 +77,9 @@ public class ClassAppointmentFragment extends Fragment {
         ClassFirstTimeCal.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                month += 1;
                 ClassFirstTime = year + "-" + month + "-" + dayOfMonth;
+                Log.e("날짜", ClassFirstTime);
             }
         });
 
@@ -118,6 +120,7 @@ public class ClassAppointmentFragment extends Fragment {
                     // variableOfClass.setClassFirstTime("2011-10-12");
                     variableOfClass.setClassFirstTime(ClassFirstTime);
 
+                    Log.e("날짜2", ClassPlaceDetail.getText().toString());
 
                     JSONObject postDataParam = new JSONObject();
 

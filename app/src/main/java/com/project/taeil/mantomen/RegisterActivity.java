@@ -78,6 +78,9 @@ public class RegisterActivity extends AppCompatActivity {
         final ImageView userImage = findViewById(R.id.Img_R_Input);  // 유저사진
         // final Button selectpicture = findViewById(R.id.select_picture);  // 셀릭트 버튼
 
+        GenderGroup.check(0);
+        Checkbox1.setChecked(true);
+
         Button backBtn = findViewById(R.id.Register_Back);
 
         backBtn.setOnClickListener(new View.OnClickListener() {
@@ -153,6 +156,12 @@ public class RegisterActivity extends AppCompatActivity {
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if (IDText.getText().toString() == null || PWText.getText().toString() == null || NameText.getText().toString() == null || AgeText.getText().toString() == null ||
+                       pictureflag == false) {
+                    Toast.makeText(RegisterActivity.this, "값을 다 입력해 주세요",
+                            Toast.LENGTH_LONG).show();
+                }
 
                 String userID = IDText.getText().toString();   //ID텍스트의 문자열을 반환 받는값
                 String userPassword = PWText.getText().toString();

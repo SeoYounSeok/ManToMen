@@ -58,6 +58,8 @@ public class ClassIntroFragment extends Fragment {
         TextView ClassHour2 = classIntro.findViewById(R.id.ClassIntro_ClassHour2);
         TextView ClassTutorIntro = classIntro.findViewById(R.id.mypage_ClassTutorIntro);
         TextView ClassPrice2 = classIntro.findViewById(R.id.ClassIntro_ClassPrice2);
+        TextView ClassContents = classIntro.findViewById(R.id.ClassIntro_ClassContents);
+
 
 
 
@@ -79,7 +81,7 @@ public class ClassIntroFragment extends Fragment {
         ClassHour2.setText(variableOfClass.getClassHour() + "시간");
         ClassTutorIntro.setText(variableOfClass.getClassTutorIntro());
         ClassPrice2.setText(variableOfClass.getClassPrice() + "원");
-
+        ClassContents.setText(variableOfClass.getClassContents());
 
 
         Log.d("튜터인트로",variableOfClass.getClassTutorIntro());
