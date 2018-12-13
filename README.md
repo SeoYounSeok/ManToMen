@@ -1,20 +1,76 @@
 # ManToMen
 
-### 1. 사전준비
-#### 1) 안드로이드 사전준비
+## 1. 사전준비
+### 1) AWS 사전준비
+  1. 키페어 생성하기
+  2. 보안그룹 생성하기
+  3. AWS에서 (Linux) 인스턴스 시작
+  4. (Linux) 인스턴스 연결
+
+### 2) NodeJS 설치
+Package Manager를 통한 NodeJS 설치
+
+- https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-basedlinux-distributions
+참조
+
+  ```
+  [ubuntu ~]$ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+  ```
+
+  ```
+  [ubuntu ~]$ sudo apt-get install -y nodejs
+  ```
+## 3. MongDB 설치
+Install MongoDB Community Edition on Ubuntu
+
+- https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
+
+1. Import the public key used by the package management system.
+
+	```
+	[ubuntu ~]$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
+	```
+
+2. Create a list file for MongoDB.
+
+	Ubuntu 16.04
+
+	```
+	[ubuntu ~]$ echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+	```
+	
+3. Reload local package database.
+
+	```
+	[ubuntu ~]$ sudo apt-get update
+	```
+	
+4. Install the MongoDB packages.
+
+	```
+	[ubuntu ~]$ sudo apt-get install -y mongodb-org
+	```
+
+5. Start MongoDB.
+6. 
+	```
+	[ubuntu ~]$ sudo service mongod start
+	```
+
+### 1) 안드로이드 사전준비
   1. 서버준비 
   2. 채팅기능
   3. 구글인앱결제
 
-#### 1. 서버준비
+### 1. 서버준비
   - 실행중인 aws 서버 주소를 안드로이드 프로젝트에 Variable 클래스의 HttpAddres 변수에 집어넣는다.
   
-#### 2. 채팅기능
+### 2. 채팅기능
   - 채팅기능과 알림기능을 위해서 파이어베이스의 realtimedatabase와 FCM기능을 이용합니다.
   - 파이어베이스 API키를 발급받아야합니다. (주소 참고 https://code.i-harness.com/ko-kr/q/239b9a8)
   - 파이어베이스를 사용하기위한 json파일의 경우 파이어베이스 홈페이지에서 프로젝트 등록시에 발급되므로 발급받은 json파일은 app-src-밑에 넣어준다.
   
-#### 3. 구글 인앱결제
+### 3. 구글 인앱결제
   - 구글 플레이스토어 개발자 계정을 만들어야합니다. https://play.google.com/apps/publish/?hl=ko 
   - apk파일을 만들어서 출시하지 않으면 구글인앱상품자체를 불러오지 못하기 때문에 어플 실행을 위해서는 출시까지 해야합니다. (참고 블로그 https://blog.naver.com/swing2app/221028227209)
   - 구글 플레이스토어에서 라이센스키를 찾아 PointActivity클래스의 license 변수 안에 넣어줍니다.
