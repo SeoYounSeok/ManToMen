@@ -1,11 +1,19 @@
 # ManToMen
+## 개요
+기존의 멘토와 멘티간 튜터링을 연결하는 서비스를 모티브한 튜터링 서비스
+![info1](./doc/info1.JPG)
+
+
+![info2](./doc/info2.JPG)
 
 ## 1. 사전준비
 ### 1) AWS 사전준비
-  1. 키페어 생성하기
-  2. 보안그룹 생성하기
-  3. AWS에서 (Linux) 인스턴스 시작
-  4. (Linux) 인스턴스 연결
+1. [키페어 생성하기](./doc/create_keypair.pdf)
+2. [보안그룹 생성하기](./doc/create_security_group.pdf)
+3. [**AWS**에서 (Linux) 인스턴스 시작](./doc/launch_instance.md)
+4. [(Linux) 인스턴스 연결](./doc/connectingToInstance.pdf)
+※ AWS사전준비는 이관우 교수님 pdf를 참고 하였습니다.
+
 
 ### 2) NodeJS 설치
 Package Manager를 통한 NodeJS 설치
@@ -75,7 +83,7 @@ Install MongoDB Community Edition on Ubuntu
 	[ubuntu ~]$ sudo node app.js&
 	```
 
-4. 서버가 정상적으로 실행되면, https://github.com/YunTaeIl/ManToMen 안드로이드 프로젝트를 다운받아 디바이스에 설치하고 실행해 본다.
+4. 서버가 정상적으로 실행되면, https://github.com/YunTaeIl/ManToMen 안드로이드 프로젝트를 다운받아 디바이스에 설치하고 실행 한다.
 
 ### 1) 안드로이드 사전준비
   1. 서버준비 
@@ -96,3 +104,26 @@ Install MongoDB Community Edition on Ubuntu
   - 구글 플레이스토어에서 라이센스키를 찾아 PointActivity클래스의 license 변수 안에 넣어줍니다.
   - 플레이스토어에 인앱상품을 등록해 두고 PointActivity클래스에 Products Arraylist에 인앱상품 ID들을 add해줍니다.
   - 마지막으로 어플 출시 후 알파버전(비공개 테스트)으로 출시했다면 테스터목록에 테스터들의 구글 계정을 추가하여 초대 메시지로 어플을 다운받게 합니다.
+
+
+### 1)  사전준비
+
+
+## 2. 실행화면
+### 1) 웹
+
+#### 가. 회원가입
+
+#### 나. 로그인
+
+
+#### 다. 콘텐츠 확인
+
+
+#### 라. 마이페이지
+
+
+#### 마. chatbot
+
+
+#### 바. 클래스 등록
