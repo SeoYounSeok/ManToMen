@@ -6,6 +6,7 @@
 2. [보안그룹 생성하기](./doc/create_security_group.pdf)
 3. [**AWS**에서 (Linux) 인스턴스 시작](./doc/launch_instance.md)
 4. [(Linux) 인스턴스 연결](./doc/connectingToInstance.pdf)
+※ AWS사전준비는 이관우 교수님 pdf를 참고 하였습니다.
 
 
 ### 2) NodeJS 설치
@@ -100,3 +101,6 @@ Install MongoDB Community Edition on Ubuntu
 
 
 ### 1)  사전준비
+
+
+## 2. 실행화면
