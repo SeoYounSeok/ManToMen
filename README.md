@@ -157,27 +157,27 @@ Install MongoDB Community Edition on Ubuntu
 ### 1) APP
 
 #### 가. 회원가입
-![register](./doc/img/app_picture/app_register.jpg)
+![app_register](./doc/img/app_picture/app_register.jpg)
 
 #### 나. 로그인
-![login](./doc/img/app_picture/app_login.jpg)
+![app_login](./doc/img/app_picture/app_login.jpg)
 
 #### 다. 메인화면
-![mainpage](./doc/img/app_picture/app_mainpage.jpg)
+![app_mainpage](./doc/img/app_picture/app_mainpage.jpg)
 
 #### 라. 마이페이지
-![mypage](./doc/img/app_picture/app_mypage.jpg)
+![app_mypage](./doc/img/app_picture/app_mypage.jpg)
 
 #### 마. 1:1채팅
 
 #### 바. 인앱 결제
-![inapppay](./doc/img/app_picture/app_pay1.jpg)
-![inapppay](./doc/img/app_picture/app_pay2.jpg)
+![app_pay1](./doc/img/app_picture/app_pay1.jpg)
+![app_pay2](./doc/img/app_picture/app_pay2.jpg)
 
 #### 사. 클래스 등록
-![tutorregister](./doc/img/app_picture/app_class1.jpg)
-![tutorregister](./doc/img/app_picture/app_class1.jpg)(./doc/img/app_picture/app_class2.jpg)
-![tutorregister](./doc/img/app_picture/app_class1.jpg)(./doc/img/app_picture/app_class3.jpg)
+![app_class1](./doc/img/app_picture/app_class1.jpg)
+![app_class2](./doc/img/app_picture/app_class2.jpg)
+![app_class3](./doc/img/app_picture/app_class3.jpg)
 
 
 
