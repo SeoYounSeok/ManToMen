@@ -85,7 +85,7 @@ public class OperateClassActivity extends AppCompatActivity {
         Log.d("클래스",variableOfClass.getClassPlace());
         Log.d("클래스",variableOfClass.getClassPlaceDetail());
         new DownloadImageTask((ImageView) findViewById(R.id.OperateActivity_ClassPicture))
-                .execute(variable.getUserPicture());
+                .execute(variableOfClass.getClassPicture());
 
     }
 
