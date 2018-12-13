@@ -113,17 +113,22 @@ Install MongoDB Community Edition on Ubuntu
 ### 1) 웹
 
 #### 가. 회원가입
+![register](./doc/img/register.JPG)
 
 #### 나. 로그인
-
+![login](./doc/img/login.JPG)
 
 #### 다. 콘텐츠 확인
-
+![contents](./doc/img/contents.JPG)
 
 #### 라. 마이페이지
-
+![mypage](./doc/img/mypage.JPG)
 
 #### 마. chatbot
-
+![chatbot](./doc/img/chatbot.JPG)
 
 #### 바. 클래스 등록
+![tutorregister](./doc/img/tutorregister.JPG)
+
+#### 사. 관리자 페이지
+![admin](./doc/img/admin.JPG)
