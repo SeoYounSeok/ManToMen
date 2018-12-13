@@ -91,7 +91,7 @@ public class AllClassListAdapter extends BaseAdapter{
         Log.e("사진오류",AllClass.get(i).getClassPicture());
 
         ClassName.setText(AllClass.get(i).getClassName());
-        ClassTutorID.setText(AllClass.get(i).getClassTutorID());
+        ClassTutorID.setText("멘토 : " + AllClass.get(i).getClassTutorID());
 //        ClassCurrentPeople.setText(AllClass.get(i).getClassCurrentPeople() + "신청");
 //        ClassTotalPeople.setText(AllClass.get(i).getClassTotalPeople() + "모집");
 

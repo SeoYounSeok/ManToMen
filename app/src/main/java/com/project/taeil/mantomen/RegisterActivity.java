@@ -157,33 +157,6 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (IDText.getText().toString() == null || PWText.getText().toString() == null || NameText.getText().toString() == null || AgeText.getText().toString() == null ||
-                       pictureflag == false) {
-                    Toast.makeText(RegisterActivity.this, "값을 다 입력해 주세요",
-                            Toast.LENGTH_LONG).show();
-                }
-
-                String userID = IDText.getText().toString();   //ID텍스트의 문자열을 반환 받는값
-                String userPassword = PWText.getText().toString();
-                String userEmail = UserEmail.getText().toString();  //문자열을 인트형으로 변경
-                String userName = NameText.getText().toString();
-                String userAge = AgeText.getText().toString(); //
-                final RadioButton GenderChoice = (RadioButton) findViewById(GenderGroup.getCheckedRadioButtonId());  //라디오 그룹에서
-                String userGender = GenderChoice.getText().toString();  //라디오버튼
-                String userCategory = "";
-
-                if (Checkbox1.isChecked())
-                    userCategory = "programming//";
-                if (Checkbox2.isChecked())
-                    userCategory += "design//";
-                if (Checkbox3.isChecked())
-                    userCategory += "language//";
-                if (Checkbox4.isChecked())
-                    userCategory += "music//";
-                if (Checkbox5.isChecked())
-                    userCategory += "beauty//";
-                if (Checkbox6.isChecked())
-                    userCategory += "etc//";
 
 //                for(int i=0; i<6; i++){ //모든값을 공백
 //                    userCategory[i] = "";
@@ -195,11 +168,33 @@ public class RegisterActivity extends AppCompatActivity {
                 //String userOperateClass = "Null";
 
                 JSONObject postDataParam = new JSONObject();
-
-                if (userID == null || userPassword == null || userName == null || userAge == null || userGender == null || userCategory == null|| pictureflag == false) {
+                if (IDText.getText().toString() == null || PWText.getText().toString() == null || NameText.getText().toString() == null || AgeText.getText().toString() == null ||
+                        pictureflag == false) {
                     Toast.makeText(RegisterActivity.this, "값을 다 입력해 주세요",
                             Toast.LENGTH_LONG).show();
                 } else {
+                    String userID = IDText.getText().toString();   //ID텍스트의 문자열을 반환 받는값
+                    String userPassword = PWText.getText().toString();
+                    String userEmail = UserEmail.getText().toString();  //문자열을 인트형으로 변경
+                    String userName = NameText.getText().toString();
+                    String userAge = AgeText.getText().toString(); //
+                    final RadioButton GenderChoice = (RadioButton) findViewById(GenderGroup.getCheckedRadioButtonId());  //라디오 그룹에서
+                    String userGender = GenderChoice.getText().toString();  //라디오버튼
+                    String userCategory = "";
+
+                    if (Checkbox1.isChecked())
+                        userCategory = "programming//";
+                    if (Checkbox2.isChecked())
+                        userCategory += "design//";
+                    if (Checkbox3.isChecked())
+                        userCategory += "language//";
+                    if (Checkbox4.isChecked())
+                        userCategory += "music//";
+                    if (Checkbox5.isChecked())
+                        userCategory += "beauty//";
+                    if (Checkbox6.isChecked())
+                        userCategory += "etc//";
+
                     try {
                         postDataParam.put("userID", userID);
                         postDataParam.put("userPassword", userPassword);
@@ -216,7 +211,6 @@ public class RegisterActivity extends AppCompatActivity {
                     }
 
                     if (AuthFlag) {  // 인증통과를 했다는 의미
-
                         new RegisterInsertData(RegisterActivity.this).execute(postDataParam);
                         AuthFlag = false;
                     } else {
