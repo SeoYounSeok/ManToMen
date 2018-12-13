@@ -60,13 +60,13 @@ Install MongoDB Community Edition on Ubuntu
 1. GitHub 저장소에서 App 다운로드
 
 	```
-	[ubuntu ~]$ git clone https://github.com/YunTaeIl/ManToMen/server/ManToMen
+	[ubuntu ~]$ git clone https://github.com/YunTaeIl/ManToMen
 	```
 
 2. App 폴더로 이동
 
 	```
-	[ubuntu ~]$ cd /ManToMen
+	[ubuntu ~]$ cd /server
 	```
 
 3. App 실행
