@@ -80,7 +80,12 @@ public class ClassIntroFragment extends Fragment {
         ClassNumberOfTime2.setText(variableOfClass.getClassNumberOfTime() + "회");
         ClassHour2.setText(variableOfClass.getClassHour() + "시간");
         ClassTutorIntro.setText(variableOfClass.getClassTutorIntro());
-        ClassPrice2.setText(variableOfClass.getClassPrice() + "원");
+
+        int price = Integer.parseInt(variableOfClass.getClassPrice());  // 인트형으로 바꾼후에
+        String str = String.format("%,d", price);
+        ClassPrice2.setText(str + "원");
+
+
         ClassContents.setText(variableOfClass.getClassContents());
 
 
