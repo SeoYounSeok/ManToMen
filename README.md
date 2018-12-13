@@ -106,9 +106,29 @@ Install MongoDB Community Edition on Ubuntu
   - 마지막으로 어플 출시 후 알파버전(비공개 테스트)으로 출시했다면 테스터목록에 테스터들의 구글 계정을 추가하여 초대 메시지로 어플을 다운받게 합니다.
 
 
-### 1)  사전준비
+### 1) Angular 사전준비
+  1. Angular CLI 설치
+  2. Build
+
+### 1) Angular CLI 설치
+- 프로젝트와 콤포넌트 생성에 이용됩니다.
+
+	```
+	npm install -g @angular/cli
+	```
+	```
+	ng --version
+	```
+	
+
+### 2) Build
+- 배포를 하고싶다면 빌드를 해줘야한다. dist 라는 폴더가 생성되는 것을 확인할 수 있다.
+	```
+	ng build
+	```
 
 
+  
 ## 2. 실행화면
 ### 1) 웹
 
