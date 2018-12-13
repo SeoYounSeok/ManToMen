@@ -123,6 +123,7 @@ Install MongoDB Community Edition on Ubuntu
 
 ### 2) Build
 - 배포를 하고싶다면 빌드를 해줘야한다. dist 라는 폴더가 생성되는 것을 확인할 수 있다.
+
 	```
 	ng build
 	```
