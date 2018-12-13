@@ -66,7 +66,7 @@ Install MongoDB Community Edition on Ubuntu
 2. App 폴더로 이동
 
 	```
-	[ubuntu ~]$ cd /ManToMen/server
+	[ubuntu ~]$ cd /server
 	```
 
 3. App 실행

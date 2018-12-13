@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title= title
+  body
+    block content
+    form.form-horizontal(method="post", action="/class/review" , id="login")
+        label ClassName
+        input.span3(id="ClassName", type="text", name="ClassName",placeholder="Enter your username")
+        label ClassTuteeID
+        input.span3(id="ClassTuteeID", type="text", name="ClassTuteeID")
+        label userID
+        input.span3(id="userID", type="text", name="userID",placeholder="Enter your username")
+        label Contents
+        input.span3(id="Contents", type="text", name="Contents")
+        label Date
+        input.span3(id="Date", type="text", name="Date",placeholder="Enter your username")  
+        input.btn(type="submit", value="Log In")
