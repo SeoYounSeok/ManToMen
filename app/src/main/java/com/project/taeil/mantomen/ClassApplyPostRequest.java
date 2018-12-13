@@ -106,7 +106,6 @@ public class ClassApplyPostRequest extends AsyncTask<JSONObject, Void, String> {
             return;
         }
 
-
     }
 
     private String getPostDataString(JSONObject params) throws Exception {
