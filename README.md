@@ -2,10 +2,11 @@
 
 ## 1. 사전준비
 ### 1) AWS 사전준비
-  1. 키페어 생성하기
-  2. 보안그룹 생성하기
-  3. AWS에서 (Linux) 인스턴스 시작
-  4. (Linux) 인스턴스 연결
+1. [키페어 생성하기](./doc/create_keypair.pdf)
+2. [보안그룹 생성하기](./doc/create_security_group.pdf)
+3. [**AWS**에서 (Linux) 인스턴스 시작](./doc/launch_instance.md)
+4. [(Linux) 인스턴스 연결](./doc/connectingToInstance.pdf)
+
 
 ### 2) NodeJS 설치
 Package Manager를 통한 NodeJS 설치
