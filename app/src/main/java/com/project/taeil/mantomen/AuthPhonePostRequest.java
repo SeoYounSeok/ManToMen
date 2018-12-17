@@ -91,7 +91,7 @@ public class AuthPhonePostRequest extends AsyncTask<JSONObject, Void, String> {
         super.onPostExecute(result);
         String temp;
         String message1 = "인증실패";
-        String message2 = "인증성공";
+        String message2 = "인증번호 전송성공";
         temp = result.trim();
 
 
@@ -119,8 +119,8 @@ public class AuthPhonePostRequest extends AsyncTask<JSONObject, Void, String> {
         }
         // Log.e("phoneAuth", temp);  // 난수 확인용
 
-        Toast.makeText(activity, temp,
-                Toast.LENGTH_LONG).show();
+//        Toast.makeText(activity, temp,
+//                Toast.LENGTH_LONG).show();
 
     }
 
