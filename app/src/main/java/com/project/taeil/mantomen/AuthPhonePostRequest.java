@@ -114,10 +114,10 @@ public class AuthPhonePostRequest extends AsyncTask<JSONObject, Void, String> {
             variable.setAuthnumber(AuthNumber);
             Toast.makeText(activity, message2,
                     Toast.LENGTH_LONG).show();
-            Log.e("phoneAuth", AuthNumber);  // 난수 확인용
+            // Log.e("phoneAuth", AuthNumber);  // 난수 확인용
 
         }
-        Log.e("phoneAuth", temp);  // 난수 확인용
+        // Log.e("phoneAuth", temp);  // 난수 확인용
 
         Toast.makeText(activity, temp,
                 Toast.LENGTH_LONG).show();

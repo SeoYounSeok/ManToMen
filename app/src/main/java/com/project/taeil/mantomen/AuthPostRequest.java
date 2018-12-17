@@ -109,7 +109,7 @@ public class AuthPostRequest extends AsyncTask<JSONObject, Void, String> {
             variable.setAuthnumber(AuthNumber);
             Toast.makeText(activity, message2,
                     Toast.LENGTH_LONG).show();
-            Log.e("userEmail", AuthNumber);  // 난수 확인용
+            // Log.e("userEmail", AuthNumber);  // 난수 확인용
 
 //            RegisterActivity mContext = (RegisterActivity)RegisterActivity.mContext;
 //            mContext.finish();  //종료
@@ -121,7 +121,7 @@ public class AuthPostRequest extends AsyncTask<JSONObject, Void, String> {
 //            ((RegisterActivity)RegisterActivity.mContext).overridePendingTransition(0, 0);  //화면전환효과 없애기
 
         }
-        Log.e("userEmail", temp);  // 난수 확인용
+        // Log.e("userEmail", temp);  // 난수 확인용
 
         Toast.makeText(activity, temp,
                 Toast.LENGTH_LONG).show();
