@@ -171,13 +171,10 @@ var ClassadminComponent = /** @class */ (function () {
     }
     ClassadminComponent.prototype.ngOnInit = function () {
         var _this = this;
-        console.log('contents.component.ts : ngOnInt');
         this.dataService.getContents().subscribe(function (classadmins) {
             // [] 를 붙여줘야 array 형식으로 받아 이게 오브젝트 형식이면 안됩니다. 
-            console.log(classadmins);
             if (classadmins != 0) {
                 _this.classadmins = classadmins;
-                console.log("여기는 Class Admin 입니다. 콘텐츠 정보들을 가져와 봅시다." + _this.classadmins);
             }
             else {
                 alert("서버 전송 오류");
@@ -195,7 +192,6 @@ var ClassadminComponent = /** @class */ (function () {
                 console.log(admins); // for testing if works on console 
                 if (admins != 0) {
                     //this.admins = admins;
-                    console.log('모든 오브젝트 값 확인: ' + admins);
                     alert("정지 처리되었습니다.");
                 }
                 else {
@@ -282,13 +278,11 @@ var TutoradminComponent = /** @class */ (function () {
         this.dataService.getTutormanage().subscribe(function (addtutors) {
             // [] 를 붙여줘야 array 형식으로 받아 이게 오브젝트 형식이면 안됩니다. 
             _this.addtutors = addtutors;
-            console.log("콘텐츠 정보들을 가져와 봅시다." + _this.addtutors);
         });
     };
     TutoradminComponent.prototype.onDetail = function (addID, addClass) {
         localStorage.setItem('addID', addID);
         localStorage.setItem('addClass', addClass);
-        console.log("addID" + addID + "addClass" + addClass);
         this.router.navigate(['tutordetail']);
     };
     TutoradminComponent = __decorate([
@@ -313,7 +307,7 @@ var TutoradminComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR');\r\n@import url('http://fonts.googleapis.com/earlyaccess/hanna.css');\r\n@charset 'utf-8';\r\n* {\r\n  box-sizing: border-box;\r\n  font-family: 'Hanna', serif;\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n      -ms-user-select: none;\r\n          user-select: none;\r\n}\r\n#apply {\r\n    font-size: 30px;\r\n    border-radius: 4px;\r\n    display: inline-block;\r\n    text-align: center;\r\n    width: 100%;\r\n    background-color:white;\r\n    color: black;\r\n    margin-top: 20px;\r\n}\r\n#subapplay{\r\n    font-size:10px;\r\n    color:red;\r\n\r\n}\r\nlabel{\r\n    font-size:18px;\r\n    text-decoration: underline; \r\n    color:#0056b3;\r\n}\r\n.container {\r\n    position: relative;\r\n    border-radius: 4px;\r\n    background-color: #FFFFFF;\r\n    margin-top:30px;\r\n    margin-bottom: 100px;\r\n    max-width: 500px;\r\n    text-align: center;\r\n    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);\r\n\r\n}\r\ninput[type=text], select, textarea {\r\n    font-family: 'Noto Sans KR', sans-serif;\r\n    width: 100%;\r\n    padding: 12px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    box-sizing: border-box;\r\n    margin-top: 6px;\r\n    margin-bottom: 16px;\r\n    resize: vertical;\r\n}\r\ninput[type=submit] {\r\n    background-color: #FFAAAA;\r\n    color: white;\r\n    width: 100%;\r\n    padding: 12px 20px;\r\n    border: none;\r\n    border-radius: 4px;\r\n    cursor: pointer;\r\n}\r\ninput[type=submit]:hover {\r\n    background-color: #FFAAAA;\r\n}\r\ninput[type=date] {\r\n    background-color: #FFFFFF;\r\n    width: 100%;\r\n    padding: 12px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    box-sizing: border-box;\r\n    margin-top: 6px;\r\n    margin-bottom: 16px;\r\n    resize: vertical;\r\n}\r\n.btn_deny {\r\n\r\n    font-weight: bold;\r\n    color:white;\r\n    font-style: bold;\r\n    text-decoration: none;\r\n    display: inline-block;\r\n    margin-left:18px;\r\n    width:100px;\r\n    background-color: #ff4949;\r\n    color: white;\r\n    padding: 12px 20px;\r\n    border: none;\r\n    border-radius: 4px;\r\n    cursor: pointer;\r\n    margin-bottom: 30px;\r\n}\r\n.btn_accept {\r\n\r\n    font-weight: bold;\r\n    color:white;\r\n    font-style: bold;\r\n    text-decoration: none;\r\n    display: inline-block;\r\n    width:100px;\r\n    background-color: #0056b3;\r\n    color: white;\r\n    padding: 12px 20px;\r\n    border: none;\r\n    border-radius: 4px;\r\n    cursor: pointer;\r\n    margin-bottom: 30px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW5zL3R1dG9yZGV0YWlsL3R1dG9yZGV0YWlsLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUVBLG9FQUFvRTtBQUNwRSxpRUFBaUU7QUFGakUsaUJBQWlCO0FBR2pCO0VBQ0UsdUJBQXVCO0VBQ3ZCLDRCQUE0QjtFQUM1QiwwQkFBa0I7S0FBbEIsdUJBQWtCO01BQWxCLHNCQUFrQjtVQUFsQixrQkFBa0I7Q0FDbkI7QUFDRDtJQUNJLGdCQUFnQjtJQUNoQixtQkFBbUI7SUFDbkIsc0JBQXNCO0lBQ3RCLG1CQUFtQjtJQUNuQixZQUFZO0lBQ1osdUJBQXVCO0lBQ3ZCLGFBQWE7SUFDYixpQkFBaUI7Q0FDcEI7QUFDRDtJQUNJLGVBQWU7SUFDZixVQUFVOztDQUViO0FBRUQ7SUFDSSxlQUFlO0lBQ2YsMkJBQTJCO0lBQzNCLGNBQWM7Q0FDakI7QUFHRDtJQUNJLG1CQUFtQjtJQUNuQixtQkFBbUI7SUFDbkIsMEJBQTBCO0lBQzFCLGdCQUFnQjtJQUNoQixxQkFBcUI7SUFDckIsaUJBQWlCO0lBQ2pCLG1CQUFtQjtJQUNuQiwyRUFBMkU7O0NBRTlFO0FBRUQ7SUFDSSx3Q0FBd0M7SUFDeEMsWUFBWTtJQUNaLGNBQWM7SUFDZCx1QkFBdUI7SUFDdkIsbUJBQW1CO0lBQ25CLHVCQUF1QjtJQUN2QixnQkFBZ0I7SUFDaEIsb0JBQW9CO0lBQ3BCLGlCQUFpQjtDQUNwQjtBQUVEO0lBQ0ksMEJBQTBCO0lBQzFCLGFBQWE7SUFDYixZQUFZO0lBQ1osbUJBQW1CO0lBQ25CLGFBQWE7SUFDYixtQkFBbUI7SUFDbkIsZ0JBQWdCO0NBQ25CO0FBRUQ7SUFDSSwwQkFBMEI7Q0FDN0I7QUFFRDtJQUNJLDBCQUEwQjtJQUMxQixZQUFZO0lBQ1osY0FBYztJQUNkLHVCQUF1QjtJQUN2QixtQkFBbUI7SUFDbkIsdUJBQXVCO0lBQ3ZCLGdCQUFnQjtJQUNoQixvQkFBb0I7SUFDcEIsaUJBQWlCO0NBQ3BCO0FBSUQ7O0lBRUksa0JBQWtCO0lBQ2xCLFlBQVk7SUFDWixpQkFBaUI7SUFDakIsc0JBQXNCO0lBQ3RCLHNCQUFzQjtJQUN0QixpQkFBaUI7SUFDakIsWUFBWTtJQUNaLDBCQUEwQjtJQUMxQixhQUFhO0lBQ2IsbUJBQW1CO0lBQ25CLGFBQWE7SUFDYixtQkFBbUI7SUFDbkIsZ0JBQWdCO0lBQ2hCLG9CQUFvQjtDQUN2QjtBQUdEOztJQUVJLGtCQUFrQjtJQUNsQixZQUFZO0lBQ1osaUJBQWlCO0lBQ2pCLHNCQUFzQjtJQUN0QixzQkFBc0I7SUFDdEIsWUFBWTtJQUNaLDBCQUEwQjtJQUMxQixhQUFhO0lBQ2IsbUJBQW1CO0lBQ25CLGFBQWE7SUFDYixtQkFBbUI7SUFDbkIsZ0JBQWdCO0lBQ2hCLG9CQUFvQjtDQUN2QiIsImZpbGUiOiJzcmMvYXBwL2FkbWlucy90dXRvcmRldGFpbC90dXRvcmRldGFpbC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXHJcbkBjaGFyc2V0ICd1dGYtOCc7XHJcbkBpbXBvcnQgdXJsKCdodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nzcz9mYW1pbHk9Tm90bytTYW5zK0tSJyk7XHJcbkBpbXBvcnQgdXJsKCdodHRwOi8vZm9udHMuZ29vZ2xlYXBpcy5jb20vZWFybHlhY2Nlc3MvaGFubmEuY3NzJyk7XHJcbioge1xyXG4gIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XHJcbiAgZm9udC1mYW1pbHk6ICdIYW5uYScsIHNlcmlmO1xyXG4gIHVzZXItc2VsZWN0OiBub25lO1xyXG59XHJcbiNhcHBseSB7XHJcbiAgICBmb250LXNpemU6IDMwcHg7XHJcbiAgICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGJhY2tncm91bmQtY29sb3I6d2hpdGU7XHJcbiAgICBjb2xvcjogYmxhY2s7XHJcbiAgICBtYXJnaW4tdG9wOiAyMHB4O1xyXG59XHJcbiNzdWJhcHBsYXl7XHJcbiAgICBmb250LXNpemU6MTBweDtcclxuICAgIGNvbG9yOnJlZDtcclxuXHJcbn1cclxuXHJcbmxhYmVse1xyXG4gICAgZm9udC1zaXplOjE4cHg7XHJcbiAgICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTsgXHJcbiAgICBjb2xvcjojMDA1NmIzO1xyXG59XHJcblxyXG5cclxuLmNvbnRhaW5lciB7XHJcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjRkZGRkZGO1xyXG4gICAgbWFyZ2luLXRvcDozMHB4O1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMTAwcHg7XHJcbiAgICBtYXgtd2lkdGg6IDUwMHB4O1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgYm94LXNoYWRvdzogMCAwIDIwcHggMCByZ2JhKDAsIDAsIDAsIDAuMiksIDAgNXB4IDVweCAwIHJnYmEoMCwgMCwgMCwgMC4yNCk7XHJcblxyXG59XHJcblxyXG5pbnB1dFt0eXBlPXRleHRdLCBzZWxlY3QsIHRleHRhcmVhIHtcclxuICAgIGZvbnQtZmFtaWx5OiAnTm90byBTYW5zIEtSJywgc2Fucy1zZXJpZjtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgcGFkZGluZzogMTJweDtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkICNjY2M7XHJcbiAgICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xyXG4gICAgbWFyZ2luLXRvcDogNnB4O1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMTZweDtcclxuICAgIHJlc2l6ZTogdmVydGljYWw7XHJcbn1cclxuXHJcbmlucHV0W3R5cGU9c3VibWl0XSB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjRkZBQUFBO1xyXG4gICAgY29sb3I6IHdoaXRlO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBwYWRkaW5nOiAxMnB4IDIwcHg7XHJcbiAgICBib3JkZXI6IG5vbmU7XHJcbiAgICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuXHJcbmlucHV0W3R5cGU9c3VibWl0XTpob3ZlciB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjRkZBQUFBO1xyXG59XHJcblxyXG5pbnB1dFt0eXBlPWRhdGVdIHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNGRkZGRkY7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIHBhZGRpbmc6IDEycHg7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCAjY2NjO1xyXG4gICAgYm9yZGVyLXJhZGl1czogNHB4O1xyXG4gICAgYm94LXNpemluZzogYm9yZGVyLWJveDtcclxuICAgIG1hcmdpbi10b3A6IDZweDtcclxuICAgIG1hcmdpbi1ib3R0b206IDE2cHg7XHJcbiAgICByZXNpemU6IHZlcnRpY2FsO1xyXG59XHJcblxyXG5cclxuICBcclxuLmJ0bl9kZW55IHtcclxuXHJcbiAgICBmb250LXdlaWdodDogYm9sZDtcclxuICAgIGNvbG9yOndoaXRlO1xyXG4gICAgZm9udC1zdHlsZTogYm9sZDtcclxuICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAgIG1hcmdpbi1sZWZ0OjE4cHg7XHJcbiAgICB3aWR0aDoxMDBweDtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNmZjQ5NDk7XHJcbiAgICBjb2xvcjogd2hpdGU7XHJcbiAgICBwYWRkaW5nOiAxMnB4IDIwcHg7XHJcbiAgICBib3JkZXI6IG5vbmU7XHJcbiAgICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAzMHB4O1xyXG59XHJcblxyXG4gIFxyXG4uYnRuX2FjY2VwdCB7XHJcblxyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgICBjb2xvcjp3aGl0ZTtcclxuICAgIGZvbnQtc3R5bGU6IGJvbGQ7XHJcbiAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICB3aWR0aDoxMDBweDtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICMwMDU2YjM7XHJcbiAgICBjb2xvcjogd2hpdGU7XHJcbiAgICBwYWRkaW5nOiAxMnB4IDIwcHg7XHJcbiAgICBib3JkZXI6IG5vbmU7XHJcbiAgICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAzMHB4O1xyXG59Il19 */"
+module.exports = "\r\n@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR');\r\n@import url('http://fonts.googleapis.com/earlyaccess/hanna.css');\r\n@charset 'utf-8';\r\n* {\r\n  box-sizing: border-box;\r\n  font-family: 'Hanna', serif;\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n      -ms-user-select: none;\r\n          user-select: none;\r\n}\r\npre{\r\n    padding: 0;\r\n    background: white;\r\n    border: none;\r\n    text-align: center;\r\n}\r\n#apply {\r\n    font-size: 30px;\r\n    border-radius: 4px;\r\n    display: inline-block;\r\n    text-align: center;\r\n    width: 100%;\r\n    background-color:white;\r\n    color: black;\r\n    margin-top: 20px;\r\n}\r\n#subapplay{\r\n    font-size:10px;\r\n    color:red;\r\n\r\n}\r\nlabel{\r\n    font-size:18px;\r\n    text-decoration: underline; \r\n    color:#0056b3;\r\n}\r\n.container {\r\n    position: relative;\r\n    border-radius: 4px;\r\n    background-color: #FFFFFF;\r\n    margin-top:30px;\r\n    margin-bottom: 100px;\r\n    max-width: 500px;\r\n    text-align: center;\r\n    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);\r\n\r\n}\r\ninput[type=text], select, textarea {\r\n    font-family: 'Noto Sans KR', sans-serif;\r\n    width: 100%;\r\n    padding: 12px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    box-sizing: border-box;\r\n    margin-top: 6px;\r\n    margin-bottom: 16px;\r\n    resize: vertical;\r\n}\r\ninput[type=submit] {\r\n    background-color: #FFAAAA;\r\n    color: white;\r\n    width: 100%;\r\n    padding: 12px 20px;\r\n    border: none;\r\n    border-radius: 4px;\r\n    cursor: pointer;\r\n}\r\ninput[type=submit]:hover {\r\n    background-color: #FFAAAA;\r\n}\r\ninput[type=date] {\r\n    background-color: #FFFFFF;\r\n    width: 100%;\r\n    padding: 12px;\r\n    border: 1px solid #ccc;\r\n    border-radius: 4px;\r\n    box-sizing: border-box;\r\n    margin-top: 6px;\r\n    margin-bottom: 16px;\r\n    resize: vertical;\r\n}\r\n.btn_deny {\r\n\r\n    font-weight: bold;\r\n    color:white;\r\n    font-style: bold;\r\n    text-decoration: none;\r\n    display: inline-block;\r\n    margin-left:18px;\r\n    width:100px;\r\n    background-color: #ff4949;\r\n    color: white;\r\n    padding: 12px 20px;\r\n    border: none;\r\n    border-radius: 4px;\r\n    cursor: pointer;\r\n    margin-bottom: 30px;\r\n}\r\n.btn_accept {\r\n\r\n    font-weight: bold;\r\n    color:white;\r\n    font-style: bold;\r\n    text-decoration: none;\r\n    display: inline-block;\r\n    width:100px;\r\n    background-color: #0056b3;\r\n    color: white;\r\n    padding: 12px 20px;\r\n    border: none;\r\n    border-radius: 4px;\r\n    cursor: pointer;\r\n    margin-bottom: 30px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW5zL3R1dG9yZGV0YWlsL3R1dG9yZGV0YWlsLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUVBLG9FQUFvRTtBQUNwRSxpRUFBaUU7QUFGakUsaUJBQWlCO0FBR2pCO0VBQ0UsdUJBQXVCO0VBQ3ZCLDRCQUE0QjtFQUM1QiwwQkFBa0I7S0FBbEIsdUJBQWtCO01BQWxCLHNCQUFrQjtVQUFsQixrQkFBa0I7Q0FDbkI7QUFFRDtJQUNJLFdBQVc7SUFDWCxrQkFBa0I7SUFDbEIsYUFBYTtJQUNiLG1CQUFtQjtDQUN0QjtBQUdEO0lBQ0ksZ0JBQWdCO0lBQ2hCLG1CQUFtQjtJQUNuQixzQkFBc0I7SUFDdEIsbUJBQW1CO0lBQ25CLFlBQVk7SUFDWix1QkFBdUI7SUFDdkIsYUFBYTtJQUNiLGlCQUFpQjtDQUNwQjtBQUNEO0lBQ0ksZUFBZTtJQUNmLFVBQVU7O0NBRWI7QUFFRDtJQUNJLGVBQWU7SUFDZiwyQkFBMkI7SUFDM0IsY0FBYztDQUNqQjtBQUdEO0lBQ0ksbUJBQW1CO0lBQ25CLG1CQUFtQjtJQUNuQiwwQkFBMEI7SUFDMUIsZ0JBQWdCO0lBQ2hCLHFCQUFxQjtJQUNyQixpQkFBaUI7SUFDakIsbUJBQW1CO0lBQ25CLDJFQUEyRTs7Q0FFOUU7QUFFRDtJQUNJLHdDQUF3QztJQUN4QyxZQUFZO0lBQ1osY0FBYztJQUNkLHVCQUF1QjtJQUN2QixtQkFBbUI7SUFDbkIsdUJBQXVCO0lBQ3ZCLGdCQUFnQjtJQUNoQixvQkFBb0I7SUFDcEIsaUJBQWlCO0NBQ3BCO0FBRUQ7SUFDSSwwQkFBMEI7SUFDMUIsYUFBYTtJQUNiLFlBQVk7SUFDWixtQkFBbUI7SUFDbkIsYUFBYTtJQUNiLG1CQUFtQjtJQUNuQixnQkFBZ0I7Q0FDbkI7QUFFRDtJQUNJLDBCQUEwQjtDQUM3QjtBQUVEO0lBQ0ksMEJBQTBCO0lBQzFCLFlBQVk7SUFDWixjQUFjO0lBQ2QsdUJBQXVCO0lBQ3ZCLG1CQUFtQjtJQUNuQix1QkFBdUI7SUFDdkIsZ0JBQWdCO0lBQ2hCLG9CQUFvQjtJQUNwQixpQkFBaUI7Q0FDcEI7QUFJRDs7SUFFSSxrQkFBa0I7SUFDbEIsWUFBWTtJQUNaLGlCQUFpQjtJQUNqQixzQkFBc0I7SUFDdEIsc0JBQXNCO0lBQ3RCLGlCQUFpQjtJQUNqQixZQUFZO0lBQ1osMEJBQTBCO0lBQzFCLGFBQWE7SUFDYixtQkFBbUI7SUFDbkIsYUFBYTtJQUNiLG1CQUFtQjtJQUNuQixnQkFBZ0I7SUFDaEIsb0JBQW9CO0NBQ3ZCO0FBR0Q7O0lBRUksa0JBQWtCO0lBQ2xCLFlBQVk7SUFDWixpQkFBaUI7SUFDakIsc0JBQXNCO0lBQ3RCLHNCQUFzQjtJQUN0QixZQUFZO0lBQ1osMEJBQTBCO0lBQzFCLGFBQWE7SUFDYixtQkFBbUI7SUFDbkIsYUFBYTtJQUNiLG1CQUFtQjtJQUNuQixnQkFBZ0I7SUFDaEIsb0JBQW9CO0NBQ3ZCIiwiZmlsZSI6InNyYy9hcHAvYWRtaW5zL3R1dG9yZGV0YWlsL3R1dG9yZGV0YWlsLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcclxuQGNoYXJzZXQgJ3V0Zi04JztcclxuQGltcG9ydCB1cmwoJ2h0dHBzOi8vZm9udHMuZ29vZ2xlYXBpcy5jb20vY3NzP2ZhbWlseT1Ob3RvK1NhbnMrS1InKTtcclxuQGltcG9ydCB1cmwoJ2h0dHA6Ly9mb250cy5nb29nbGVhcGlzLmNvbS9lYXJseWFjY2Vzcy9oYW5uYS5jc3MnKTtcclxuKiB7XHJcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDtcclxuICBmb250LWZhbWlseTogJ0hhbm5hJywgc2VyaWY7XHJcbiAgdXNlci1zZWxlY3Q6IG5vbmU7XHJcbn1cclxuXHJcbnByZXtcclxuICAgIHBhZGRpbmc6IDA7XHJcbiAgICBiYWNrZ3JvdW5kOiB3aGl0ZTtcclxuICAgIGJvcmRlcjogbm9uZTtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG5cclxuXHJcbiNhcHBseSB7XHJcbiAgICBmb250LXNpemU6IDMwcHg7XHJcbiAgICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGJhY2tncm91bmQtY29sb3I6d2hpdGU7XHJcbiAgICBjb2xvcjogYmxhY2s7XHJcbiAgICBtYXJnaW4tdG9wOiAyMHB4O1xyXG59XHJcbiNzdWJhcHBsYXl7XHJcbiAgICBmb250LXNpemU6MTBweDtcclxuICAgIGNvbG9yOnJlZDtcclxuXHJcbn1cclxuXHJcbmxhYmVse1xyXG4gICAgZm9udC1zaXplOjE4cHg7XHJcbiAgICB0ZXh0LWRlY29yYXRpb246IHVuZGVybGluZTsgXHJcbiAgICBjb2xvcjojMDA1NmIzO1xyXG59XHJcblxyXG5cclxuLmNvbnRhaW5lciB7XHJcbiAgICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjRkZGRkZGO1xyXG4gICAgbWFyZ2luLXRvcDozMHB4O1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMTAwcHg7XHJcbiAgICBtYXgtd2lkdGg6IDUwMHB4O1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgYm94LXNoYWRvdzogMCAwIDIwcHggMCByZ2JhKDAsIDAsIDAsIDAuMiksIDAgNXB4IDVweCAwIHJnYmEoMCwgMCwgMCwgMC4yNCk7XHJcblxyXG59XHJcblxyXG5pbnB1dFt0eXBlPXRleHRdLCBzZWxlY3QsIHRleHRhcmVhIHtcclxuICAgIGZvbnQtZmFtaWx5OiAnTm90byBTYW5zIEtSJywgc2Fucy1zZXJpZjtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gICAgcGFkZGluZzogMTJweDtcclxuICAgIGJvcmRlcjogMXB4IHNvbGlkICNjY2M7XHJcbiAgICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xyXG4gICAgbWFyZ2luLXRvcDogNnB4O1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMTZweDtcclxuICAgIHJlc2l6ZTogdmVydGljYWw7XHJcbn1cclxuXHJcbmlucHV0W3R5cGU9c3VibWl0XSB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjRkZBQUFBO1xyXG4gICAgY29sb3I6IHdoaXRlO1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBwYWRkaW5nOiAxMnB4IDIwcHg7XHJcbiAgICBib3JkZXI6IG5vbmU7XHJcbiAgICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuXHJcbmlucHV0W3R5cGU9c3VibWl0XTpob3ZlciB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjRkZBQUFBO1xyXG59XHJcblxyXG5pbnB1dFt0eXBlPWRhdGVdIHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNGRkZGRkY7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIHBhZGRpbmc6IDEycHg7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCAjY2NjO1xyXG4gICAgYm9yZGVyLXJhZGl1czogNHB4O1xyXG4gICAgYm94LXNpemluZzogYm9yZGVyLWJveDtcclxuICAgIG1hcmdpbi10b3A6IDZweDtcclxuICAgIG1hcmdpbi1ib3R0b206IDE2cHg7XHJcbiAgICByZXNpemU6IHZlcnRpY2FsO1xyXG59XHJcblxyXG5cclxuICBcclxuLmJ0bl9kZW55IHtcclxuXHJcbiAgICBmb250LXdlaWdodDogYm9sZDtcclxuICAgIGNvbG9yOndoaXRlO1xyXG4gICAgZm9udC1zdHlsZTogYm9sZDtcclxuICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAgIG1hcmdpbi1sZWZ0OjE4cHg7XHJcbiAgICB3aWR0aDoxMDBweDtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNmZjQ5NDk7XHJcbiAgICBjb2xvcjogd2hpdGU7XHJcbiAgICBwYWRkaW5nOiAxMnB4IDIwcHg7XHJcbiAgICBib3JkZXI6IG5vbmU7XHJcbiAgICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAzMHB4O1xyXG59XHJcblxyXG4gIFxyXG4uYnRuX2FjY2VwdCB7XHJcblxyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgICBjb2xvcjp3aGl0ZTtcclxuICAgIGZvbnQtc3R5bGU6IGJvbGQ7XHJcbiAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICB3aWR0aDoxMDBweDtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICMwMDU2YjM7XHJcbiAgICBjb2xvcjogd2hpdGU7XHJcbiAgICBwYWRkaW5nOiAxMnB4IDIwcHg7XHJcbiAgICBib3JkZXI6IG5vbmU7XHJcbiAgICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAzMHB4O1xyXG59Il19 */"
 
 /***/ }),
 
@@ -324,7 +318,7 @@ module.exports = "\r\n@import url('https://fonts.googleapis.com/css?family=Noto+
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html>\n\n  <head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n    <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.5.0/css/all.css\" integrity=\"sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU\"\n        crossorigin=\"anonymous\">\n</head>\n<body>\n\n  <!-- Shift + Alt + F 자동포맷 -->\n  <!-- 값을 가져오도록 하는 것입니다.-->\n  <div class=\"container\">\n    <form (submit)=\"AcceptTutor($event)\">\n      <div class=\"row\">\n        <div *ngFor=\"let class of informationss\">\n          <p id=\"apply\"><span id=\"a\"><i class=\"far fa-envelope\"></i>&nbsp;</span>승인 대기</p>\n          <p id=\"subapplay\">* 승인이 완료되면 자동으로 삭제됩니다.</p>\n          <hr >\n          <br /> <br />\n          <label for=\"fname\">수업 제목</label>\n          <br /> <br />\n          <p>{{class.ClassName}}</p>\n          <br />\n          <label for=\"fname\">카테고리</label>\n          <br /><br />\n          <p>{{class.ClassCategory}}</p>\n          <br />\n          <label for=\"fname\">모집 인원</label>\n          <br /><br />\n          <p>{{class.ClassTotalPeople}}</p>\n          <br />\n          <label for=\"fname\">강의 사진</label>\n          <br /><br />\n          <h5>강의 설명</h5>\n          <br /> \n          <label for=\"fname\">튜터 소개</label>\n          <br /><br />\n          <p>{{class.ClassTutorIntro}}</p>\n          <br />\n          <label for=\"fname\">수업 소개</label>\n          <br /><br />\n          <p>{{class.ClassIntro}}</p>\n\n          <br />\n          <label for=\"fname\">수업 대상</label>\n          <br /><br />\n          <p>{{class.ClassWhom}}</p>\n\n          <br />\n          <label for=\"fname\">수업 내용(커리큘럼)</label>\n          <br /><br />\n          <p>{{class.ClassContents}}</p>\n          <br />\n          <label for=\"fname\">수강료</label>\n          <br /><br />\n          <p>{{class.ClassPrice}}</p>\n          <br />\n          <label for=\"fname\">회당 수업시간</label>\n          <br /><br />\n          <p>{{class.ClassHour}}</p>\n          <br />\n          <label for=\"fname\">수업 횟수</label>\n          <br /><br />\n          <p>{{class.ClassNumberOfTime}}</p>\n          <br />\n          <label for=\"fname\">장 소</label>\n          <br /><br />\n          <p>{{class.ClassPlace}}</p>\n          <br />\n          <label for=\"fname\">상세 위치</label>\n          <br /><br />\n          <p>{{class.ClassPlaceDetail}}</p>\n          <br />\n          <label for=\"fname\">수업 요일</label>\n          <br /><br />\n          <p>{{class.ClassWeek}}</p>\n          <br />\n          <label for=\"fname\">수업 시간</label>\n          <br /><br />\n          <p>{{class.ClassTime}}</p>\n          <br />\n          <label for=\"fname\">시작 날짜</label>\n          <br /><br />\n          <p>{{class.ClassFirstTime}}</p>\n          <br />\n          <button type=\"submit\" class=\"btn_accept\"> 수락 하기</button>\n\n          <span (click)=DenyTutor($event);>\n            <button class=\"btn_deny\">거절 하기</button>\n          </span>\n        </div>\n      </div>\n    </form>\n  </div>\n\n\n\n</body>\n\n</html>"
+module.exports = "<!DOCTYPE html>\n<html>\n\n  <head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">\n    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n    <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n    <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.5.0/css/all.css\" integrity=\"sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU\"\n        crossorigin=\"anonymous\">\n</head>\n<body>\n\n  <!-- Shift + Alt + F 자동포맷 -->\n  <!-- 값을 가져오도록 하는 것입니다.-->\n  <div class=\"container\">\n    <form (submit)=\"AcceptTutor($event)\">\n      <div class=\"row\">\n        <div *ngFor=\"let class of informationss\">\n          <p id=\"apply\"><span id=\"a\"><i class=\"far fa-envelope\"></i>&nbsp;</span>승인 대기</p>\n          <p id=\"subapplay\">* 승인이 완료되면 자동으로 삭제됩니다.</p>\n          <hr >\n          <br /> <br />\n          <label for=\"fname\">수업 제목</label>\n          <br /> <br />\n          <p>{{class.ClassName}}</p>\n          <br />\n          <label for=\"fname\">카테고리</label>\n          <br /><br />\n          <p>{{class.ClassCategory}}</p>\n          <br />\n          <label for=\"fname\">모집 인원</label>\n          <br /><br />\n          <p>{{class.ClassTotalPeople}}</p>\n          <br />\n          <label for=\"fname\">튜터 소개</label>\n          <br /><br />\n          <pre>\n          <p>{{class.ClassTutorIntro}}</p>\n          <br />\n          </pre>\n          <label for=\"fname\">수업 소개</label>\n          <br /><br />\n          <pre>   \n          <p>{{class.ClassIntro}}</p>\n          </pre>   \n          <br />\n          <label for=\"fname\">수업 대상</label>\n          <br /><br />\n          <p>{{class.ClassWhom}}</p>\n\n          <br />\n          <label for=\"fname\">수업 내용(커리큘럼)</label>\n          <br /><br />\n          <pre>          \n            <p>{{class.ClassContents}}</p>\n          </pre>\n          <br />\n          <label for=\"fname\">수강료</label>\n          <br /><br />\n          <p>{{class.ClassPrice}}</p>\n          <br />\n          <label for=\"fname\">회당 수업시간</label>\n          <br /><br />\n          <p>{{class.ClassHour}}</p>\n          <br />\n          <label for=\"fname\">수업 횟수</label>\n          <br /><br />\n          <p>{{class.ClassNumberOfTime}}</p>\n          <br />\n          <label for=\"fname\">장 소</label>\n          <br /><br />\n          <p>{{class.ClassPlace}}</p>\n          <br />\n          <label for=\"fname\">상세 위치</label>\n          <br /><br />\n          <p>{{class.ClassPlaceDetail}}</p>\n          <br />\n          <label for=\"fname\">수업 요일</label>\n          <br /><br />\n          <p>{{class.ClassWeek}}</p>\n          <br />\n          <label for=\"fname\">수업 시간</label>\n          <br /><br />\n          <p>{{class.ClassTime}}</p>\n          <br />\n          <label for=\"fname\">시작 날짜</label>\n          <br /><br />\n          <p>{{class.ClassFirstTime}}</p>\n          <br />\n          <button type=\"submit\" class=\"btn_accept\"> 수락 하기</button>\n\n          <span (click)=DenyTutor($event);>\n            <button class=\"btn_deny\">거절 하기</button>\n          </span>\n        </div>\n      </div>\n    </form>\n  </div>\n\n\n\n</body>\n\n</html>"
 
 /***/ }),
 
@@ -362,15 +356,10 @@ var TutordetailComponent = /** @class */ (function () {
         var _this = this;
         var ClassName = localStorage.getItem('addClass');
         var ClassTutorID = localStorage.getItem('addID');
-        console.log("콘솔 1번" + ClassName);
         this.dataService.getContentsDetail(ClassName).subscribe(function (informationss) {
             console.log(informationss);
             if (informationss != 0) {
                 _this.informationss = informationss;
-                console.log("콘솔 2번" + ClassName, ClassTutorID);
-                console.log("콘텐츠 !디테일! 정보들을 가져와 봅시다." + _this.informationss);
-                console.log("콘솔 3번" + informationss.ClassTutorID);
-                console.log("콘솔 4번" + informationss.ClassName);
             }
             else {
                 alert("서버 요청 오류");
@@ -382,7 +371,6 @@ var TutordetailComponent = /** @class */ (function () {
         event.preventDefault();
         var ClassName = localStorage.getItem('addClass');
         var ClassTutorID = localStorage.getItem('addID');
-        console.log("AcceptTutor 안의 튜터 아이디 :" + ClassTutorID);
         this.dataService.getAccepttutor(ClassTutorID, ClassName).subscribe(function (accepts) {
             // [] 를 붙여줘야 array 형식으로 받아 이게 오브젝트 형식이면 안됩니다. 
             console.log(accepts);
@@ -394,13 +382,11 @@ var TutordetailComponent = /** @class */ (function () {
                 alert("서버 요청 오류");
             }
         });
-        console.log("AddTutor 성공 했을때, 나오는 콘솔입니다 성공했습니까?");
         this.router.navigate(['useradmin']);
     };
     TutordetailComponent.prototype.DenyTutor = function (event) {
         var _this = this;
         var ClassName = localStorage.getItem('addClass');
-        console.log("DenyTutor 안의 튜터 클래스 :" + ClassName);
         event.preventDefault();
         this.dataService.getDenytutor(ClassName).subscribe(function (denys) {
             // [] 를 붙여줘야 array 형식으로 받아 이게 오브젝트 형식이면 안됩니다. 
@@ -413,7 +399,6 @@ var TutordetailComponent = /** @class */ (function () {
                 alert("서버 요청 오류");
             }
         });
-        console.log("AddTutor 실패를 누르면 나오는 콘솔입니다 성공했습니까?");
         this.router.navigate(['useradmin']);
     };
     TutordetailComponent = __decorate([
@@ -642,8 +627,6 @@ var UserdetailComponent = /** @class */ (function () {
         var ChangeID = localStorage.getItem('ChangeID');
         this.dataService.getPointchange(ChangeID, u_point).subscribe(function (data) {
             // [] 를 붙여줘야 array 형식으로 받아 이게 오브젝트 형식이면 안됩니다. 
-            console.log("포인트 변경이 실행하여 값을 가져오면 이 콘솔이 출력됩니다 ^^");
-            console.log(data);
         });
         this.router.navigate(['useradmin']);
     };
@@ -722,8 +705,6 @@ var AppComponent = /** @class */ (function () {
         this.title = 'MAIN PAGE ..?';
     }
     AppComponent.prototype.ngOnInit = function () {
-        console.log("로그인 cookies " + localStorage.getItem('cookies'));
-        console.log("로그인 userID " + localStorage.getItem('userID'));
         var checking = localStorage.getItem('cookies');
         var userID = localStorage.getItem('userID');
         if (checking != null) {
@@ -731,7 +712,6 @@ var AppComponent = /** @class */ (function () {
             document.getElementById('mregister').style.display = "none";
             document.getElementById('mlogout').style.display = "inline-block";
             document.getElementById('mmypage').style.display = "inline-block";
-            console.log("checking 값 확인 (있을 때)" + checking);
             if (userID == 'admin') {
                 document.getElementById('puseradmin').style.display = "inline-block";
                 //useradmin => 관리자 전용으로 변경
@@ -745,7 +725,6 @@ var AppComponent = /** @class */ (function () {
             document.getElementById('mregister').style.display = "inline-block";
             document.getElementById('mlogout').style.display = "none";
             document.getElementById('mmypage').style.display = "none";
-            console.log("checking 값 확인 (없을 때)" + checking);
             document.getElementById('puseradmin').style.display = "none";
         }
     };
@@ -756,9 +735,6 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.onLogoutClick = function () {
         this.cs.deleteAll('user');
         this.dataService.logout();
-        console.log(localStorage.getItem('cookies'));
-        console.log(this.cs.deleteAll('user'));
-        console.log("data 검출중");
         document.getElementById('mlogin').style.display = "inline-block";
         document.getElementById('mregister').style.display = "inline-block";
         //mlogin 
@@ -774,7 +750,6 @@ var AppComponent = /** @class */ (function () {
         var target = event.target;
         var userSearch = target.querySelector('#userSearch').value;
         localStorage.setItem('userSearch', userSearch);
-        console.log("검색할 내용은" + localStorage.getItem('userSearch'));
         this.router.navigate(['searchpage']);
         //window.location.reload();
         // 이 부분에 reload 하는 부분인데...에러가 나는지 확인해줘야해요.. ㅠㅠ..
@@ -1289,7 +1264,6 @@ var ChatbotComponent = /** @class */ (function () {
     }
     ChatbotComponent.prototype.ngOnInit = function () {
         this.initBoot();
-        console.log("chatbot helper 작동중입니다.");
     };
     ChatbotComponent.prototype.initBoot = function () {
         var _this = this;
@@ -1467,10 +1441,8 @@ var ContentsComponent = /** @class */ (function () {
         console.log('contents.component.ts : ngOnInt');
         this.dataService.getContents().subscribe(function (information) {
             // [] 를 붙여줘야 array 형식으로 받아 이게 오브젝트 형식이면 안됩니다. 
-            console.log(information);
             if (information != 0) {
                 _this.information = information;
-                console.log("콘텐츠 정보들을 가져와 봅시다." + _this.information);
             }
             else {
                 alert("서버 전송 오류");
@@ -1479,44 +1451,36 @@ var ContentsComponent = /** @class */ (function () {
     };
     ContentsComponent.prototype.onSelected = function (detail) {
         localStorage.setItem('detail', detail);
-        console.log(detail);
         this.router.navigate(['contentsdetail']);
-        console.log("지금 시간 새벽 1시 20분.. 잠을 자고 싶습니다.");
     };
     ContentsComponent.prototype.Programming = function () {
         var categorysearch = "programming";
         localStorage.setItem('categorysearch', categorysearch);
-        console.log(localStorage.getItem('categorysearch'));
         this.router.navigate(['searchcategory']);
     };
     ContentsComponent.prototype.Design = function () {
         var categorysearch = "design";
         localStorage.setItem('categorysearch', categorysearch);
-        console.log(localStorage.getItem('categorysearch'));
         this.router.navigate(['searchcategory']);
     };
     ContentsComponent.prototype.Language = function () {
         var categorysearch = "language";
         localStorage.setItem('categorysearch', categorysearch);
-        console.log(localStorage.getItem('categorysearch'));
         this.router.navigate(['searchcategory']);
     };
     ContentsComponent.prototype.Music = function () {
         var categorysearch = "music";
         localStorage.setItem('categorysearch', categorysearch);
-        console.log(localStorage.getItem('categorysearch'));
         this.router.navigate(['searchcategory']);
     };
     ContentsComponent.prototype.Beauty = function () {
         var categorysearch = "beauty";
         localStorage.setItem('categorysearch', categorysearch);
-        console.log(localStorage.getItem('categorysearch'));
         this.router.navigate(['searchcategory']);
     };
     ContentsComponent.prototype.ETC = function () {
         var categorysearch = "etc";
         localStorage.setItem('categorysearch', categorysearch);
-        console.log(localStorage.getItem('categorysearch'));
         this.router.navigate(['searchcategory']);
     };
     ContentsComponent = __decorate([
@@ -1589,17 +1553,12 @@ var ContentsdetailComponent = /** @class */ (function () {
     ContentsdetailComponent.prototype.ngOnInit = function () {
         var _this = this;
         var ClassNamed = localStorage.getItem('detail');
-        console.log("여기까지는 문제가 없습니다" + ClassNamed);
         this.dataService.getContentsDetail(ClassNamed).subscribe(function (informations) {
             console.log(informations);
             if (informations != 0) {
                 _this.informations = informations;
-                console.log(localStorage.getItem('detail'));
-                console.log("여기가 터닝 포인트" + _this.informations);
                 var ClassName = informations.ClassName;
                 localStorage.setItem('RClassName', ClassName);
-                console.log(localStorage.getItem('RClassName'));
-                console.log("undefined 나오는지 확인 뜨면 진짜 몰라요..");
             }
             else {
                 alert("서버 오류 발생");
@@ -1610,17 +1569,12 @@ var ContentsdetailComponent = /** @class */ (function () {
         var _this = this;
         localStorage.setItem('ClassScore', ClassScore);
         localStorage.setItem('testapply', testapply);
-        console.log(testapply);
         var userID = localStorage.getItem('userID');
         var ClassName = localStorage.getItem('testapply');
-        console.log(userID, ClassName);
         this.dataService.getClassApply(userID, ClassName).subscribe(function (applyres) {
             if (applyres == 1) {
                 _this.applyres = applyres;
-                console.log(applyres);
-                console.log("성공했는지 확인을 했습니다.");
                 _this.router.navigate(['']);
-                console.log("외로운 Angular6 ㅠㅠ..");
                 alert("신청 완료되었습니다.");
             }
             else {
@@ -1830,26 +1784,18 @@ var HomeComponent = /** @class */ (function () {
     HomeComponent.prototype.onGoing = function () {
         var cookies = localStorage.getItem('cookies');
         if (cookies == null) {
-            console.log("아이디가 없으므로, 회원가입으로 이동합니다.");
-            console.log(cookies);
             this.router.navigate(['register']);
         }
         else {
-            console.log("로그인 상태이므로, 콘텐츠로 이동합니다.");
-            console.log(cookies);
             this.router.navigate(['contents']);
         }
     };
     HomeComponent.prototype.onSupport = function () {
         var cookies = localStorage.getItem('cookies');
         if (cookies == null) {
-            console.log("아이디가 없으므로, 회원가입으로 이동합니다.");
-            console.log(cookies);
             this.router.navigate(['register']);
         }
         else {
-            console.log("로그인 상태이므로, 콘텐츠로 이동합니다.");
-            console.log(cookies);
             this.router.navigate(['addtutor']);
         }
     };
@@ -1928,7 +1874,6 @@ var IntroduceComponent = /** @class */ (function () {
     };
     IntroduceComponent.prototype.onDelete = function (DeleteID) {
         localStorage.setItem('DeleteID', DeleteID);
-        console.log("삭제될 아이디는 : " + localStorage.getItem('DeleteID'));
         alert('user is delete');
     };
     IntroduceComponent = __decorate([
@@ -2009,11 +1954,7 @@ var LoginComponent = /** @class */ (function () {
         var target = event.target;
         var userID = target.querySelector('#userID').value;
         var userPassword = target.querySelector('#userPassword').value;
-        console.log("data 검출중");
         this.dataService.authenticateUser(userID, userPassword).subscribe(function (data) {
-            console.log(userID, userPassword);
-            console.log(data);
-            console.log("data 검출중");
             if (data != 0) {
                 localStorage.setItem('userID', userID);
                 document.getElementById('mlogin').style.display = "none";
@@ -2021,15 +1962,10 @@ var LoginComponent = /** @class */ (function () {
                 //mlogin 
                 document.getElementById('mlogout').style.display = "inline-block";
                 document.getElementById('mmypage').style.display = "inline-block";
-                console.log(data);
                 _this.dataService.storeUserData(data.token, data.user);
-                console.log("확인" + data.token, data.user);
-                console.log("성공했어 이놈아!!");
-                console.log("data.token");
                 alert(_this.cs.get('user'));
                 var cookies = _this.cs.get('user');
                 localStorage.setItem('cookies', cookies);
-                console.log(localStorage.getItem('cookies'));
                 _this.router.navigate(['']);
                 //userID 가 admin 일 때, 관리자 홈페이지로 이동.! 
                 if (userID == 'admin') {
@@ -2042,7 +1978,6 @@ var LoginComponent = /** @class */ (function () {
             }
             else {
                 alert('아이디와 비밀번호를 확인해주세요.');
-                console.log("틀렸어 이놈아!!");
                 _this.router.navigate(['login']);
             }
         });
@@ -2143,7 +2078,7 @@ var LogoutComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR');\r\n@import url('http://fonts.googleapis.com/earlyaccess/hanna.css');\r\n@charset 'utf-8';\r\n* {\r\n  font-family: 'Hanna', serif;\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n      -ms-user-select: none;\r\n          user-select: none;\r\n}\r\n.mypage_img{\r\ntext-align: center;\r\n}\r\nimg{\r\n  cursor: pointer;\r\n  border-radius: 100%;\r\n  width: 150px;\r\n  height: 150px;\r\n}\r\n.item_active{\r\n  padding: 25px;\r\n  background: url('registerinfo_top.jpg');\r\n  background-repeat: no-repeat;\r\n  background-size: 100% 100%;\r\n  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);\r\n \r\n}\r\n#editimage{\r\n  width: 450px;\r\n  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);\r\n  margin-bottom: 500px;\r\n  padding: 15px;\r\n  border: #b3b3b3 solid 2px;\r\n}\r\n.login-page {\r\n  text-align: left;\r\n  width: 1000px;\r\n  padding: 30px;\r\n  margin: auto;\r\n}\r\n#Uploadsubmit{\r\n  color : #FFAAAA;\r\n  background:white;\r\n  font-weight: bold;\r\n  width: 120px;\r\n  text-align: center;\r\n  font-size: 12px;\r\n  border-radius: 4px;\r\n}\r\n.form {\r\n  padding: 25px;\r\n  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);\r\n  z-index: 1;\r\n  background: #FFFFFF;\r\n  max-width: 1000px;\r\n  margin: 0 auto 100px;\r\n}\r\n.form input {\r\n  font-family: \"Roboto\", sans-serif;\r\n  outline: 0;\r\n  background: #f2f2f2;\r\n  width: 400px;\r\n  border: 0;\r\n  margin: 0 0 15px;\r\n  padding: 15px;\r\n  box-sizing: border-box;\r\n  font-size: 14px;\r\n}\r\n[type=submit]{\r\n  height: 53px;\r\n  margin-left: 33px;\r\n  border-radius: 4px;\r\n  font-weight: bold;\r\n  text-transform: uppercase;\r\n  outline: 0;\r\n  background:  #ccc;\r\n  width: 150px;\r\n  border: 0;\r\n  padding: 15px;\r\n  color: #FFFFFF;\r\n  font-size: 14px;\r\n  transition: all 0.3 ease;\r\n  cursor: pointer;\r\n}\r\n.button5 {\r\n  height: 53px;\r\n  margin-left: 33px;\r\n  border-radius: 4px;\r\n  font-family: \"Roboto\", sans-serif;\r\n  text-transform: uppercase;\r\n  outline: 0;\r\n  background: #ccc;\r\n  width: 150px;\r\n  border: 0;\r\n  padding: 15px;\r\n  color: #FFFFFF;\r\n  font-size: 14px;\r\n  transition: all 0.3 ease;\r\n  cursor: pointer;\r\n  \r\n}\r\n.button4 {\r\n  height: 53px;\r\n  border-radius: 4px;\r\n  font-family: \"Roboto\", sans-serif;\r\n  text-transform: uppercase;\r\n  outline: 0;\r\n  background:  #ccc;\r\n  width: 150px;\r\n  border: 0;\r\n  padding: 15px;\r\n  color: #FFFFFF;\r\n  font-size: 14px;\r\n  transition: all 0.3 ease;\r\n  cursor: pointer;\r\n  \r\n}\r\n.button3 {\r\n  height: 53px;\r\n  margin-left: 33px;\r\n  border-radius: 4px;\r\n  font-family: \"Roboto\", sans-serif;\r\n  text-transform: uppercase;\r\n  outline: 0;\r\n  background:  #ccc;\r\n  width: 150px;\r\n  border: 0;\r\n  padding: 15px;\r\n  color: #FFFFFF;\r\n  font-size: 14px;\r\n  transition: all 0.3 ease;\r\n  cursor: pointer;\r\n}\r\n.button2 {\r\n  height: 53px;\r\n  font-family: \"Roboto\", sans-serif;\r\n  text-transform: uppercase;\r\n  outline: 0;\r\n  background:  #ccc;\r\n  width: 150px;\r\n  border: 0;\r\n  padding: 15px;\r\n  color: #FFFFFF;\r\n  font-size: 14px;\r\n  transition: all 0.3 ease;\r\n  cursor: pointer;\r\n  border: 1px dashed lightGray;\r\n}\r\n.button {\r\n  height: 53px;\r\n  font-family: \"Roboto\", sans-serif;\r\n  text-transform: uppercase;\r\n  outline: 0;\r\n  background:  #ccc;\r\n  width: 150px;\r\n  border: 0;\r\n  padding: 15px;\r\n  color: #FFFFFF;\r\n  font-size: 14px;\r\n  transition: all 0.3 ease;\r\n  cursor: pointer;\r\n}\r\n.form button:hover,.form button:active,.form button:focus {\r\n  background: #7efcb4;\r\n}\r\n.form .button5:hover,.form .button5:active,.form .button5:focus {\r\n  background: #FFAAAA;\r\n}\r\n.form .button4:hover,.form .button4:active,.form .button4:focus {\r\n  background: #FFAAAA;\r\n}\r\n.form .button3:hover,.form .button3:active,.form .button3:focus {\r\n  background: #ff4949;\r\n}\r\n.form .message {\r\n  margin: 15px 0 0;\r\n  color: #b3b3b3;\r\n  font-size: 12px;\r\n}\r\n.form .message a {\r\n  color: #FFAAAA;\r\n  text-decoration: none;\r\n}\r\n/*\r\n.form .register-form {\r\n  display: none;\r\n}\r\n*/\r\n.container {\r\n  z-index: 1;\r\n  max-width: 1000px;\r\n  margin: 0 auto;\r\n}\r\n.container .info {\r\n  margin: 50px auto;\r\n  text-align: center;\r\n}\r\n.container .info h1 {\r\n  margin: 0 0 15px;\r\n  padding: 0;\r\n  font-size: 36px;\r\n  font-weight: 300;\r\n  color: #FFFFFF;\r\n}\r\n.container .info span {\r\n  color: #4d4d4d;\r\n  font-size: 12px;\r\n}\r\n.container .info span a {\r\n  color: #000000;\r\n  text-decoration: none;\r\n}\r\n.container .info span .fa {\r\n  color: #FFAAAA;\r\n}\r\n[type=radio] {\r\n  display: none;\r\n}\r\n[type=checkbox] {\r\n  display: none;\r\n}\r\nlabel {\r\n  border: 1px dashed lightGray;\r\n  padding: .25em 1em;\r\n  border-radius: 4px;\r\n  display: inline-block;\r\n  font-weight: bold;\r\n  margin: 1rem;\r\n}\r\n[type=radio]:checked+label {\r\n  color: #FFAAAA;\r\n}\r\n[type=checkbox]:checked+label {\r\n  color: #FFAAAA;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXlwYWdlL215cGFnZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFDQSxvRUFBb0U7QUFDcEUsaUVBQWlFO0FBRmpFLGlCQUFpQjtBQUdqQjtFQUNFLDRCQUE0QjtFQUM1QiwwQkFBa0I7S0FBbEIsdUJBQWtCO01BQWxCLHNCQUFrQjtVQUFsQixrQkFBa0I7Q0FDbkI7QUFDRDtBQUNBLG1CQUFtQjtDQUNsQjtBQUVEO0VBQ0UsZ0JBQWdCO0VBQ2hCLG9CQUFvQjtFQUNwQixhQUFhO0VBQ2IsY0FBYztDQUNmO0FBQ0Q7RUFDRSxjQUFjO0VBQ2Qsd0NBQTREO0VBQzVELDZCQUE2QjtFQUM3QiwyQkFBMkI7RUFDM0IsMkVBQTJFOztDQUU1RTtBQUVEO0VBQ0UsYUFBYTtFQUNiLDJFQUEyRTtFQUMzRSxxQkFBcUI7RUFDckIsY0FBYztFQUNkLDBCQUEwQjtDQUMzQjtBQUNEO0VBQ0UsaUJBQWlCO0VBQ2pCLGNBQWM7RUFDZCxjQUFjO0VBQ2QsYUFBYTtDQUNkO0FBQ0Q7RUFDRSxnQkFBZ0I7RUFDaEIsaUJBQWlCO0VBQ2pCLGtCQUFrQjtFQUNsQixhQUFhO0VBQ2IsbUJBQW1CO0VBQ25CLGdCQUFnQjtFQUNoQixtQkFBbUI7Q0FDcEI7QUFFRDtFQUNFLGNBQWM7RUFDZCwyRUFBMkU7RUFDM0UsV0FBVztFQUNYLG9CQUFvQjtFQUNwQixrQkFBa0I7RUFDbEIscUJBQXFCO0NBQ3RCO0FBQ0Q7RUFDRSxrQ0FBa0M7RUFDbEMsV0FBVztFQUNYLG9CQUFvQjtFQUNwQixhQUFhO0VBQ2IsVUFBVTtFQUNWLGlCQUFpQjtFQUNqQixjQUFjO0VBQ2QsdUJBQXVCO0VBQ3ZCLGdCQUFnQjtDQUNqQjtBQUNEO0VBQ0UsYUFBYTtFQUNiLGtCQUFrQjtFQUNsQixtQkFBbUI7RUFDbkIsa0JBQWtCO0VBQ2xCLDBCQUEwQjtFQUMxQixXQUFXO0VBQ1gsa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixVQUFVO0VBQ1YsY0FBYztFQUNkLGVBQWU7RUFDZixnQkFBZ0I7RUFFaEIseUJBQXlCO0VBQ3pCLGdCQUFnQjtDQUNqQjtBQUVEO0VBQ0UsYUFBYTtFQUNiLGtCQUFrQjtFQUNsQixtQkFBbUI7RUFDbkIsa0NBQWtDO0VBQ2xDLDBCQUEwQjtFQUMxQixXQUFXO0VBQ1gsaUJBQWlCO0VBQ2pCLGFBQWE7RUFDYixVQUFVO0VBQ1YsY0FBYztFQUNkLGVBQWU7RUFDZixnQkFBZ0I7RUFFaEIseUJBQXlCO0VBQ3pCLGdCQUFnQjs7Q0FFakI7QUFHRDtFQUNFLGFBQWE7RUFDYixtQkFBbUI7RUFDbkIsa0NBQWtDO0VBQ2xDLDBCQUEwQjtFQUMxQixXQUFXO0VBQ1gsa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixVQUFVO0VBQ1YsY0FBYztFQUNkLGVBQWU7RUFDZixnQkFBZ0I7RUFFaEIseUJBQXlCO0VBQ3pCLGdCQUFnQjs7Q0FFakI7QUFFRDtFQUNFLGFBQWE7RUFDYixrQkFBa0I7RUFDbEIsbUJBQW1CO0VBQ25CLGtDQUFrQztFQUNsQywwQkFBMEI7RUFDMUIsV0FBVztFQUNYLGtCQUFrQjtFQUNsQixhQUFhO0VBQ2IsVUFBVTtFQUNWLGNBQWM7RUFDZCxlQUFlO0VBQ2YsZ0JBQWdCO0VBRWhCLHlCQUF5QjtFQUN6QixnQkFBZ0I7Q0FDakI7QUFHRDtFQUNFLGFBQWE7RUFDYixrQ0FBa0M7RUFDbEMsMEJBQTBCO0VBQzFCLFdBQVc7RUFDWCxrQkFBa0I7RUFDbEIsYUFBYTtFQUNiLFVBQVU7RUFDVixjQUFjO0VBQ2QsZUFBZTtFQUNmLGdCQUFnQjtFQUVoQix5QkFBeUI7RUFDekIsZ0JBQWdCO0VBQ2hCLDZCQUE2QjtDQUM5QjtBQUNEO0VBQ0UsYUFBYTtFQUNiLGtDQUFrQztFQUNsQywwQkFBMEI7RUFDMUIsV0FBVztFQUNYLGtCQUFrQjtFQUNsQixhQUFhO0VBQ2IsVUFBVTtFQUNWLGNBQWM7RUFDZCxlQUFlO0VBQ2YsZ0JBQWdCO0VBRWhCLHlCQUF5QjtFQUN6QixnQkFBZ0I7Q0FDakI7QUFDRDtFQUNFLG9CQUFvQjtDQUNyQjtBQUVEO0VBQ0Usb0JBQW9CO0NBQ3JCO0FBRUQ7RUFDRSxvQkFBb0I7Q0FDckI7QUFDRDtFQUNFLG9CQUFvQjtDQUNyQjtBQUNEO0VBQ0UsaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZixnQkFBZ0I7Q0FDakI7QUFDRDtFQUNFLGVBQWU7RUFDZixzQkFBc0I7Q0FDdkI7QUFDRDs7OztFQUlFO0FBQ0Y7RUFDRSxXQUFXO0VBQ1gsa0JBQWtCO0VBQ2xCLGVBQWU7Q0FDaEI7QUFFRDtFQUNFLGtCQUFrQjtFQUNsQixtQkFBbUI7Q0FDcEI7QUFDRDtFQUNFLGlCQUFpQjtFQUNqQixXQUFXO0VBQ1gsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixlQUFlO0NBQ2hCO0FBQ0Q7RUFDRSxlQUFlO0VBQ2YsZ0JBQWdCO0NBQ2pCO0FBQ0Q7RUFDRSxlQUFlO0VBQ2Ysc0JBQXNCO0NBQ3ZCO0FBQ0Q7RUFDRSxlQUFlO0NBQ2hCO0FBRUQ7RUFDRSxjQUFjO0NBQ2Y7QUFDRDtFQUNFLGNBQWM7Q0FDZjtBQUNEO0VBQ0UsNkJBQTZCO0VBQzdCLG1CQUFtQjtFQUNuQixtQkFBbUI7RUFDbkIsc0JBQXNCO0VBQ3RCLGtCQUFrQjtFQUNsQixhQUFhO0NBQ2Q7QUFFRDtFQUNFLGVBQWU7Q0FDaEI7QUFDRDtFQUNFLGVBQWU7Q0FDaEIiLCJmaWxlIjoic3JjL2FwcC9teXBhZ2UvbXlwYWdlLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAY2hhcnNldCAndXRmLTgnO1xyXG5AaW1wb3J0IHVybCgnaHR0cHM6Ly9mb250cy5nb29nbGVhcGlzLmNvbS9jc3M/ZmFtaWx5PU5vdG8rU2FucytLUicpO1xyXG5AaW1wb3J0IHVybCgnaHR0cDovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Vhcmx5YWNjZXNzL2hhbm5hLmNzcycpO1xyXG4qIHtcclxuICBmb250LWZhbWlseTogJ0hhbm5hJywgc2VyaWY7XHJcbiAgdXNlci1zZWxlY3Q6IG5vbmU7XHJcbn1cclxuLm15cGFnZV9pbWd7XHJcbnRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG5cclxuaW1ne1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxuICBib3JkZXItcmFkaXVzOiAxMDAlO1xyXG4gIHdpZHRoOiAxNTBweDtcclxuICBoZWlnaHQ6IDE1MHB4O1xyXG59XHJcbi5pdGVtX2FjdGl2ZXtcclxuICBwYWRkaW5nOiAyNXB4O1xyXG4gIGJhY2tncm91bmQ6IHVybChcIi4uLy4uL2Fzc2V0cy9pbWFnZXMvcmVnaXN0ZXJpbmZvX3RvcC5qcGdcIik7XHJcbiAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcclxuICBiYWNrZ3JvdW5kLXNpemU6IDEwMCUgMTAwJTtcclxuICBib3gtc2hhZG93OiAwIDAgMjBweCAwIHJnYmEoMCwgMCwgMCwgMC4yKSwgMCA1cHggNXB4IDAgcmdiYSgwLCAwLCAwLCAwLjI0KTtcclxuIFxyXG59XHJcblxyXG4jZWRpdGltYWdle1xyXG4gIHdpZHRoOiA0NTBweDtcclxuICBib3gtc2hhZG93OiAwIDAgMjBweCAwIHJnYmEoMCwgMCwgMCwgMC4yKSwgMCA1cHggNXB4IDAgcmdiYSgwLCAwLCAwLCAwLjI0KTtcclxuICBtYXJnaW4tYm90dG9tOiA1MDBweDtcclxuICBwYWRkaW5nOiAxNXB4O1xyXG4gIGJvcmRlcjogI2IzYjNiMyBzb2xpZCAycHg7XHJcbn1cclxuLmxvZ2luLXBhZ2Uge1xyXG4gIHRleHQtYWxpZ246IGxlZnQ7XHJcbiAgd2lkdGg6IDEwMDBweDtcclxuICBwYWRkaW5nOiAzMHB4O1xyXG4gIG1hcmdpbjogYXV0bztcclxufVxyXG4jVXBsb2Fkc3VibWl0e1xyXG4gIGNvbG9yIDogI0ZGQUFBQTtcclxuICBiYWNrZ3JvdW5kOndoaXRlO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gIHdpZHRoOiAxMjBweDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgZm9udC1zaXplOiAxMnB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDRweDtcclxufVxyXG5cclxuLmZvcm0ge1xyXG4gIHBhZGRpbmc6IDI1cHg7XHJcbiAgYm94LXNoYWRvdzogMCAwIDIwcHggMCByZ2JhKDAsIDAsIDAsIDAuMiksIDAgNXB4IDVweCAwIHJnYmEoMCwgMCwgMCwgMC4yNCk7XHJcbiAgei1pbmRleDogMTtcclxuICBiYWNrZ3JvdW5kOiAjRkZGRkZGO1xyXG4gIG1heC13aWR0aDogMTAwMHB4O1xyXG4gIG1hcmdpbjogMCBhdXRvIDEwMHB4O1xyXG59XHJcbi5mb3JtIGlucHV0IHtcclxuICBmb250LWZhbWlseTogXCJSb2JvdG9cIiwgc2Fucy1zZXJpZjtcclxuICBvdXRsaW5lOiAwO1xyXG4gIGJhY2tncm91bmQ6ICNmMmYyZjI7XHJcbiAgd2lkdGg6IDQwMHB4O1xyXG4gIGJvcmRlcjogMDtcclxuICBtYXJnaW46IDAgMCAxNXB4O1xyXG4gIHBhZGRpbmc6IDE1cHg7XHJcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDtcclxuICBmb250LXNpemU6IDE0cHg7XHJcbn1cclxuW3R5cGU9c3VibWl0XXtcclxuICBoZWlnaHQ6IDUzcHg7XHJcbiAgbWFyZ2luLWxlZnQ6IDMzcHg7XHJcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XHJcbiAgb3V0bGluZTogMDtcclxuICBiYWNrZ3JvdW5kOiAgI2NjYztcclxuICB3aWR0aDogMTUwcHg7XHJcbiAgYm9yZGVyOiAwO1xyXG4gIHBhZGRpbmc6IDE1cHg7XHJcbiAgY29sb3I6ICNGRkZGRkY7XHJcbiAgZm9udC1zaXplOiAxNHB4O1xyXG4gIC13ZWJraXQtdHJhbnNpdGlvbjogYWxsIDAuMyBlYXNlO1xyXG4gIHRyYW5zaXRpb246IGFsbCAwLjMgZWFzZTtcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuXHJcbi5idXR0b241IHtcclxuICBoZWlnaHQ6IDUzcHg7XHJcbiAgbWFyZ2luLWxlZnQ6IDMzcHg7XHJcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xyXG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90b1wiLCBzYW5zLXNlcmlmO1xyXG4gIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XHJcbiAgb3V0bGluZTogMDtcclxuICBiYWNrZ3JvdW5kOiAjY2NjO1xyXG4gIHdpZHRoOiAxNTBweDtcclxuICBib3JkZXI6IDA7XHJcbiAgcGFkZGluZzogMTVweDtcclxuICBjb2xvcjogI0ZGRkZGRjtcclxuICBmb250LXNpemU6IDE0cHg7XHJcbiAgLXdlYmtpdC10cmFuc2l0aW9uOiBhbGwgMC4zIGVhc2U7XHJcbiAgdHJhbnNpdGlvbjogYWxsIDAuMyBlYXNlO1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxuICBcclxufVxyXG5cclxuXHJcbi5idXR0b240IHtcclxuICBoZWlnaHQ6IDUzcHg7XHJcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xyXG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90b1wiLCBzYW5zLXNlcmlmO1xyXG4gIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XHJcbiAgb3V0bGluZTogMDtcclxuICBiYWNrZ3JvdW5kOiAgI2NjYztcclxuICB3aWR0aDogMTUwcHg7XHJcbiAgYm9yZGVyOiAwO1xyXG4gIHBhZGRpbmc6IDE1cHg7XHJcbiAgY29sb3I6ICNGRkZGRkY7XHJcbiAgZm9udC1zaXplOiAxNHB4O1xyXG4gIC13ZWJraXQtdHJhbnNpdGlvbjogYWxsIDAuMyBlYXNlO1xyXG4gIHRyYW5zaXRpb246IGFsbCAwLjMgZWFzZTtcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgXHJcbn1cclxuXHJcbi5idXR0b24zIHtcclxuICBoZWlnaHQ6IDUzcHg7XHJcbiAgbWFyZ2luLWxlZnQ6IDMzcHg7XHJcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xyXG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90b1wiLCBzYW5zLXNlcmlmO1xyXG4gIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XHJcbiAgb3V0bGluZTogMDtcclxuICBiYWNrZ3JvdW5kOiAgI2NjYztcclxuICB3aWR0aDogMTUwcHg7XHJcbiAgYm9yZGVyOiAwO1xyXG4gIHBhZGRpbmc6IDE1cHg7XHJcbiAgY29sb3I6ICNGRkZGRkY7XHJcbiAgZm9udC1zaXplOiAxNHB4O1xyXG4gIC13ZWJraXQtdHJhbnNpdGlvbjogYWxsIDAuMyBlYXNlO1xyXG4gIHRyYW5zaXRpb246IGFsbCAwLjMgZWFzZTtcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbn1cclxuXHJcblxyXG4uYnV0dG9uMiB7XHJcbiAgaGVpZ2h0OiA1M3B4O1xyXG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90b1wiLCBzYW5zLXNlcmlmO1xyXG4gIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XHJcbiAgb3V0bGluZTogMDtcclxuICBiYWNrZ3JvdW5kOiAgI2NjYztcclxuICB3aWR0aDogMTUwcHg7XHJcbiAgYm9yZGVyOiAwO1xyXG4gIHBhZGRpbmc6IDE1cHg7XHJcbiAgY29sb3I6ICNGRkZGRkY7XHJcbiAgZm9udC1zaXplOiAxNHB4O1xyXG4gIC13ZWJraXQtdHJhbnNpdGlvbjogYWxsIDAuMyBlYXNlO1xyXG4gIHRyYW5zaXRpb246IGFsbCAwLjMgZWFzZTtcclxuICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgYm9yZGVyOiAxcHggZGFzaGVkIGxpZ2h0R3JheTtcclxufVxyXG4uYnV0dG9uIHtcclxuICBoZWlnaHQ6IDUzcHg7XHJcbiAgZm9udC1mYW1pbHk6IFwiUm9ib3RvXCIsIHNhbnMtc2VyaWY7XHJcbiAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcclxuICBvdXRsaW5lOiAwO1xyXG4gIGJhY2tncm91bmQ6ICAjY2NjO1xyXG4gIHdpZHRoOiAxNTBweDtcclxuICBib3JkZXI6IDA7XHJcbiAgcGFkZGluZzogMTVweDtcclxuICBjb2xvcjogI0ZGRkZGRjtcclxuICBmb250LXNpemU6IDE0cHg7XHJcbiAgLXdlYmtpdC10cmFuc2l0aW9uOiBhbGwgMC4zIGVhc2U7XHJcbiAgdHJhbnNpdGlvbjogYWxsIDAuMyBlYXNlO1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG4uZm9ybSBidXR0b246aG92ZXIsLmZvcm0gYnV0dG9uOmFjdGl2ZSwuZm9ybSBidXR0b246Zm9jdXMge1xyXG4gIGJhY2tncm91bmQ6ICM3ZWZjYjQ7XHJcbn1cclxuXHJcbi5mb3JtIC5idXR0b241OmhvdmVyLC5mb3JtIC5idXR0b241OmFjdGl2ZSwuZm9ybSAuYnV0dG9uNTpmb2N1cyB7XHJcbiAgYmFja2dyb3VuZDogI0ZGQUFBQTtcclxufVxyXG5cclxuLmZvcm0gLmJ1dHRvbjQ6aG92ZXIsLmZvcm0gLmJ1dHRvbjQ6YWN0aXZlLC5mb3JtIC5idXR0b240OmZvY3VzIHtcclxuICBiYWNrZ3JvdW5kOiAjRkZBQUFBO1xyXG59XHJcbi5mb3JtIC5idXR0b24zOmhvdmVyLC5mb3JtIC5idXR0b24zOmFjdGl2ZSwuZm9ybSAuYnV0dG9uMzpmb2N1cyB7XHJcbiAgYmFja2dyb3VuZDogI2ZmNDk0OTtcclxufVxyXG4uZm9ybSAubWVzc2FnZSB7XHJcbiAgbWFyZ2luOiAxNXB4IDAgMDtcclxuICBjb2xvcjogI2IzYjNiMztcclxuICBmb250LXNpemU6IDEycHg7XHJcbn1cclxuLmZvcm0gLm1lc3NhZ2UgYSB7XHJcbiAgY29sb3I6ICNGRkFBQUE7XHJcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xyXG59XHJcbi8qXHJcbi5mb3JtIC5yZWdpc3Rlci1mb3JtIHtcclxuICBkaXNwbGF5OiBub25lO1xyXG59XHJcbiovXHJcbi5jb250YWluZXIge1xyXG4gIHotaW5kZXg6IDE7XHJcbiAgbWF4LXdpZHRoOiAxMDAwcHg7XHJcbiAgbWFyZ2luOiAwIGF1dG87XHJcbn1cclxuXHJcbi5jb250YWluZXIgLmluZm8ge1xyXG4gIG1hcmdpbjogNTBweCBhdXRvO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG4uY29udGFpbmVyIC5pbmZvIGgxIHtcclxuICBtYXJnaW46IDAgMCAxNXB4O1xyXG4gIHBhZGRpbmc6IDA7XHJcbiAgZm9udC1zaXplOiAzNnB4O1xyXG4gIGZvbnQtd2VpZ2h0OiAzMDA7XHJcbiAgY29sb3I6ICNGRkZGRkY7XHJcbn1cclxuLmNvbnRhaW5lciAuaW5mbyBzcGFuIHtcclxuICBjb2xvcjogIzRkNGQ0ZDtcclxuICBmb250LXNpemU6IDEycHg7XHJcbn1cclxuLmNvbnRhaW5lciAuaW5mbyBzcGFuIGEge1xyXG4gIGNvbG9yOiAjMDAwMDAwO1xyXG4gIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxufVxyXG4uY29udGFpbmVyIC5pbmZvIHNwYW4gLmZhIHtcclxuICBjb2xvcjogI0ZGQUFBQTtcclxufVxyXG5cclxuW3R5cGU9cmFkaW9dIHtcclxuICBkaXNwbGF5OiBub25lO1xyXG59XHJcblt0eXBlPWNoZWNrYm94XSB7XHJcbiAgZGlzcGxheTogbm9uZTtcclxufVxyXG5sYWJlbCB7XHJcbiAgYm9yZGVyOiAxcHggZGFzaGVkIGxpZ2h0R3JheTtcclxuICBwYWRkaW5nOiAuMjVlbSAxZW07XHJcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICBmb250LXdlaWdodDogYm9sZDtcclxuICBtYXJnaW46IDFyZW07XHJcbn1cclxuXHJcblt0eXBlPXJhZGlvXTpjaGVja2VkK2xhYmVsIHtcclxuICBjb2xvcjogI0ZGQUFBQTtcclxufVxyXG5bdHlwZT1jaGVja2JveF06Y2hlY2tlZCtsYWJlbCB7XHJcbiAgY29sb3I6ICNGRkFBQUE7XHJcbn1cclxuIl19 */"
+module.exports = "\r\n@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR');\r\n@import url('http://fonts.googleapis.com/earlyaccess/hanna.css');\r\n@charset 'utf-8';\r\n* {\r\n  font-family: 'Hanna', serif;\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n      -ms-user-select: none;\r\n          user-select: none;\r\n}\r\n.mypage_img{\r\ntext-align: center;\r\n}\r\nimg{\r\n  cursor: pointer;\r\n  border-radius: 100%;\r\n  width: 150px;\r\n  height: 150px;\r\n}\r\n.item_active{\r\n  padding: 25px;\r\n  background: url('registerinfo_top.jpg');\r\n  background-repeat: no-repeat;\r\n  background-size: 100% 100%;\r\n  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);\r\n \r\n}\r\n#editimage{\r\n  width: 450px;\r\n  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);\r\n  margin-bottom: 30px;\r\n  padding: 15px;\r\n  border: #b3b3b3 solid 2px;\r\n}\r\n.login-page {\r\n  text-align: left;\r\n  width: 1000px;\r\n  padding: 30px;\r\n  margin: auto;\r\n}\r\n#Uploadsubmit{\r\n  color : #FFAAAA;\r\n  background:white;\r\n  font-weight: bold;\r\n  width: 120px;\r\n  text-align: center;\r\n  font-size: 12px;\r\n  border-radius: 4px;\r\n}\r\n.form {\r\n  padding: 25px;\r\n  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);\r\n  z-index: 1;\r\n  background: #FFFFFF;\r\n  max-width: 1000px;\r\n  margin: 0 auto 100px;\r\n}\r\n.form input {\r\n  font-family: \"Roboto\", sans-serif;\r\n  outline: 0;\r\n  background: #f2f2f2;\r\n  width: 400px;\r\n  border: 0;\r\n  margin: 0 0 15px;\r\n  padding: 15px;\r\n  box-sizing: border-box;\r\n  font-size: 14px;\r\n}\r\n[type=submit]{\r\n  height: 53px;\r\n  margin-left: 33px;\r\n  border-radius: 4px;\r\n  font-weight: bold;\r\n  text-transform: uppercase;\r\n  outline: 0;\r\n  background:  #ccc;\r\n  width: 150px;\r\n  border: 0;\r\n  padding: 15px;\r\n  color: #FFFFFF;\r\n  font-size: 14px;\r\n  transition: all 0.3 ease;\r\n  cursor: pointer;\r\n}\r\n.button5 {\r\n  height: 53px;\r\n  margin-left: 33px;\r\n  border-radius: 4px;\r\n  font-family: \"Roboto\", sans-serif;\r\n  text-transform: uppercase;\r\n  outline: 0;\r\n  background: #ccc;\r\n  width: 150px;\r\n  border: 0;\r\n  padding: 15px;\r\n  color: #FFFFFF;\r\n  font-size: 14px;\r\n  transition: all 0.3 ease;\r\n  cursor: pointer;\r\n  \r\n}\r\n.button4 {\r\n  height: 53px;\r\n  border-radius: 4px;\r\n  font-family: \"Roboto\", sans-serif;\r\n  text-transform: uppercase;\r\n  outline: 0;\r\n  background:  #ccc;\r\n  width: 150px;\r\n  border: 0;\r\n  padding: 15px;\r\n  color: #FFFFFF;\r\n  font-size: 14px;\r\n  transition: all 0.3 ease;\r\n  cursor: pointer;\r\n  \r\n}\r\n.button3 {\r\n  height: 53px;\r\n  margin-left: 33px;\r\n  border-radius: 4px;\r\n  font-family: \"Roboto\", sans-serif;\r\n  text-transform: uppercase;\r\n  outline: 0;\r\n  background:  #ccc;\r\n  width: 150px;\r\n  border: 0;\r\n  padding: 15px;\r\n  color: #FFFFFF;\r\n  font-size: 14px;\r\n  transition: all 0.3 ease;\r\n  cursor: pointer;\r\n}\r\n.button2 {\r\n  height: 53px;\r\n  font-family: \"Roboto\", sans-serif;\r\n  text-transform: uppercase;\r\n  outline: 0;\r\n  background:  #ccc;\r\n  width: 150px;\r\n  border: 0;\r\n  padding: 15px;\r\n  color: #FFFFFF;\r\n  font-size: 14px;\r\n  transition: all 0.3 ease;\r\n  cursor: pointer;\r\n  border: 1px dashed lightGray;\r\n}\r\n.button {\r\n  height: 53px;\r\n  font-family: \"Roboto\", sans-serif;\r\n  text-transform: uppercase;\r\n  outline: 0;\r\n  background:  #ccc;\r\n  width: 150px;\r\n  border: 0;\r\n  padding: 15px;\r\n  color: #FFFFFF;\r\n  font-size: 14px;\r\n  transition: all 0.3 ease;\r\n  cursor: pointer;\r\n}\r\n.form button:hover,.form button:active,.form button:focus {\r\n  background: #7efcb4;\r\n}\r\n.form .button5:hover,.form .button5:active,.form .button5:focus {\r\n  background: #FFAAAA;\r\n}\r\n.form .button4:hover,.form .button4:active,.form .button4:focus {\r\n  background: #FFAAAA;\r\n}\r\n.form .button3:hover,.form .button3:active,.form .button3:focus {\r\n  background: #ff4949;\r\n}\r\n.form .message {\r\n  margin: 15px 0 0;\r\n  color: #b3b3b3;\r\n  font-size: 12px;\r\n}\r\n.form .message a {\r\n  color: #FFAAAA;\r\n  text-decoration: none;\r\n}\r\n/*\r\n.form .register-form {\r\n  display: none;\r\n}\r\n*/\r\n.container {\r\n  z-index: 1;\r\n  max-width: 1000px;\r\n  margin: 0 auto;\r\n}\r\n.container .info {\r\n  margin: 50px auto;\r\n  text-align: center;\r\n}\r\n.container .info h1 {\r\n  margin: 0 0 15px;\r\n  padding: 0;\r\n  font-size: 36px;\r\n  font-weight: 300;\r\n  color: #FFFFFF;\r\n}\r\n.container .info span {\r\n  color: #4d4d4d;\r\n  font-size: 12px;\r\n}\r\n.container .info span a {\r\n  color: #000000;\r\n  text-decoration: none;\r\n}\r\n.container .info span .fa {\r\n  color: #FFAAAA;\r\n}\r\n[type=radio] {\r\n  display: none;\r\n}\r\n[type=checkbox] {\r\n  display: none;\r\n}\r\nlabel {\r\n  border: 1px dashed lightGray;\r\n  padding: .25em 1em;\r\n  border-radius: 4px;\r\n  display: inline-block;\r\n  font-weight: bold;\r\n  margin: 1rem;\r\n}\r\n[type=radio]:checked+label {\r\n  color: #FFAAAA;\r\n}\r\n[type=checkbox]:checked+label {\r\n  color: #FFAAAA;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXlwYWdlL215cGFnZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFDQSxvRUFBb0U7QUFDcEUsaUVBQWlFO0FBRmpFLGlCQUFpQjtBQUdqQjtFQUNFLDRCQUE0QjtFQUM1QiwwQkFBa0I7S0FBbEIsdUJBQWtCO01BQWxCLHNCQUFrQjtVQUFsQixrQkFBa0I7Q0FDbkI7QUFDRDtBQUNBLG1CQUFtQjtDQUNsQjtBQUVEO0VBQ0UsZ0JBQWdCO0VBQ2hCLG9CQUFvQjtFQUNwQixhQUFhO0VBQ2IsY0FBYztDQUNmO0FBQ0Q7RUFDRSxjQUFjO0VBQ2Qsd0NBQTREO0VBQzVELDZCQUE2QjtFQUM3QiwyQkFBMkI7RUFDM0IsMkVBQTJFOztDQUU1RTtBQUVEO0VBQ0UsYUFBYTtFQUNiLDJFQUEyRTtFQUMzRSxvQkFBb0I7RUFDcEIsY0FBYztFQUNkLDBCQUEwQjtDQUMzQjtBQUNEO0VBQ0UsaUJBQWlCO0VBQ2pCLGNBQWM7RUFDZCxjQUFjO0VBQ2QsYUFBYTtDQUNkO0FBQ0Q7RUFDRSxnQkFBZ0I7RUFDaEIsaUJBQWlCO0VBQ2pCLGtCQUFrQjtFQUNsQixhQUFhO0VBQ2IsbUJBQW1CO0VBQ25CLGdCQUFnQjtFQUNoQixtQkFBbUI7Q0FDcEI7QUFFRDtFQUNFLGNBQWM7RUFDZCwyRUFBMkU7RUFDM0UsV0FBVztFQUNYLG9CQUFvQjtFQUNwQixrQkFBa0I7RUFDbEIscUJBQXFCO0NBQ3RCO0FBQ0Q7RUFDRSxrQ0FBa0M7RUFDbEMsV0FBVztFQUNYLG9CQUFvQjtFQUNwQixhQUFhO0VBQ2IsVUFBVTtFQUNWLGlCQUFpQjtFQUNqQixjQUFjO0VBQ2QsdUJBQXVCO0VBQ3ZCLGdCQUFnQjtDQUNqQjtBQUNEO0VBQ0UsYUFBYTtFQUNiLGtCQUFrQjtFQUNsQixtQkFBbUI7RUFDbkIsa0JBQWtCO0VBQ2xCLDBCQUEwQjtFQUMxQixXQUFXO0VBQ1gsa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixVQUFVO0VBQ1YsY0FBYztFQUNkLGVBQWU7RUFDZixnQkFBZ0I7RUFFaEIseUJBQXlCO0VBQ3pCLGdCQUFnQjtDQUNqQjtBQUVEO0VBQ0UsYUFBYTtFQUNiLGtCQUFrQjtFQUNsQixtQkFBbUI7RUFDbkIsa0NBQWtDO0VBQ2xDLDBCQUEwQjtFQUMxQixXQUFXO0VBQ1gsaUJBQWlCO0VBQ2pCLGFBQWE7RUFDYixVQUFVO0VBQ1YsY0FBYztFQUNkLGVBQWU7RUFDZixnQkFBZ0I7RUFFaEIseUJBQXlCO0VBQ3pCLGdCQUFnQjs7Q0FFakI7QUFHRDtFQUNFLGFBQWE7RUFDYixtQkFBbUI7RUFDbkIsa0NBQWtDO0VBQ2xDLDBCQUEwQjtFQUMxQixXQUFXO0VBQ1gsa0JBQWtCO0VBQ2xCLGFBQWE7RUFDYixVQUFVO0VBQ1YsY0FBYztFQUNkLGVBQWU7RUFDZixnQkFBZ0I7RUFFaEIseUJBQXlCO0VBQ3pCLGdCQUFnQjs7Q0FFakI7QUFFRDtFQUNFLGFBQWE7RUFDYixrQkFBa0I7RUFDbEIsbUJBQW1CO0VBQ25CLGtDQUFrQztFQUNsQywwQkFBMEI7RUFDMUIsV0FBVztFQUNYLGtCQUFrQjtFQUNsQixhQUFhO0VBQ2IsVUFBVTtFQUNWLGNBQWM7RUFDZCxlQUFlO0VBQ2YsZ0JBQWdCO0VBRWhCLHlCQUF5QjtFQUN6QixnQkFBZ0I7Q0FDakI7QUFHRDtFQUNFLGFBQWE7RUFDYixrQ0FBa0M7RUFDbEMsMEJBQTBCO0VBQzFCLFdBQVc7RUFDWCxrQkFBa0I7RUFDbEIsYUFBYTtFQUNiLFVBQVU7RUFDVixjQUFjO0VBQ2QsZUFBZTtFQUNmLGdCQUFnQjtFQUVoQix5QkFBeUI7RUFDekIsZ0JBQWdCO0VBQ2hCLDZCQUE2QjtDQUM5QjtBQUNEO0VBQ0UsYUFBYTtFQUNiLGtDQUFrQztFQUNsQywwQkFBMEI7RUFDMUIsV0FBVztFQUNYLGtCQUFrQjtFQUNsQixhQUFhO0VBQ2IsVUFBVTtFQUNWLGNBQWM7RUFDZCxlQUFlO0VBQ2YsZ0JBQWdCO0VBRWhCLHlCQUF5QjtFQUN6QixnQkFBZ0I7Q0FDakI7QUFDRDtFQUNFLG9CQUFvQjtDQUNyQjtBQUVEO0VBQ0Usb0JBQW9CO0NBQ3JCO0FBRUQ7RUFDRSxvQkFBb0I7Q0FDckI7QUFDRDtFQUNFLG9CQUFvQjtDQUNyQjtBQUNEO0VBQ0UsaUJBQWlCO0VBQ2pCLGVBQWU7RUFDZixnQkFBZ0I7Q0FDakI7QUFDRDtFQUNFLGVBQWU7RUFDZixzQkFBc0I7Q0FDdkI7QUFDRDs7OztFQUlFO0FBQ0Y7RUFDRSxXQUFXO0VBQ1gsa0JBQWtCO0VBQ2xCLGVBQWU7Q0FDaEI7QUFFRDtFQUNFLGtCQUFrQjtFQUNsQixtQkFBbUI7Q0FDcEI7QUFDRDtFQUNFLGlCQUFpQjtFQUNqQixXQUFXO0VBQ1gsZ0JBQWdCO0VBQ2hCLGlCQUFpQjtFQUNqQixlQUFlO0NBQ2hCO0FBQ0Q7RUFDRSxlQUFlO0VBQ2YsZ0JBQWdCO0NBQ2pCO0FBQ0Q7RUFDRSxlQUFlO0VBQ2Ysc0JBQXNCO0NBQ3ZCO0FBQ0Q7RUFDRSxlQUFlO0NBQ2hCO0FBRUQ7RUFDRSxjQUFjO0NBQ2Y7QUFDRDtFQUNFLGNBQWM7Q0FDZjtBQUNEO0VBQ0UsNkJBQTZCO0VBQzdCLG1CQUFtQjtFQUNuQixtQkFBbUI7RUFDbkIsc0JBQXNCO0VBQ3RCLGtCQUFrQjtFQUNsQixhQUFhO0NBQ2Q7QUFFRDtFQUNFLGVBQWU7Q0FDaEI7QUFDRDtFQUNFLGVBQWU7Q0FDaEIiLCJmaWxlIjoic3JjL2FwcC9teXBhZ2UvbXlwYWdlLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAY2hhcnNldCAndXRmLTgnO1xyXG5AaW1wb3J0IHVybCgnaHR0cHM6Ly9mb250cy5nb29nbGVhcGlzLmNvbS9jc3M/ZmFtaWx5PU5vdG8rU2FucytLUicpO1xyXG5AaW1wb3J0IHVybCgnaHR0cDovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Vhcmx5YWNjZXNzL2hhbm5hLmNzcycpO1xyXG4qIHtcclxuICBmb250LWZhbWlseTogJ0hhbm5hJywgc2VyaWY7XHJcbiAgdXNlci1zZWxlY3Q6IG5vbmU7XHJcbn1cclxuLm15cGFnZV9pbWd7XHJcbnRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG5cclxuaW1ne1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxuICBib3JkZXItcmFkaXVzOiAxMDAlO1xyXG4gIHdpZHRoOiAxNTBweDtcclxuICBoZWlnaHQ6IDE1MHB4O1xyXG59XHJcbi5pdGVtX2FjdGl2ZXtcclxuICBwYWRkaW5nOiAyNXB4O1xyXG4gIGJhY2tncm91bmQ6IHVybChcIi4uLy4uL2Fzc2V0cy9pbWFnZXMvcmVnaXN0ZXJpbmZvX3RvcC5qcGdcIik7XHJcbiAgYmFja2dyb3VuZC1yZXBlYXQ6IG5vLXJlcGVhdDtcclxuICBiYWNrZ3JvdW5kLXNpemU6IDEwMCUgMTAwJTtcclxuICBib3gtc2hhZG93OiAwIDAgMjBweCAwIHJnYmEoMCwgMCwgMCwgMC4yKSwgMCA1cHggNXB4IDAgcmdiYSgwLCAwLCAwLCAwLjI0KTtcclxuIFxyXG59XHJcblxyXG4jZWRpdGltYWdle1xyXG4gIHdpZHRoOiA0NTBweDtcclxuICBib3gtc2hhZG93OiAwIDAgMjBweCAwIHJnYmEoMCwgMCwgMCwgMC4yKSwgMCA1cHggNXB4IDAgcmdiYSgwLCAwLCAwLCAwLjI0KTtcclxuICBtYXJnaW4tYm90dG9tOiAzMHB4O1xyXG4gIHBhZGRpbmc6IDE1cHg7XHJcbiAgYm9yZGVyOiAjYjNiM2IzIHNvbGlkIDJweDtcclxufVxyXG4ubG9naW4tcGFnZSB7XHJcbiAgdGV4dC1hbGlnbjogbGVmdDtcclxuICB3aWR0aDogMTAwMHB4O1xyXG4gIHBhZGRpbmc6IDMwcHg7XHJcbiAgbWFyZ2luOiBhdXRvO1xyXG59XHJcbiNVcGxvYWRzdWJtaXR7XHJcbiAgY29sb3IgOiAjRkZBQUFBO1xyXG4gIGJhY2tncm91bmQ6d2hpdGU7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgd2lkdGg6IDEyMHB4O1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBmb250LXNpemU6IDEycHg7XHJcbiAgYm9yZGVyLXJhZGl1czogNHB4O1xyXG59XHJcblxyXG4uZm9ybSB7XHJcbiAgcGFkZGluZzogMjVweDtcclxuICBib3gtc2hhZG93OiAwIDAgMjBweCAwIHJnYmEoMCwgMCwgMCwgMC4yKSwgMCA1cHggNXB4IDAgcmdiYSgwLCAwLCAwLCAwLjI0KTtcclxuICB6LWluZGV4OiAxO1xyXG4gIGJhY2tncm91bmQ6ICNGRkZGRkY7XHJcbiAgbWF4LXdpZHRoOiAxMDAwcHg7XHJcbiAgbWFyZ2luOiAwIGF1dG8gMTAwcHg7XHJcbn1cclxuLmZvcm0gaW5wdXQge1xyXG4gIGZvbnQtZmFtaWx5OiBcIlJvYm90b1wiLCBzYW5zLXNlcmlmO1xyXG4gIG91dGxpbmU6IDA7XHJcbiAgYmFja2dyb3VuZDogI2YyZjJmMjtcclxuICB3aWR0aDogNDAwcHg7XHJcbiAgYm9yZGVyOiAwO1xyXG4gIG1hcmdpbjogMCAwIDE1cHg7XHJcbiAgcGFkZGluZzogMTVweDtcclxuICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xyXG4gIGZvbnQtc2l6ZTogMTRweDtcclxufVxyXG5bdHlwZT1zdWJtaXRde1xyXG4gIGhlaWdodDogNTNweDtcclxuICBtYXJnaW4tbGVmdDogMzNweDtcclxuICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcclxuICBvdXRsaW5lOiAwO1xyXG4gIGJhY2tncm91bmQ6ICAjY2NjO1xyXG4gIHdpZHRoOiAxNTBweDtcclxuICBib3JkZXI6IDA7XHJcbiAgcGFkZGluZzogMTVweDtcclxuICBjb2xvcjogI0ZGRkZGRjtcclxuICBmb250LXNpemU6IDE0cHg7XHJcbiAgLXdlYmtpdC10cmFuc2l0aW9uOiBhbGwgMC4zIGVhc2U7XHJcbiAgdHJhbnNpdGlvbjogYWxsIDAuMyBlYXNlO1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG5cclxuLmJ1dHRvbjUge1xyXG4gIGhlaWdodDogNTNweDtcclxuICBtYXJnaW4tbGVmdDogMzNweDtcclxuICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgZm9udC1mYW1pbHk6IFwiUm9ib3RvXCIsIHNhbnMtc2VyaWY7XHJcbiAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcclxuICBvdXRsaW5lOiAwO1xyXG4gIGJhY2tncm91bmQ6ICNjY2M7XHJcbiAgd2lkdGg6IDE1MHB4O1xyXG4gIGJvcmRlcjogMDtcclxuICBwYWRkaW5nOiAxNXB4O1xyXG4gIGNvbG9yOiAjRkZGRkZGO1xyXG4gIGZvbnQtc2l6ZTogMTRweDtcclxuICAtd2Via2l0LXRyYW5zaXRpb246IGFsbCAwLjMgZWFzZTtcclxuICB0cmFuc2l0aW9uOiBhbGwgMC4zIGVhc2U7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG4gIFxyXG59XHJcblxyXG5cclxuLmJ1dHRvbjQge1xyXG4gIGhlaWdodDogNTNweDtcclxuICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgZm9udC1mYW1pbHk6IFwiUm9ib3RvXCIsIHNhbnMtc2VyaWY7XHJcbiAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcclxuICBvdXRsaW5lOiAwO1xyXG4gIGJhY2tncm91bmQ6ICAjY2NjO1xyXG4gIHdpZHRoOiAxNTBweDtcclxuICBib3JkZXI6IDA7XHJcbiAgcGFkZGluZzogMTVweDtcclxuICBjb2xvcjogI0ZGRkZGRjtcclxuICBmb250LXNpemU6IDE0cHg7XHJcbiAgLXdlYmtpdC10cmFuc2l0aW9uOiBhbGwgMC4zIGVhc2U7XHJcbiAgdHJhbnNpdGlvbjogYWxsIDAuMyBlYXNlO1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxuICBcclxufVxyXG5cclxuLmJ1dHRvbjMge1xyXG4gIGhlaWdodDogNTNweDtcclxuICBtYXJnaW4tbGVmdDogMzNweDtcclxuICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgZm9udC1mYW1pbHk6IFwiUm9ib3RvXCIsIHNhbnMtc2VyaWY7XHJcbiAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcclxuICBvdXRsaW5lOiAwO1xyXG4gIGJhY2tncm91bmQ6ICAjY2NjO1xyXG4gIHdpZHRoOiAxNTBweDtcclxuICBib3JkZXI6IDA7XHJcbiAgcGFkZGluZzogMTVweDtcclxuICBjb2xvcjogI0ZGRkZGRjtcclxuICBmb250LXNpemU6IDE0cHg7XHJcbiAgLXdlYmtpdC10cmFuc2l0aW9uOiBhbGwgMC4zIGVhc2U7XHJcbiAgdHJhbnNpdGlvbjogYWxsIDAuMyBlYXNlO1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG5cclxuXHJcbi5idXR0b24yIHtcclxuICBoZWlnaHQ6IDUzcHg7XHJcbiAgZm9udC1mYW1pbHk6IFwiUm9ib3RvXCIsIHNhbnMtc2VyaWY7XHJcbiAgdGV4dC10cmFuc2Zvcm06IHVwcGVyY2FzZTtcclxuICBvdXRsaW5lOiAwO1xyXG4gIGJhY2tncm91bmQ6ICAjY2NjO1xyXG4gIHdpZHRoOiAxNTBweDtcclxuICBib3JkZXI6IDA7XHJcbiAgcGFkZGluZzogMTVweDtcclxuICBjb2xvcjogI0ZGRkZGRjtcclxuICBmb250LXNpemU6IDE0cHg7XHJcbiAgLXdlYmtpdC10cmFuc2l0aW9uOiBhbGwgMC4zIGVhc2U7XHJcbiAgdHJhbnNpdGlvbjogYWxsIDAuMyBlYXNlO1xyXG4gIGN1cnNvcjogcG9pbnRlcjtcclxuICBib3JkZXI6IDFweCBkYXNoZWQgbGlnaHRHcmF5O1xyXG59XHJcbi5idXR0b24ge1xyXG4gIGhlaWdodDogNTNweDtcclxuICBmb250LWZhbWlseTogXCJSb2JvdG9cIiwgc2Fucy1zZXJpZjtcclxuICB0ZXh0LXRyYW5zZm9ybTogdXBwZXJjYXNlO1xyXG4gIG91dGxpbmU6IDA7XHJcbiAgYmFja2dyb3VuZDogICNjY2M7XHJcbiAgd2lkdGg6IDE1MHB4O1xyXG4gIGJvcmRlcjogMDtcclxuICBwYWRkaW5nOiAxNXB4O1xyXG4gIGNvbG9yOiAjRkZGRkZGO1xyXG4gIGZvbnQtc2l6ZTogMTRweDtcclxuICAtd2Via2l0LXRyYW5zaXRpb246IGFsbCAwLjMgZWFzZTtcclxuICB0cmFuc2l0aW9uOiBhbGwgMC4zIGVhc2U7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcbi5mb3JtIGJ1dHRvbjpob3ZlciwuZm9ybSBidXR0b246YWN0aXZlLC5mb3JtIGJ1dHRvbjpmb2N1cyB7XHJcbiAgYmFja2dyb3VuZDogIzdlZmNiNDtcclxufVxyXG5cclxuLmZvcm0gLmJ1dHRvbjU6aG92ZXIsLmZvcm0gLmJ1dHRvbjU6YWN0aXZlLC5mb3JtIC5idXR0b241OmZvY3VzIHtcclxuICBiYWNrZ3JvdW5kOiAjRkZBQUFBO1xyXG59XHJcblxyXG4uZm9ybSAuYnV0dG9uNDpob3ZlciwuZm9ybSAuYnV0dG9uNDphY3RpdmUsLmZvcm0gLmJ1dHRvbjQ6Zm9jdXMge1xyXG4gIGJhY2tncm91bmQ6ICNGRkFBQUE7XHJcbn1cclxuLmZvcm0gLmJ1dHRvbjM6aG92ZXIsLmZvcm0gLmJ1dHRvbjM6YWN0aXZlLC5mb3JtIC5idXR0b24zOmZvY3VzIHtcclxuICBiYWNrZ3JvdW5kOiAjZmY0OTQ5O1xyXG59XHJcbi5mb3JtIC5tZXNzYWdlIHtcclxuICBtYXJnaW46IDE1cHggMCAwO1xyXG4gIGNvbG9yOiAjYjNiM2IzO1xyXG4gIGZvbnQtc2l6ZTogMTJweDtcclxufVxyXG4uZm9ybSAubWVzc2FnZSBhIHtcclxuICBjb2xvcjogI0ZGQUFBQTtcclxuICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XHJcbn1cclxuLypcclxuLmZvcm0gLnJlZ2lzdGVyLWZvcm0ge1xyXG4gIGRpc3BsYXk6IG5vbmU7XHJcbn1cclxuKi9cclxuLmNvbnRhaW5lciB7XHJcbiAgei1pbmRleDogMTtcclxuICBtYXgtd2lkdGg6IDEwMDBweDtcclxuICBtYXJnaW46IDAgYXV0bztcclxufVxyXG5cclxuLmNvbnRhaW5lciAuaW5mbyB7XHJcbiAgbWFyZ2luOiA1MHB4IGF1dG87XHJcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcbi5jb250YWluZXIgLmluZm8gaDEge1xyXG4gIG1hcmdpbjogMCAwIDE1cHg7XHJcbiAgcGFkZGluZzogMDtcclxuICBmb250LXNpemU6IDM2cHg7XHJcbiAgZm9udC13ZWlnaHQ6IDMwMDtcclxuICBjb2xvcjogI0ZGRkZGRjtcclxufVxyXG4uY29udGFpbmVyIC5pbmZvIHNwYW4ge1xyXG4gIGNvbG9yOiAjNGQ0ZDRkO1xyXG4gIGZvbnQtc2l6ZTogMTJweDtcclxufVxyXG4uY29udGFpbmVyIC5pbmZvIHNwYW4gYSB7XHJcbiAgY29sb3I6ICMwMDAwMDA7XHJcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xyXG59XHJcbi5jb250YWluZXIgLmluZm8gc3BhbiAuZmEge1xyXG4gIGNvbG9yOiAjRkZBQUFBO1xyXG59XHJcblxyXG5bdHlwZT1yYWRpb10ge1xyXG4gIGRpc3BsYXk6IG5vbmU7XHJcbn1cclxuW3R5cGU9Y2hlY2tib3hdIHtcclxuICBkaXNwbGF5OiBub25lO1xyXG59XHJcbmxhYmVsIHtcclxuICBib3JkZXI6IDFweCBkYXNoZWQgbGlnaHRHcmF5O1xyXG4gIHBhZGRpbmc6IC4yNWVtIDFlbTtcclxuICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gIG1hcmdpbjogMXJlbTtcclxufVxyXG5cclxuW3R5cGU9cmFkaW9dOmNoZWNrZWQrbGFiZWwge1xyXG4gIGNvbG9yOiAjRkZBQUFBO1xyXG59XHJcblt0eXBlPWNoZWNrYm94XTpjaGVja2VkK2xhYmVsIHtcclxuICBjb2xvcjogI0ZGQUFBQTtcclxufVxyXG4iXX0= */"
 
 /***/ }),
 
@@ -2154,7 +2089,7 @@ module.exports = "\r\n@import url('https://fonts.googleapis.com/css?family=Noto+
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<html>\n\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">\n  <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n  <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n  <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.5.0/css/all.css\" integrity=\"sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU\"\n    crossorigin=\"anonymous\">\n</head>\n\n<body>\n    <div class=\"item_active\">\n        <div class=\"hello-content\">\n          <br>\n          <h1 style=\"font-size:50px; text-align:center; color:#ffffff; font-family: 새굴림; \" >정보를 입력하세요</h1>\n          <h4 style=\"font-size:25px; text-align:center; color:#ffffff; font-family: 새굴림; \">프로필 수정</h4>\n          <br>\n        </div>\n      </div>\n  <div class=\"login-page\">\n    <div class=\"form\">\n      <form (submit)=\"MypageUser($event)\" class=\"login-form\">\n        <div class=\"container\">\n            <table>\n                <tr *ngFor=\"let post of posts\">\n                    <td rowspan=\"2\" class=\"mypage_img\" (click)=\"oneditimage()\">  \n                      <img [src]=\"post.userPicture\" class=\"userpictures\" />\n                    </td>\n                    <td style=\"font-size:32px;\">{{post.userID}}&nbsp;<i class=\"fas fa-pen\"></i></td>\n                </tr>\n                <tr *ngFor=\"let post of posts\">\n                    <td style=\"font-size:25px;\"><i class=\"fas fa-credit-card\" style=\"color:green;\"></i>&nbsp; {{post.userPoint}}</td> \n                </tr>\n               </table>\n          <br>\n          <div id=\"editimage\">\n            <p>- 프로필 사진을 변경하시겠습니까? -</p>\n            <div style='display: inline;'>\n              <iframe src=\"#\" name=\"iframe\" style=\"width:1px; height:1px; border:0; visibility:hidden;\"></iframe>\n              <form class=\"upload\" id=\"uploadForm\" enctype=\"multipart/form-data\" action=\"/index/upload\" method=\"post\"\n                target=\"iframe\">\n                <input type=\"file\" id=\"file\" name=\"file\" multiple required />\n                <input id=Uploadsubmit type=\"submit\" value=\"Upload Image\" name=\"submit\">\n              </form>\n            </div>\n          </div>\n          <br />\n          <p>- 변경하실 비밀번호를 입력하세요 -</p>\n          <input type=\"password\" placeholder=\"비밀번호를 입력해주세요\" id=\"userPassword\" required>\n          <br>\n          <p>- 등록하신 이메일입니다 -</p>\n          <div *ngFor=\"let post of posts\">\n            <h4>{{post.userEmail}}</h4>\n          </div>\n          <br>\n          <p>- 등록하신 성함입니다 -</p>\n          <div *ngFor=\"let post of posts\">\n            <h4>{{post.userName}}</h4>\n          </div>\n          <br>\n          <p>- 변경하실 나이를 입력하세요 -</p>\n          <input type=\"number\" placeholder=\"나이를 입력하세요\" id=\"userAge\" required>\n          <br>\n          <p>- 당신의 성별입니다. -</p>\n          <div *ngFor=\"let post of posts\">\n            <h4>{{post.userGender}}</h4>\n          </div>\n          <p>- 변경하실 관심 분야를 선택해주세요 (다중 선택) -</p>\n          <input type=\"checkbox\" name=\"userCategory\" id=\"programming\" value=\"programming\">\n          <label for=\"programming\">프로그래밍</label>\n          <input type=\"checkbox\" name=\"userCategory\" id=\"design\" value=\"design\">\n          <label for=\"design\">디자인</label>\n          <input type=\"checkbox\" name=\"userCategory\" id=\"language\" value=\"language\">\n          <label for=\"language\">외국어</label>\n          <input type=\"checkbox\" name=\"userCategory\" id=\"music\" value=\"music\">\n          <label for=\"music\">음악</label>\n          <input type=\"checkbox\" name=\"userCategory\" id=\"beauty\" value=\"beauty\">\n          <label for=\"beauty\">뷰티</label>\n          <input type=\"checkbox\" name=\"userCategory\" id=\"etc\" value=\"etc\">\n          <label for=\"etc\">기타</label>\n          <br><br />\n          <button class=\"button4\" routerLink=\"/mypageclass\"><b>운영 클래스</b></button>\n          <button class=\"button5\" routerLink=\"/mypagepart\"><b>수강 클래스</b></button>\n          <button type=\"submit\">정보 수정</button>\n          <button class=\"button3\" (click)=\"onDelete()\"><b>회원 탈퇴</b></button>\n          <p class=\"message\">튜터를 하고 싶으신가요? <a routerLink=\"/addtutor\"> 튜터등록 </a></p>\n        </div>\n      </form>\n    </div>\n  </div>\n</body>\n\n<script>\n  $(document).ready(function () {\n    $('#uploadForm').submit(function () {\n      $(this).ajaxSubmit({\n        error: function (xhr) {\n          status('Error: ' + xhr.status);\n        },\n        success: function (response) {\n          console.log(response);\n          alert(\"Upload Complete\");\n        }\n      });\n      return false;\n    });\n\n  });\n\n</script>\n\n</html>"
+module.exports = "<html>\n\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">\n  <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>\n  <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js\"></script>\n  <link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.5.0/css/all.css\" integrity=\"sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU\"\n    crossorigin=\"anonymous\">\n</head>\n\n<body>\n    <div class=\"item_active\">\n        <div class=\"hello-content\">\n          <br>\n          <h1 style=\"font-size:50px; text-align:center; color:#ffffff; font-family: 새굴림; \" >정보를 입력하세요</h1>\n          <h4 style=\"font-size:25px; text-align:center; color:#ffffff; font-family: 새굴림; \">프로필 수정</h4>\n          <br>\n        </div>\n      </div>\n  <div class=\"login-page\">\n    <div class=\"form\">\n      <form (submit)=\"MypageUser($event)\" class=\"login-form\">\n        <div class=\"container\">\n            <table>\n                <tr *ngFor=\"let post of posts\">\n                    <td rowspan=\"2\" class=\"mypage_img\" (click)=\"oneditimage()\">  \n                      <img [src]=\"post.userPicture\" class=\"userpictures\" />\n                    </td>\n                    <td style=\"font-size:32px;\">{{post.userID}}&nbsp;<i class=\"fas fa-pen\"></i></td>\n                </tr>\n                <tr *ngFor=\"let post of posts\">\n                    <td style=\"font-size:25px;\"><i class=\"fas fa-credit-card\" style=\"color:green;\"></i>&nbsp; {{post.userPoint}}</td> \n                </tr>\n               </table>\n          <br>\n          <div id=\"editimage\">\n            <p>- 프로필 사진을 변경하시겠습니까? -</p>\n            <div style='display: inline;'>\n              <iframe src=\"#\" name=\"iframe\" style=\"width:1px; height:1px; border:0; visibility:hidden;\"></iframe>\n              <form class=\"upload\" id=\"uploadForm\" enctype=\"multipart/form-data\" action=\"/index/upload\" method=\"post\"\n                target=\"iframe\">\n                <input type=\"file\" id=\"file\" name=\"file\" multiple required />\n                <input id=Uploadsubmit type=\"submit\" value=\"Upload Image\" name=\"submit\">\n              </form>\n            </div>\n          </div>\n          <br />\n          <p>- 변경하실 비밀번호를 입력하세요 -</p>\n          <input type=\"password\" placeholder=\"비밀번호를 입력해주세요\" id=\"userPassword\" required>\n          <br>\n          <p>- 등록하신 이메일입니다 -</p>\n          <div *ngFor=\"let post of posts\">\n            <h4>{{post.userEmail}}</h4>\n          </div>\n          <br>\n          <p>- 등록하신 성함입니다 -</p>\n          <div *ngFor=\"let post of posts\">\n            <h4>{{post.userName}}</h4>\n          </div>\n          <br>\n          <p>- 변경하실 나이를 입력하세요 -</p>\n          <input type=\"number\" placeholder=\"나이를 입력하세요\" id=\"userAge\" required>\n          <br>\n          <p>- 변경하실 성별을 입력해주세요. -</p>\n              <input type=\"radio\" name=\"test\" value=\"남자\" id=\"first\" />\n              <label for=\"first\">남자</label>\n              <input type=\"radio\" name=\"test\" value=\"여자\" id=\"second\">\n              <label for=\"second\">여자</label>\n          <p>- 변경하실 관심 분야를 선택해주세요 (다중 선택) -</p>\n          <input type=\"checkbox\" name=\"userCategory\" id=\"programming\" value=\"programming\">\n          <label for=\"programming\">프로그래밍</label>\n          <input type=\"checkbox\" name=\"userCategory\" id=\"design\" value=\"design\">\n          <label for=\"design\">디자인</label>\n          <input type=\"checkbox\" name=\"userCategory\" id=\"language\" value=\"language\">\n          <label for=\"language\">외국어</label>\n          <input type=\"checkbox\" name=\"userCategory\" id=\"music\" value=\"music\">\n          <label for=\"music\">음악</label>\n          <input type=\"checkbox\" name=\"userCategory\" id=\"beauty\" value=\"beauty\">\n          <label for=\"beauty\">뷰티</label>\n          <input type=\"checkbox\" name=\"userCategory\" id=\"etc\" value=\"etc\">\n          <label for=\"etc\">기타</label>\n          <br><br />\n          <button class=\"button4\" routerLink=\"/mypageclass\"><b>운영 클래스</b></button>\n          <button class=\"button5\" routerLink=\"/mypagepart\"><b>수강 클래스</b></button>\n          <button type=\"submit\">정보 수정</button>\n          <button class=\"button3\" (click)=\"onDelete()\"><b>회원 탈퇴</b></button>\n          <p class=\"message\">튜터를 하고 싶으신가요? <a routerLink=\"/addtutor\"> 튜터등록 </a></p>\n        </div>\n      </form>\n    </div>\n  </div>\n</body>\n\n<script>\n  $(document).ready(function () {\n    $('#uploadForm').submit(function () {\n      $(this).ajaxSubmit({\n        error: function (xhr) {\n          status('Error: ' + xhr.status);\n        },\n        success: function (response) {\n          console.log(response);\n          alert(\"Upload Complete\");\n        }\n      });\n      return false;\n    });\n\n  });\n\n</script>\n\n</html>"
 
 /***/ }),
 
@@ -2198,10 +2133,8 @@ var MypageComponent = /** @class */ (function () {
         editimage(editnum);
         console.log('mypage.component.ts : ngOnInt');
         this.dataService.getPosts().subscribe(function (posts) {
-            console.log(posts); // for testing if works on console 
             if (posts != 0) {
                 _this.posts = [posts];
-                console.log('POST 값 확인 : ' + posts);
                 var userEmail = posts.userEmail;
                 var userName = posts.userName;
                 var userGender = posts.userGender;
@@ -2220,11 +2153,9 @@ var MypageComponent = /** @class */ (function () {
     MypageComponent.prototype.onDelete = function () {
         var _this = this;
         var userID = localStorage.getItem('userID');
-        console.log("onDelete 안의 " + userID);
         if (confirm("정말 회원 탈퇴 하시겠습니까?") == true) {
             alert("정상 처리 되었습니다.");
             this.dataService.getUserDelete(userID).subscribe(function (posts) {
-                console.log(posts);
                 if (posts != 0) {
                     // [] 를 붙여줘야 array 형식으로 받아 이게 오브젝트 형식이면 안됩니다. 
                     _this.posts = posts;
@@ -2233,9 +2164,6 @@ var MypageComponent = /** @class */ (function () {
                     document.getElementById('ptutoradmin').style.display = "none";
                     _this.cs.deleteAll('user');
                     _this.dataService.logout();
-                    console.log(localStorage.getItem('cookies'));
-                    console.log(_this.cs.deleteAll('user'));
-                    console.log("data 검출중");
                     document.getElementById('mlogin').style.display = "inline-block";
                     document.getElementById('mregister').style.display = "inline-block";
                     //mlogin 
@@ -2257,6 +2185,13 @@ var MypageComponent = /** @class */ (function () {
     MypageComponent.prototype.MypageUser = function (event) {
         var _this = this;
         event.preventDefault();
+        function getRadioValue(theRadioGroup) {
+            for (var i = 0, l = theRadioGroup.length; i < l; i++) {
+                if (theRadioGroup[i].checked) {
+                    return theRadioGroup[i].value;
+                }
+            }
+        }
         function getCheckBox(theCheckBox) {
             var check = '';
             for (var i = 0, l = theCheckBox.length; i < l; i++) {
@@ -2269,7 +2204,8 @@ var MypageComponent = /** @class */ (function () {
         var target = event.target;
         var checkbox = document.getElementsByName('userCategory');
         var userCategory = getCheckBox(checkbox);
-        var userGender = localStorage.getItem('puserGender');
+        var radioButton = document.getElementsByName('test');
+        var userGender = getRadioValue(radioButton);
         var userID = localStorage.getItem('userID');
         var userPassword = target.querySelector('#userPassword').value;
         var userEmail = localStorage.getItem('puserEmail');
@@ -2278,22 +2214,17 @@ var MypageComponent = /** @class */ (function () {
         var userIdentity = "Tutee";
         var userParticipateClass = null;
         var userOperateClass = null;
-        console.log("누르기 전 바뀔 값" + userID + userPassword + userEmail + userName + userAge + userGender + userCategory + userIdentity + userParticipateClass + userOperateClass);
         this.dataService.getMypage(userID, userPassword, userEmail, userName, userAge, userGender, userCategory, userIdentity, userParticipateClass, userOperateClass).subscribe(function (posts) {
-            console.log(posts); // for testing if works on console 
             if (posts != 0) {
                 _this.posts = [posts];
                 var userPicture = posts.userPicture;
-                console.log('POST 값 확인 : ' + posts);
                 localStorage.setItem('userPicture', userPicture);
-                console.log('userPicture 값 확인' + userPicture);
                 var userEmail_1 = posts.userEmail;
                 var userName_1 = posts.userName;
                 var userGender_1 = posts.userGender;
                 localStorage.setItem('puserEmail', userEmail_1);
                 localStorage.setItem('puserName', userName_1);
                 localStorage.setItem('puserGender', userGender_1);
-                console.log("누루고 바뀐 값" + userID + userPassword + userEmail_1 + userName_1 + userAge + userGender_1 + userCategory + userIdentity + userParticipateClass + userOperateClass);
                 alert("수정 성공하였습니다.");
                 _this.router.navigate(['introduce']);
             }
@@ -2337,7 +2268,7 @@ function editimage(num) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR');\n@charset 'utf-8';\n* {\r\n  font-family: 'Noto Sans KR', sans-serif;\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n      -ms-user-select: none;\r\n          user-select: none;\r\n}\n.contents{\r\n    padding-top: 50px;\r\n    text-align:left;\r\n    width:500px;\r\n    margin: auto;\r\n    cursor: pointer;\r\n }\nh4{\r\n    font-weight: bold;\r\n    color:#ffaaaa;\r\n}\nh5{\r\n    line-height:200%;\r\n}\nbutton {\r\n\r\n    font-weight: bold;\r\n    color:white;\r\n    font-style: bold;\r\n    text-decoration: none;\r\n    display: inline-block;\r\n    width:300px;\r\n    background-color: #FFAAAA;\r\n    color: white;\r\n    padding: 12px 20px;\r\n    border: none;\r\n    border-radius: 4px;\r\n    cursor: pointer;\r\n    margin-bottom: 100px;\r\n\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXlwYWdlY2xhc3MvbXlwYWdlY2xhc3MuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0Esb0VBQW9FO0FBRHBFLGlCQUFpQjtBQUVqQjtFQUNFLHdDQUF3QztFQUN4QywwQkFBa0I7S0FBbEIsdUJBQWtCO01BQWxCLHNCQUFrQjtVQUFsQixrQkFBa0I7Q0FDbkI7QUFDRDtJQUNJLGtCQUFrQjtJQUNsQixnQkFBZ0I7SUFDaEIsWUFBWTtJQUNaLGFBQWE7SUFDYixnQkFBZ0I7RUFDbEI7QUFHRjtJQUNJLGtCQUFrQjtJQUNsQixjQUFjO0NBQ2pCO0FBRUQ7SUFDSSxpQkFBaUI7Q0FDcEI7QUFFRDs7SUFFSSxrQkFBa0I7SUFDbEIsWUFBWTtJQUNaLGlCQUFpQjtJQUNqQixzQkFBc0I7SUFDdEIsc0JBQXNCO0lBQ3RCLFlBQVk7SUFDWiwwQkFBMEI7SUFDMUIsYUFBYTtJQUNiLG1CQUFtQjtJQUNuQixhQUFhO0lBQ2IsbUJBQW1CO0lBQ25CLGdCQUFnQjtJQUNoQixxQkFBcUI7O0NBRXhCIiwiZmlsZSI6InNyYy9hcHAvbXlwYWdlY2xhc3MvbXlwYWdlY2xhc3MuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBjaGFyc2V0ICd1dGYtOCc7XHJcbkBpbXBvcnQgdXJsKCdodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nzcz9mYW1pbHk9Tm90bytTYW5zK0tSJyk7XHJcbioge1xyXG4gIGZvbnQtZmFtaWx5OiAnTm90byBTYW5zIEtSJywgc2Fucy1zZXJpZjtcclxuICB1c2VyLXNlbGVjdDogbm9uZTtcclxufVxyXG4uY29udGVudHN7XHJcbiAgICBwYWRkaW5nLXRvcDogNTBweDtcclxuICAgIHRleHQtYWxpZ246bGVmdDtcclxuICAgIHdpZHRoOjUwMHB4O1xyXG4gICAgbWFyZ2luOiBhdXRvO1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gfVxyXG5cclxuXHJcbmg0e1xyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgICBjb2xvcjojZmZhYWFhO1xyXG59XHJcblxyXG5oNXtcclxuICAgIGxpbmUtaGVpZ2h0OjIwMCU7XHJcbn1cclxuXHJcbmJ1dHRvbiB7XHJcblxyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgICBjb2xvcjp3aGl0ZTtcclxuICAgIGZvbnQtc3R5bGU6IGJvbGQ7XHJcbiAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICB3aWR0aDozMDBweDtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNGRkFBQUE7XHJcbiAgICBjb2xvcjogd2hpdGU7XHJcbiAgICBwYWRkaW5nOiAxMnB4IDIwcHg7XHJcbiAgICBib3JkZXI6IG5vbmU7XHJcbiAgICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAxMDBweDtcclxuXHJcbn0iXX0= */"
+module.exports = "\r\n@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR');\n@charset 'utf-8';\n* {\r\n  font-family: 'Noto Sans KR', sans-serif;\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n      -ms-user-select: none;\r\n          user-select: none;\r\n}\n.contents{\r\n    padding-top: 50px;\r\n    text-align:left;\r\n    width:500px;\r\n    margin: auto;\r\n    cursor: pointer;\r\n }\npre{\r\n    line-height:200%;\r\n    padding: 0;\r\n    background: white;\r\n    border: none;\r\n}\nh4{\r\n    font-weight: bold;\r\n    color:#ffaaaa;\r\n}\nh5{\r\n    line-height:200%;\r\n}\nbutton {\r\n\r\n    font-weight: bold;\r\n    color:white;\r\n    font-style: bold;\r\n    text-decoration: none;\r\n    display: inline-block;\r\n    width:300px;\r\n    background-color: #FFAAAA;\r\n    color: white;\r\n    padding: 12px 20px;\r\n    border: none;\r\n    border-radius: 4px;\r\n    cursor: pointer;\r\n    margin-bottom: 100px;\r\n\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXlwYWdlY2xhc3MvbXlwYWdlY2xhc3MuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0Esb0VBQW9FO0FBRHBFLGlCQUFpQjtBQUVqQjtFQUNFLHdDQUF3QztFQUN4QywwQkFBa0I7S0FBbEIsdUJBQWtCO01BQWxCLHNCQUFrQjtVQUFsQixrQkFBa0I7Q0FDbkI7QUFDRDtJQUNJLGtCQUFrQjtJQUNsQixnQkFBZ0I7SUFDaEIsWUFBWTtJQUNaLGFBQWE7SUFDYixnQkFBZ0I7RUFDbEI7QUFFRDtJQUNHLGlCQUFpQjtJQUNqQixXQUFXO0lBQ1gsa0JBQWtCO0lBQ2xCLGFBQWE7Q0FDaEI7QUFFRDtJQUNJLGtCQUFrQjtJQUNsQixjQUFjO0NBQ2pCO0FBRUQ7SUFDSSxpQkFBaUI7Q0FDcEI7QUFFRDs7SUFFSSxrQkFBa0I7SUFDbEIsWUFBWTtJQUNaLGlCQUFpQjtJQUNqQixzQkFBc0I7SUFDdEIsc0JBQXNCO0lBQ3RCLFlBQVk7SUFDWiwwQkFBMEI7SUFDMUIsYUFBYTtJQUNiLG1CQUFtQjtJQUNuQixhQUFhO0lBQ2IsbUJBQW1CO0lBQ25CLGdCQUFnQjtJQUNoQixxQkFBcUI7O0NBRXhCIiwiZmlsZSI6InNyYy9hcHAvbXlwYWdlY2xhc3MvbXlwYWdlY2xhc3MuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBjaGFyc2V0ICd1dGYtOCc7XHJcbkBpbXBvcnQgdXJsKCdodHRwczovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nzcz9mYW1pbHk9Tm90bytTYW5zK0tSJyk7XHJcbioge1xyXG4gIGZvbnQtZmFtaWx5OiAnTm90byBTYW5zIEtSJywgc2Fucy1zZXJpZjtcclxuICB1c2VyLXNlbGVjdDogbm9uZTtcclxufVxyXG4uY29udGVudHN7XHJcbiAgICBwYWRkaW5nLXRvcDogNTBweDtcclxuICAgIHRleHQtYWxpZ246bGVmdDtcclxuICAgIHdpZHRoOjUwMHB4O1xyXG4gICAgbWFyZ2luOiBhdXRvO1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gfVxyXG5cclxuIHByZXtcclxuICAgIGxpbmUtaGVpZ2h0OjIwMCU7XHJcbiAgICBwYWRkaW5nOiAwO1xyXG4gICAgYmFja2dyb3VuZDogd2hpdGU7XHJcbiAgICBib3JkZXI6IG5vbmU7XHJcbn1cclxuXHJcbmg0e1xyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgICBjb2xvcjojZmZhYWFhO1xyXG59XHJcblxyXG5oNXtcclxuICAgIGxpbmUtaGVpZ2h0OjIwMCU7XHJcbn1cclxuXHJcbmJ1dHRvbiB7XHJcblxyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgICBjb2xvcjp3aGl0ZTtcclxuICAgIGZvbnQtc3R5bGU6IGJvbGQ7XHJcbiAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICB3aWR0aDozMDBweDtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNGRkFBQUE7XHJcbiAgICBjb2xvcjogd2hpdGU7XHJcbiAgICBwYWRkaW5nOiAxMnB4IDIwcHg7XHJcbiAgICBib3JkZXI6IG5vbmU7XHJcbiAgICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAxMDBweDtcclxuXHJcbn0iXX0= */"
 
 /***/ }),
 
@@ -2348,7 +2279,7 @@ module.exports = "\r\n@import url('https://fonts.googleapis.com/css?family=Noto+
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Shift + Alt + F 자동포맷 -->\n<!-- 값을 가져오도록 하는 것입니다.-->\n<div class=\"contents\">\n  <div *ngFor=\"let myclass of myinformation let i = index\" >\n    <p style=\"text-align: left; font-size: 14px; color:gray\"><u>{{myclass.ClassCategory}}</u></p>\n    <img [src]=\"myclass.ClassPicture\" class=\"img-responsive\" alt=\"Image\" width=\"500\" height=\"300\">\n    <br>\n    <h3>{{myclass.ClassName}}</h3><br>\n    <!-- ClassCurrentPeople 은 입력해주지 않았고, Mongodb 에서 가져오는 값. 되는지 확인! -->\n    <h4>튜터 정보</h4><br>\n    <h5>{{myclass.ClassTutorIntro}}</h5>\n    <br><br>\n    <h4>수업 소개</h4><br>\n    <h5>{{myclass.ClassIntro}}</h5>\n    <br><br>\n    <h4>요약</h4><br>\n    <p> <span>장소: &nbsp;</span><span>{{myclass.ClassPlace}}</span></p>\n\n    <p> <span>수업 시간: &nbsp;</span><span>{{myclass.ClassTime}}</span>\n      <span style=\"margin-left:30px\">수업 요일: &nbsp;</span><span>{{myclass.ClassWeek}}</span></p>\n\n    <p> <span>수업 횟수: &nbsp;</span><span>{{myclass.ClassNumberOfTime}}</span>\n      <span style=\"margin-left:30px\">회당 수업시간&nbsp;</span><span>{{myclass.ClassHour}}</span></p>\n\n    <p> <span>시작 날짜: &nbsp;</span><span>{{myclass.ClassFirstTime}}</span>\n      <span style=\"margin-left:30px\">모집 인원: &nbsp;</span><span>{{myclass.ClassTotalPeople}}</span></p>\n\n\n    <p> <span>수강료: &nbsp;</span><span>{{myclass.ClassPrice}}</span></p>\n    <br><br>\n    <h4>튜티 아이디 목록</h4><br>\n    <h5>{{myclass.ClassTuteeID}}</h5>\n    <br><br><br><br>\n    \n    <!--\n    <button class=\"btn_want\"></button>\n    -->\n    <button class=\"btn_review\" routerLink=\"/mypage\">돌아가기</button>\n  </div>\n</div>"
+module.exports = "<!-- Shift + Alt + F 자동포맷 -->\n<!-- 값을 가져오도록 하는 것입니다.-->\n<div class=\"contents\">\n  <div *ngFor=\"let myclass of myinformation let i = index\" >\n    <p style=\"text-align: left; font-size: 14px; color:gray\"><u>{{myclass.ClassCategory}}</u></p>\n    <img [src]=\"myclass.ClassPicture\" class=\"img-responsive\" alt=\"Image\" width=\"500\" height=\"300\">\n    <br>\n    <h3>{{myclass.ClassName}}</h3><br>\n    <!-- ClassCurrentPeople 은 입력해주지 않았고, Mongodb 에서 가져오는 값. 되는지 확인! -->\n    <h4>튜터 정보</h4><br>\n    <pre>\n    <h5>{{myclass.ClassTutorIntro}}</h5>\n    </pre>\n    <br><br>\n    \n    <h4>수업 소개</h4><br>\n    <pre>\n    <h5>{{myclass.ClassIntro}}</h5>\n    </pre>\n    <br><br>\n    <h4>요약</h4><br>\n    <p> <span>장소: &nbsp;</span><span>{{myclass.ClassPlace}}</span></p>\n\n    <p> <span>수업 시간: &nbsp;</span><span>{{myclass.ClassTime}}</span>\n      <span style=\"margin-left:30px\">수업 요일: &nbsp;</span><span>{{myclass.ClassWeek}}</span></p>\n\n    <p> <span>수업 횟수: &nbsp;</span><span>{{myclass.ClassNumberOfTime}}</span>\n      <span style=\"margin-left:30px\">회당 수업시간&nbsp;</span><span>{{myclass.ClassHour}}</span></p>\n\n    <p> <span>시작 날짜: &nbsp;</span><span>{{myclass.ClassFirstTime}}</span>\n      <span style=\"margin-left:30px\">모집 인원: &nbsp;</span><span>{{myclass.ClassTotalPeople}}</span></p>\n\n\n    <p> <span>수강료: &nbsp;</span><span>{{myclass.ClassPrice}}</span></p>\n    <br><br>\n    <h4>튜티 아이디 목록</h4><br>\n    <h5>{{myclass.ClassTuteeID}}</h5>\n    <br><br><br><br>\n    \n    <!--\n    <button class=\"btn_want\"></button>\n    -->\n    <button class=\"btn_review\" routerLink=\"/mypage\">돌아가기</button>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -2385,16 +2316,15 @@ var MypageclassComponent = /** @class */ (function () {
     MypageclassComponent.prototype.ngOnInit = function () {
         var _this = this;
         var myclass = localStorage.getItem('userID');
-        console.log("여기까지는 문제가 없습니다" + myclass);
         this.dataService.getMypageClass(myclass).subscribe(function (myinformation) {
-            console.log(myinformation);
             if (myinformation != 0) {
                 _this.myinformation = myinformation;
                 //생각을 해봅시다...
                 //오류나면 Array 행렬 없어 졌습니다.
             }
             else {
-                alert("서버 요청 에러");
+                alert("운영중인 강의가 없습니다");
+                _this.router.navigate(['mypage']);
             }
         });
     };
@@ -2420,7 +2350,7 @@ var MypageclassComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR');\n@charset 'utf-8';\n* {\r\n  font-family: 'Noto Sans KR', sans-serif;\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n      -ms-user-select: none;\r\n          user-select: none;\r\n}\n.contents{\r\n    padding-top: 50px;\r\n    text-align:left;\r\n    width:500px;\r\n    margin: auto;\r\n    cursor: pointer;\r\n }\nh4{\r\n    font-weight: bold;\r\n    color:#ffaaaa;\r\n}\nh5{\r\n    line-height:200%;\r\n}\nbutton {\r\n\r\n    font-weight: bold;\r\n    color:white;\r\n    font-style: bold;\r\n    text-decoration: none;\r\n    display: inline-block;\r\n    width:300px;\r\n    background-color: #FFAAAA;\r\n    color: white;\r\n    padding: 12px 20px;\r\n    border: none;\r\n    border-radius: 4px;\r\n    cursor: pointer;\r\n    margin-bottom: 100px;\r\n\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXlwYWdlcGFydC9teXBhZ2VwYXJ0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUNBLG9FQUFvRTtBQURwRSxpQkFBaUI7QUFFakI7RUFDRSx3Q0FBd0M7RUFDeEMsMEJBQWtCO0tBQWxCLHVCQUFrQjtNQUFsQixzQkFBa0I7VUFBbEIsa0JBQWtCO0NBQ25CO0FBQ0Q7SUFDSSxrQkFBa0I7SUFDbEIsZ0JBQWdCO0lBQ2hCLFlBQVk7SUFDWixhQUFhO0lBQ2IsZ0JBQWdCO0VBQ2xCO0FBR0Y7SUFDSSxrQkFBa0I7SUFDbEIsY0FBYztDQUNqQjtBQUVEO0lBQ0ksaUJBQWlCO0NBQ3BCO0FBRUQ7O0lBRUksa0JBQWtCO0lBQ2xCLFlBQVk7SUFDWixpQkFBaUI7SUFDakIsc0JBQXNCO0lBQ3RCLHNCQUFzQjtJQUN0QixZQUFZO0lBQ1osMEJBQTBCO0lBQzFCLGFBQWE7SUFDYixtQkFBbUI7SUFDbkIsYUFBYTtJQUNiLG1CQUFtQjtJQUNuQixnQkFBZ0I7SUFDaEIscUJBQXFCOztDQUV4QiIsImZpbGUiOiJzcmMvYXBwL215cGFnZXBhcnQvbXlwYWdlcGFydC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGNoYXJzZXQgJ3V0Zi04JztcclxuQGltcG9ydCB1cmwoJ2h0dHBzOi8vZm9udHMuZ29vZ2xlYXBpcy5jb20vY3NzP2ZhbWlseT1Ob3RvK1NhbnMrS1InKTtcclxuKiB7XHJcbiAgZm9udC1mYW1pbHk6ICdOb3RvIFNhbnMgS1InLCBzYW5zLXNlcmlmO1xyXG4gIHVzZXItc2VsZWN0OiBub25lO1xyXG59XHJcbi5jb250ZW50c3tcclxuICAgIHBhZGRpbmctdG9wOiA1MHB4O1xyXG4gICAgdGV4dC1hbGlnbjpsZWZ0O1xyXG4gICAgd2lkdGg6NTAwcHg7XHJcbiAgICBtYXJnaW46IGF1dG87XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiB9XHJcblxyXG5cclxuaDR7XHJcbiAgICBmb250LXdlaWdodDogYm9sZDtcclxuICAgIGNvbG9yOiNmZmFhYWE7XHJcbn1cclxuXHJcbmg1e1xyXG4gICAgbGluZS1oZWlnaHQ6MjAwJTtcclxufVxyXG5cclxuYnV0dG9uIHtcclxuXHJcbiAgICBmb250LXdlaWdodDogYm9sZDtcclxuICAgIGNvbG9yOndoaXRlO1xyXG4gICAgZm9udC1zdHlsZTogYm9sZDtcclxuICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAgIHdpZHRoOjMwMHB4O1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI0ZGQUFBQTtcclxuICAgIGNvbG9yOiB3aGl0ZTtcclxuICAgIHBhZGRpbmc6IDEycHggMjBweDtcclxuICAgIGJvcmRlcjogbm9uZTtcclxuICAgIGJvcmRlci1yYWRpdXM6IDRweDtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgIG1hcmdpbi1ib3R0b206IDEwMHB4O1xyXG5cclxufSJdfQ== */"
+module.exports = "\r\n@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR');\n@charset 'utf-8';\n* {\r\n  font-family: 'Noto Sans KR', sans-serif;\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n      -ms-user-select: none;\r\n          user-select: none;\r\n}\n.contents{\r\n    padding-top: 50px;\r\n    text-align:left;\r\n    width:500px;\r\n    margin: auto;\r\n    cursor: pointer;\r\n }\npre{\r\n    line-height:200%;\r\n    padding: 0;\r\n    background: white;\r\n    border: none;\r\n}\nh4{\r\n    font-weight: bold;\r\n    color:#ffaaaa;\r\n}\nh5{\r\n    line-height:200%;\r\n}\nbutton {\r\n\r\n    font-weight: bold;\r\n    color:white;\r\n    font-style: bold;\r\n    text-decoration: none;\r\n    display: inline-block;\r\n    width:300px;\r\n    background-color: #FFAAAA;\r\n    color: white;\r\n    padding: 12px 20px;\r\n    border: none;\r\n    border-radius: 4px;\r\n    cursor: pointer;\r\n    margin-bottom: 100px;\r\n\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbXlwYWdlcGFydC9teXBhZ2VwYXJ0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUNBLG9FQUFvRTtBQURwRSxpQkFBaUI7QUFFakI7RUFDRSx3Q0FBd0M7RUFDeEMsMEJBQWtCO0tBQWxCLHVCQUFrQjtNQUFsQixzQkFBa0I7VUFBbEIsa0JBQWtCO0NBQ25CO0FBQ0Q7SUFDSSxrQkFBa0I7SUFDbEIsZ0JBQWdCO0lBQ2hCLFlBQVk7SUFDWixhQUFhO0lBQ2IsZ0JBQWdCO0VBQ2xCO0FBRUQ7SUFDRyxpQkFBaUI7SUFDakIsV0FBVztJQUNYLGtCQUFrQjtJQUNsQixhQUFhO0NBQ2hCO0FBR0Q7SUFDSSxrQkFBa0I7SUFDbEIsY0FBYztDQUNqQjtBQUVEO0lBQ0ksaUJBQWlCO0NBQ3BCO0FBRUQ7O0lBRUksa0JBQWtCO0lBQ2xCLFlBQVk7SUFDWixpQkFBaUI7SUFDakIsc0JBQXNCO0lBQ3RCLHNCQUFzQjtJQUN0QixZQUFZO0lBQ1osMEJBQTBCO0lBQzFCLGFBQWE7SUFDYixtQkFBbUI7SUFDbkIsYUFBYTtJQUNiLG1CQUFtQjtJQUNuQixnQkFBZ0I7SUFDaEIscUJBQXFCOztDQUV4QiIsImZpbGUiOiJzcmMvYXBwL215cGFnZXBhcnQvbXlwYWdlcGFydC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGNoYXJzZXQgJ3V0Zi04JztcclxuQGltcG9ydCB1cmwoJ2h0dHBzOi8vZm9udHMuZ29vZ2xlYXBpcy5jb20vY3NzP2ZhbWlseT1Ob3RvK1NhbnMrS1InKTtcclxuKiB7XHJcbiAgZm9udC1mYW1pbHk6ICdOb3RvIFNhbnMgS1InLCBzYW5zLXNlcmlmO1xyXG4gIHVzZXItc2VsZWN0OiBub25lO1xyXG59XHJcbi5jb250ZW50c3tcclxuICAgIHBhZGRpbmctdG9wOiA1MHB4O1xyXG4gICAgdGV4dC1hbGlnbjpsZWZ0O1xyXG4gICAgd2lkdGg6NTAwcHg7XHJcbiAgICBtYXJnaW46IGF1dG87XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiB9XHJcblxyXG4gcHJle1xyXG4gICAgbGluZS1oZWlnaHQ6MjAwJTtcclxuICAgIHBhZGRpbmc6IDA7XHJcbiAgICBiYWNrZ3JvdW5kOiB3aGl0ZTtcclxuICAgIGJvcmRlcjogbm9uZTtcclxufVxyXG5cclxuXHJcbmg0e1xyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgICBjb2xvcjojZmZhYWFhO1xyXG59XHJcblxyXG5oNXtcclxuICAgIGxpbmUtaGVpZ2h0OjIwMCU7XHJcbn1cclxuXHJcbmJ1dHRvbiB7XHJcblxyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgICBjb2xvcjp3aGl0ZTtcclxuICAgIGZvbnQtc3R5bGU6IGJvbGQ7XHJcbiAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICB3aWR0aDozMDBweDtcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICNGRkFBQUE7XHJcbiAgICBjb2xvcjogd2hpdGU7XHJcbiAgICBwYWRkaW5nOiAxMnB4IDIwcHg7XHJcbiAgICBib3JkZXI6IG5vbmU7XHJcbiAgICBib3JkZXItcmFkaXVzOiA0cHg7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAxMDBweDtcclxuXHJcbn0iXX0= */"
 
 /***/ }),
 
@@ -2431,7 +2361,7 @@ module.exports = "\r\n@import url('https://fonts.googleapis.com/css?family=Noto+
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Shift + Alt + F 자동포맷 -->\n<!-- 값을 가져오도록 하는 것입니다.-->\n<div class=\"contents\">\n  <div *ngFor=\"let myclass of mypartinformation let i = index\" >\n    <p style=\"text-align: left; font-size: 14px; color:gray\"><u>{{myclass.ClassCategory}}</u></p>\n    <img [src]=\"myclass.ClassPicture\" class=\"img-responsive\" alt=\"Image\" width=\"500\" height=\"300\">\n    <br>\n    <h3>{{myclass.ClassName}}</h3><br>\n    <!-- ClassCurrentPeople 은 입력해주지 않았고, Mongodb 에서 가져오는 값. 되는지 확인! -->\n    <h4>튜터 정보</h4><br>\n    <h5>{{myclass.ClassTutorIntro}}</h5>\n    <br><br>\n    <h4>수업 소개</h4><br>\n    <h5>{{myclass.ClassIntro}}</h5>\n    <br><br>\n    <h4>요약</h4><br>\n    <p> <span>장소: &nbsp;</span><span>{{myclass.ClassPlace}}</span></p>\n\n    <p> <span>수업 시간: &nbsp;</span><span>{{myclass.ClassTime}}</span>\n      <span style=\"margin-left:30px\">수업 요일: &nbsp;</span><span>{{myclass.ClassWeek}}</span></p>\n\n    <p> <span>수업 횟수: &nbsp;</span><span>{{myclass.ClassNumberOfTime}}</span>\n      <span style=\"margin-left:30px\">회당 수업시간&nbsp;</span><span>{{myclass.ClassHour}}</span></p>\n\n    <p> <span>시작 날짜: &nbsp;</span><span>{{myclass.ClassFirstTime}}</span>\n      <span style=\"margin-left:30px\">모집 인원: &nbsp;</span><span>{{myclass.ClassTotalPeople}}</span></p>\n\n\n    <p> <span>수강료: &nbsp;</span><span>{{myclass.ClassPrice}}</span></p>\n    <br><br>\n    <h4>튜티 아이디 목록</h4><br>\n    <h5>{{myclass.ClassTuteeID}}</h5>\n    <br><br><br><br>\n    \n    <!--\n    <button class=\"btn_want\"></button>\n    -->\n    <button class=\"btn_review\" routerLink=\"/mypage\">돌아가기</button>\n\n    <hr>\n  </div>\n</div>"
+module.exports = "<!-- Shift + Alt + F 자동포맷 -->\n<!-- 값을 가져오도록 하는 것입니다.-->\n<div class=\"contents\">\n  <div *ngFor=\"let myclass of mypartinformation let i = index\">\n    <p style=\"text-align: left; font-size: 14px; color:gray\"><u>{{myclass.ClassCategory}}</u></p>\n    <img [src]=\"myclass.ClassPicture\" class=\"img-responsive\" alt=\"Image\" width=\"500\" height=\"300\">\n    <br>\n    <h3>{{myclass.ClassName}}</h3><br>\n    <!-- ClassCurrentPeople 은 입력해주지 않았고, Mongodb 에서 가져오는 값. 되는지 확인! -->\n    <h4>튜터 정보</h4><br>\n    <pre>\n    <h5>{{myclass.ClassTutorIntro}}</h5>\n    </pre>\n    <br><br>\n    <h4>수업 소개</h4><br>\n    <pre>\n    <h5>{{myclass.ClassIntro}}</h5>\n    </pre>\n    <br><br>\n    <h4>요약</h4><br>\n    <p> <span>장소: &nbsp;</span><span>{{myclass.ClassPlace}}</span></p>\n\n    <p> <span>수업 시간: &nbsp;</span><span>{{myclass.ClassTime}}</span>\n      <span style=\"margin-left:30px\">수업 요일: &nbsp;</span><span>{{myclass.ClassWeek}}</span></p>\n\n    <p> <span>수업 횟수: &nbsp;</span><span>{{myclass.ClassNumberOfTime}}</span>\n      <span style=\"margin-left:30px\">회당 수업시간&nbsp;</span><span>{{myclass.ClassHour}}</span></p>\n\n    <p> <span>시작 날짜: &nbsp;</span><span>{{myclass.ClassFirstTime}}</span>\n      <span style=\"margin-left:30px\">모집 인원: &nbsp;</span><span>{{myclass.ClassTotalPeople}}</span></p>\n\n\n    <p> <span>수강료: &nbsp;</span><span>{{myclass.ClassPrice}}</span></p>\n    <br><br>\n    <h4>튜티 아이디 목록</h4><br>\n    <h5>{{myclass.ClassTuteeID}}</h5>\n    <br><br><br><br>\n\n    <!--\n    <button class=\"btn_want\"></button>\n    -->\n    <button class=\"btn_review\" routerLink=\"/mypage\">돌아가기</button>\n\n    <hr>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -2468,16 +2398,12 @@ var MypagepartComponent = /** @class */ (function () {
     MypagepartComponent.prototype.ngOnInit = function () {
         var _this = this;
         var partID = localStorage.getItem('userID');
-        console.log("여기까지는 문제가 없습니다" + partID);
         this.dataService.getParticipation(partID).subscribe(function (mypartinformation) {
-            console.log(mypartinformation);
             if (mypartinformation != 0) {
                 _this.mypartinformation = mypartinformation;
-                console.log("참여중인 수업입니다." + mypartinformation);
             }
             else {
                 alert(mypartinformation);
-                console.log("수강중인 강의가 없다는 것을 파악해봅시다." + mypartinformation);
             }
         });
     };
@@ -2541,7 +2467,6 @@ var RauthService = /** @class */ (function () {
             userParticipateClass: userParticipateClass,
             userOperateClass: userOperateClass
         }).subscribe(function (data) {
-            console.log(data, "Register Success");
             if (data == 1) {
                 alert("회원 가입에 성공하셨습니다.");
                 _this.router.navigate(['login']);
@@ -2632,14 +2557,10 @@ var RegisterComponent = /** @class */ (function () {
         event.preventDefault();
         var target = event.target;
         var userEmail = target.querySelector('#userEmail').value;
-        console.log(userEmail);
         this.dataService.getEmailDetail(userEmail).subscribe(function (rands) {
-            console.log(userEmail + "2번째 확인");
             _this.rands = [rands];
             console.log(rands); // for testing if works on console 
-            console.log('제발....좀 되자....');
             var rnumber = rands.rand;
-            console.log("Emailsecurity 안에" + rnumber);
             localStorage.setItem('rnumber', rnumber);
         });
         verification(0);
@@ -2651,17 +2572,13 @@ var RegisterComponent = /** @class */ (function () {
         var target = event.target;
         var twouserEmail = target.querySelector('#twouserEmail').value;
         localStorage.getItem('rnumber');
-        console.log("이 값은 Two 안의 twouserEmail" + twouserEmail);
-        console.log("이 값은 Two 안의 runmber" + localStorage.getItem('rnumber'));
         if (localStorage.getItem('rnumber') == twouserEmail) {
-            console.log("값이 같습니다.");
             verification(1);
             sucverification(0);
             failverification(1);
             this.enumber = 1;
         }
         else {
-            console.log("값이 다릅니다.");
             verification(1);
             sucverification(1);
             failverification(0);
@@ -2921,14 +2838,18 @@ var AddreviewComponent = /** @class */ (function () {
         // 여기서 값을 안받아와요 그렇기 때문에 오류가 나면 이 부분이라고 생각을 하시면 됩니다.
         this.dataService.getReviewInsert(ReviewClassName, ReviewuserID, ReviewContents, ReviewDate, ReviewScore).subscribe(function (reviewed) {
             // [] 를 붙여줘야 array 형식으로 받아 이게 오브젝트 형식이면 안됩니다. 
-            _this.reviewed = reviewed;
-            console.log("생성되었는지 꼭 확인하세요");
-            console.log("리뷰 reviewed 값입니다..." + _this.reviewed);
+            if (reviewed != 0) {
+                _this.reviewed = reviewed;
+                console.log("생성되었는지 꼭 확인하세요");
+                console.log("리뷰 reviewed 값입니다..." + _this.reviewed);
+                alert("리뷰 등록이 완료되었습니다.");
+                _this.router.navigate(['reviewmain']);
+            }
+            else {
+                alert(reviewed);
+                _this.router.navigate(['reviewmain']);
+            }
         });
-        console.log("값을 받아올 때만 오류가 뜨는지 확인" + ReviewClassName);
-        console.log("AddReviews Success?");
-        alert("리뷰 등록이 완료되었습니다.");
-        this.router.navigate(['reviewmain']);
     };
     AddreviewComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -3067,7 +2988,6 @@ var ReviewmainComponent = /** @class */ (function () {
             console.log(informations);
             if (informations != 0) {
                 _this.informations = informations;
-                console.log("Score 값을 가져오기 위해서 확인을 위합니다..detail 유지되는지 확인");
             }
             else {
                 alert(" Score 값 가져올 때 서버 오류 발생");
@@ -3078,8 +2998,6 @@ var ReviewmainComponent = /** @class */ (function () {
             if (reviews != 0) {
                 _this.reviews = reviews;
                 console.log(_this.reviews);
-                console.log("리뷰 메인의 ReviewClassName" + reviews.ReviewClassName);
-                console.log("리뷰 메인의 ClassName" + Classnamed);
             }
             else {
                 alert("리뷰 메인 불러올 때 서버 오류가 났습니다.");
@@ -3321,7 +3239,6 @@ var DataService = /** @class */ (function () {
         console.log("Data service connected ..."); // <== inserted
     }
     DataService.prototype.getPosts = function () {
-        console.log("ID 값이 있으면 값을 출력 OR null :  " + localStorage.getItem('userID'));
         return this.http.post('/index/login/get', ({
             userID: localStorage.getItem('userID')
         }))
@@ -3334,7 +3251,6 @@ var DataService = /** @class */ (function () {
         user.get('Authorization');
         user.append('Content-Type', 'application/json');
         console.log("getAdmin method...running");
-        console.log("여기 값을 보내드려요" + localStorage.getItem('cookies'));
         return this.http.get('/index/admin', { headers: user })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res.json(); }));
     };
@@ -3343,7 +3259,6 @@ var DataService = /** @class */ (function () {
         user.append('Authorization', localStorage.getItem('cookies'));
         user.get('Authorization');
         user.append('Content-Type', 'application/json');
-        console.log("/index/delete 보냅니다!!");
         return this.http.post('/index/delete', ({
             userID: userID
         }), { headers: user })
@@ -3354,7 +3269,6 @@ var DataService = /** @class */ (function () {
         user.append('Authorization', localStorage.getItem('cookies'));
         user.get('Authorization');
         user.append('Content-Type', 'application/json');
-        console.log("/class/delete 보냅니다!!");
         return this.http.post('/class/delete', ({
             ClassTutorID: ClassTutorID,
             ClassName: ClassName
@@ -3385,7 +3299,6 @@ var DataService = /** @class */ (function () {
         user.get('Authorization');
         user.append('Content-Type', 'application/json');
         console.log("getReview!! method...running");
-        console.log("여기 값을 보내드려요" + localStorage.getItem('cookies'));
         return this.http.get('/class/review?value=' + ClassName, { headers: user })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res.json(); })); // <== inserted
     };
@@ -3396,7 +3309,6 @@ var DataService = /** @class */ (function () {
         user.get('Authorization');
         user.append('Content-Type', 'application/json');
         console.log("getReviewInsert method...running");
-        console.log("여기 값을 보내드려요" + localStorage.getItem('cookies'));
         return this.http.post('/class/reviewinsert', ({
             ReviewClassName: ReviewClassName,
             ReviewuserID: ReviewuserID,
@@ -3412,7 +3324,6 @@ var DataService = /** @class */ (function () {
         user.get('Authorization');
         user.append('Content-Type', 'application/json');
         console.log("getPointchange method...running");
-        console.log("여기 값을 보내드려요" + localStorage.getItem('cookies'));
         return this.http.post('/index/changepoint', ({
             userID: userID,
             userPoint: userPoint
@@ -3425,7 +3336,6 @@ var DataService = /** @class */ (function () {
         user.get('Authorization');
         user.append('Content-Type', 'application/json');
         console.log("getIdentitychange method...running");
-        console.log("여기 값을 보내드려요" + localStorage.getItem('cookies'));
         return this.http.post('/index/changeidentity', ({
             userID: userID,
             userIdentity: userIdentity
@@ -3437,8 +3347,6 @@ var DataService = /** @class */ (function () {
         user.append('Authorization', localStorage.getItem('cookies'));
         user.get('Authorization');
         user.append('Content-Type', 'application/json');
-        console.log("여기 값을 보내드려요" + localStorage.getItem('cookies'));
-        console.log("/class/sms로 보내!!");
         return this.http.post('/class/sms', ({
             userPhoneNumber: userPhoneNumber
         }), { headers: user })
@@ -3449,8 +3357,6 @@ var DataService = /** @class */ (function () {
         user.append('Authorization', localStorage.getItem('cookies'));
         user.get('Authorization');
         user.append('Content-Type', 'application/json');
-        console.log("여기 값을 보내드려요" + localStorage.getItem('cookies'));
-        console.log("/class/accept로 보내!! ClassTutorID" + ClassTutorID);
         return this.http.post('/class/accept', ({
             ClassTutorID: ClassTutorID,
             ClassName: ClassName
@@ -3462,7 +3368,6 @@ var DataService = /** @class */ (function () {
         user.append('Authorization', localStorage.getItem('cookies'));
         user.get('Authorization');
         user.append('Content-Type', 'application/json');
-        console.log("/class/deny로 보내!! ClassName" + ClassName);
         return this.http.post('/class/deny', ({
             ClassName: ClassName
         }), { headers: user })
@@ -3474,7 +3379,6 @@ var DataService = /** @class */ (function () {
         user.get('Authorization');
         user.append('Content-Type', 'application/json');
         console.log(localStorage.getItem('userID'));
-        console.log("여기 값을 보내드려요" + localStorage.getItem('cookies'));
         return this.http.post('/index/modify', ({
             userID: localStorage.getItem('userID'),
             userPassword: userPassword,
@@ -3491,7 +3395,7 @@ var DataService = /** @class */ (function () {
     };
     DataService.prototype.getEmailDetail = function (userEmail) {
         return this.http.post('/home/auth', ({
-            userEmail: localStorage.getItem('userEmail')
+            userEmail: userEmail
         }))
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(function (res) { return res.json(); })); // <== inserted
     };
@@ -3500,8 +3404,6 @@ var DataService = /** @class */ (function () {
         user.append('Authorization', localStorage.getItem('cookies'));
         user.get('Authorization');
         user.append('Content-Type', 'application/json');
-        console.log("/class/push 로 보내는 중입니다" + localStorage.getItem('userID'));
-        console.log("여기 값을 보내드려요" + localStorage.getItem('cookies'));
         return this.http.post('/class/push', ({
             ClassName: ClassName,
             ClassTutorID: ClassTutorID,
