@@ -86,7 +86,7 @@ public class AuthPostRequest extends AsyncTask<JSONObject, Void, String> {
         super.onPostExecute(result);
         String temp;
         String message1 = "인증실패";
-        String message2 = "인증성공";
+        String message2 = "인증번호 전송완료";
         temp = result.trim();
 
 
@@ -109,7 +109,7 @@ public class AuthPostRequest extends AsyncTask<JSONObject, Void, String> {
             variable.setAuthnumber(AuthNumber);
             Toast.makeText(activity, message2,
                     Toast.LENGTH_LONG).show();
-            Log.e("userEmail", AuthNumber);  // 난수 확인용
+            // Log.e("userEmail", AuthNumber);  // 난수 확인용
 
 //            RegisterActivity mContext = (RegisterActivity)RegisterActivity.mContext;
 //            mContext.finish();  //종료
@@ -121,10 +121,10 @@ public class AuthPostRequest extends AsyncTask<JSONObject, Void, String> {
 //            ((RegisterActivity)RegisterActivity.mContext).overridePendingTransition(0, 0);  //화면전환효과 없애기
 
         }
-        Log.e("userEmail", temp);  // 난수 확인용
+        // Log.e("userEmail", temp);  // 난수 확인용
 
-        Toast.makeText(activity, temp,
-                Toast.LENGTH_LONG).show();
+//        Toast.makeText(activity, temp,
+//                Toast.LENGTH_LONG).show();
 
     }
 

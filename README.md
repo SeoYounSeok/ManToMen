@@ -169,6 +169,9 @@ Install MongoDB Community Edition on Ubuntu
 ![app_mypage](./doc/img/app_picture/app_mypage.jpg)
 
 #### 마. 1:1채팅
+![app_chat1](./doc/img/app_picture/app_chat1.jpg)
+![app_chat2](./doc/img/app_picture/app_chat2.jpg)
+![app_chat3](./doc/img/app_picture/app_chat3.jpg)
 
 #### 바. 인앱 결제
 ![app_pay1](./doc/img/app_picture/app_pay1.jpg)
